@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Chat Bubbles</title>
+    <link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/chatgpt_test.css">
+<style>
+/* * {margin:0; padding:0; box-sizing:border-box; font-family:'Noto Sans KR';}
+html, body {height:100%;}
+.app,
+.wrap {height:100%; padding:0;}
+div.chat_wrap {display:flex; flex-direction:column; width:100%; max-width:720px; height:100%; margin:0 auto; ;}
+div.chat_content {flex:1; padding:10px; overflow-y:auto;}
+
+div.chat_content div.chat_history p.alert {padding:15px; border:1px solid #ddd; border-radius:10px; color:rgba(0,0,0,0.5); font-size:12px; line-height:18px;;}
+div.chat_content div.chat_history::after {content:""; display:block; height:0; clear:both;}
+
+div.chat_content div.chat_history > div:not(.receive-loading) {display:inline-block; position:relative; margin:10px 0; clear:both; max-width:80%; padding:10px 12px; border-radius:20px; color:#000; font-size:13px;}
+
+div.chat_content div.chat_history div.send-bubble {float:right; background-color:#FFDFDF; border-top-right-radius: 0;}
+div.chat_content div.chat_history div.receive-bubble {float:left; background-color: #F3F3F3; border-top-left-radius: 0;}
+div.chat_content div.chat_history > div:not(.receive-loading)::before {content:""; display:block; position:absolute; top:0; width:0; height:0; border-style:solid; border-color:transparent; transform:translateY(calc(-100%));}
+div.chat_content div.chat_history div.send-bubble::before {right:0; border-width:8px 8px 0 0; border-right-color:#FFDFDF;}
+div.chat_content div.chat_history div.receive-bubble::before {left:0; border-width:8px 0 0 8px;  border-left-color:#F3F3F3;}
+div.chat_content div.chat_history div.receive-bubble img {max-width:200px;}
+
+div.chat_content div.chat_history .receive-loading {clear:both; float:left; padding:10px; border-top-left-radius: 0;}
+div.chat_content div.chat_history .receive-loading .loader {}
+div.chat_content div.chat_history .receive-loading .loader span,
+div.chat_content div.chat_history .receive-loading .loader::before,
+div.chat_content div.chat_history .receive-loading .loader::after {display:inline-block; border-radius: 100%; width:14px; height:14px; animation-fill-mode: both; animation: bblFadInOut 1.8s infinite ease-in-out; background-color: #ddd;}
+
+div.chat_content div.chat_history .receive-loading .loader:before,
+div.chat_content div.chat_history .receive-loading .loader:after {content: '';}
+div.chat_content div.chat_history .receive-loading .loader:before {animation-delay: -0.32s;}
+div.chat_content div.chat_history .receive-loading .loader:after {}
+@keyframes bblFadInOut {
+    0%, 80%, 100% {transform:scale(0.4);}
+    40% {transform: scale(1);}
+}
+
+div.chat_input {position:relative; padding:12px 52px 12px 12px; background-color: #f5f5f5;}
+div.chat_input input,
+div.chat_input textarea {width:100%; height:30px; max-height:120px; padding-right:10px; line-height:30px; border:0 none; resize:none; outline:0; vertical-align:top; overflow-y:scroll;}
+div.chat_input button {display:inline-block; position:absolute; right:12px; bottom:12px; width:52px; height:30px; border:0; border-radius:3px; outline:0; vertical-align: top; line-height:1; overflow:hidden; background-color:#fc3a4a;}
+div.chat_input button span {color:#fff;}
+div.chat_input button:disabled {background-color:#B5B4B4;} */
+</style>
+</head>
+  <body>
+   <div class="chat_wrap">
+
+        <div class="chat_content">
+
+            <div class="chat_history">
+                <p class="alert">
+                    PASS에서 제공하는 AI Chat은 ChatGPT를 활용하여 고객님의 질문에 따라 답변을 제공하는 서비스입니다.<br />
+                    고객님의 소중한 개인정보 보호를 위해 서비스 이용 시, 개인정보는 입력하지 않도록 유의해주세요.
+                </p>
+    
+                <div class="send-bubble">대충 아무 이미지나 하나 보여줘봐.</div>
+                
+                <div class="receive-bubble"><img src="./sam_140x140.png" alt=""></div>
+                <div class="receive-bubble">바로 밑에거는 로딩 샘플</div>
+                
+                <!-- <div class="send-bubble">Hello, this is a send bubble.</div>
+                <div class="receive-bubble">Hi, this is a receive bubble.</div> -->
+    
+                <div class="receive-loading">
+                    <div class="loader">
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="chat_input">
+            <!-- <input type="text" placeholder="Send a message."> -->
+            <textarea oninput="autoResizeTextArea(this)"></textarea>
+            <button type="buttom" disabled><span>입력</span></button>
+        </div>
+        
+   </div>
+
+
+<script src="../js/chatgpt.js"></script>
+  </body>
+</html>

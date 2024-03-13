@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Chat Bubbles</title>
+    <link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/passgpt.css">
+</head>
+  <body>
+   
+    <div class="service_err" style="display:block;">
+        <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+                <g id="alert_icon" transform="translate(-6.336 -8.336)">
+                  <g id="circle" transform="translate(6.336 8.336)" fill="none" stroke="#ddd" stroke-width="3">
+                    <circle cx="24" cy="24" r="24" stroke="none"></circle>
+                    <circle cx="24" cy="24" r="22.5" fill="none"></circle>
+                  </g>
+                  <rect id="line" width="4" height="18" rx="2" transform="translate(28.336 20.336)" fill="#ddd"></rect>
+                  <circle id="circle_mini" cx="2" cy="2" r="2" transform="translate(28.336 42.336)" fill="#ddd"></circle>
+                </g>
+              </svg>
+        </span>
+        <p class="tit">네트워크 문제로<br />
+            서비스 연결이 지연되고 있습니다.</p>
+        <p class="small">네트워크 연결 상태 확인 후<br />
+            다시 시도해주세요.</p>
+        <div class="refresh">
+            <a href="#g">
+                <span class="icon"><img src="../images/btn_refresh.png" alt="새로고침 아이콘"></span>
+                <span class="txt">새로고침</span>
+            </a>
+        </div>
+    </div>
+
+  </body>
+</html>

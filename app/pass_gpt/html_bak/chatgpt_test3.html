@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Chat Bubbles</title>
+    <link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/chatgpt_test.css">
+</head>
+  <body>
+   <div class="chat_wrap">
+
+        <div class="chat_content">
+            <p class="alert">
+                PASS에서 제공하는 AI Chat은 ChatGPT를 활용하여 고객님의 질문에 따라 답변을 제공하는 서비스입니다.<br />
+                고객님의 소중한 개인정보 보호를 위해 서비스 이용 시, 개인정보는 입력하지 않도록 유의해주세요.
+            </p>
+
+            <div class="chat_history">
+
+                <div class="chat receive">
+                    <div class="author">
+                        <span class="icon">PASS</span>
+                    </div>
+                    <div class="bubble receive">
+                        안녕하세요. AI Chat 입니다.<br />
+                        궁금한 모든 것을 물어보세요!
+                    </div>
+                </div>
+
+                <div class="chat ask">
+                    <div class="author">
+                        <span class="icon">나</span>
+                    </div>
+                    <div class="bubble ask">대충 아무 이미지나 하나 보여줘봐.</div>
+                </div>
+                
+                <div class="chat receive">
+                    <div class="author">
+                        <span class="icon">PASS</span>
+                    </div>
+                    <div class="bubble receive">
+                        <img src="../images/sam_140x140.png" alt="이미지">
+                    </div>
+                </div>
+
+                <div class="receive-loading">
+                    <div class="loader">
+                        <span></span>
+                    </div>
+                </div>
+                
+            </div>
+
+        </div>
+        <!-- // chat_content -->
+
+        <div class="chat_input">
+            <!-- <input type="text" placeholder="ask a message."> -->
+            <textarea oninput="autoResizeTextArea(this)"></textarea>
+            <button type="buttom" disabled><span>입력</span></button>
+        </div>
+        
+   </div>
+
+
+<script src="./chatgpt3.js"></script>
+  </body>
+</html>

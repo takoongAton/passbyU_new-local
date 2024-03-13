@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Chat Bubbles</title>
+    <link rel="stylesheet" href="../css/reset.css">
+	<!-- <link rel="stylesheet" href="../css/passgpt.css"> -->
+<style>
+/* html, body {height:100%; margin:0 !important; padding:0 !important; overflow:hidden;
+    -webkit-overflow-scrolling : touch !important;
+    overflow: auto !important;
+} */
+.chat_wrap {display:flex; flex-direction:column; justify-content: space-between; width:100%; height:100%;}
+.chat_wrap .chat_content {flex:1; overflow-y:auto; padding:0;}
+
+.chat_wrap .chat_input {/* position:fixed; bottom:0; left:0; */ width:100%; touch-action:pan-y;}
+.keyboard_test {display:block; position:-webkit-sticky; position:sticky; top:0; padding:10px; background-color:#f7f7f7; color:#000; box-shadow:0 5px 10px rgba(0,0,0,0.12)}
+input[type='text'] {width:100%; height:30px; border:1px solid #ddd;}
+
+.spanWrap {display:flex; justify-content: space-between; align-items:center; position:fixed; top:0; left:0; width:100%;}
+.spanWrap span {display:inline-flex;  align-items:center; width:100%; height:30px; padding:0 10px; background-color:#fff;}
+.spanWrap span:nth-child(even) {text-align:right; justify-content: flex-end;}
+body.active {scroll-margin-top:300px;}
+body {scroll-margin-top:unset;}
+
+html {background-color:darkblue;}
+</style>
+</head>
+  <body>
+   <div class="chat_wrap">
+
+        <div class="chat_content">
+          <div class="spanWrap">
+            <span class="windowHeight">windowHeight</span>
+            <span class="viewportHeight">viewportHeight</span>
+          </div>
+          <div style="width:100%; height:10px; background-color:#0066ff; opacity:0.5;"></div>
+
+            내용이 들어갑니다.내용이 들어갑니다.내용이 들어갑니다.<br />
+            내용이 들어갑니다. 내용이 들어갑니다. 내용이 들어갑니다. 내용이 들어갑니다. 내용이 들어갑니다. 내용이 들어갑니다. 내용이 들어갑니다. 내용이 들어갑니다. 내용이 들어갑니다. 내용이 들어갑니다. 내용이 들어갑니다. 내용이 들어갑니다. 내용이 들어갑니다. 내용이 들어갑니다. 내용이 들어갑니다. 내용이 들어갑니다. 내용이 들어갑니다. 내용이 들어갑니다. 내용이 들어갑니다. 내용이 들어갑니다. 내용이 들어갑니다. 내용이 들어갑니다. 내용이 들어갑니다. 내용이 들어갑니다. 내용이 들어갑니다. 내용이 들어갑니다. 
+            <div style="width:100%; height:10px; background-color:#ff6600; opacity:0.5;"></div>
+        </div>
+        <!-- // chat_content -->
+
+        <div class="chat_input">
+            <!-- <input type="text" placeholder="ask a message."> -->
+            <div>
+                <input type="text" id="chat-input" class="test" placeholder="메시지 입력">
+                <button type="buttom" disabled><span>입력</span></button>
+            </div>
+        </div>
+   </div>
+
+   <!-- <script src="../js/temp.js"></script> -->
+
+<script>
+ 
+let spanWindowHeight = document.querySelector(".windowHeight");
+let spanViewportHeight = document.querySelector(".viewportHeight");
+
+let keyboard = document.querySelector(".keyboard_test");
+let viewport = window.visualViewport;
+let chatWrap = document.querySelector(".chat_wrap")
+let windowHeight = window.outerHeight;
+
+function testViewprot(){
+  // const viewport = window.visualViewport.height;
+  // keyboard.innerHTML = viewport;
+  // keyboard.innerHTML = viewport.height;
+}
+testViewprot();
+
+
+viewport.addEventListener("resize", function(){
+  spanWindowHeight.innerHTML = "winH : " + window.outerHeight;
+
+  spanViewportHeight.innerHTML = "viewH : " + window.visualViewport.height;
+  // keyboard.innerHTML = viewport.height;
+  // chatWrap.style.height = viewport.height;
+  window.outerHeight = window.visualViewport.height + "px"
+  
+  
+})
+
+
+document.querySelector("#chat-input").addEventListener("focus", function(){
+  document.querySelector("body").classList.add("active")
+  chatWrap.style.height = 300 + "px";
+})
+document.querySelector("#chat-input").addEventListener("blur", function(){
+  document.querySelector("body").style.scrollMarginTop = 0 + "px";
+  document.querySelector("body").classList.remove("active")
+})
+
+
+
+// .chat_wrap .chat_input
+let chatInput = document.querySelector(".chat_input");
+viewport.addEventListener("screen", function(){
+
+  window.outerHeight = window.visualViewport.height + "px";
+  
+  
+  // setTimeout(() => {
+  //   chatInput.style.bottom = "auto";
+  //   chatInput.style.top = window.visualViewport.height - chatInput.clientHeight + "px";  
+  // }, 100);
+
+  
+
+})
+
+
+function resizeHandler(){
+ document.querySelector(".chat_wrap").style.height = window.visualViewport.height + "px";
+ 
+ 
+ 
+ "----------------------------")
+ 
+
+
+}
+
+window.visualViewport.addEventListener("resize", resizeHandler);
+
+</script>
+
+  </body>
+</html>
