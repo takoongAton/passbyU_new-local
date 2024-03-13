@@ -101,18 +101,19 @@
                     <div class="author">
                         <span class="icon"><img src="../images/ico_chatbot.png" alt="챗봇"></span>
                     </div>
-                    <div class="bubble receive">
-                        <div class="receive-loading">
-                            <div class="loader">
-                                <span></span>
+                    <div class="receive_wrap">
+                        <div class="bubble receive">
+                            <div class="receive-loading">
+                                <div class="loader">
+                                    <span></span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                
-                
             </div>
+            <!-- // chat_history -->
 
         </div>
         <!-- // chat_content -->
@@ -120,7 +121,7 @@
         
         <div class="chat_footer_wrap">
 
-            <div class="hashtag_wrap" style="display:none;">
+            <div class="hashtag_wrap" style="display:none;"><!-- none, flex -->
                 <button type="button" class="btn_hash"><span>#이용가이드</span></button>
                 <button type="button" class="btn_hash"><span>#인기검색어</span></button>
                 <button type="button" class="btn_hash"><span>#FAQ</span></button>
@@ -142,35 +143,29 @@
                         <span>메뉴</span>
                     </button>
                 </div>
+                <!-- // btn_group -->
 
                 <div class="chat_input">
-                    
                     <!-- <input type="text" placeholder="ask a message."> -->
                     <div class="input_wrap">
                         <textarea oninput="autoResizeTextArea(this)" placeholder="궁금한 내용을 입력해 주세요." rows="20"></textarea>
                         <button type="button" class="btn_send" disabled><span>입력</span></button>
                     </div>
                 </div>
+                <!-- // chat_input -->
             </div>
+            <!-- // chat_input_wrap -->
         </div>
-        <!-- // chatFooterHeight -->
+        <!-- // chat_footer_wrap -->
 
         
    </div>
 
-<style>
 
-</style>
    <button class="toTop"><span>위로</span></button>
 
 
    <script src="../js/temp.js"></script>
-
-
-   <script>
-
-    
-   </script>
 
   </body>
 </html>
