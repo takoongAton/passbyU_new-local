@@ -22,6 +22,12 @@ div.chat_content div.chat_history .chat.ask div.author span {background-color:#f
 div.chat_content div.chat_history .chat.ask div.author {display:none;}
 /* div.chat_content div.chat_history .chat.ask div.author span::before {content:"나";} */
 
+/* 챗 답변 추가 버튼 컨텐츠 */
+div.chat_content div.chat_history .chat.receive .receive_plus_wrap {display:flex; flex-wrap:wrap; gap:3px 6px; padding:6px 0;}
+div.chat_content div.chat_history .chat.receive .receive_plus_wrap button.btn_hash {display:inline-block; width:auto; height:auto; padding:6px 11px; border:1px solid #ddd; background-color:#fff; border-radius:16px;}
+div.chat_content div.chat_history .chat.receive .receive_plus_wrap button.btn_hash span {display:block; color:#888; font-size:12px; line-height:1;}
+/* // 챗 답변 추가 버튼 컨텐츠 */
+
 div.chat_content div.chat_history .chat.receive .bubble {background-color:#fff; border-top-left-radius:0; word-break:break-all;}
 div.chat_content div.chat_history .chat.ask .bubble {background-color:#000; color:#fff; border-top-right-radius:0; word-break:break-all;}
 
@@ -51,8 +57,30 @@ div.chat_content div.chat_history .receive-loading .loader:after {}
     40% {transform: scale(1);}
 }
 
-div.chat_input_wrap {display:flex; flex-direction:column; gap:12px; position:fixed; bottom:0; left:0; right:0; max-width:720px; margin:0 auto; padding:12px 12px 12px 12px; background-color: #fff; z-index:1;}
-div.chat_input_wrap.active {box-shadow:0 0 4px rgba(0,0,0,0.05);}
+div.chat_footer_wrap {display:flex; flex-direction:column; gap:12px; position:fixed; bottom:0; left:0; right:0; max-width:720px; margin:0 auto; padding:12px 12px 12px 12px; background-color: #fff; z-index:1;}
+div.chat_footer_wrap.active {box-shadow:0 0 4px rgba(0,0,0,0.05);}
+
+div.chat_footer_wrap .hashtag_wrap {display:flex; flex-wrap:wrap; gap:4px 6px; max-height:110px; overflow-y:auto; }
+div.chat_footer_wrap .hashtag_wrap button.btn_hash {display:inline-block; width:auto; padding:7px 11px; border:1px solid #ddd; border-radius:18px; color:#888; font-size:12px;}
+div.chat_footer_wrap .hashtag_wrap button.btn_hash span {display:inline-block; color:#888; line-height:1;}
+
+.chat_input_wrap {display:flex; align-items:flex-end; gap:6px; padding-top:0}
+.chat_input_wrap .btn_group {width:36px; height:36px;}
+.chat_input_wrap .btn_group button.btn_menu_toggle {position:relative; width:36px; height:36px;}
+.chat_input_wrap .btn_group button.btn_menu_toggle::before,
+.chat_input_wrap .btn_group button.btn_menu_toggle::after,
+.chat_input_wrap .btn_group button.btn_menu_toggle span {content:""; display:block; position:absolute; width:16px; height:1.5px; background-color:#ff3a4a; border-radius:1px; transition:all 0.2s ease;}
+
+.chat_input_wrap .btn_group button.btn_menu_toggle::before {top:12px; left:10px;}
+.chat_input_wrap .btn_group button.btn_menu_toggle::after {bottom:12px; left:10px;}
+.chat_input_wrap .btn_group button.btn_menu_toggle span {top:50%; left:50%; color:transparent; font-size:0; transform:translate(-50%,-50%); opacity:1;}
+
+.chat_input_wrap .btn_group button.btn_menu_toggle.active {}
+.chat_input_wrap .btn_group button.btn_menu_toggle.active::before {top:50%; left:50%; width:24px; transform:translate(-50%, -50%) rotate(45deg); transform-origin:50% 50%;}
+.chat_input_wrap .btn_group button.btn_menu_toggle.active::after {top:50%; left:50%; width:24px; transform:translate(-50%, -50%) rotate(-45deg); transform-origin:50% 50%;}
+.chat_input_wrap .btn_group button.btn_menu_toggle.active span {width:0; opacity:0;}
+.chat_input_wrap .chat_input {flex:1;}
+
 div.chat_input {}
 div.chat_input > div {position:relative; padding:8px 0; border:1px solid #ddd; border-radius:16px; overflow:hidden;}
 div.chat_input input,
@@ -87,3 +115,13 @@ div.chat_input button.btn_send:disabled span {background-color: #d7d8d9 !importa
 .service_err a span.icon {display:inline-block; width:14px; height:14px; margin:0 auto; margin-right:2px; border-radius:100%; overflow:hidden; animation:rotate 30s infinite;}
 .service_err a span.txt {display:inline-block; color:#000;}
 .service_err div.refresh + div.box {margin-top:52px; margin-top:3.25em;}
+
+
+
+
+/* 위로 가기 버튼 */
+button.toTop {position:fixed; right:20px; bottom:72px; width:36px; height:36px; margin-bottom:-20px; background-color:#fff; border:1px solid #ddd; border-radius:100%; opacity:0; transition:all 0.25s ease; box-shadow:0 1px 3px rgba(0,0,0,0.05);}
+button.toTop span {color:transparent}
+button.toTop.active {margin-bottom:0; opacity:1;}
+button.toTop::before {content:""; display:block; position:absolute; top:40%; left:50%; width:11px; height:11px; border-width:1px 0 0 1px; border-style:solid; border-color:#888; transform:rotate(45deg); transform-origin: 0 0;}
+/* // 위로 가기 버튼 */

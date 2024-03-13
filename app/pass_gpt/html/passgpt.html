@@ -5,35 +5,6 @@
     <title>Chat Bubbles</title>
     <link rel="stylesheet" href="../css/reset.css">
 	<link rel="stylesheet" href="../css/passgpt.css">
-
-<style>
-.hashtag_wrap {display:flex; flex-wrap:wrap; gap:4px 6px; max-height:110px; overflow-y:auto; }
-.hashtag_wrap button.btn_hash {display:inline-block; width:auto; padding:7px 11px; border:1px solid #ddd; border-radius:18px; color:#888; font-size:12px;}
-.hashtag_wrap button.btn_hash span {display:inline-block; color:#888; line-height:1;}
-
-.chat_ddd_wrap {display:flex; align-items:flex-end; gap:6px; padding-top:0}
-.chat_ddd_wrap .btn_group {width:36px; height:36px;}
-.chat_ddd_wrap .btn_group button.btn_menu_toggle {position:relative; width:36px; height:36px;}
-
-.chat_ddd_wrap .btn_group button.btn_menu_toggle::before,
-.chat_ddd_wrap .btn_group button.btn_menu_toggle::after {content:""; display:block; position:absolute; width:16px; height:1.5px; background-color:#ff3a4a; border-radius:1px; transition:all 0.2s ease;}
-
-.chat_ddd_wrap .btn_group button.btn_menu_toggle::before {top:12px; left:10px;}
-.chat_ddd_wrap .btn_group button.btn_menu_toggle::after {bottom:12px; left:10px;}
-.chat_ddd_wrap .btn_group button.btn_menu_toggle span {position:absolute; top:50%; left:50%; width:16px; height:1.5px; background-color:#ff3a4a; color:transparent; font-size:0; transform:translate(-50%,-50%); opacity:1; transition:all 0.2s ease;}
-
-.chat_ddd_wrap .btn_group button.btn_menu_toggle.active {}
-.chat_ddd_wrap .btn_group button.btn_menu_toggle.active::before {top:50%; left:50%; width:24px; transform:translate(-50%, -50%) rotate(45deg); transform-origin:50% 50%;}
-.chat_ddd_wrap .btn_group button.btn_menu_toggle.active::after {top:50%; left:50%; width:24px; transform:translate(-50%, -50%) rotate(-45deg); transform-origin:50% 50%;}
-.chat_ddd_wrap .btn_group button.btn_menu_toggle.active span {width:0; opacity:0;}
-.chat_input {flex:1;}
-
-
-.receive_plus_wrap {display:flex; flex-wrap:wrap; gap:3px 6px; padding:0 6px;}
-.receive_plus_wrap button.btn_hash {display:inline-block; width:auto; height:auto; padding:6px 11px; border:1px solid #ddd; background-color:#fff; border-radius:16px;}
-.receive_plus_wrap button.btn_hash span {display:block; color:#888; font-size:12px; line-height:1;}
-</style>
-
 </head>
 
   <body>
@@ -55,6 +26,43 @@
                         인증을 넘어 일상으로 PASS by U+챗봇입니다.
                     </div>
                 </div>
+
+                <div class="chat receive">
+                    <div class="author">
+                        <span class="icon"><img src="../images/ico_chatbot.png" alt="챗봇"></span>
+                    </div>
+
+                    <div class="receive_wrap">
+                        <div class="bubble receive">
+                            반가워요.<br />
+                            인증을 넘어 일상으로 PASS by U+챗봇입니다.
+                        </div>
+                        <div class="receive_plus_wrap">
+                            <button type="button" class="btn_hash"><span>예</span></button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="chat receive">
+                    <div class="author">
+                        <span class="icon"><img src="../images/ico_chatbot.png" alt="챗봇"></span>
+                    </div>
+
+                    <div class="receive_wrap">
+                        <div class="bubble receive">
+                            서비스 이용에 불편을 드려 죄송합니다.<br />
+                            현재 서비스 제공이 원활하지 않습니다.<br />
+                            빠른 조치를 위해 최선을 다하겠습니다.
+                        </div>
+                        <div class="receive_plus_wrap">
+                            <button type="button" class="btn_hash"><span>#이용가이드</span></button>
+                            <button type="button" class="btn_hash"><span>#인기검색어</span></button>
+                            <button type="button" class="btn_hash"><span>#1:1문의</span></button>
+                        </div>
+                    </div>
+                </div>
+
 
                 <div class="chat ask">
                     <div class="author">
@@ -110,7 +118,7 @@
         <!-- // chat_content -->
 
         
-        <div class="chat_input_wrap">
+        <div class="chat_footer_wrap">
 
             <div class="hashtag_wrap" style="display:none;">
                 <button type="button" class="btn_hash"><span>#이용가이드</span></button>
@@ -128,7 +136,7 @@
             </div>
             <!-- // hashtag_wrap -->
 
-            <div class="chat_ddd_wrap">
+            <div class="chat_input_wrap">
                 <div class="btn_group">
                     <button type="button" class="btn_menu_toggle">
                         <span>메뉴</span>
@@ -145,16 +153,13 @@
                 </div>
             </div>
         </div>
-        <!-- // chat_input_wrap -->
+        <!-- // chatFooterHeight -->
 
         
    </div>
 
 <style>
-button.toTop {position:fixed; right:20px; bottom:72px; width:36px; height:36px; margin-bottom:-20px; background-color:#fff; border:1px solid #ddd; border-radius:100%; opacity:0; transition:all 0.25s ease; box-shadow:0 1px 3px rgba(0,0,0,0.05);}
-button.toTop span {color:transparent}
-button.toTop.active {margin-bottom:0; opacity:1;}
-button.toTop::before {content:""; display:block; position:absolute; top:40%; left:50%; width:11px; height:11px; border-width:1px 0 0 1px; border-style:solid; border-color:#888; transform:rotate(45deg); transform-origin: 0 0;}
+
 </style>
    <button class="toTop"><span>위로</span></button>
 
@@ -164,39 +169,7 @@ button.toTop::before {content:""; display:block; position:absolute; top:40%; lef
 
    <script>
 
-    let chat_input_wrapHeight = document.querySelector(".chat_input_wrap").clientHeight;
-
-
-    let btnToggle = document.querySelector(".btn_menu_toggle");
-    btnToggle.addEventListener("click", function(){
-        btnToggle.classList.toggle("active");
-        if(btnToggle.classList.contains("active")) {
-            document.querySelector(".chat_input_wrap").classList.add("active");
-            document.querySelector(".hashtag_wrap").style.display = "flex";
-            let chat_input_wrapHeight = document.querySelector(".chat_input_wrap").clientHeight;
-            document.querySelector("button.toTop").style.bottom = chat_input_wrapHeight + 12 + "px";
-        } else {
-            document.querySelector(".chat_input_wrap").classList.remove("active");
-            document.querySelector(".hashtag_wrap").classList.remove("active");
-            document.querySelector(".hashtag_wrap").style.display = "none";
-            let chat_input_wrapHeight = document.querySelector(".chat_input_wrap").clientHeight;
-            document.querySelector("button.toTop").style.bottom = chat_input_wrapHeight + 12 + "px";
-        }
-    })
     
-    let pos;
-    window.addEventListener('scroll', function(){
-        console.log("ddd")
-        // console.log(window.pageYOffset );
-        pos = window.pageYOffset;
-        console.log(pos);
-        if(pos >= 50) {
-            document.querySelector("button.toTop").classList.add("active");
-        } else {
-            document.querySelector("button.toTop").classList.remove("active");
-        }
-        
-	});
    </script>
 
   </body>

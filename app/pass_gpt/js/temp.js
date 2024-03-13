@@ -209,3 +209,76 @@ document.querySelector("textarea").addEventListener("focusin", function(){
 document.querySelector("textarea").addEventListener("focusout", function(){
     console.log("dddd")
 })
+
+
+
+
+/* 240313 추가 */
+let pos;
+
+    let chatFooterWrap = document.querySelector(".chat_footer_wrap");
+    let chatFooterHeight = chatFooterWrap.clientHeight;
+
+    let btnToggle = document.querySelector(".btn_menu_toggle");
+    
+    let btnToTop = document.querySelector("button.toTop");
+
+    btnToggle.addEventListener("click", function(){
+        btnToggle.classList.toggle("active");
+        
+        if(btnToggle.classList.contains("active")) {
+            chatFooterWrap.querySelector(".hashtag_wrap").style.display = "flex";
+            
+            chatFooterWrap.classList.add("active");
+            chatFooterHeight = chatFooterWrap.clientHeight;
+
+            btnToTop.style.bottom = chatFooterHeight + 12 + "px";
+            chatWrap.style.paddingBottom = chatFooterHeight + "px"
+
+        } else {
+            chatFooterWrap.querySelector(".hashtag_wrap").style.display = "none";
+            
+            chatFooterWrap.classList.remove("active");
+            chatFooterHeight = chatFooterWrap.clientHeight;
+
+            btnToTop.style.bottom = chatFooterHeight + 12 + "px";
+            chatWrap.style.paddingBottom = ""
+
+        }
+    })
+    
+    
+    window.addEventListener('scroll', function(){
+        pos = window.pageYOffset;
+        if(pos >= 50) {
+            document.querySelector("button.toTop").classList.add("active");
+        } else {
+            document.querySelector("button.toTop").classList.remove("active");
+        }
+	});
+
+
+    
+    btnToTop.addEventListener("click", function(){
+        scrollToTop(300);
+    })
+    function scrollToTop (duration) {
+        // cancel if already on top
+        if (document.scrollingElement.scrollTop === 0) return;
+
+        const cosParameter = document.scrollingElement.scrollTop / 2;
+        let scrollCount = 0, oldTimestamp = null;
+
+        function step (newTimestamp) {
+            if (oldTimestamp !== null) {
+                // if duration is 0 scrollCount will be Infinity
+                scrollCount += Math.PI * (newTimestamp - oldTimestamp) / duration;
+                if (scrollCount >= Math.PI) return document.scrollingElement.scrollTop = 0;
+                document.scrollingElement.scrollTop = cosParameter + cosParameter * Math.cos(scrollCount);
+            }
+            oldTimestamp = newTimestamp;
+            window.requestAnimationFrame(step);
+        }
+        window.requestAnimationFrame(step);
+    }
+/* // 240313 추가 */
