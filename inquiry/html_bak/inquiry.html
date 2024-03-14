@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>PASS by U+</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/inquiry.css">
+
+	<!-- <link rel="stylesheet" href="../../css/slick.css"> -->
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- <script src="../js/jquery-1.12.4.min.js"></script> -->
+
+	<!-- <script src="../../js/slick.js" type="text/javascript" charset="utf-8"></script> -->
+<style>
+
+.history {}
+.search {}
+.write {}
+.detaio {}
+
+html, body {height:100%;}
+
+
+.inquiry_wrap {display:flex; flex-direction:column; justify-content:space-between; width:100%; max-width:720px; height:100%; margin:0 auto; font-family:'Noto Sans KR';}
+.inquiry_content_wrap {flex:1; overflow-y:auto;}
+.inquiry_wrap div.btnGroup {display:flex; justify-content:space-between; width:100%;}
+.inquiry_wrap div.btnGroup div {width:100%;}
+.inquiry_wrap div.btnGroup div button {height:48px;}
+.inquiry_wrap div.btnGroup div button.cancle {background-color:#eff0f2;}
+.inquiry_wrap div.btnGroup div button.cancle span {color:#333;}
+.inquiry_wrap div.btnGroup div button.next {background-color:#333;}
+.inquiry_wrap div.btnGroup div button.next span {color:#fff;}
+
+
+
+.inquiry_search_wrap {padding:15px 18px 30px; background-color: #f8f9fb;}
+.inquiry_search_wrap .ipt_group + .ipt_group {margin-top:18px;}
+.inquiry_search_wrap .ipt_group .select_btns {display:flex; gap:5px; margin-top:5px;}
+.inquiry_search_wrap .ipt_group .select_btns button {height:36px; border:1px solid #ddd; background-color:#fff;}
+.inquiry_search_wrap .ipt_group .select_btns button span {display:inline-block; color:#333; font-size:14px; line-height:20px; font-weight:500; font-family:'Noto Sans KR';}
+.inquiry_search_wrap .ipt_group .select_btns button.active {border-color:transparent; background-color:#ff3a4a;}
+.inquiry_search_wrap .ipt_group .select_btns button.active span {color:#fff;}
+
+/* 날짜 직접 입력 */
+.inquiry_search_wrap .ipt_group div.tit {font-size:14px; line-height:18px;;}
+.inquiry_search_wrap .ipt_wrap {display:flex; width:100%; margin-top:10px; border:1px solid #ddd; background-color:#fff;}
+.inquiry_search_wrap .ipt_wrap .ipt_date {position:relative; max-width:100%; width:calc(50% - 10px);}
+.inquiry_search_wrap .ipt_wrap .ipt_date input {height:36px; padding:0 0px 0 10px; background:#fff url('../images/ico_list_calender.png') no-repeat right 10px center / 24px 24px; border:0; font-size:16px; vertical-align:top;}
+.inquiry_search_wrap .ipt_wrap .ipt_date input[type="date"]::-webkit-calendar-picker-indicator {display:flex; align-items:center; width:34px; height:100%; background-image:none; cursor:pointer;}
+.inquiry_search_wrap .ipt_wrap .ipt_date label {position:absolute; top:0; right:0; bottom:0; left:0; opacity:0; display:none}
+.inquiry_search_wrap .ipt_wrap > span {display:inline-flex; justify-content:center; align-items:center; min-width:20px; text-align:center;}
+
+/* 검색 조회하기 */
+.inquiry_search_wrap .submit {height:48px; margin-top:20px; background-color:#333; border-radius:6px;}
+.inquiry_search_wrap .submit span {color:#fff; color:#fff; font-weight:400; font-family:'Noto Sans KR';}
+</style>
+</head>
+<body>
+
+	<div class="inquiry_wrap">
+
+		<div class="inquiry_content_wrap">
+
+			<div class="inquiry_search_wrap">
+
+				<div class="ipt_group">
+					<div class="tit">상태</div>
+					<div class="select_btns">
+						<button type="button" class="active"><span>전체</span></button>
+						<button type="button"><span>접수완료</span></button>
+						<button type="button"><span>답변완료</span></button>
+					</div>
+				</div>
+
+				<div class="ipt_group">
+					<div class="tit">기간</div>
+					<div class="select_btns">
+						<button type="button" class="active"><span>1개월</span></button>
+						<button type="button"><span>6개월</span></button>
+						<button type="button"><span>1년</span></button>
+						<button type="button"><span>기간선택</span></button>
+					</div>
+					<div class="ipt_wrap">
+						<div class="ipt_date">
+							<input type="date" id="date01" value="2023-01-15" min="2021-01-01" max="2023-12-31">
+							<label for="date01"></label>
+						</div>
+						<span>-</span>
+						<div class="ipt_date">
+							<input type="date" id="date02" value="2023-01-15" min="2021-01-01" max="2023-12-31">
+							<label for="date02"></label>
+						</div>
+					</div>
+				</div>
+
+				<div>
+					<button type="button" class="submit"><span>조회하기</span></button>
+				</div>
+
+			</div>
+			<!-- // inquiry_search_wrap -->
+<style>
+.iii_history_wrap {}
+.iii_history_list {}
+.iii_history_item {padding:20px 18px; border-bottom:1px solid #e7e7e7;}
+.iii_history_item .inner {position:relative;}
+.iii_history_item .inner div.state {}
+.iii_history_item .inner div.state strong {display:inline-block; height:22px; padding:0 10px; font-size:12px; line-height:22px; border-radius:14px;}
+.iii_history_item .inner div.state strong.aa {background-color:#ddd;}
+.iii_history_item .inner div.state strong.bb {background-color:rgba(255,58,74,0.2); color:#ff3a4a;}
+.iii_history_item .inner div.state span.new {display:inline-flex; justify-content:center; align-items:center; width:12px; height:12px; margin-left:5px; font-size:9px; background-color:#ff3a4a; border-radius:100%; color:#fff;}
+.iii_history_item .inner div.snb {margin-top:10px; color:#000; font-size:14px; line-height:20px;}
+.iii_history_item .inner p.tit {margin-top:5px; padding-right:32px; font-size:16px; line-height:22px; font-weight:500;}
+.iii_history_item .inner span.date {display:block; margin-top:10px; color:#888; font-size:12px; line-height:18px;}
+.iii_history_item .inner::after {content:""; display:block; position:absolute; top:50%; right:0; width:8px; height:8px; border-width:1px 1px 0 0; border-style:solid; border-color:#000; transform:rotate(45deg); transform-origin:100% 0;}
+</style>
+			<div class="iii_history_wrap">
+				<div class="iii_history_list">
+					<div class="iii_history_item">
+						<div class="inner">
+							<div class="state">
+								<strong class="aa">접수 완료</strong><span class="new">N</span>
+							</div>
+							<div class="snb">모바일신분증 &gt; 운전면허증</div>
+							<p class="tit">운전면허증을 싱행하게 되면 자꾸 에러가 발생합니다. 문의 드립니다.</p>
+							<span class="date">2022.12.27 18:29</span>
+						</div>
+					</div>
+					<!-- // iii_history_item -->
+
+					<div class="iii_history_item">
+						<div class="inner">
+							<div class="state">
+								<strong class="bb">접수 완료</strong><span class="new">N</span>
+							</div>
+							<div class="snb">모바일신분증 &gt; 운전면허증</div>
+							<p class="tit">운전면허증을 싱행하게 되면 자꾸 에러가 발생합니다. 문의 드립니다.</p>
+							<span class="date">2022.12.27 18:29</span>
+						</div>
+					</div>
+					<!-- // iii_history_item -->
+				</div>
+				<!-- // iii_history_list -->
+			</div>
+			<!-- // iii_history_wrap -->
+
+<style>
+/* 1:1문의 내역 상세 */
+.iii_view_wrap {}
+.iii_view_wrap h2 {padding:6px 18px; font-size:16px; line-height:24px; font-weight:bold;}
+.iii_view_wrap div.q_category {padding:8px 18px; background-color:#f8f9fb;}
+.iii_view_wrap div.q_category span {display:block; font-size:14px; line-height:20px;}
+.iii_view {}
+.iii_view .q_wrap {}
+.iii_view .q_wrap .q_tit {display:flex; justify-content:space-between; align-items:flex-start; padding:15px 18px 10px; border-bottom:0.5px solid #ddd;}
+.iii_view .q_wrap .q_tit span {display:inline-block; width:24px; font-size:16px; line-height:24px; font-weight:bold;}
+.iii_view .q_wrap .q_tit strong {display:inline-block; flex:1; font-size:16px; line-height:24px; font-weight:bold;}
+.iii_view .q_wrap .txt_wrap {padding:15px 18px 30px;}
+.iii_view .q_wrap .txt_wrap span.date {display:block; color:#888; font-size:12px; line-height:18px; text-align:right;}
+.iii_view .q_wrap .txt_wrap div.txt {font-size:16px; line-height:24px;}
+.iii_view .q_wrap .files {padding:5px 18px 20px; border-top:0.5px solid #e7e7e7;}
+.iii_view .q_wrap .files strong {display:block; padding-bottom:5px; font-size:14px; line-height:21px; font-weight:normal;}
+.iii_view .q_wrap .files span {display:inline-block; width:50px; height:50px; margin-right:5px; background-color:#ff6600;}
+.iii_view .q_wrap .files span img {width:100%; height:100%; max-width:100%; max-height:100%;}
+
+.iii_view .a_wrap {position:relative; background-color:#f5f5f5;}
+.iii_view .a_wrap .a_tit {position:absolute; top:15px; left:18px; color:#ff3a4a; font-size:16px; line-height:1em; font-weight:bold;}
+.iii_view .a_wrap .txt_wrap {padding:15px 18px 30px;}
+.iii_view .a_wrap .txt_wrap span.date {display:block; color:#888; font-size:12px; line-height:18px; text-align:right;}
+.iii_view .a_wrap .txt_wrap div.txt {margin-top:10px; font-size:16px; line-height:24px;}
+</style>
+			<div class="iii_view_wrap">
+				<h2>접수완료</h2>
+				<div class="q_category"><span>이벤트</span></div>
+
+				<div class="iii_view">
+					<div class="q_wrap">
+						<div class="q_tit">
+							<span>Q</span>
+							<strong>PASS 이벤트에 응모했는데 응모가 되었는지 확인 부탁드립니다.</strong>
+						</div>
+
+						<div class="txt_wrap">
+							<span class="date">2022.12.27 18:29</span>
+							<div class="txt">
+								운전면허증을 실행하면 자꾸 에러가 발생합니다. 이유를 모르겠어요. 에러메세지는 파일로 첨부합니다.<br />
+								운전면허증을 실행하면 자꾸 에러가 발생합니다. 이유를 모르겠어요. 에러메세지는 파일로 첨부합니다.<br />
+								운전면허증을 실행하면 자꾸 에러가 발생합니다. 이유를 모르겠어요. 에러메세지는 파일로 첨부합니다.
+							</div>
+						</div>
+
+						<div class="files">
+							<strong>첨부된 파일</strong>
+							<div>
+								<span><img src="../images/img_sample.png" alt="이미지"></span>
+								<span><img src="../images/img_sample.png" alt="이미지"></span>
+								<span><img src="../images/img_sample.png" alt="이미지"></span>
+							</div>
+						</div>
+						<!-- // files -->
+
+					</div><!-- // q_wrap -->
+
+					<div class="a_wrap">
+						<div class="a_tit">A.</div>
+						<div class="txt_wrap">
+							<span class="date">2022.12.27 18:29</span>
+							<div class="txt">
+								운전면허증을 실행하면 자꾸 에러가 발생합니다. 이유를 모르겠어요. 에러메세지는 파일로 첨부합니다.<br />
+								운전면허증을 실행하면 자꾸 에러가 발생합니다. 이유를 모르겠어요. 에러메세지는 파일로 첨부합니다.<br />
+								운전면허증을 실행하면 자꾸 에러가 발생합니다. 이유를 모르겠어요. 에러메세지는 파일로 첨부합니다.
+							</div>
+						</div>
+					</div>
+					<!-- // a_wrap -->
+					
+				</div><!-- // iii_view -->
+			</div>
+			<!-- // iii_view_wrap -->
+
+<style>
+/* 문의하기 입력폼 */
+.iii_input_form {padding:10px 18px;}
+.iii_input_form .select_category {display:flex; flex-wrap:wrap; justify-content: space-between; width:100%; column-gap:5px;}
+.iii_input_form .select_category > div.item {position:relative; width:100%; width:calc(calc(100% - 10px)/3)}
+.iii_input_form .select_category > div.item:nth-child(3) ~ div.item {margin-top:5px;}
+.iii_input_form .select_category > div.item input {position:absolute; top:0; left:0; opacity:0;}
+.iii_input_form .select_category > div.item input + label {display:flex; justify-content:center; align-items:center; width:100%; height:40px; background-color:#fff; border:1px solid #ddd;}
+.iii_input_form .select_category > div.item input + label span.txt {color:#333; font-size:14px; line-height:20px; font-weight:500;}
+.iii_input_form .select_category > div.item input:checked + label {background-color:#ff3a4a; border-color:transparent;}
+.iii_input_form .select_category > div.item input:checked + label span.txt {color:#fff; font-weight:700;}
+
+
+
+.iii_alert {margin-top:20px;}
+.iii_alert p {position:relative; padding-left:0.6375em; color:#999; font-size:14px; line-height:20px;}
+.iii_alert p + p {margin-top:6px;}
+.iii_alert p::before {content:"·"; display:block; position:absolute; top:0; left:0; font-size:inherit; line-height:inherit; font-weight:bold;}
+/* // 문의하기 입력폼 */
+</style>
+			<div class="iii_input_form">
+				<div class="select_category">
+					<div class="item">
+						<input type="radio" name="radio01" id="ra01">
+						<label for="ra01">
+							<span class="txt">PASS 앱</span>
+						</label>
+					</div>
+					<div class="item">
+						<input type="radio" name="radio01" id="ra02">
+						<label for="ra02">
+							<span class="txt">본인인증</span>
+						</label>
+					</div>
+					<div class="item">
+						<input type="radio" name="radio01" id="ra03">
+						<label for="ra03">
+							<span class="txt">모바일 지갑</span>
+						</label>
+					</div>
+					<div class="item">
+						<input type="radio" name="radio01" id="ra04">
+						<label for="ra04">
+							<span class="txt">모바일 신분증</span>
+						</label>
+					</div>
+					<div class="item">
+						<input type="radio" name="radio01" id="ra05">
+						<label for="ra05">
+							<span class="txt">부가서비스</span>
+						</label>
+					</div>
+					<div class="item">
+						<input type="radio" name="radio01" id="ra06">
+						<label for="ra06">
+							<span class="txt">이벤트/기타</span>
+						</label>
+					</div>
+				</div>
+<style>
+.ipt_group_wrap {margin-top:20px;}
+.ipt_group {}
+.ipt_group + .ipt_group {margin-top:15px;} 
+.ipt_group div.tit {padding-bottom:5px; font-size:14px; line-height:20px;}
+.ipt_group .data {}
+.ipt_group .data input[type="text"] {height:36px; padding:0 10px; border:1px solid #ddd; font-size:16px;}
+.ipt_group .data select {height:36px; padding:0 12px; border:1px solid #ddd; font-size:16px;}
+.ipt_group .data textarea {padding:10px 12px; border:1px solid #ddd; font-size:16px; line-height:30px;}
+
+.ipt_group .data .img_files {display:flex; align-items:flex-start; gap:5px;}
+.ipt_group .data .img_files .item {position:relative; display:inline-block; width:50px; height:50px;}
+
+.ipt_group .data .img_files .item .before {}
+.ipt_group .data .img_files .item .before button.btn_addImage {position:relative; width:50px; height:50px; border:1px solid #999;}
+.ipt_group .data .img_files .item .before button.btn_addImage::before,
+.ipt_group .data .img_files .item .before button.btn_addImage::after {content:""; display:block; position:absolute; top:50%; left:50%; width:12px; height:1px; border-radius:1px; background-color:#999;;}
+.ipt_group .data .img_files .item .before button.btn_addImage::before {transform:translate(-50%,-50%) rotate(0deg);}
+.ipt_group .data .img_files .item .before button.btn_addImage::after {transform:translate(-50%,-50%) rotate(90deg);}
+.ipt_group .data .img_files .item .before button span {color:transparent; font-size:12px;}
+
+.ipt_group .data .img_files .item .after {position:relative; width:50px; height:50px; overflow:hidden;;}
+.ipt_group .data .img_files .item .after .display_image {width:50px; height:50px;}
+.ipt_group .data .img_files .item .after .display_image img {width:50px; height:50px;}
+.ipt_group .data .img_files .item .after button.btn_removeImage {position:absolute; top:0; right:0; width:16px; height:16px; background-color:#000; overflow:hidden;}
+.ipt_group .data .img_files .item .after button.btn_removeImage::before,
+.ipt_group .data .img_files .item .after button.btn_removeImage::after {content:""; display:block; position:absolute; top:50%; left:50%; width:8px; height:1px; background-color:#fff;}
+.ipt_group .data .img_files .item .after button.btn_removeImage::before {transform:translate(-50%,-50%) rotate(45deg);}
+.ipt_group .data .img_files .item .after button.btn_removeImage::after {transform:translate(-50%,-50%) rotate(-45deg);}
+</style>
+				<div class="ipt_group_wrap">
+					<div class="ipt_group">
+						<div class="data">
+							<select name="" id="">
+								<option value="문의 유형을 선택하세요" disabled selected>문의 유형을 선택하세요</option>
+								<option value="이용문의">이용문의</option>
+								<option value="오류문의">오류문의</option>
+								<option value="기타문의">기타문의</option>
+							</select>
+						</div>
+					</div>
+	
+					<div class="ipt_group">
+						<div class="tit">제목</div>
+						<div class="data">
+							<input type="text" />
+						</div>
+					</div>
+	
+					<div class="ipt_group">
+						<div class="tit">문의내용</div>
+						<div class="data">
+							<textarea name="" id="" cols="30" rows="6"></textarea>
+						</div>
+					</div>
+
+					<div class="ipt_group">
+						<div class="tit">파일첨부 (5M이하 JPG, PNG만 가능)</div>
+						<div class="data">
+							<div class="img_files">
+								<div class="item">
+									<div class="before">
+										<button type="button" class="btn_addImage"><span>이미지추가</span></button>
+									</div>
+									<!-- <div class="after">
+										<div class="display_image"></div>
+										<button type="button" class="btn_removeImage"><span>이미지삭제</span></button>
+									</div> -->
+								</div>
+
+								<div class="item">
+									<!-- <div class="before">
+										<button type="button" class="btn_addImage"><span>이미지추가</span></button>
+									</div> -->
+									<div class="after">
+										<div class="display_image"><img src="../images/img_sample.png" alt=""></div>
+										<button type="button" class="btn_removeImage"><span>이미지삭제</span></button>
+									</div>
+								</div>
+							</div>
+							<!-- // img_files -->
+						</div>
+					</div>
+
+				</div>
+				<!-- // ipt_group_wrap -->
+
+
+				<div class="iii_alert">
+					<p>원활한 상담을 위해 휴대폰번호, 단말정보, 앱 버전 정보를 수집합니다.</p>
+					<p>수집된 개인정보는 상담 외의 다른 용도로 사용되지 않습니다.</p>
+					<p>문의가 급증할 경우 답변 처리가 다소 지연될 수 있으니 양해 부탁드립니다.</p>
+					<p>산업안전보호법에 따라 폭언, 욕설 등이 포함된 내용은 상담이 제한 될 수 있습니다.</p>
+				</div>
+				<!-- // select_category -->
+			</div>
+			<!-- // iii_input_form -->
+
+		</div>
+		<!-- // inquiry_content_wrap -->
+
+		<div class="inquiry_footer">
+			<div class="btnGroup">
+				<div>
+					<button class="cancle"><span>취소</span></button>
+				</div>
+				<div>
+					<button class="next"><span>문의하기</span></button>
+				</div>
+			</div>
+		</div>
+		<!-- // inquiry_footer -->
+		
+	</div><!-- // inquiry_wrap -->
+
+<script>
+/*
+let select_btns = document.querySelectorAll(".select_btns");
+select_btns.forEach(function(selectBtnItem){
+	let btns = selectBtnItem.querySelectorAll("button");
+	btns.forEach(function(item){
+		item.addEventListener("click", function(){
+			let temp = item.parentElement.closest(".select_btns").querySelectorAll("button");
+			temp.forEach(function(ddd){
+				ddd.classList.remove("active");
+			})
+			item.classList.add("active")
+		})
+	})
+})
+*/
+
+const select_btns = document.querySelectorAll(".select_btns");
+
+select_btns.forEach(function(selectBtnItem) {
+	const btns = selectBtnItem.querySelectorAll("button");
+
+	function setActiveButton(activeButton) {
+		const buttons = selectBtnItem.querySelectorAll("button");
+		buttons.forEach(function(button) {
+			button.classList.remove("active");
+		});
+		activeButton.classList.add("active");
+	}
+
+	btns.forEach(function(item) {
+		item.addEventListener("click", function() {
+			setActiveButton(item);
+		});
+	});
+});
+
+
+/*
+const image_input = document.querySelector(".image_input");
+var uploaded_image = "";
+
+image_input.addEventListener("change", function(){
+	const reader = new FileReader();
+	reader.addEventListener("load", () => {
+		uploaded_image = reader.result;
+		document.querySelector(".display_image").style.backgroundImage = `url(${uploaded_image})`
+	});
+	reader.readAsDataURL(this.files[0])
+})
+}
+*/
+</script>
+</body>
+</html>

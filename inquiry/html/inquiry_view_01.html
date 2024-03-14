@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>PASS by U+</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/inquiry.css">
+
+	<!-- <link rel="stylesheet" href="../../css/slick.css"> -->
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- <script src="../js/jquery-1.12.4.min.js"></script> -->
+
+	<!-- <script src="../../js/slick.js" type="text/javascript" charset="utf-8"></script> -->
+</head>
+<body>
+
+	<div class="inquiry_wrap">
+
+		<div class="inquiry_content_wrap">
+
+			<div class="inquiry_view_wrap">
+				<h2>답변완료</h2>
+				<div class="q_category"><span>이벤트</span></div>
+
+				<div class="inquiry_view">
+					<div class="q_wrap">
+						<div class="q_tit">
+							<span>Q</span>
+							<strong>PASS 이벤트에 응모했는데 응모가 되었는지 확인 부탁드립니다.</strong>
+						</div>
+
+						<div class="txt_wrap">
+							<span class="date">2022.12.27 18:29</span>
+							<div class="txt">
+								운전면허증을 실행하면 자꾸 에러가 발생합니다. 이유를 모르겠어요. 에러메세지는 파일로 첨부합니다.<br />
+								운전면허증을 실행하면 자꾸 에러가 발생합니다. 이유를 모르겠어요. 에러메세지는 파일로 첨부합니다.<br />
+								운전면허증을 실행하면 자꾸 에러가 발생합니다. 이유를 모르겠어요. 에러메세지는 파일로 첨부합니다.<br />
+								운전면허증을 실행하면 자꾸 에러가 발생합니다. 이유를 모르겠어요. 에러메세지는 파일로 첨부합니다.<br />
+								운전면허증을 실행하면 자꾸 에러가 발생합니다. 이유를 모르겠어요. 에러메세지는 파일로 첨부합니다.<br />
+								운전면허증을 실행하면 자꾸 에러가 발생합니다. 이유를 모르겠어요. 에러메세지는 파일로 첨부합니다.<br />
+								운전면허증을 실행하면 자꾸 에러가 발생합니다. 이유를 모르겠어요. 에러메세지는 파일로 첨부합니다.
+							</div>
+						</div>
+
+						<div class="files">
+							<strong>첨부된 파일</strong>
+							<div>
+								<span><img src="../images/img_sample.png" alt="이미지"></span>
+								<span><img src="../images/img_sample.png" alt="이미지"></span>
+								<span><img src="../images/img_sample.png" alt="이미지"></span>
+							</div>
+						</div>
+						<!-- // files -->
+
+					</div><!-- // q_wrap -->
+
+					<div class="a_wrap">
+						<div class="a_tit">A.</div>
+						<div class="txt_wrap">
+							<span class="date">2022.12.27 18:29</span>
+							<div class="txt">
+								운전면허증을 실행하면 자꾸 에러가 발생합니다. 이유를 모르겠어요. 에러메세지는 파일로 첨부합니다.<br />
+								운전면허증을 실행하면 자꾸 에러가 발생합니다. 이유를 모르겠어요. 에러메세지는 파일로 첨부합니다.<br />
+								운전면허증을 실행하면 자꾸 에러가 발생합니다. 이유를 모르겠어요. 에러메세지는 파일로 첨부합니다.
+							</div>
+						</div>
+					</div>
+					<!-- // a_wrap -->
+					<div class="more_q">
+						<div>
+							<span class="ico">*</span>
+							<span class="txt">답변 내용에 대하여 추가 문의가 있으신 경우, 이어서 문의하기를 이용해주세요.</span>
+							<button type="button"><span>이어서 문의하기</span></button>
+						</div>
+					</div>
+					
+				</div><!-- // inquiry_view -->
+			</div>
+			<!-- // inquiry_view_wrap -->
+
+		</div>
+		<!-- // inquiry_content_wrap -->
+
+		<div class="inquiry_footer">
+			<div class="btnGroup">
+				<div>
+					<button class="cancle"><span>취소</span></button>
+				</div>
+				<div>
+					<button class="next"><span>문의하기</span></button>
+				</div>
+			</div>
+		</div>
+		<!-- // inquiry_footer -->
+		
+	</div><!-- // inquiry_wrap -->
+
+<script>
+/*
+let select_btns = document.querySelectorAll(".select_btns");
+select_btns.forEach(function(selectBtnItem){
+	let btns = selectBtnItem.querySelectorAll("button");
+	btns.forEach(function(item){
+		item.addEventListener("click", function(){
+			let temp = item.parentElement.closest(".select_btns").querySelectorAll("button");
+			temp.forEach(function(ddd){
+				ddd.classList.remove("active");
+			})
+			item.classList.add("active")
+		})
+	})
+})
+*/
+
+const select_btns = document.querySelectorAll(".select_btns");
+
+select_btns.forEach(function(selectBtnItem) {
+	const btns = selectBtnItem.querySelectorAll("button");
+
+	function setActiveButton(activeButton) {
+		const buttons = selectBtnItem.querySelectorAll("button");
+		buttons.forEach(function(button) {
+			button.classList.remove("active");
+		});
+		activeButton.classList.add("active");
+	}
+
+	btns.forEach(function(item) {
+		item.addEventListener("click", function() {
+			setActiveButton(item);
+		});
+	});
+});
+
+
+/*
+const image_input = document.querySelector(".image_input");
+var uploaded_image = "";
+
+image_input.addEventListener("change", function(){
+	const reader = new FileReader();
+	reader.addEventListener("load", () => {
+		uploaded_image = reader.result;
+		document.querySelector(".display_image").style.backgroundImage = `url(${uploaded_image})`
+	});
+	reader.readAsDataURL(this.files[0])
+})
+}
+*/
+
+</script>
+</body>
+</html>

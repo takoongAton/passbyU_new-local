@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>PASS by U+</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/inquiry.css">
+
+	<!-- <link rel="stylesheet" href="../../css/slick.css"> -->
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- <script src="../js/jquery-1.12.4.min.js"></script> -->
+
+	<!-- <script src="../../js/slick.js" type="text/javascript" charset="utf-8"></script> -->
+<style>
+
+
+</style>
+</head>
+<body>
+
+	<div class="inquiry_wrap">
+
+		<div class="inquiry_header_wrap">
+
+			<div class="inquiry_search_tit">
+				<button type="button">
+					<span class="search_date">1개월</span>
+					<span class="dot"> · </span>
+					<span class="search_state">전체</span>
+					<span class="icon"><img src="../images/ico_arrow_list_small_down.png" alt="보기"></span>
+				</button>
+			</div>
+			<!-- // inquiry_search_tit -->
+
+			<div class="inquiry_search_wrap" style="display:none;">
+
+				<div class="ipt_group">
+					<div class="tit">상태</div>
+					<div class="select_btns">
+						<button type="button" class="active"><span>전체</span></button>
+						<button type="button"><span>접수완료</span></button>
+						<button type="button"><span>답변완료</span></button>
+					</div>
+				</div>
+
+				<div class="ipt_group">
+					<div class="tit">기간</div>
+					<div class="select_btns">
+						<button type="button" class="active"><span>1개월</span></button>
+						<button type="button"><span>6개월</span></button>
+						<button type="button"><span>1년</span></button>
+						<button type="button"><span>기간선택</span></button>
+					</div>
+					<div class="ipt_wrap">
+						<div class="ipt_date">
+							<input type="date" id="date01" value="2023-01-15" min="2021-01-01" max="2023-12-31">
+							<label for="date01"></label>
+						</div>
+						<span>-</span>
+						<div class="ipt_date">
+							<input type="date" id="date02" value="2023-01-15" min="2021-01-01" max="2023-12-31">
+							<label for="date02"></label>
+						</div>
+					</div>
+				</div>
+
+				<div>
+					<button type="button" class="submit"><span>조회하기</span></button>
+				</div>
+
+			</div>
+			<!-- // inquiry_search_wrap -->
+
+		</div>
+		<!-- // inquiry_header_wrap -->
+
+
+		<div class="inquiry_content_wrap">
+
+			<div class="inquiry_nodata">
+				<span class="icon"><img src="../images/ico_notice.png" alt="안내"></span>
+				<p class="txt">문의 내역이 없습니다.</p>
+			</div>
+
+		</div>
+		<!-- // inquiry_content_wrap -->
+
+		<div class="inquiry_footer">
+			<div class="btnGroup">
+				<!-- <div>
+					<button class="cancle"><span>취소</span></button>
+				</div> -->
+				<div>
+					<button class="next"><span>1:1문의하기</span></button>
+				</div>
+			</div>
+		</div>
+		<!-- // inquiry_footer -->
+		
+	</div><!-- // inquiry_wrap -->
+
+
+
+
+<div class="dim"></div>
+
+<div class="layer alert">
+	<div class="layer_inner">
+		<div class="layer_content">
+			<div class="tit">취소하시겠습니까?</div>
+		</div>
+		<div class="btn_group">
+			<div><button type="button" class="prev"><span>취소</span></button></div><!-- prev, back, cancel -->
+			<div><button type="button" class="next"><span>확인</span></button></div>
+		</div>
+	</div>
+</div><!-- // .layer.alert -->
+
+
+
+<script>
+/*
+let select_btns = document.querySelectorAll(".select_btns");
+select_btns.forEach(function(selectBtnItem){
+	let btns = selectBtnItem.querySelectorAll("button");
+	btns.forEach(function(item){
+		item.addEventListener("click", function(){
+			let temp = item.parentElement.closest(".select_btns").querySelectorAll("button");
+			temp.forEach(function(ddd){
+				ddd.classList.remove("active");
+			})
+			item.classList.add("active")
+		})
+	})
+})
+*/
+
+const select_btns = document.querySelectorAll(".select_btns");
+
+select_btns.forEach(function(selectBtnItem) {
+	const btns = selectBtnItem.querySelectorAll("button");
+
+	function setActiveButton(activeButton) {
+		const buttons = selectBtnItem.querySelectorAll("button");
+		buttons.forEach(function(button) {
+			button.classList.remove("active");
+		});
+		activeButton.classList.add("active");
+	}
+
+	btns.forEach(function(item) {
+		item.addEventListener("click", function() {
+			setActiveButton(item);
+		});
+	});
+});
+
+
+/*
+const image_input = document.querySelector(".image_input");
+var uploaded_image = "";
+
+image_input.addEventListener("change", function(){
+	const reader = new FileReader();
+	reader.addEventListener("load", () => {
+		uploaded_image = reader.result;
+		document.querySelector(".display_image").style.backgroundImage = `url(${uploaded_image})`
+	});
+	reader.readAsDataURL(this.files[0])
+})
+}
+*/
+
+</script>
+</body>
+</html>

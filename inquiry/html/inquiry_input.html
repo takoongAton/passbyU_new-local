@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>PASS by U+</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/inquiry.css">
+
+	<!-- <link rel="stylesheet" href="../../css/slick.css"> -->
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- <script src="../js/jquery-1.12.4.min.js"></script> -->
+
+	<!-- <script src="../../js/slick.js" type="text/javascript" charset="utf-8"></script> -->
+</head>
+<body>
+
+	<div class="inquiry_wrap">
+
+		
+		<div class="inquiry_content_wrap">
+
+			<div class="pass_uGPT">
+				<button type="button" onclick="">
+					<span>24시간 즉시 답변해주는 AI상담사<br />
+						UGPT에게 간편하게 물어보기</span>
+				</button>
+			</div>
+
+			<div class="inquiry_input_form">
+				<div class="select_category">
+					<div class="item">
+						<input type="radio" name="radio01" id="ra01">
+						<label for="ra01">
+							<span class="txt">PASS 앱</span>
+						</label>
+					</div>
+					<div class="item">
+						<input type="radio" name="radio01" id="ra02">
+						<label for="ra02">
+							<span class="txt">본인인증</span>
+						</label>
+					</div>
+					<div class="item">
+						<input type="radio" name="radio01" id="ra03">
+						<label for="ra03">
+							<span class="txt">모바일 지갑</span>
+						</label>
+					</div>
+					<div class="item">
+						<input type="radio" name="radio01" id="ra04">
+						<label for="ra04">
+							<span class="txt">모바일 신분증</span>
+						</label>
+					</div>
+					<div class="item">
+						<input type="radio" name="radio01" id="ra05">
+						<label for="ra05">
+							<span class="txt">부가서비스</span>
+						</label>
+					</div>
+					<div class="item">
+						<input type="radio" name="radio01" id="ra06">
+						<label for="ra06">
+							<span class="txt">이벤트/기타</span>
+						</label>
+					</div>
+				</div>
+				<!-- // select_category -->
+
+				<div class="ipt_group_wrap">
+					<div class="ipt_group">
+						<div class="data">
+							<select name="" id="">
+								<option value="문의 유형을 선택하세요" disabled selected>문의 유형을 선택하세요</option>
+								<option value="이용문의">이용문의</option>
+								<option value="오류문의">오류문의</option>
+								<option value="기타문의">기타문의</option>
+							</select>
+						</div>
+					</div>
+	
+					<div class="ipt_group">
+						<div class="tit">제목</div>
+						<div class="data">
+							<input type="text" placeholder="문의 제목을 작성해주세요" />
+						</div>
+					</div>
+	
+					<div class="ipt_group">
+						<div class="tit">문의내용
+							<button type="button" class="btn_help"><span><img src="../images/ico_list_question.png" alt="도움말"></span></button>
+						</div>
+						<div class="data">
+							<textarea name="" id="" cols="30" rows="6" placeholder="궁금하신 내용을 입력해 주세요."></textarea>
+						</div>
+					</div>
+
+					<div class="ipt_group">
+						<div class="tit">파일첨부 (5MB 이하, JPG/JPEG/PNG 만 가능)</div>
+						<div class="data">
+							<div class="img_files">
+								<div class="item">
+									<div class="before">
+										<input type="file" title="이미지업로드" class="btn_addImage">
+										<!-- <button type="button" class="btn_addImage"><span>이미지추가</span></button> -->
+									</div>
+									<!-- <div class="after">
+										<div class="display_image"></div>
+										<button type="button" class="btn_removeImage"><span>이미지삭제</span></button>
+									</div> -->
+								</div>
+
+								<div class="item">
+									<div class="after">
+										<!-- <button type="button" class="btn_addImage"><span>이미지추가</span></button> -->
+										<!-- <input type="file" title="이미지업로드" class="btn_addImage"> -->
+										<label><img src="../images/img_sample.png" alt=""></label>
+										<button type="button" class="btn_removeImage"><span>이미지삭제</span></button>
+									</div>
+									<!-- <div class="after">
+										<div class="display_image"></div>
+										<button type="button" class="btn_removeImage"><span>이미지삭제</span></button>
+									</div> -->
+								</div>
+
+								<div class="item">
+									<div class="before">
+										<button type="button" class="btn_addImage"><span>이미지추가</span></button>
+									</div>
+									<!-- <div class="after">
+										<div class="display_image"></div>
+										<button type="button" class="btn_removeImage"><span>이미지삭제</span></button>
+									</div> -->
+								</div>
+
+								<div class="item" style="display:none;">
+									<div class="after">
+										<div class="display_image"><img src="../images/img_sample.png" alt=""></div>
+										<button type="button" class="btn_removeImage"><span>이미지삭제</span></button>
+									</div>
+								</div>
+							</div>
+							<!-- // img_files -->
+						</div>
+					</div>
+
+				</div>
+				<!-- // ipt_group_wrap -->
+
+
+				<div class="inquiry_alert">
+					<p>원활한 상담을 위해 휴대폰번호, 단말정보, 통신사 구분, 앱 버전 정보를 수집합니다.</p>
+					<p>수집된 개인정보는 상담 외의 다른 용도로 사용되지 않습니다.</p>
+					<p>문의가 급증할 경우 답변 처리가 다소 지연될 수 있으니 양해 부탁드립니다.</p>
+					<p>문의 내용이 정확하지 않거나, 중복으로 접수된 문의 건에 대해서는 답변이 이루어지지 않을 수 있습니다.</p>
+					<p>산업안전보건법에 따라 폭언, 욕설 등이 포함된 내용은 상담이 제한 될 수 있습니다.</p>
+				</div>
+				<!-- // select_category -->
+			</div>
+			<!-- // inquiry_input_form -->
+
+		</div>
+		<!-- // inquiry_content_wrap -->
+
+		<div class="inquiry_footer">
+			<div class="btnGroup">
+				<div>
+					<button class="cancle"><span>취소</span></button>
+				</div>
+				<div>
+					<button class="next"><span>문의하기</span></button>
+				</div>
+			</div>
+		</div>
+		<!-- // inquiry_footer -->
+		
+	</div><!-- // inquiry_wrap -->
+
+
+<!-- 도움말 팝업 -->
+<div class="layer help" style="display:none;">
+	<div class="layer_inner">
+		<dl>
+			<dt>문의내용 작성가이드</dt>
+			<dd>
+				궁금하신 내용을 상세하게 기재해 주시면 <i></i>더욱 빠르고 정확한 확인이 가능합니다.<br /><br />
+				
+				예시)<br />
+				· 오류 발생 일시<br />
+				· 오류 문구 및 코드
+			</dd>
+		</dl>
+		<div class="close"><button type="button"><span>닫기</span></button></div>
+	</div>
+</div><!-- // layer help -->
+
+
+<script>
+/*
+let select_btns = document.querySelectorAll(".select_btns");
+select_btns.forEach(function(selectBtnItem){
+	let btns = selectBtnItem.querySelectorAll("button");
+	btns.forEach(function(item){
+		item.addEventListener("click", function(){
+			let temp = item.parentElement.closest(".select_btns").querySelectorAll("button");
+			temp.forEach(function(ddd){
+				ddd.classList.remove("active");
+			})
+			item.classList.add("active")
+		})
+	})
+})
+*/
+
+const select_btns = document.querySelectorAll(".select_btns");
+
+select_btns.forEach(function(selectBtnItem) {
+	const btns = selectBtnItem.querySelectorAll("button");
+
+	function setActiveButton(activeButton) {
+		const buttons = selectBtnItem.querySelectorAll("button");
+		buttons.forEach(function(button) {
+			button.classList.remove("active");
+		});
+		activeButton.classList.add("active");
+	}
+
+	btns.forEach(function(item) {
+		item.addEventListener("click", function() {
+			setActiveButton(item);
+		});
+	});
+});
+
+
+
+
+
+/* 툴팁 도움말 */
+function layer_tooltip(ele) {
+	let btnTop = ele.offsetTop;
+	let btnLeft = ele.offsetLeft;
+	let btnHeight = ele.offsetHeight;
+	let btnWidth = ele.offsetWidth;
+	let ddd = document.querySelector(".layer.help");
+	ddd.style.display = "block";
+	ddd.style.top = btnTop + btnHeight + "px";
+	ddd.style.left = btnLeft + (btnWidth / 2) + "px";
+	ddd.classList.add("active");
+	return false;
+}
+
+let layers = document.querySelectorAll(".layer");
+if(layers.length > 0) {
+	layers.forEach(function(item){
+		btnClose = item.querySelector(".close button");
+		btnClose.addEventListener("click", function(item){
+			btnClose.closest(".layer").style.display = "none";
+		})
+	})	
+}
+
+let btnHelp = document.querySelector("button.btn_help")
+btnHelp.addEventListener("click", function(e){
+	layer_tooltip(this);
+})
+/* // 툴팁 도움말 */
+
+
+/*
+const image_input = document.querySelector(".image_input");
+var uploaded_image = "";
+
+image_input.addEventListener("change", function(){
+	const reader = new FileReader();
+	reader.addEventListener("load", () => {
+		uploaded_image = reader.result;
+		document.querySelector(".display_image").style.backgroundImage = `url(${uploaded_image})`
+	});
+	reader.readAsDataURL(this.files[0])
+})
+}
+*/
+
+</script>
+</body>
+</html>

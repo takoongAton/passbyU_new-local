@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>PASS by U+</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/inquiry.css">
+
+	<!-- <link rel="stylesheet" href="../../css/slick.css"> -->
+
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+	<!-- <script src="../js/jquery-1.12.4.min.js"></script> -->
+
+	<!-- <script src="../../js/slick.js" type="text/javascript" charset="utf-8"></script> -->
+<style>
+body {padding:50px;}
+.img_files {}
+.img_files .item {display:inline-block; width:50px; height:50px; vertical-align:top;}
+input[type="file"].image_input {position:relative; width:50px; height:50px; border:1px solid #ddd; color:transparent;}
+input[type="file"].image_input::file-selector-button {display:none;}
+input[type="file"].image_input::before,
+input[type="file"].image_input::after {content:""; display:block; position:absolute; top:50%; left:50%; width:32%; height:1px; background-color:#666;}
+input[type="file"].image_input::before {transform:translate(-50%,-50%) rotate(90deg);}
+input[type="file"].image_input::after {transform:translate(-50%,-50%);}
+.display_image {display:none; position:relative; width:50px; height:50px; overflow:hidden; background-size:contain;}
+.display_image img {display:block; width:100%; height:100%; margin:0; padding:0; border:0;}
+
+.btn_removeImage {position:absolute; top:0; right:0; width:40%; height:40%; background-color:#000; border-bottom-left-radius:2px; overflow:hidden; color:transparent;}
+.btn_removeImage::before,
+.btn_removeImage::after {content:""; display:block; position:absolute; top:50%; left:50%; width:60%; height:1px; background-color:#fff;}
+.btn_removeImage::before {transform:translate(-50%, -50%) rotate(45deg);}
+.btn_removeImage::after {transform:translate(-50%, -50%) rotate(-45deg);}
+.btn_removeImage span {font-size:0;}
+</style>
+</head>
+<body>
+
+
+	<div class="inquiry_wrap">
+
+		<div class="img_files">
+			<div class="item">
+				<input type="file" title="이미지업로드" class="image_input" accept="image/png, image/jpg">
+				<div class="display_image"></div>
+			</div>
+
+			<div class="item">
+				<input type="file" title="이미지업로드" class="image_input" accept="image/png, image/jpg">
+				<div class="display_image"></div>
+			</div>
+
+			<div class="item">
+				<input type="file" title="이미지업로드" class="image_input" accept="image/png, image/jpg">
+				<div class="display_image"></div>
+			</div>
+		</div>
+
+	</div><!-- // inquiry_wrap -->
+
+<script>
+/*
+let select_btns = document.querySelectorAll(".select_btns");
+select_btns.forEach(function(selectBtnItem){
+	let btns = selectBtnItem.querySelectorAll("button");
+	btns.forEach(function(item){
+		item.addEventListener("click", function(){
+			let temp = item.parentElement.closest(".select_btns").querySelectorAll("button");
+			temp.forEach(function(ddd){
+				ddd.classList.remove("active");
+			})
+			item.classList.add("active")
+		})
+	})
+})
+*/
+
+/*
+const select_btns = document.querySelectorAll(".select_btns");
+select_btns.forEach(function(selectBtnItem) {
+	const btns = selectBtnItem.querySelectorAll("button");
+
+	function setActiveButton(activeButton) {
+		const buttons = selectBtnItem.querySelectorAll("button");
+		buttons.forEach(function(button) {
+			button.classList.remove("active");
+		});
+		activeButton.classList.add("active");
+	}
+
+	btns.forEach(function(item) {
+		item.addEventListener("click", function() {
+			setActiveButton(item);
+		});
+	});
+});
+*/
+
+
+/*
+const imgItems = document.querySelector(".img_files");
+const imageInput = document.querySelector(".image_input")
+let uploaded_image = "";
+
+imageInput.addEventListener("change", function(){
+	const reader = new FileReader();
+	reader.addEventListener("load", () => {
+		uploaded_image = reader.result;
+		
+		let imgTag = document.createElement("img");
+		imgTag.setAttribute("src", `${uploaded_image}`);
+
+		document.querySelector(".display_image").appendChild(imgTag);
+
+		document.querySelector(".image_input").style.display = "none";
+		document.querySelector(".display_image").style.display = "block";
+
+		btnImageRemove();
+	});
+	reader.readAsDataURL(this.files[0])
+})
+
+
+
+function btnImageRemove(){
+	const testDelBtn = document.createElement("button");
+	testDelBtn.setAttribute("class", "btn_removeImage");
+	testDelBtn.innerHTML = "<span>이미지삭제</span>"
+	document.querySelector(".display_image").appendChild(testDelBtn);
+	testddd();
+}
+
+function testddd(){
+	document.querySelector(".btn_removeImage").addEventListener("click", function(){
+		if(confirm("이미지를 삭제하시겠습니까?")) {
+			document.querySelector(".display_image").innerHTML = ""
+			document.querySelector(".display_image").style.display = "none";
+			document.querySelector(".image_input").style.display = "block";
+		}
+	})
+}
+*/
+
+
+const imgItems = document.querySelector(".img_files");
+const imageInputs = document.querySelectorAll(".image_input")
+let uploaded_image = "";
+
+imageInputs.forEach(function(item){
+	item.addEventListener("change", function(){
+		const reader = new FileReader();
+		reader.addEventListener("load", () => {
+			uploaded_image = reader.result;
+			
+			let imgTag = document.createElement("img");
+			imgTag.setAttribute("src", `${uploaded_image}`);
+			let imgItem = item.parentElement.closest(".item");
+
+			imgItem.querySelector(".display_image").appendChild(imgTag);
+
+			imgItem.querySelector(".image_input").style.display = "none";
+			imgItem.querySelector(".display_image").style.display = "block";
+
+			btnImageRemove(imgItem);
+			item.value = "";
+		});
+		reader.readAsDataURL(this.files[0])
+	})
+})
+
+
+
+
+function btnImageRemove(imgItem){
+	const testDelBtn = document.createElement("button");
+	testDelBtn.setAttribute("class", "btn_removeImage");
+	testDelBtn.innerHTML = "<span>이미지삭제</span>"
+	imgItem.querySelector(".display_image").appendChild(testDelBtn);
+	testddd(imgItem);
+}
+
+function testddd(imgItem){
+	imgItem.querySelector(".btn_removeImage").addEventListener("click", function(){
+		if(confirm("이미지를 삭제하시겠습니까?")) {
+			imgItem.querySelector(".display_image").innerHTML = ""
+			imgItem.querySelector(".display_image").style.display = "none";
+			imgItem.querySelector(".image_input").style.display = "block";
+		}
+	})
+}
+
+
+</script>
+</body>
+</html>
