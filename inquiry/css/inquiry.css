@@ -271,7 +271,7 @@ div.dim {position:fixed; top:0; right:0; bottom:0; left:0; max-width:720px; marg
 /* uGPT 추가건(240314) */
 .inquiry_content_wrap .pass_uGPT {padding:10px 14px 0;}
 .inquiry_content_wrap .pass_uGPT button {display:flex; align-items:center; position:relative; height:60px; padding:0 40px 0 56px; border-radius:8px; background:#ff3a4a url('../images/ugpt_icon.png') no-repeat 16px center / 32px 32px; text-align:left;}
-.inquiry_content_wrap .pass_uGPT button span {display:block; color:#fff; font-size:14px; line-height:20px; font-weight:bold;}
+.inquiry_content_wrap .pass_uGPT button span {display:block; position:relative; top:1px; color:#fff; font-size:14px; line-height:20px; font-weight:bold; text-shadow:0 1px 2px rgba(255,58,74,0.2);}
 .inquiry_content_wrap .pass_uGPT button::after {content:""; display:block; position:absolute; top:50%; right:16px; width:8px; height:8px; border-width:1px 1px 0 0; border-style:solid; border-color:#fff; transform:rotate(45deg); transform-origin:100% 0;}
 .inquiry_content_wrap .pass_uGPT + .inquiry_input_form {padding-top:10px;}
 /* // uGPT 추가건(240314) */
