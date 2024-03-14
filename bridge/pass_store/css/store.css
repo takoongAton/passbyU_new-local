@@ -1,0 +1,12 @@
+body {background-color:#f6f6f6;}
+html,body {height:100%;}
+.passStore {display:flex; justify-content:center; align-items:center; text-align:center; height:100%; padding:0 20px;}
+.passStore div.img_wrap {display:inline-block; position:relative; width:auto; max-width:390px; min-width:320px; text-align:center;}
+.passStore div.img_wrap button {position:absolute; bottom:0; left:50%; width:56.875%; height:10%; border-radius:100px; transform:translateX(-50%);}
+.passStore div.img_wrap button span {color:transparent;}
+@media (orientation: landscape) {
+	.passStore {padding:20px 0;}
+}
+@media only screen and (max-height:693px) {
+	.img_wrap img {width:auto; max-height:calc(100vh - 40px);}
+}
