@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>PASS 앱 이벤트</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/ev_common.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<style>
+
+.evFooterAlert {font-family:'Nanum Gothic'; background-color:#F8F8F8 !important;}
+
+.ev_230425 {background-color:#fff; font-family:'Nanum Gothic'; font-weight:500;}
+.ev_230425 img {vertical-align:top;}
+.ev_230425 div {position:relative;}
+.ev_230425 .top_img {position:relative}
+.ev_230425 .top_img button {position:absolute; bottom:1.5em; left:1.5em; width:calc(100% - 3em); height:3.125em; background-color:#000; border-radius:0.625em;}
+.ev_230425 .top_img button span {color:#fff; font-size:1em; line-height:1em; font-weight:bold; font-family:'Noto Sans KR'; transform:skewX(-0.03deg);}
+
+.ev_230425 .ddd {padding-top:2.5em; padding-bottom:1.875em; background:#f8f8f8 url('../images/ev_ddd_box_bg.png') no-repeat center top / cover; text-align:center; text-align:center;}
+.ev_230425 .ddd p.date {display:inline-block; color:#2F2F2F; font-size:0.875em; line-height:1.42857em; font-weight:bold; transform:skewX(-0.03deg);}
+.ev_230425 .ddd p.date strong {display:inline-block;}
+.ev_230425 .ddd p.date strong span {padding:0 0.5em; background-color:rgba(255,58,74,0.12)}
+.ev_230425 .ddd div.img {margin-top:1em;}
+
+.ev_230425 .ev_join {position:-webkit-sticky; position:sticky; bottom:0; left:0; z-index:1;}
+.ev_230425 .btn_dark {display:flex; justify-content:center; align-items:center; height:2.8125em; background-color:#FF3A4A; color:#fff; font-size:1.0625em;}
+.ev_230425 .btn_dark span {display:block; line-height:1em; font-weight:bold; font-family:'Noto Sans KR';}
+
+.ev_date_box {padding:0 1.5em 1.875em; text-align:center;}
+.ev_date_box dl {padding-top:3.375em}
+.ev_date_box dl dt {}
+.ev_date_box dl dt strong {display:inline-block; position:relative; height:1.125em; font-size:1em; line-height:1.125em; color:#E62535;}
+.ev_date_box dl dt strong::before {content:""; display:block; position:absolute; top:-1.5em; left:50%; width:3em; height:0.375em; background-color:#FF3A4A; transform:translateX(-50%);}
+.ev_date_box dl dd {margin-top:1em;}
+.ev_date_box dl dd p.txt {font-size:0.875em; line-height:1.25em; transform:skewX(-0.03deg);}
+.ev_date_box dl dd p.txt2 {display:inline-block; position:relative; margin-top:1em; padding-left:1em; color:#bc343f; font-size:0.75em; line-height:1.33333em; text-align:left;}
+.ev_date_box dl dd p.txt2::before {content:"※"; position:absolute; top:0; left:0; font-size:inherit; line-height:inherit;}
+.ev_date_box dl dd p span {color:#ff0000;}
+
+
+.big_row_wrap {margin-top:1.5625em;}
+.big_row_wrap div.big {display:inline-block; position:relative; width:11.25em;}
+.big_row_wrap div.big p.name {font-size:0.75em; line-height:1.16666em; font-weight:bold;}
+
+.big_row_wrap div.big div.thum {position:relative;}
+.big_row_wrap div.big div.count {display:flex; justify-content:center; align-items:center; position:absolute; top:0; right:0; width:3em; height:3em; background-color:#000; border-radius:100%; color:#fff;}
+.big_row_wrap div.big div.count span {font-size:1em; font-weight:bold;}
+.big_row_wrap div.big p.name {font-size:0.75em; line-height:1.16666em; font-weight:bold; transform:skewX(-0.03deg);}
+
+.small_row_wrap {display:flex; justify-content:center; width:100%; gap:1.875em; margin-top:0.75em;}
+.small_row_wrap div.small {width:7.5em}
+.small_row_wrap div.small div.thum {position:relative;}
+.small_row_wrap div.small div.count {display:flex; justify-content:center; align-items:center; position:absolute; top:0.3125em; right:0.3125em; width:2em; height:2em; background-color:#000; border-radius:100%; color:#fff;}
+.small_row_wrap div.small div.count span {font-size:0.625em; font-weight:bold;}
+.small_row_wrap div.small div.count span.no {font-size:0.875em;}
+.small_row_wrap div.small p.name {font-size:0.75em; line-height:1.16666em; font-weight:bold; transform:skewX(-0.03deg);}
+</style>
+
+</head>
+
+
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KCRSQZV" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="evPageWrap">
+
+	<div class="evSection">
+
+		<div class="ev_230425">
+			<div class="top_img">
+				<img src="../images/ev_230425_img1.png" alt="이미지">
+				<button type="button"><span>PASS 인증서 발급하러 가기 &gt;</span></button>
+			</div>
+
+			<div class="ddd">
+				<p class="date">
+					23.04.19(수) ~ 23.05.31(수) 기간 내
+					<strong><span>PASS 인증서를 새로 발급받고</span></strong><br />
+					<strong><span>1회 이상 사용하기만 하면 응모 가능</span></strong><br />
+					역대급 경품의 주인공이 되세요!
+				</p>
+				
+				<div class="big_row_wrap">
+					<div class="big">
+						<div class="thum">
+							<img src="../images/img_tv.png" alt="TV이미지">
+							<div class="count"><span>1명</span></div>
+						</div>
+						<p class="name">LG 스탠바이미 TV</p>
+					</div>
+				</div>
+
+				<div class="small_row_wrap">
+					<div class="small">
+						<div class="thum">
+							<img src="../images/img_galaxy_tab.png" alt="갤탭">
+							<div class="count"><span class="no">2명</span></div>
+						</div>
+						<p class="name">갤럭시탭<br />S8 WiFi 256GB</p>
+					</div>
+
+					<div class="small">
+						<div class="thum">
+							<img src="../images/img_giftcard_5.png" alt="신세계 상품권">
+							<div class="count"><span>100명</span></div>
+						</div>
+						<p class="name">신세계 상품권<br />5만원권</p>
+					</div>
+				</div>
+				<div class="small_row_wrap">
+					<div class="small">
+						<div class="thum">
+							<img src="../images/img_giftcard_1.png" alt="신세계 상품권">
+							<div class="count"><span>300명</span></div>
+						</div>
+						<p class="name">신세계 상품권<br />1만원권</p>
+					</div>
+
+					<div class="small">
+						<div class="thum">
+							<img src="../images/img_coffee.png" alt="스벅 커피">
+							<div class="count"><span>500명</span></div>
+						</div>
+						<p class="name">스타벅스<br />아메리카노(tall)</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="ev_date_box">
+				<dl>
+					<dt><strong>이벤트 기간</strong></dt>
+					<dd>
+						<p class="txt">2023.04.19(수) ~ 2023.05.31(수)</p>
+					</dd>
+				</dl>
+				<dl>
+					<dt><strong>이벤트 대상</strong></dt>
+					<dd>
+						<p class="txt">이벤트 기간 내 <strong>신규/전환 발급 받은<br />
+							PASS 인증서를 1회 이상 사용한 회원</strong></p>
+					</dd>
+				</dl>
+				<dl>
+					<dt><strong>이벤트 참여방법</strong></dt>
+					<dd>
+						<div class="img"><img src="../images/ev_230425_img3.png" alt="참여방법 이미지"></div>
+					</dd>
+				</dl>
+			</div>
+			<!-- // ev_date_box -->
+
+			<div class="evFooterAlert gray"><!-- dark, light, gray -->
+				<dl>
+					<dt><strong>유의사항</strong></dt>
+					<dd><p class="txt">본 이벤트는 1인 1회 응모 가능합니다.</p></dd>
+					<dd><p class="txt">이벤트 당첨자는 6월 말에 [혜택+ > 이벤트 > 당첨자발표] 에 공개됩니다.</p></dd>
+					<dd><p class="txt">이벤트 참여를 위해 수집된 개인정보는 경품 발송 이외의 목적으로 활용되지 않으며, 이벤트 종료 후 일괄 파기됩니다.</p></dd>
+					<dd><p class="txt">이벤트 기간 내 반드시 PASS 인증서를 신규/전환 발급 받아야 하며, 해당 인증서로 인증을 완료한 경우에만 이벤트 신청이 정상적으로 완료됩니다.</p></dd>
+					<dd><p class="txt">이벤트 참여 후 U+ 모바일 서비스를 해지하거나 휴대폰 명의 또는 번호를 변경하는 경우 당첨 대상에서 제외됩니다.</p></dd>
+					<dd><p class="txt">이벤트 경품 및 내용은 변경될 수 있으며, 실제 경품은 상기 이미지와 상이할 수 있습니다.</p></dd>
+					<dd><p class="txt">이벤트 경품은 양도 불가하며, 경품 수령 의사를 밝히지 않는 경우 당첨이 취소됩니다.</p></dd>
+					<dd><p class="txt">5만 원 초과 경품의 제세 공과금(22%)은 당첨자 본인 부담이며, 제세공과금 납부 안내 및 주소지 확인을 위해 개별 연락 예정입니다.</p></dd>
+					<dd><p class="txt">모바일 기프티콘은 등록된 휴대폰 번호로 발송됩니다.</p></dd>
+					<dd><p class="txt">정보 오기재로 인한 경품 반송 및 분실은 당사에서 책임지지 않으며, 재발송 되지 않습니다.</p></dd>
+					<dd><p class="txt">이벤트에 대한 더 자세한 사항은 고객센터(114)로 문의 바랍니다.</p></dd>
+				</dl>
+			</div><!-- // evFooterAlert -->
+		
+			<div class="ev_join"><button type="button" class="btn_dark"><span>이벤트 응모하기</span></button></div>
+
+		</div><!-- // ev_230425 -->
+
+	</div><!-- // evSection -->
+
+
+</div><!-- // evPageWrap -->
+
+<script>
+btns = document.querySelectorAll("button");
+btns.forEach(function(item){
+	item.addEventListener("click", function(){
+		alert(item.innerText)
+	})
+})
+</script>
+
+</body>
+</html>

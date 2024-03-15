@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>PASS 출석체크 이벤트</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/ev_common.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<!-- Google Tag Manager -->
+	<script>
+	(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-KCRSQZV');
+	</script>
+	<!-- End Google Tag Manager -->
+
+
+<style>
+button {font-size:inherit;}
+@font-face {
+    font-family: 'SBAggroM';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroM.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.evSection {font-family:'Noto Sans KR';}
+.ev_220722 {font-family:'Noto Sans KR';}
+
+.ev_220722 .box1 {position:relative;}
+.ev_220722 .box1 .ev_date {position:absolute; top:0.8125em; left:1.125em; letter-spacing:-0.05em;}
+.ev_220722 .box1 .ev_date div {color:#fff; line-height:1em;}
+.ev_220722 .box1 .ev_date div:first-of-type {font-size:0.8125em;}
+.ev_220722 .box1 .ev_date div:first-of-type span {display:inline-block; font-weight:700;}
+.ev_220722 .box1 .ev_date div:first-of-type strong {display:inline-block; margin-left:0.25em; font-weight:400;}
+.ev_220722 .box1 .ev_date div:last-of-type {display:flex; align-items:center; position:relative; margin-top:0.4375em; font-size:0.9375em; font-weight:normal;}
+.ev_220722 .box1 .ev_date div:last-of-type span.icon {display:inline-flex; width:1.03125em;}
+.ev_220722 .box1 .ev_date div:last-of-type p {padding-left:0.25em; line-height:1em;}
+.ev_220722 .box1 .ev_date div:last-of-type p span.count {font-weight:700;}
+
+
+
+/* 달력 */
+.calender_wrap {}
+.calender {position:absolute; top:23.03125em; left:0; width:100%; z-index:1;}
+
+/* 출석체크 하기 버튼 */
+.calender > .btn {position:absolute; top:-3.5em; left:0; width:100%; text-align:center;}
+.calender > .btn button {display:inline-flex; justify-content:center; align-items:center; width:16.5625em; height:2.5em; border:0; border-radius:2.5em; background-color:#ce5230; color:rgba(255,255,255,1); vertical-align:top;}
+.calender > .btn button span {display:inline-block; position:relative; padding-top:1.5%; padding-right:1em; color:#fff; font-family:'SBAggroM'; font-size:0.8125em; line-height:1em; /*  opacity:0;; */}
+.calender > .btn button span::before {content:""; display:block; position:absolute; right:0; top:50%; width:0.5em; height:0.5em; border-width:0.125em 0.125em 0 0; border-style:solid; border-color:#fff;; transform:rotate(45deg); transform-origin:100% 0;}
+
+.calender div.inner {position:relative; width:20.21875em; max-width:100%; margin:0 auto;}
+.calender div.inner::before {content:""; display:block; position:absolute; bottom:0; right:5%; left:5%; height:0.5em; background-color: #fff; border-radius:100%; box-shadow:0 0 1em rgba(0,0,0,0.2); z-index:0;}
+.calender ul {display:flex; flex-wrap:wrap; justify-content:flex-start; gap:0.40625em 0.2em; position:relative; margin:0 auto; padding:1.125em 0.625em; background-color:#fff; border-radius:0.5em; box-shadow:0.1em 0.2em 0.3em rgba(0,0,0,0.025); z-index:1;}
+.calender ul li {position:relative; justify-content:center; align-items:center; text-align:center; width:2.53125em; height:2.53125em; border-radius:100%;}
+.calender ul.day_wrap {}
+.calender ul.day_wrap li {background-color:#f7f7f7; color:#999;}
+.calender ul.day_wrap li.ticketDay span.day {color:#ff3333;}
+.calender ul.day_wrap li span.day {position:absolute; top:50%; left:50%; font-size:0.5em; font-weight:500; letter-spacing:-0.05em; transform:translate(-50%,-50%); white-space: nowrap;}
+.calender ul.day_wrap li span.stemp {position:absolute; top:50%; left:50%; width:2em; transform:translate(-50%, -50%);}
+.calender ul.day_wrap li span.passPoint {position:absolute; top:50%; left:50%; width:2.25em; transform:translate(-50%, -50%);}
+.calender ul.day_wrap li span.stemp img,
+.calender ul.day_wrap li span.passPoint img {filter: brightness(1.1) grayscale(100%); opacity:0.7;}
+.calender ul.day_wrap li.active span.stemp img,
+.calender ul.day_wrap li.active span.passPoint img {filter: grayscale(0%); opacity:1;}
+.calender ul.day_wrap li span.passPoint img {filter: brightness(1.1) grayscale(100%); opacity:0.7;}
+.calender ul.day_wrap li span.passPoint.active img {filter: grayscale(0); opacity:1;}
+
+
+/* section tit */
+.ev_220722 .box {}
+.ev_220722 .box_tit {text-align:center;}
+.ev_220722 .box_tit p {}
+.ev_220722 .box_tit p span {display:block; color:#666; font-size:0.9375em; line-height:1.53333em;}
+.ev_220722 .box_tit p strong {display:block; margin-top:0.125em; color:#222; font-size:1.4375em; line-height:1em; font-family:'GmarketSansBold';}
+.ev_220722 .box_tit p.txt {color:#666; font-size:0.9375em;}
+.ev_220722 .box_tit div.tit {color:#222; font-size:1.4375em; font-family:'GmarketSansBold';}
+
+.box2 {padding:1.53125em 0 2.65625em; background-color:#f5f7f9; text-align:center;}
+.box2 .box_tit {padding:1.71875em 0 0.9375em;}
+/* 내 리워드 확인 버튼 */
+.box2 .btn_myReward {display:inline-flex; justify-content:center; align-items:center; width:15.625em; height:2.5em; background-color:#222222; border-radius:2.5em; text-decoration:none; box-shadow:0.1em 0.3em 0.6em rgba(0,0,0,0.1);}
+.box2 .btn_myReward span {display:block; position:relative; padding-top:1.5%; padding-right:1em; color:#fff; font-size:0.8125em; line-height:1em; font-family:'SBAggroM';}
+.box2 .btn_myReward span::before {content:""; display:block; position:absolute; right:0; top:50%; width:0.5em; height:0.5em; border-width:0.125em 0.125em 0 0; border-style:solid; border-color:#fff;; transform:rotate(45deg); transform-origin:100% 0;}
+
+.box2 .getticket_wrap {display:flex; flex-wrap:wrap; justify-content:space-between; row-gap:1.0625em; margin:0 auto; padding:0 1.4140625em;}
+.box2 .getticket_wrap li {display:flex; flex-direction:column; width:8.5em;}
+.box2 .getticket_wrap li div.tit {display:inline-block; margin:0 auto; flex:1;}
+.box2 .getticket_wrap li div.tit span {display:inline-flex; justify-content:center; align-items:center; width:auto; height:1.63636em; padding:0 0.5em; border:1px solid #101010; border-radius:100px; color:#101010; font-size:0.6875em; line-height:1em; font-weight:500; vertical-align:top;}
+.box2 .getticket_wrap li .ticket_con {position:relative; height:5.6875em; background:url('../images/bg_getticket.png') no-repeat 0 0 / contain;}
+.box2 .getticket_wrap li .ticket_con p.txt {position:absolute; top:50%; left:50%; transform:translate(-50%,-58%); color:#999;}
+.box2 .getticket_wrap li .ticket_con p.txt strong {font-size:1.53375em; font-family:'GmarketSansBold';}
+.box2 .getticket_wrap li .ticket_con p.txt span {font-size:1.054375em; font-family:'GmarketSansMedium';}
+.box2 .getticket_wrap li .ticket_con p.img {position:absolute; top:50%; left:50%; width:4.15625em; border-radius:100%; transform:translate(-50%,-55%);}
+.box2 .getticket_wrap li .ticket_con p.img img {vertical-align:top;}
+
+.box2 .getticket_wrap li.open {}
+.box2 .getticket_wrap li.open.complete {}
+.box2 .getticket_wrap li.open .ticket_con {background-image:url('../images/bg_getticket_open.png');}
+.box2 .getticket_wrap li.open .ticket_con p.txt {color:#101010;}
+
+
+/* 문화상품권 */
+.ev_result {position:relative; padding:1.59375em 0 1.75em 1.3125em; background-color:#faf8f0; overflow:hidden;}
+.ev_result::before {content:""; display:block; position:absolute; top:4.53125em; left:13.40625em; width:11.34375em; height:11.34375em; border-radius:100%; background-color:rgba(114,110,85,0.05);}
+.ev_result dl {}
+.ev_result dl dt {padding-left:0.1875em;}
+.ev_result dl dt strong {display:block; color:#4b4834; font-size:1.125em; line-height:1.27777em; font-family:'GmarketSansBold'; vertical-align:top;}
+.ev_result dl dt + dd {margin-top:1.96875em;}
+.ev_result dl dd strong {display:inline-flex; align-items:center; padding:0 0.65384em; background-color:#726e55; border-radius:1.76923em; color:#fff; font-size:0.8125em; line-height:1.76923em; vertical-align:top;}
+.ev_result dl dd p {color:#363220; font-size:0.75em; line-height:1.41666em; font-family:Pretendard; vertical-align:top; letter-spacing:-0.05em;}
+.ev_result dl dd + dd {margin-top:0.5em;}
+.ev_result dl dd:last-of-type {padding-left:0.1875em;}
+.ev_result div.img {position:absolute; right:1.0625em; bottom:1.28125em; width:9.53125em; height:5.40625em;}
+
+
+/* 슬라이드 없는 참여방법 */
+.howToWrap {padding:0 0 1.875em}
+.howToWrap div.box_tit {padding: 2.125em 0 2em;}
+.howToWrap div.box_tit span {font-family:'GmarketSansLight';}
+.howToWrap div.box_tit span + strong {margin-top:0.125em;}
+/* 참여방법 */
+div.howToJoinList { }
+div.howToJoinList div.item {position:relative; padding:0.15625em 0.90625em 0;}
+div.howToJoinList div.item div.innerBox {display:flex; position:relative; width:100%; height:7.28125em; padding:0 0.625em 0 1.25em; background-color:#f5f7f9; border-radius:0.9375em;}
+div.howToJoinList div.item div.flag {position:absolute; top:-0.15625em; left:1.4375em; width:1.375em;}
+div.howToJoinList div.item div.flag path {fill:#ffcf67;}
+div.howToJoinList div.item div.flag span {position:absolute; top:0; left:0; width:100%; text-align:center; font-size:0.75em; line-height:1.75em; font-weight:bold; font-family:'roboto';}
+
+div.howToJoinList div.item div.flag + div.con {width:100%; padding-top:1.78125em;}
+div.howToJoinList div.item div.flag + div.con {display:flex; justify-content:space-between; align-items:flex-start; position:relative;}
+div.howToJoinList div.item div.flag + div.con dl {flex:1; padding-bottom:0.5em;}
+div.howToJoinList div.item div.flag + div.con dt.tit {font-size:0.8125em; line-height:1.38461em; font-weight:bold;}
+div.howToJoinList div.item div.flag + div.con dd.txt {margin-top:0.34375em;}
+div.howToJoinList div.item div.flag + div.con dd.txt p {position:relative; padding-left:0.5em; color:#999; font-size:0.6875em; line-height:1.36363em;}
+div.howToJoinList div.item div.flag + div.con dd.txt p::before {content:"·"; display:block; position:absolute; top:0; left:0; color:inherit; font-size:inherit; line-height:inherit;}
+div.howToJoinList div.item div.flag + div.con dd.txt p + p {margin-top:0.45454em;}
+div.howToJoinList div.item div.flag + div.con div.img {align-self:flex-end;}
+div.howToJoinList div.item div.flag + div.con div.img img {display:block; width:5.9375em}
+div.howToJoinList div.item + div.item {margin-top:0.625em;}
+
+
+
+/* 출석체크하기 레이어 팝업 */
+.checklayer {display:none; position:fixed; top:0; left:0; right:0; width:100%; height:100%;  margin:0 auto; background-color:rgba(0,0,0,0.8); color:#fff; font-family:'yg-jalnan'; z-index:2;}
+.checkmark {text-align:center;}
+.checkmark > span {display:block; margin-top:0.9em; padding-bottom:0.5em; font-size:1.46875em; line-height:1.25em;}
+.checkmark .ckeckmark2 {display:inline-block; width:2.6875em; height:4.1875em; transform:rotate(45deg);}
+.checkmark .ckeckmark2::before, 
+.checkmark .ckeckmark2::after {content:""; display:block; position:absolute; bottom:0; border-radius:2px; opacity:0; z-index:2;}
+.checkmark .ckeckmark2::before {left:0; animation: ani_line_shot 0.4s 1 forwards; animation-timing-function:ease; box-shadow:inset 0 -0.55555vw 0.55555vw #d0c785;}
+.checkmark .ckeckmark2::after {right:0; animation: ani_line_long 0.3s 1 forwards; animation-timing-function:ease; animation-delay:0.3s; box-shadow:inset -0.55555vw 0 0.55555vw #d0c785}
+
+.ckeckmark2 span.shot,
+.ckeckmark2 span.long {position:absolute; bottom:0; background-color:#fff; border-radius:2px; opacity:0; }
+.ckeckmark2 span.shot {left:0; animation: ani_line_shot 0.4s 1 forwards; animation-timing-function:ease;}
+.ckeckmark2 span.long {right:0; animation: ani_line_long 0.3s 1 forwards; animation-timing-function:ease; animation-delay:0.3s;}
+
+.checklayer .getTxt {display:flex; justify-content:center; align-items:center;}
+.checklayer .getTxt span:first-of-type {width:2.34375em; height:auto;}
+.checklayer .getTxt span:last-of-type {font-size:1.46875em; margin-left:0.25em;}
+
+.checklayer .bonus_wrap {position:relative; width:100%; height:10.25em;}
+.checklayer .bonus_wrap div.item {opacity:0.5;}
+.checklayer .bonus_wrap div.item div.img {display:flex; justify-content:center; align-items:center; width:2.5625em; height:2.5625em; border-radius:100%; transition:0.2s all;}
+.checklayer .bonus_wrap div.item div.img span {display:flex; justify-content:center; align-items:center; position:relative; width:85.36585%; height:85.36585%; background-color:#333333; border:3px solid #feea59; border-radius:100%; color:#feea59; line-height:85.36585%; font-size:0.75em; transition:0.2s all;}
+.checklayer .bonus_wrap div.item div.txt {white-space:nowrap; transition:0.2s all;}
+.checklayer .bonus_wrap div.item div.txt img {filter: grayscale(100%);  transition:0.2s all;}
+.checklayer .bonus_wrap div.item div.txt {display:flex; align-items:center; position:absolute; left:50%; bottom:0; transform:translate(-50%, 110%); font-size:0.75em; color:#fff;}
+.checklayer .bonus_wrap div.item div.txt span:first-of-type {display:inline-block; width:1.83333em; height:1.125em;}
+.checklayer .bonus_wrap div.item div.txt span + span {margin-left:0.25em;}
+.checklayer .bonus_wrap div.item {position:absolute; top:10px; left:193px; z-index:1;}
+.checklayer .bonus_wrap div.item.active {opacity:1;}
+.checklayer .bonus_wrap div.item.active div.img {background-color:rgba(254,234,89, 0.3); box-shadow:0 0 5px rgba(0,0,0,0.5);}
+.checklayer .bonus_wrap div.item.active div.img span{border:0; background-color:#feea59; box-shadow: inset 0px -5px 4px rgba(0,0,0,0.24); color:#313131;}
+.checklayer .bonus_wrap div.item.active div.img span::before {content:""; display:block; position:absolute; top:0; left:0; width:100%; height:100%; background-color:transparent; border-radius:100%; box-shadow: inset 0px 5px 3px rgba(255,255,255,0.08);}
+.checklayer .bonus_wrap div.item.active div.txt {color:#feea59;}
+.checklayer .bonus_wrap div.item.active div.txt img {filter: grayscale(0);}
+.checklayer .bonus_wrap div.item:nth-child(1) {top:3.04878%; left:12.91666%;}
+.checklayer .bonus_wrap div.item:nth-child(2) {top:3.04878%; left:41.66666%;}
+.checklayer .bonus_wrap div.item:nth-child(3) {top:3.04878%; left:70.55555%;}
+.checklayer .bonus_wrap div.item:nth-child(4) {top:60.67073%; left:70.55555%;}
+.checklayer .bonus_wrap div.item:nth-child(5) {top:60.67073%; left:41.66666%;}
+.checklayer .bonus_wrap div.item:nth-child(6) {top:60.67073%; left:12.91666%;}
+
+.checklayer .bonus_wrap div.item.active:nth-child(1) div.img {animation-delay:0.3s;}
+.checklayer .bonus_wrap div.item.active:nth-child(2) div.img {animation-delay:0.6s;}
+.checklayer .bonus_wrap div.item.active:nth-child(3) div.img {animation-delay:0.9s;}
+.checklayer .bonus_wrap div.item.active:nth-child(4) div.img {animation-delay:1.2s;}
+.checklayer .bonus_wrap div.item.active:nth-child(5) div.img {animation-delay:1.5s;}
+.checklayer .bonus_wrap div.item.active:nth-child(6) div.img {animation-delay:1.8s;}
+.checklayer .bonus_wrap div.item.active.animation div.img {animation:ani_bonus_item 0.3s 1 forwards;}
+@keyframes ani_bonus_item {
+	0% {transform:scale(0.5);}
+	75% {transform:scale(1.2);}
+	100% {transform:scale(1);}
+}
+
+.checklayer .tooltip {display:flex; justify-content:center; align-items:center; position:relative; margin-top:2.5em; text-align:center;}
+.checklayer .tooltip p {display:inline-block; position:relative; padding:0.83333em 1.66666em; background-color:#feea59; color:#000; font-family:'NotoSansKR'; font-size:0.75em; border-radius:1.25em; line-height:1.333333em;}
+.checklayer .tooltip p::before {content:""; display:block; position:absolute; top:0; left:50%; 
+	width:0px;
+	height:0px;
+	border-top:10px solid none;
+	border-bottom:15px solid #feea59;
+	border-right: 10px solid transparent;
+	border-left: 10px solid  transparent;
+	transform:translate(-50%,-90%);
+	border-width:0.41666em 0.41666em 0.41666em 0.41666em;
+}
+
+.checklayer .content {position:absolute; top:50%; left:50%; width:100%; max-width:720px; text-align:center; transform:translate(-50%,-50%); animation:all 0.2s}
+.checklayer .content .count {margin-top:24px; color:#fff; font-weight:bold; font-size:27px; font-family:'yg-jalnan';}
+.checklayer div.close {position:absolute; top:23px; right:18px; width:40px; height:40px;}
+.checklayer div.close button {position:relative; width:100%; height:100%; font-size:0; vertical-align:top;}
+.checklayer div.close button::before,
+.checklayer div.close button::after {content:""; display:block; position:absolute; top:50%; left:50%; width:80%; height:2px; background-color:#fff;}
+.checklayer div.close button::before {transform:translate(-50%, -50%) rotate(45deg)}
+.checklayer div.close button::after {transform:translate(-50%, -50%) rotate(-45deg)}
+
+@keyframes ani_line_shot {
+	0% {left:-50%; width:0; height:20px; height:14.92537%; opacity:1; }
+	70% {left:-50%; width:150%; height:20px; height:14.92537%; opacity:1;}
+	100% {left:0; width:100%; height:20px; height:14.92537%; opacity:1; border-radius:2px;}
+}
+
+@keyframes ani_line_long {
+	0% {right:0; width:20px; width:23.52941%; height:0; opacity:1;}
+	80% {right:0; width:20px; width:23.52941%; height:110%; opacity:1;}
+	100% {right:0; width:20px; width:23.52941%; height:100%; opacity:1; border-radius:2px;}
+}
+
+@keyframes flipInY{
+	from{ transform:perspective(400px) rotate3d(0,1,0,90deg); animation-timing-function:ease-in; opacity:0; }
+	40%{ transform:perspective(400px) rotate3d(0,1,0,-20deg); animation-timing-function:ease-in; }
+	60%{ transform:perspective(400px) rotate3d(0,1,0,10deg); opacity:1; }
+	80%{ transform:perspective(400px) rotate3d(0,1,0,-5deg); }
+	to{ transform:perspective(400px); }
+}
+
+.line {position:absolute; transition:all 0.3s; overflow:hidden; /* background-color:rgba(0,0,0,0.5) */}
+/* .line::before {content:""; display:block; position:absolute; top:0; height:100%; background-color:#feea59;} */
+.line1 {top:1.59375em; left:5.28125em; width:0; height:0.09375em; background-color:#feea59;}
+.line2 {top:1.59375em; left:11.6875em; width:0; height:0.09375em; background-color:#feea59;}
+.line3 {top:1.59375em; right:1.875em; width:2.96875em; height:5.9375em;}
+.line3 span {display:block; position:absolute; right:0; top:0; width:100%; height:5.9375em; transform-origin:0 50%; overflow:hidden; transform:rotate(-180deg); transition:all 0.3s;}
+.line3 span::before {content:""; display:block; position:absolute; right:0; top:0; width:5.9375em; height:5.9375em; border:0.09375em solid #feea59; border-radius:100%;}
+.line4 {top:7.4375em; right:6.46875em; width:0; height:0.09375em; background-color:#feea59;}
+.line5 {top:7.4375em; right:13.03125em; width:0; height:0.09375em; background-color:#feea59;}
+
+.line1.active, .line2.active, .line4.active, .line5.active {width:4.34375em; width:4.5em; height:0.09375em; border-radius:2px;}
+.line3.active span {transform:rotate(0deg);}
+
+/* 출석체크하기 레이어 팝업 */
+.checklayer {font-size:4.44444vw;}
+@media screen and (min-width: 720px) {
+	.checklayer {font-size:2em;}
+}
+
+
+/* 내 티켓받기 */
+.getTicker {display:none; position:fixed; top:0; left:0; right:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); color:#fff; font-family:'GmarketSansBold'; z-index:2;}
+.getTicker .inner {position:fixed; top:50%; left:50%; width:20.25em; padding:2.1875em 1.125em; border-radius:0.3125em; transform:translate(-50%,-50%); background-color:#fff; text-align:center; box-shadow:1px 3px 5px rgba(0,0,0,0.2);}
+.getTicker .inner .img {position:relative; max-width:100%; width:9.5625em; height:5.625em; margin:0 auto; background:url('../images/img_getticket_big.png') no-repeat left top / contain}
+.getTicker .inner .img p {display:flex; justify-content:center; align-items:baseline; position:absolute; top:44%; left:0; width:100%; text-align:center; color:#222222; font-size:1.25em; font-family: 'GmarketSansMedium';}
+.getTicker .inner .img p strong {font-family:'GmarketSansBold'; font-weight:bold; font-size:1.5em; padding-right:0.1em;}
+.getTicker .inner .get_btn1 {display:inline-block; position:relative; margin-top:1em; color:#273448; font-size:0.75em; text-decoration:none;}
+.getTicker .inner .get_btn1::before {content:""; position:absolute; bottom:0px; left:0; width:100%; border-bottom:1px solid #273448;}
+.getTicker .inner .get_btn2 {display:inline-block; margin-top:2em; padding:0.635em 2em; background-color:#ff4b4b; border-radius:200px; color:#fff; font-size:1em; text-decoration:none; box-shadow:0 3px 5px rgba(0,0,0,0.2);}
+
+.getTicker .inner div.close {position:absolute; top:10px; right:10px; width:1.375em; height:1.375em;}
+.getTicker .inner div.close button {position:relative; width:100%; height:100%; font-size:0;}
+.getTicker .inner div.close button::before,
+.getTicker .inner div.close button::after {content:""; display:block; position:absolute; top:50%; left:50%; width:80%; height:2px; background-color:#273448;}
+.getTicker .inner div.close button::before {transform:translate(-50%, -50%) rotate(45deg)}
+.getTicker .inner div.close button::after {transform:translate(-50%, -50%) rotate(-45deg)}
+/* 내 티켓받기 */
+.getTicker {font-size:4.44444vw;}
+@media screen and (min-width: 720px) {
+	.getTicker {font-size:2em;}
+}
+
+/* alert형 모달 */
+.layer.alert {display:none; font-family:'Noto Sans KR';}
+.layer.alert::before {content:""; position:fixed; top:0; right:0; bottom:0; left:0; background-color:rgba(0,0,0,0.8); z-index:100;}
+.layer.alert .layerBox {box-sizing:border-box; position:fixed; top:50%; left:20px; right:20px; background-color:#fff; border-radius:6px; transform:translateY(-50%); z-index:100; box-shadow:0 0 5px rgba(0,0,0,0.5);}
+.layer.alert .content {padding:36px 18px; color:#000; font-weight:700; word-break:keep-all; text-align:center;}
+.layer.alert .txt {margin-top:12px; padding:0 18px 36px; color:#000; font-size:16px; line-height:1.5; font-weight:400; word-break:keep-all;}
+.layer.alert .alert_btn {display:flex; width:100%; border-top:1px solid #e7e7e7;}
+.layer.alert .alert_btn .btn {width:100%; min-width:50%;}
+.layer.alert .alert_btn .btn button {color:#000; font-family:400;}
+.layer.alert .alert_btn .btn button span {display:block; padding:16px 0 17px; font-size:18px; line-height:1.5;}
+.layer.alert .alert_btn .btn:last-child button {color:#ff3782; font-weight:700;}
+@media screen and (min-width: 720px) {
+	.layer.alert .layerBox {left:50%; right:auto; width:648px; transform:translate(-50%,-50%);}
+}
+/* .layer.alert::after {content:""; display:block; position:fixed; top:10px; right:10px; width:20px; height:20px;;} */
+.layer.alert div.close {position:fixed; top:23px; right:18px; width:40px; height:40px; z-index:100;}
+.layer.alert div.close button {position:relative; width:100%; height:100%; font-size:0;}
+.layer.alert div.close button::before,
+.layer.alert div.close button::after {content:""; display:block; position:absolute; top:50%; left:50%; width:80%; height:2px; background-color:#fff;}
+.layer.alert div.close button::before {transform:translate(-50%, -50%) rotate(45deg)}
+.layer.alert div.close button::after {transform:translate(-50%, -50%) rotate(-45deg)}
+</style>
+
+</head>
+
+
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KCRSQZV" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<div class="evPageWrap">
+
+	<div class="evSection">
+
+		<div class="ev_220722">
+			<div class="box1">
+				<div class="main_img"><img src="../images/chkeck_main_img1.jpg" alt=""></div>
+				<div class="ev_date">
+					<div><span>이벤트 기간</span> <strong>2022.11.15 ~ 2022.12.14</strong></div>
+					<div>
+						<span class="icon"><img src="../images/icon_pass.png" alt="pass"></span>
+						<p>이달의 출석 횟수 : <span class="count">7회</span></p>
+					</div>
+				</div>
+					<!-- <div class="btn"><button type="button"><span>출석체크 하기</span></button></div> -->
+
+				<div class="calender">
+
+					<!-- <div class="btn"><button type="button"><span><img src="../images/check_main_btn.png" alt="출석체크하기"></span></button></div> -->
+					<div class="btn"><button type="button"><span>출석체크하기</span></button></div>
+				
+					<div class="inner">
+						<ul class="day_wrap">
+							<li class="active">
+								<span class="stemp"><img src="../images/img_stemp_chk.png" alt="출석"></span>
+							</li>
+							<li class="active">
+								<span class="stemp"><img src="../images/img_stemp_chk.png" alt="출석"></span>
+							</li>
+							<li class="active">
+								<span class="passPoint"><img src="../images/img_stemp_point.png" alt="티켓"></span>
+							</li>
+							<li class="active">
+								<span class="stemp"><img src="../images/img_stemp_chk.png" alt="출석"></span>
+							</li>
+							<li class="active">
+								<span class="stemp"><img src="../images/img_stemp_chk.png" alt="출석"></span>
+							</li>
+							<li class="active">
+								<span class="stemp"><img src="../images/img_stemp_chk.png" alt="출석"></span>
+							</li>
+							<li>
+								<span class="passPoint"><img src="../images/img_stemp_point.png" alt="티켓"></span>
+							</li>
+							<li>
+								<span class="day">8일차</span>
+							</li>
+							<li>
+								<span class="day">9일차</span>
+							</li>
+							<li>
+								<span class="day">10일차</span>
+							</li>
+							<li>
+								<span class="day">11일차</span>
+							</li>
+							<li>
+								<span class="day">12일차</span>
+							</li>
+							<li>
+								<span class="day">13일차</span>
+							</li>
+							<li>
+								<span class="day">14일차</span>
+							</li>
+							<li>
+								<span class="day">15일차</span>
+							</li>
+							<li>
+								<span class="day">16일차</span>
+							</li>
+							<li>
+								<span class="day">17일차</span>
+							</li>
+							<li>
+								<span class="day">18일차</span>
+							</li>
+							<li>
+								<span class="day">19일차</span>
+							</li>
+							<li>
+								<span class="day">29일차</span>
+							</li>
+							<li>
+								<span class="day">21일차</span>
+							</li>
+							<li>
+								<span class="day">22일차</span>
+							</li>
+							<li>
+								<span class="day">23일차</span>
+							</li>
+							<li>
+								<span class="day">24일차</span>
+							</li>
+							<li>
+								<span class="day">25일차</span>
+							</li>
+							<li>
+								<span class="day">26일차</span>
+							</li>
+							<li>
+								<span class="day">27일차</span>
+							</li>
+							<li>
+								<span class="day">28일차</span>
+							</li>
+							<li>
+								<span class="day">29일차</span>
+							</li>
+							<li>
+								<span class="day">30일차</span>
+							</li>
+						</ul>
+					</div>
+
+				</div>
+				
+			</div><!-- // box1 -->
+
+			<!-- box2 영역은 디자인 미완료로 인해 변경 예정입니다. -->
+			<div class="box2">
+				
+				<!-- <div><button type="button" class="btn_myReward"><span>내 리워드 확인</span></button></div> -->
+				<div><a href="#g" class="btn_myReward"><span>내 리워드 확인하기</span></a></div>
+
+
+				<div>
+					<div class="box_tit"><p><span>출석체크 이벤트</span><strong>티켓받기</strong></p></div>
+
+					<ul class="getticket_wrap">
+						<li class="open complete">
+							<div class="tit"><span>3일 연속</span></div>
+							<div class="ticket_con">
+								<p class="txt"><strong>1</strong><span>장</span></p>
+								<p class="img"><img src="../images/img_getticket_com.png" alt="완료"></p>
+							</div>
+						</li>
+						<li class="open">
+							<div class="tit"><span>7일 연속</span></div>
+							<div class="ticket_con">
+								<p class="txt"><strong>2</strong><span>장</span></p>
+								<!-- <p class="complete"><img src="../images/img_getticket_com.png" alt="완료"></p> -->
+							</div>
+						</li>
+						<li class="open">
+							<div class="tit"><span>12일 연속</span></div>
+							<div class="ticket_con">
+								<p class="txt"><strong>3</strong><span>장</span></p>
+								<!-- <p class="complete"><img src="../images/img_getticket_com.png" alt="완료"></p> -->
+							</div>
+						</li>
+						<li>
+							<div class="tit"><span>18일 연속</span></div>
+							<div class="ticket_con">
+								<p class="txt"><strong>10</strong><span>장</span></p>
+								<!-- <p class="complete"><img src="../images/img_getticket_com.png" alt="완료"></p> -->
+							</div>
+						</li>
+						<li>
+							<div class="tit"><span>25일 연속</span></div>
+							<div class="ticket_con">
+								<p class="txt"><strong>7</strong><span>장</span></p>
+								<!-- <p class="complete"><img src="../images/img_getticket_com.png" alt="완료"></p> -->
+							</div>
+						</li>
+						<li>
+							<div class="tit"><span>30일 연속</span></div>
+							<div class="ticket_con">
+								<p class="txt"><strong>10</strong><span>장</span></p>
+								<!-- <p class="complete"><img src="../images/img_getticket_com.png" alt="완료"></p> -->
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div><!-- // box2 -->
+
+			<div class="bnr2"><img src="../images/append_bnr1.png" alt="PASS 티켓 응모하면 도심 속 특별한 하루 Dream!"></div>
+
+			<!-- <div class="ev_result"> 사용 안함. 삭제 고고!
+				<dl>
+					<dt><strong>출석체크 연속 30일 달성하면<br />통합 모바일 문화상품권을 드립니다!</strong></dt>
+					<dd><strong>당첨자 발표</strong></dd>
+					<dd>
+						<p>
+							2022. 09. 06 (화)<br />
+							출석체크 연속 30일 달성 고객 중<br />
+							추첨 300명
+						</p>
+					</dd>
+				</dl>
+				<div class="img"><img src="../images/img_cultureland.png" alt="문화상품권 오천원권"></div>
+			</div> -->
+
+			<div><img src="../images/img_221107_img01.png" alt="출석체크 연속 30일 달성시 모바일 문화상품권을 드립니다."></div>
+
+			<div class="box howToWrap">
+				<div class="box_tit"><p><span>이벤트에 참여할 수 있는 티켓을 GET하는 방법! </span><strong>참여방법</strong></p></div>
+
+				<div class="howToJoinList">
+					
+					<div class="item">
+						<div class="innerBox">
+							<div class="flag">
+								<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 50.009">
+									<path d="M3.999,0H39.999c2.21,0,4.001,1.792,4.001,4.002V50.009l-21.838-10.001L0,50.009V4.002C0,1.792,1.79,0,3.999,0Z" style="fill-rule:evenodd;"/>
+								</svg>
+								<span>01</span>
+							</div>
+							<div class="con">
+								<dl>
+									<dt class="tit">PASS부가서비스 유료 가입하고, Get!</dt>
+									<dd class="txt">
+										<p>PASS 앱 내 부가서비스 가입하면<br />
+											티켓을 드려요.</p>
+									</dd>
+								</dl>
+								<div class="img"><img src="../images/img_221107_how01.png" alt=""></div>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="innerBox">
+							<div class="flag">
+								<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 50.009">
+									<path d="M3.999,0H39.999c2.21,0,4.001,1.792,4.001,4.002V50.009l-21.838-10.001L0,50.009V4.002C0,1.792,1.79,0,3.999,0Z" style="fill-rule:evenodd;"/>
+								</svg>
+								<span>02</span>
+							</div>
+							<div class="con">
+								<dl>
+									<dt class="tit">출석체크하고 GET!</dt>
+									<dd class="txt">
+										<p>매일 PASS에 접속하고 출석체크하면<br />티켓을 드려요.</p>
+										<p>연속 출석 시 PASS Ticket 더! 드립니다.</p>
+									</dd>
+								</dl>
+								<div class="img"><img src="../images/img_221107_how02.png" alt=""></div>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="innerBox">
+							<div class="flag">
+								<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 50.009">
+									<path d="M3.999,0H39.999c2.21,0,4.001,1.792,4.001,4.002V50.009l-21.838-10.001L0,50.009V4.002C0,1.792,1.79,0,3.999,0Z" style="fill-rule:evenodd;"/>
+								</svg>
+								<span>03</span>
+							</div>
+							<div class="con">
+								<dl>
+									<dt class="tit">가입한 PASS 부가서비스 이용하고<br />계속 GET!</dt>
+									<dd class="txt">
+										<p>부가서비스 당 하루에 한번만 받을 수 있어요.</p>
+										<p>유료가입 서비스를 이용하면 받을 수 있어요.</p>
+									</dd>
+								</dl>
+								<div class="img"><img src="../images/img_221107_how03.png" alt=""></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!-- // ev_210504 -->
+
+	</div><!-- // evSection -->
+
+</div><!-- // evPageWrap -->
+
+
+<!-- 출석체크하기 -->
+<div class="layer checklayer" id="" style="display:block;">
+	<div class="content">
+		
+		<div class="checkmark">
+			<div class="ckeckmark2">
+				<span class="shot"></span>
+				<span class="long"></span>
+			</div>
+			<span>오늘의<br />출석체크 완료!</span>
+		</div>
+
+		<!-- <div class="getTxt">
+			<span><img src="../images/img_ticket_big.png" alt="PASS"></span>
+			<span>+2장 지급</span>
+		</div> -->
+		
+		<div class="bonus_wrap">
+			<div class="item active">
+				<div class="img"><span>3</span></div>
+				<div class="txt">
+					<span><img src="../images/img_ticket_small.png" alt="PASS"></span>
+					<span>+1장</span>
+				</div>
+			</div>
+			<div class="item active">
+				<div class="img"><span>7</span></div>
+				<div class="txt">
+					<span><img src="../images/img_ticket_small.png" alt="PASS"></span>
+					<span>+2장</span>
+				</div>
+			</div>
+			<div class="item active">
+				<div class="img"><span>12</span></div>
+				<div class="txt">
+					<span><img src="../images/img_ticket_small.png" alt="PASS"></span>
+					<span>+3장</span>
+				</div>
+			</div>
+			<div class="item active">
+				<div class="img"><span>18</span></div>
+				<div class="txt">
+					<span><img src="../images/img_ticket_small.png" alt="PASS"></span>
+					<span>+5장</span>
+				</div>
+			</div>
+			<div class="item active">
+				<div class="img"><span>25</span></div>
+				<div class="txt">
+					<span><img src="../images/img_ticket_small.png" alt="PASS"></span>
+					<span>+7장</span>
+				</div>
+			</div>
+			<div class="item active">
+				<div class="img"><span>30</span></div>
+				<div class="txt">
+					<span><img src="../images/img_ticket_small.png" alt="PASS"></span>
+					<span>+10장</span>
+				</div>
+			</div>
+
+			<div class="line line1"></div>
+			<div class="line line2"></div>
+			<div class="line line3"><span></span></div>
+			<div class="line line4"></div>
+			<div class="line line5"></div>
+
+		</div><!-- // bonus_wrap -->
+		<div class="tooltip"><p><strong>+6일만</strong> 더 들어오면<br />추가 티켓이 지급돼요!</p></div>
+			
+	</div>
+	<div class="close"><button type="button"><span>닫기</span></button></div>
+</div>
+
+
+
+<div class="layer getTicker">
+	<div class="inner">
+		<div class="content">
+			<div class="img"><p><strong>2</strong><span>장</span></p></div>
+			<div class="get_btn">
+				<div><a href="#g" class="get_btn1">내 티켓 확인하기</a></div>
+				<div><a href="#g" class="get_btn2">경품 응모하러 가기</a></div>
+			</div>
+		</div>
+		<div class="close"><button type="button"><span>닫기</span></button></div>
+	</div>
+</div>
+
+<div class="layer alert">
+	<div class="layerBox">
+		<div class="alert_content">
+			<div class="content">아쉽게도 당첨되지 않으셨습니다.</div>
+			<div class="alert_btn">
+				<!-- <div class="btn"><button type="button" class="cancel"><span>취소</span></button></div> -->
+				<div class="btn"><button type="button" class="ok"><span>확인</span></button></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script>
+
+$(document).ready(function(){
+
+	$("button").on("click", function(){
+		var xxx = $(this).attr("title");
+		if(xxx) {
+			//alert(xxx)
+		} else {
+			//alert($(this).html())
+		}
+	})
+
+
+	$(".layer.alert button.ok").on("click", function(){
+		$(this).parents(".layer").hide();
+	})
+
+	$(".box1 div.btn button").on("click", function(){
+		$(".checklayer").show();
+		chkAnimationFunction();
+	})
+
+	/*	출석체크 티켓받기 */
+	$(".getticket_wrap .open .ticket_con").on("click", function(){
+		if(!$(this).parents(".open").hasClass("complete")){
+			$(".getTicker").show();
+		}
+	})
+
+	$("div.close").on("click", function(){
+		$(this).parents(".layer").hide();
+	})
+
+
+	/* 샘플로 넣어둔 active 삭제 */
+	$(".bonus_wrap .item").removeClass("active");
+	/* 출석체크팝업 모션 테스트 */
+	var chk_item = $(".bonus_wrap .item");
+	var chk_line = $(".bonus_wrap .line");
+	var ticket_act = 4;
+	var ticket_idx = 0;
+	function chkAnimationFunction(){
+		var myVar = setInterval(myFunction, 300);
+		function myFunction() {
+			if((ticket_idx) < ticket_act) {
+				$(chk_item[ticket_idx]).addClass("active animation")
+				if((ticket_idx) < ticket_act -1) {
+					$(chk_line[ticket_idx]).addClass("active")
+				}
+				ticket_idx++;
+			} else {
+				clearInterval(myVar);
+			}
+		}
+	}
+
+})
+</script>
+
+</body>
+</html>

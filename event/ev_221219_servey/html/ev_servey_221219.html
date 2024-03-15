@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>PASS 앱 이벤트</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/ev_common.css">
+	<link rel="stylesheet" href="../css/slick.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<script src="../js/slick.js" type="text/javascript" charset="utf-8"></script>
+
+	<!-- Google Tag Manager -->
+	<script>
+	(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-KCRSQZV');
+	</script>
+	<!-- End Google Tag Manager -->
+
+
+<style>
+	.ev_221219 { background-color:#fff; font-family:'Noto Sans KR';}
+	.ev_221219 img {vertical-align:top;}
+	.ev_221219 div {position:relative;}
+
+	.ev_221219 .ev_form {padding:1.5625em 0 0; background-color:#fff;}
+	.ev_221219 .ev_form div.tit {font-size:1.25em; font-family:'GmarketSansMedium'; text-align:center;}
+	.ev_221219 .ev_form p {margin-top:1em; padding-bottom:0.5em; color:#444;}
+	.ev_221219 .ev_form .ipt {padding-bottom:0.625em;}
+	.ev_221219 .ev_form .ipt input {box-sizing:border-box; height:3.4375em; padding:0 1.5625em; background-color:#fff; border:0; border-radius:0.625em; color:#333; font-family:'GmarketSansMedium';}
+	.ev_221219 .ev_form .ipt input::placeholder {color:#666;}
+	.ev_221219 .ev_form .chk_wrap {display:inline-block; margin-top:1.25em; padding-right:1.25em;}
+	.ev_221219 .ev_form .chk_wrap * {vertical-align:top;}
+	.ev_221219 .ev_form .chk_wrap label {display:inline-block; position:relative; vertical-align:top;}
+	.ev_221219 .ev_form .chk_wrap label input {position:absolute; opacity:0;}
+	.ev_221219 .ev_form .chk_wrap label input + span.checkmark {position:absolute; top:50%; left:0; width:1em; height:1em; background-color:#fff; border-radius:100%; transform:translateY(-50%);}
+	.ev_221219 .ev_form .chk_wrap label input + span.checkmark::before {content:""; display:block; position:absolute; top:50%; left:50%; width:60%; height:35%; border-width:0.1em; border-style:solid; border-color:transparent transparent #ccc #ccc; transform: translate(-50%,-85%) rotate(-45deg); }
+	.ev_221219 .ev_form .chk_wrap label input:checked + span.checkmark {background-color:#222;}
+	.ev_221219 .ev_form .chk_wrap label input:checked + span.checkmark::before {border-color:transparent transparent #fff #fff;}
+	.ev_221219 .ev_form .chk_wrap label span.txt {display:block; padding-top:0.15em; padding-left:2em; color:#222; font-size:0.75em; font-family:'GmarketSansMedium';}
+	.ev_221219 .ev_form table {width:100%; margin-top:1em; border-top:1px solid #aaa; border-bottom:1px solid #aaa; font-size:0.6875em; font-family:'GmarketSansMedium';}
+	.ev_221219 .ev_form table th,
+	.ev_221219 .ev_form table td {padding:1.175em 1em 1em 1em; font-weight:normal;}
+	.ev_221219 .ev_form table th {background-color:#f8f5f0; color:#666; border-right:1px solid #aaa;}
+	.ev_221219 .ev_form table td {background-color:#fff; color:#222;}
+	.ev_221219 .ev_form table tr + tr th {border-top:1px solid #aaa;}
+	.ev_221219 .ev_form table tr + tr td {border-top:1px solid #aaa;}
+	.ev_221219 .ev_join {position:-webkit-sticky; position:sticky; bottom:0; left:0; z-index:1;}
+	.ev_221219 .btn_dark {display:flex; justify-content:center; align-items:center;  width:100%; height:3.125em; background-color:#FFEF2F; color:#165D1F; font-size:1.0625em; font-family:'Noto Sans KR'; z-index:2;}
+	.ev_221219 .btn_dark span {display:block; position:relative; top:0.125em; line-height:1em; font-weight:bold;}
+
+
+	.ev_221219 .topImg .btn_pass_survey {position:absolute; bottom:1.90625em; left:3.3125em; right:3.3125em; width:auto; max-width:100%;;}
+
+	.ev_221219 .reward {padding:0 1.5625em 3.125em;}
+	.ev_221219 .reward dt {display:flex; justify-content:center; align-items:center; height:2.5em; background-color:#F0F0F0; border-radius:0.625em;}
+	.ev_221219 .reward dt strong {display:block; font-size:0.9375em;}
+	.ev_221219 .reward dd {display:flex; justify-content:space-between; align-items:center; padding:0.625em 0.625em 0.34375em; border-bottom:1px solid #F0F0F0;}
+	.ev_221219 .reward dd strong {display:block; color:#404040; font-size:0.9375em; line-height:1.5em; font-weight:bold;}
+	.ev_221219 .reward dd span {display:block; color:#404040; font-size:0.9375em; line-height:1.5em; font-weight:400;}
+	.ev_221219 .box5 {position:relative;}
+	.ev_221219 .box5 p {position:absolute; top:2.5em; left:0; width:100%; color:#fff; font-size:0.84375em; line-height:1.48148em; letter-spacing:-0.05em; text-align:center;}
+	.ev_221219 .box5 p em {color:#FFEF2F; font-weight:bold;}
+	.ev_221219 .box5 p span {font-weight:bold;}
+
+	.ev_221219 .appUpdate {padding:1.5625em 0 1.875em;}
+	.ev_221219 .appUpdate .icon {text-align:center;}
+	.ev_221219 .appUpdate .icon span {display:inline-block;}
+	.ev_221219 .appUpdate .icon span img {display:inline-block; width:1.84375em;}
+	.ev_221219 .appUpdate .icon p {font-size:0.9375em; line-height:1.5em;}
+	.ev_221219 .appUpdate .icon p em {position:relative; font-weight:bold; z-index:1;}
+	.ev_221219 .appUpdate .icon p em::before {content:""; display:block; position:absolute; bottom:0; left:0; width:100%; height:0.533333em; background-color: #9BF2A3; z-index:-1;}
+	.ev_221219 .appUpdate .btns {display:flex; justify-content:space-between; align-items:center; margin-top:1.21875em; padding:0 2.1875em;}
+	.ev_221219 .appUpdate .btns img {width:8.75em;}
+
+	.ev_221219 .date {padding:1.5625em 1.5625em 1.375em; background-color:#f0f0f0;}
+	.ev_221219 .date dl {letter-spacing:-0.05em;}
+	.ev_221219 .date dl + dl {margin-top:0.90625em;}
+	.ev_221219 .date dt {position:relative; padding-left:0.9375em; color:#404040; font-size:0.9375em; line-height:1.5em;}
+	.ev_221219 .date dt::before {content:"·"; display:block; position:absolute; top:0; left:0; color:#38AA41; font-size:inherit; line-height:inherit; font-weight:bold; font-family:'Noto Sans KR';}
+	.ev_221219 .date dt::after {content:""; display:block; position:absolute; top:0.6em; left:0; width:0.333333em; height:0.333333em; background-color: #38AA41; border-radius:100%;}
+	.ev_221219 .date dd {margin-top:0.3em; color:#404040; font-size:0.9375em;}
+	.ev_221219 .date dd p {padding-left:0.9375em; line-height:1.5em;}
+
+	.ev_221219 .slide_survey {overflow:hidden;}
+	.ev_221219 .slide_survey .slide_wrap {position:absolute; bottom:0; left:0; width:100%;}
+	.ev_221219 .slide_survey .slide_wrap div.item {width:19.375em; font-size:4.44444vw; overflow:hidden; text-align:center;}
+	.ev_221219 .slide_survey .slide_wrap img {display:inline-block; width:19.375em; vertical-align:top;}
+	.ev_221219 .slide_survey .slide_wrap .slick-list {font-size:0;}
+
+.ev_221219 .slick-arrow {position:absolute; bottom:6em; width:1.75em; height:1.75em; border-radius:100%; z-index:1; overflow:hidden; color:transparent; transition:all 0.2s ease;}
+.ev_221219 .slick-arrow.slick-prev {left:1.21875em;}
+.ev_221219 .slick-arrow.slick-next {right:1.21875em;}
+
+.ev_221219 .slick-arrow::before {content:""; display:block; position:absolute; width:56%; height:56%; border-style:solid; border-color:#fff; }
+.ev_221219 .slick-arrow.slick-prev::before {top:50%; left:28%; border-width:0.1em 0 0 0.1em; transform:rotate(-45deg); transform-origin:0 0;}
+.ev_221219 .slick-arrow.slick-next::before {top:50%; right:28%; border-width:0.1em 0.1em 0 0; transform: rotate(45deg); transform-origin:100% 0;}
+.ev_221219 .slick-arrow.slick-disabled {background-color:#dde2e9; opacity:0;}
+
+@media screen and (min-width: 720px) {
+	.slide_survey .slide_wrap div.item {font-size:32px;}
+}
+
+.ev_221219 .howto {padding:1.5625em 3em 2.8125em;}
+.ev_221219 .howto div.tit {text-align:center;}
+.ev_221219 .howto div.tit p {display:inline-block; position:relative; font-size:1.875em;}
+.ev_221219 .howto div.tit p::before {content:""; display:block; position:absolute; bottom:0; left:0; width:100%; height:0.45em; background-color:#9BF2A3;}
+.ev_221219 .howto div.tit p span {display:inline-block; position:relative; z-index:1;}
+.ev_221219 .howto div.tit p strong {display:inline-block; position:relative; z-index:1;}
+.ev_221219 .howto ol {margin-top:1.4375em;}
+.ev_221219 .howto ol li + li {margin-top:0.625em;}
+.ev_221219 .howto ol li div.txt {display:flex; align-items:center;}
+.ev_221219 .howto ol li div.txt span {display:inline-flex; justify-content:center; align-items:center; width:1.25em; height:1.25em; background-color: #38AA41; color:#fff; border-radius:100%;;}
+.ev_221219 .howto ol li div.txt p {margin-left:0.66666em; color:#404040; font-size:0.9375em; letter-spacing:-0.05em;}
+.ev_221219 .howto ol li div.btns {margin-top:0.65625em;}
+.ev_221219 .howto ol li div.btns p {margin-top:0.41666em; color:#38AA41; font-size:0.75em; line-height:1.5em; text-align:right; letter-spacing:-0.05em;}
+.ev_221219 .howto ol li div.btns p em {font-weight:bold;}
+
+.ev_221219 .btn_pass_survey {position:relative; height:2.1875em; background-color:#38AA41; border-radius:0.3125em;}
+.ev_221219 .btn_pass_survey span {display:inline-block; position:relative; padding-right:1.53333em; color:#fff; line-height:1em; font-weight:bold;}
+.ev_221219 .btn_pass_survey span::before,
+.ev_221219 .btn_pass_survey span::after {content:""; display:block; position:absolute; top:56%; width:0.5em; height:0.5em; border-width:0.1em 0.1em 0 0; border-style:solid; border-color:#fff; transform:rotate(45deg); transform-origin:100% 0;}
+.ev_221219 .btn_pass_survey span::before {right:0.4em;}
+.ev_221219 .btn_pass_survey span::after {right:0;}
+
+.evFooterAlert_221219 {padding:2.1875em 1.5625em; background-color:#F0F0F0; font-size:4.4444vw; font-family:'Noto Sans KR';}
+.evFooterAlert_221219 dl dt strong {font-size:1.5625em; font-family:'Noto Sans KR';}
+.evFooterAlert_221219 dl dt span {color:#38AA41;}
+.evFooterAlert_221219 dl dd {margin-top:1.5em;}
+.evFooterAlert_221219 dl dd + dd {margin-top:0.3125em;}
+.evFooterAlert_221219 dl dd p.txt {position:relative; padding-left:1.25em; color:#404040; font-size:0.75em; line-height:1.5em;}
+.evFooterAlert_221219 dl dd p.txt::before {content:"·"; display:block; position:absolute; top:0; left:0; color:#38AA41; font-size:2em; line-height:inherit; transform:scale(1); transform-origin:center;font-family:'Noto Sans KR';}
+.evFooterAlert_221219 dl dd p.txt::after {content:""; display:block; position:absolute; top:0.6em; left:0; width:0.41666em; height:0.41666em; border-radius:100%; background-color:#38AA41;}
+
+@media screen and (min-width: 720px) {
+	.evFooterAlert_221219 {font-size:1em;}
+}
+</style>
+
+</head>
+
+
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KCRSQZV" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<div class="evPageWrap">
+
+	<div class="evSection">
+
+		<div class="ev_221219">
+
+			<div class="topImg">
+				<img src="../images/ev_221219_img1.png" alt="돈 버는 설문조사 서베이로 시작하는 앱테크" />
+				<button type="button" class="btn_pass_survey"><span>PASS 서베이 바로가기</span></button>
+			</div>
+
+			<div><img src="../images/ev_221219_img2.png" alt="서비스 가입만 해도 즉시 500P 지급, 적립된 포인트는 모바일 문화상품권 또는 현금으로 교환 가능" /></div>
+
+			<div><img src="../images/ev_221219_img3.png" alt="서베이 포인트도 드리고! 푸짐한 선물도 드리고! 지금 모두 드립니다." /></div>
+
+			<div><img src="../images/ev_221219_img4.png" alt="상품 이미지" /></div>
+
+			<dl class="reward">
+				<dt><strong>리워드</strong></dt>
+				<dd>
+					<strong>LG 시네빔</strong>
+					<span>2명</span>
+				</dd>
+				<dd>
+					<strong>스타벅스 아메리카노</strong>
+					<span>300명</span>	
+				</dd>
+			</dl>
+
+			<div class="box5">
+				<img src="../images/ev_221219_img5.png" alt="PASS앱 홈화면">
+				<p>본 서비스는 <em>PASS 앱 최신버전</em>에서 이용 가능하니<br />
+					<span>PASS 홈 > 내지갑 영역에 PASS 서베이</span>가 보이지 않는 경우<br />
+					<span>앱 업데이트</span> 후 이용해주세요.</p>
+			</div>
+
+			<div class="appUpdate">
+				<div class="icon">
+					<span><img src="../images/ico_phone.png" alt="PASS앱" /></span>
+					<p>PASS 앱 <em>업데이트</em> 하기</p>
+				</div>
+				<div class="btns">
+					<button type="button"><span><img src="../images/btn_google.png" alt="Google Play"></span></button>
+					<button type="button"><span><img src="../images/btn_appstore.png" alt="App Store"></span></button>
+				</div>
+			</div>
+
+			<div class="date">
+				<dl>
+					<dt><strong>이벤트 기간</strong></dt>
+					<dd><p>2022년 12월 20일 (화)  ~ 2023년 01월 19일 (목)</p></dd>
+				</dl>
+				<dl>
+					<dt><strong>이벤트 대상</strong></dt>
+					<dd>
+						<p>기간 내 PASS 서베이 가입 후,<br />
+							웰컴서베이 5회 참여 완료한 뒤<br />
+							이벤트 페이지 응모한 고객 중 추첨 </p>
+					</dd>
+				</dl>
+				<dl>
+					<dt><strong>당첨자 발표</strong></dt>
+					<dd><p>2023년 01월 26일 (목)</p></dd>
+				</dl>
+			</div>
+
+			<div class="slide_survey">
+				<div><img src="../images/ev_221219_img6.png" alt=""></div>
+				<div class="slide_wrap">
+					<div class="item"><img src="../images/ev_221219_img6_01.png" alt="STEP 1 나만의 설문 클릭하기"></div>
+					<div class="item"><img src="../images/ev_221219_img6_02.png" alt="STEP 2 Welcome Survey(1차) 클릭하기"></div>
+					<div class="item"><img src="../images/ev_221219_img6_03.png" alt="STEP 3 Welcome Survey 설문조사 참여하기"></div>
+					<div class="item"><img src="../images/ev_221219_img6_04.png" alt="STEP 4 Welcome Survey 2차~5차까지 설문 완료하기"></div>
+					<div class="item"><img src="../images/ev_221219_img6_05.png" alt="STEP 5 Welcome Survey 5차 설문까지 완료 후 이벤트 응모하기"></div>
+				</div>
+			</div>
+
+			<div class="howto">
+				<div class="tit">
+					<p><span>이벤트</span><strong>응모 방법</strong></p>
+				</div>
+				<ol>
+					<li>
+						<div class="txt">
+							<span>1</span>
+							<p>PASS 서베이 서비스 가입하기</p>
+						</div>
+						<div class="btns">
+							<button class="btn_pass_survey"><span>PASS 서베이 바로가기</span></button>
+							<p>※ <em>최신 앱 버전</em>으로 업데이트 후 이용해주세요.</p>
+						</div>
+					</li>
+					<li>
+						<div class="txt">
+							<span>2</span>
+							<p>PASS 서베이 웰컴 설문 5단계 완료하기</p>
+						</div>
+					</li>
+					<li>
+						<div class="txt">
+							<span>3</span>
+							<p>이벤트 응모하기</p>
+						</div>
+					</li>
+				</ol>
+			</div>
+
+			<div class="evFooterAlert_221219"><!-- dark, light, gray -->
+				<dl>
+					<dt><strong>꼭 <span>확인</span>하세요</strong></dt>
+					<dd><p class="txt">당첨된 모바일 쿠폰상품은 등록된 휴대전화번호로 일괄배송 예정입니다.</p></dd>
+					<dd><p class="txt">5만원 초과 경품의 제세공과금 (경품 소비자가의 22%)은 당첨자 본인 부담이며, 개별 연락하여 주소지확인 및 제세공과금 납부 안내 후, 일괄 배송 진행될 예정입니다.</p></dd>
+					<dd><p class="txt">제세공과금 처리를 위해 당첨자의 주민등록증 사본을 요구할 수 있습니다.</p></dd>
+					<dd><p class="txt">본 이벤트의 내용 및 경품은 당사 사정에 의해 별도 사전고지 없이 변경될 수 있으며, 실제 경품은 이미지와 다를 수 있습니다.</p></dd>
+					<dd><p class="txt">비정상적인 방법으로 응모하여 당첨되는 경우 당첨이 취소될 수 있으며, 정보 오기재로 인한 경품 반송 및 분실은 당사에서 책임지지 않습니다.</p></dd>
+					<dd><p class="txt">이벤트 참여 후 U+ 모바일 서비스를 해지하거나 명의 및 휴대폰번호를 변경하면 당첨이 취소됩니다.</p></dd>
+					<dd><p class="txt">약관은 'PASS 이벤트 > 더보기 > 이용약관 및 정책' 메뉴에서 확인할 수 있습니다.</p></dd>
+					<dd><p class="txt">이벤트에 대한 더 자세한 사항은 고객센터 1599-4273-⑦로 문의바랍니다.</p></dd>
+				</dl>
+			</div><!-- // evFooterAlert_221219 -->
+
+
+			<div class="ev_join"><button type="button" class="btn_dark"><span>응모하기</span></button></div>
+
+		</div><!-- // ev_220623 -->
+
+	</div><!-- // evSection -->
+
+	
+</div><!-- // evPageWrap -->
+
+
+
+<script>
+
+	$(document).ready(function(){
+		$(".evAgeeLayer .close").click(function(){
+			$(".evAgeeLayer").removeClass("on")
+		})
+	
+		$("a").on("click", function(){
+			var xxx = $(this).attr("title");
+			console.log(xxx)
+			if(xxx) {
+				alert(xxx)
+			} else {
+				alert($(this).find("img").attr("alt"))
+			}
+		})
+		
+		$(".open_privacy").on("click", function(){
+			openLayer();
+		})
+
+
+		$("a.link1").on("click", function(){
+			alert("PASS 앱 설치하러 가기")
+		})
+
+		function openLayer (){
+			$(".evAgeeLayer").addClass("on")
+		}
+
+		$(".layer div.btn_group button").on("click", function(){
+			$(this).parents(".layer").hide();
+		})
+
+
+
+
+		/* 이미지 슬라이드 */
+		$('.slide_wrap').slick({
+			dotsClass: "bnr_dots_bottomCenter",
+			autoplay: false,
+			autoplaySpeed: 3000,
+			infinite: false,
+			arrows: true,
+			dots:false
+		})
+		
+
+	})
+	</script>
+
+</body>
+</html>

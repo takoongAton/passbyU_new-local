@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="../css/reset.css" />
+<style>
+.evSection {position:relative; max-width:720px; margin:0 auto;}
+#gtmBtnEventArea {position:fixed; right:0; bottom:0; left:0; width:100%; max-width:720px; margin:0 auto;}
+</style>
+</head>
+<body>
+
+<div id="app">
+  <div class="evPageWrap">
+
+    <div class="evSection">
+
+      <!-- img body-->
+      <div class="bodyImgStyle">
+        <img id="bodyImg" src="../images/pass_money_body.png">
+      </div>
+
+      <!-- img btn-->
+      <div id="gtmBtnEventArea">
+        <!-- <img id="btnImg" :src="params.eventBtn" alt=""> -->
+        <button type="button"><span><img id="btnImg" src="../images/pass_money_btn_fix.png" alt="룰렛 돌리러 가기"></span></button>
+      </div>
+
+    </div><!-- // evSection -->
+
+  </div><!-- // evPageWrap -->
+
+</div> <!-- // vue -->
+
+
+<script type="text/javascript">
+/* 대충 버튼 눌리면 어멋? */
+let btns = document.querySelectorAll("button");
+	btns.forEach(function(item){
+		item.addEventListener("click", function(){
+			let img = item.querySelector("img");
+			if(img) {
+				if(img.getAttribute("title")) {
+					alert(img.getAttribute("title"))
+				} else {
+          alert(img.getAttribute("alt"))
+        }
+      } else {
+        alert(item.innerText)
+      }
+    })
+	})
+	/* // 대충 버튼 눌리면 어멋? */
+
+
+// 이미지 요소를 선택합니다.
+const image = document.querySelector('#bodyImg');
+const bodyImgStyle = document.querySelector(".bodyImgStyle");
+
+
+
+
+const btnImg = document.getElementById("btnImg");
+btnImg.addEventListener("load", function(){
+  const btnImgHeight = btnImg.height;
+    console.log(btnImgHeight);
+    bodyImgStyle.style.paddingBottom = btnImgHeight + "px";
+})
+
+
+/* 이벤트 페이지 공통 기본 스크립트 */
+// 하단 고정버튼 만큼 하단 버튼 영역에 padding을 준다.
+</script>
+</body>
+</html>

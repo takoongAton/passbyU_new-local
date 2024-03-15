@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>PASS 앱 이벤트</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/ev_common.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<!-- Google Tag Manager -->
+	<script>
+	(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-KCRSQZV');
+	</script>
+	<!-- End Google Tag Manager -->
+
+
+<style>
+	/* html {overflow-y:hidden; height:100%;}
+	body {height:100%; overflow:hidden;} */
+	.ev_230109 {position:fixed; top:0; right:0; bottom:0; left:0; background-color:#fff; overflow:hidden;}
+	.ev_230109 img {vertical-align:top;}
+	.ev_230109 div {position:relative;}
+
+	.ev_230109 .ev_form {padding:1.5625em 0 0; background-color:#ffe459;}
+	.ev_230109 .ev_form div.tit {font-size:1.25em; font-family:'GmarketSansMedium'; text-align:center;}
+	.ev_230109 .ev_form p {margin-top:1em; padding-bottom:0.5em; color:#444;}
+	.ev_230109 .ev_form .ipt {padding-bottom:0.625em;}
+	.ev_230109 .ev_form .ipt input {box-sizing:border-box; height:3.4375em; padding:0 1.5625em; background-color:#fff; border:0; border-radius:0.625em; color:#333; font-family:'GmarketSansMedium';}
+	.ev_230109 .ev_form .ipt input::placeholder {color:#666;}
+	.ev_230109 .ev_form .chk_wrap {display:inline-block; margin-top:1.25em; padding-right:1.25em;}
+	.ev_230109 .ev_form .chk_wrap * {vertical-align:top;}
+	.ev_230109 .ev_form .chk_wrap label {display:inline-block; position:relative; vertical-align:top;}
+	.ev_230109 .ev_form .chk_wrap label input {position:absolute; opacity:0;}
+	.ev_230109 .ev_form .chk_wrap label input + span.checkmark {position:absolute; top:50%; left:0; width:1em; height:1em; background-color:#fff; border-radius:100%; transform:translateY(-50%);}
+	.ev_230109 .ev_form .chk_wrap label input + span.checkmark::before {content:""; display:block; position:absolute; top:50%; left:50%; width:60%; height:35%; border-width:0.1em; border-style:solid; border-color:transparent transparent #ccc #ccc; transform: translate(-50%,-85%) rotate(-45deg); }
+	.ev_230109 .ev_form .chk_wrap label input:checked + span.checkmark {background-color:#222;}
+	.ev_230109 .ev_form .chk_wrap label input:checked + span.checkmark::before {border-color:transparent transparent #fff #fff;}
+	.ev_230109 .ev_form .chk_wrap label span.txt {display:block; padding-top:0.15em; padding-left:2em; color:#222; font-size:0.75em; font-family:'GmarketSansMedium';}
+	.ev_230109 .ev_form table {width:100%; margin-top:1em; border-top:1px solid #aaa; border-bottom:1px solid #aaa; font-size:0.6875em; font-family:'GmarketSansMedium';}
+	.ev_230109 .ev_form table th,
+	.ev_230109 .ev_form table td {padding:1.175em 1em 1em 1em; font-weight:normal;}
+	.ev_230109 .ev_form table th {background-color:#f8f5f0; color:#666; border-right:1px solid #aaa;}
+	.ev_230109 .ev_form table td {background-color:#fff; color:#222;}
+	.ev_230109 .ev_form table tr + tr th {border-top:1px solid #aaa;}
+	.ev_230109 .ev_form table tr + tr td {border-top:1px solid #aaa;}
+
+	.ev_230109 .btn_dark {display:flex; justify-content:center; align-items:center; height:3.4375em; padding-top:0.2em; background-color:#222; border-radius:0.625em; color:#fff; font-size:1.0625em; font-family:'GmarketSansMedium';}
+	.ev_230109 .btn_dark span {display:block; line-height:1em;}
+.evimg {position:relative; overflow:hidden;}
+.aadim {position:absolute !important; top:0; right:0; bottom:0; left:0; height:110%; background-color:rgba(0,0,0,0.97); transition:all 0.4s;
+-webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+}
+.aadim #box {position:absolute; top:0; right:0; left:0; height:70px; background-color:transparent; transform:translateY(-50%); transition: all 0.2s ease;}
+.aadim #box span.arrow {position:absolute; bottom:0; left:50%; width:50px; height:50px; background-color:#000; transform:translate(-50%, 50%); border-radius:100%; overflow:hidden;}
+.aadim #box span.arrow::before {content:""; display:block; position:absolute; bottom:50%; left:50%; width:10px; height:10px; border-width:0 0 2px 2px; border-style:solid; border-color:#fff; transform:rotate(-45deg); transform-origin:0 100%;
+animation: example 0.3s linear infinite alternate;}
+.aadim.remove {transform:translateY(110%);}
+@keyframes example {
+  0% {transform:translate(0,100%) rotate(-45deg);}
+  100% {transform:translate(0%,0%) rotate(-45deg);}
+}
+</style>
+
+</head>
+
+
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KCRSQZV" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+		<div class="ev_230109">
+			<div class="tit_YYY">
+				<p><strong>구독하면 절약되는 pass 쿠폰팩!</strong></p>
+				<P>화면을 내려 커지는 할인폭을 확인하세요</P>
+			</div>
+			<div class="evimg">
+				<div><img src="../images/ev_220623_img1.png" alt=""></div>
+				<div class="aadim">
+					<div id="box" draggable="true">
+						<span class="arrow"></span>
+					</div>
+				</div>
+			</div>
+
+			<div class="evFooterAlert dark"><!-- dark, light, gray -->
+				<dl>
+					<dt><strong>꼭 확인하세요.</strong></dt>
+					<dd><p class="txt">경품은 PASS  나이키 한정판 스니커즈  이벤트  참여 고객 중  추첨을 통해 지급됩니다.</p></dd>
+					<dd><p class="txt">경품 당첨 내역은  “이벤트 당첨내역 확인＂ 메뉴에서 확인할 수 있습니다. </p></dd>
+					<dd><p class="txt">당첨된 경품은 양도 불가하며, 경품 수령의사를 밝히지 않는 경우 당첨이 취소됩니다.</p></dd>
+					<dd><p class="txt">5만원 초과 경품의 제세공과금(22%)는 당첨자 본인 부담이며, 당첨된 고객님께 개별 안내 시 납부 방법을 안내해 드립니다.</p></dd>
+					<dd><p class="txt">비정상적인 방법으로 응모하여 당첨되는 경우, 당첨이 취소될 수 있으며 정보 오기재 등으로 인한 경품 반송 및 분실은 당사에서 책임지지 않습니다.</p></dd>
+					<dd><p class="txt">본 이벤트는 당사 사정에 의해 별도 안내없이 이벤트가 조기 종료되거나 내용이 변경될 수 있으며 실제 경품은 이미지와 다를 수 있습니다.</p></dd>
+					<dd><p class="txt">이벤트 참여 후 U+모바일 서비스를 해지하거나 명의 및 휴대폰 번호를 변경하면 당첨이 취소됩니다.</p></dd>
+					<dd><p class="txt">2021년 10 월 중 당첨자에게 문자메시지로 경품 발송 경품 안내됩니다.</p></dd>
+					<dd><p class="txt">이벤트에 대해 더 궁금한 내용은 고객센터 1599-4273-⑦로 문의 바랍니다.</p></dd>
+				</dl>
+			</div><!-- // evFooterAlert -->
+			
+		</div><!-- // ev_220623 -->
+
+<script>
+
+window.onload = function() {
+  // find the element that you want to drag.
+  var box = document.getElementById('box');
+  let hhh = document.querySelector(".tit_YYY").clientHeight;
+  let boxStart;
+  
+  /* listen to the touchMove event,
+  every time it fires, grab the location
+  of touch and assign it to box */
+  
+  box.addEventListener("dragstart", function(e){
+	console.log("box.style.top" + this)
+	console.log("dragstart")
+  })
+
+  box.addEventListener("dragend", function(e){
+	console.log("dragend")
+  })
+
+  box.addEventListener('touchstart', function(e){
+	console.log(e)
+	console.log(e.targetTouches[0])
+	console.log(box.style.top)
+  })
+  
+  box.addEventListener('touchmove', function(e) {
+    // grab the location of touch
+    var touchLocation = e.targetTouches[0];
+    
+    // assign box new coordinates based on the touch.
+    box.style.top = touchLocation.pageY - hhh + 'px';
+  })
+  
+  /* record the position of the touch
+  when released using touchend event.
+  This will be the drop position. */
+  
+  box.addEventListener('touchend', function(e) {
+	console.log(e)
+	
+    // current box position.
+    var y = parseInt(box.style.top);
+
+	console.log(box.style.top)
+	// var touchLocation = e.targetTouches[0];
+	// if(boxYEnd > boxYStart) {
+	// 	console.log("asdfafsd")
+	// }
+	if(y < 0 || y <= 50) {
+		box.style.top = 0 + 'px';
+	} else if(y > 50) {
+		document.querySelector(".aadim").classList.add("remove")
+		// document.querySelector("html").style.overflowY = 'auto'
+		setTimeout(function(){
+			document.querySelector(".ev_230109").style.overflowY = 'auto';
+			document.querySelector(".ev_230109").style.position = 'relative'
+		}, 600)
+		
+	}
+
+	
+
+  })
+  
+}
+
+</script>
+
+</body>
+</html>

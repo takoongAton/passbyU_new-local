@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>PASS 앱 이벤트 _ PASS Ticket</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/ev_common.css">
+	<link rel="stylesheet" href="../css/slick.css">
+	
+	<script type="text/javascript" charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../js/slick.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../js/slick.min.js"></script>
+
+
+	<!-- Google Tag Manager -->
+	<script>
+	(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-KCRSQZV');
+	</script>
+	<!-- End Google Tag Manager -->
+
+
+<style>
+
+/* 공통보다 조금 작음 */
+.evFooterAlert {font-family:'NanumSquareRound';}
+.evFooterAlert dl {padding-bottom:3.5em;}
+.evFooterAlert dl dd {font-size:0.65625em; letter-spacing:-0.05em;}
+
+.ev_220721 {padding-bottom:3.75em; background-color:#fff; font-family:'Noto Sans KR';}
+.ev_220721 img {vertical-align:top;}
+.ev_220721 div {position:relative;}
+
+/* 상단 이미지, 버튼 */
+.ev_220721 .top_img {position:relative;}
+.ev_220721 .top_img div {position:absolute; bottom:1.5em; left:0; width:100%; text-align:center;}
+.ev_220721 .top_img div button {width:15.75em; height:2.75em; background-color:rgba(28,28,28,0.9); border:0.0625em solid #fff; border-radius:2.75em;}
+.ev_220721 .top_img div button span {display:block; color:#fff; font-size:0.8125em; line-height:1em; font-weight:bold;}
+
+/* section tit */
+.ev_220721 .box {}
+.ev_220721 .box_tit {text-align:center;}
+.ev_220721 .box_tit p {}
+.ev_220721 .box_tit p span {display:block; color:#666; font-size:0.9375em; line-height:1.53333em;}
+.ev_220721 .box_tit p strong {display:block; color:#222; font-size:1.4375em; line-height:1em; font-family:'GmarketSansBold';}
+.ev_220721 .box_tit p.txt {color:#666; font-size:0.9375em;}
+.ev_220721 .box_tit div.tit {color:#222; font-size:1.4375em; font-family:'GmarketSansBold';}
+
+.howToWrap .box_tit p {padding:2.125em 0 2em;}
+.ev_select_wrap .box_tit p {padding-top:2.125em;}
+
+.myticketBox {padding:1.5625em 1.28125em 2.125em; background-color:#e9e2d9;}
+
+/* 내 티켓은 몇개? */
+.myticket {display:flex; width:100%; justify-content:space-between; align-items:center;}
+.myticket > div:first-of-type {color:#234010;}
+.myticket > div:first-of-type div.tit {color:#1c1c1c; font-size:1.4375em; line-height:1em; font-family:'GmarketSansBold'; letter-spacing:-0.05em; white-space:nowrap;}
+.myticket > div:first-of-type p {line-height:1em;}
+.myticket > div:first-of-type p strong {display:inline-block; position:relative; font-size:0.9375em; line-height:1em; font-family:'GmarketSansMedium'; font-weight:normal;}
+.myticket > div:last-of-type {display:inline-flex; justify-content:center; align-items:center; height:2.8125em; margin-left:1em; padding:0 2em; background-color:#1c1c1c; color:#fff; border-radius:0.3125em;}
+.myticket > div:last-of-type span {font-size:1.125em; font-family:'GmarketSansBold'; white-space:nowrap;}
+
+/* 이벤트 기간 */
+.ev_date {margin-top:1.5625em; padding-top:0.65625em; background:url('../images/ev_date_bg_top.png') no-repeat left top / contain; border-radius:0 0 0.20312em 0.20312em; overflow:hidden;}
+.ev_date div.tit {padding-top:1.1875em; text-align:center; background-color: #fff; border-radius:0.40625em 0.40625em 0 0;}
+.ev_date div.tit strong.deco {display:inline-block; position:relative; }
+.ev_date div.tit strong.deco::before {content:""; display:block; position:absolute; bottom:-3%; left:-7%; width:114%; height:0.6875em; background-color:#fcf000; overflow:hidden; z-index:1;}
+.ev_date div.tit strong.deco span {display:block; position:relative; font-size:1.25em; line-height:1em; font-family:'GmarketSansBold'; z-index:1;}
+.ev_date div.list { background:url('../images/ev_date_bg_top.png') no-repeat center top / contain;}
+.ev_date ol {display:flex; flex-direction:column;  padding:1em 1em 1em 2em; background-color:#fff; box-shadow:1px 2px 3px rgba(55,55,55,0.03);}
+.ev_date ol li {display:flex; justify-content:flex-start; align-items:center; width:100%; color:#a8a8a8;}
+.ev_date ol li:first-of-type {}
+.ev_date ol li div {display:inline-flex; align-items:center; height:1.625em;}
+.ev_date ol li div p {font-size:0.6875em; line-height:1em; font-family:'GmarketSansMedium'; letter-spacing:-0.05em;}
+.ev_date ol li div.no {justify-content:center; position:relative; width:18%;}
+.ev_date ol li div.no strong {font-size:1em; font-family:'GmarketSansBold'; white-space:nowrap;}
+.ev_date ol li div.date {width:36%;}
+.ev_date ol li div.result {flex:1; position:relative;}
+.ev_date ol li.active {color:#ff4342; }
+.ev_date ol li.active div p {font-style:normal;}
+.ev_date ol li.active div.no span {display:block;}
+.ev_date ol li.active div.result span {display:none;}
+.ev_date ol li.end {text-decoration:line-through;}
+.ev_date ol li.end div.result span {display:block;}
+
+
+
+.howToWrap {}
+/* 참여방법 */
+div.howToJoinList { }
+div.howToJoinList div.item {position:relative; padding:0.15625em 0.90625em 0;}
+div.howToJoinList div.item div.innerBox {display:flex; position:relative; width:100%; height:13.1875em; padding:0 1.4375em; background-color:#f5f7f9; border-radius:0.9375em;}
+div.howToJoinList div.item div.flag {position:absolute; top:-0.15625em; left:1.4375em; width:1.375em;}
+div.howToJoinList div.item div.flag path {fill:#ffcf67;}
+div.howToJoinList div.item div.flag span {position:absolute; top:0; left:0; width:100%; text-align:center; font-size:0.75em; line-height:1.75em; font-weight:bold; font-family:'roboto';}
+
+div.howToJoinList div.item div.flag + div.con {width:100%; padding-top:1.78125em;}
+div.howToJoinList div.item div.flag + div.con {display:flex; justify-content:space-between; align-items:flex-start; position:relative;}
+div.howToJoinList div.item div.flag + div.con dl {flex:1; padding-bottom:0.5em;}
+div.howToJoinList div.item div.flag + div.con dt.tit {font-size:0.8125em; line-height:1.38461em; font-weight:bold;}
+div.howToJoinList div.item div.flag + div.con dd.txt {margin-top:0.34375em;}
+div.howToJoinList div.item div.flag + div.con dd.txt p {position:relative; padding-left:0.5em; color:#999; font-size:0.6875em; line-height:1.36363em;}
+div.howToJoinList div.item div.flag + div.con dd.txt p::before {content:"·"; display:block; position:absolute; top:0; left:0; color:inherit; font-size:inherit; line-height:inherit;}
+div.howToJoinList div.item div.flag + div.con dd.txt p + p {margin-top:0.45454em;}
+div.howToJoinList div.item div.flag + div.con div.img {align-self:flex-end;}
+div.howToJoinList div.item div.flag + div.con div.img img {display:block; width:5.9375em}
+.slick-arrow {position:absolute; top:0; left:0;}
+.slick-arrow.slick-prev {}
+.slick-arrow.slick-next {}
+
+
+.ticketGroup {margin-top:1.875em;}
+
+/* PASS Ticket n장 타이틀 */
+.sub_tit {display:flex; position:relative; padding:0 2.5em;}
+.sub_tit::before {content:""; display:block; position:absolute; top:50%; left:1.21875em; right:1.21875em; height:0.0625em; background-color:#d5ae72; transform:translateY(-50%);}
+.sub_tit p {display:inline-flex; align-items:center; justify-content:center; position:relative; width:9.75em;; height:1.5em; margin:0 auto; background-color:#fff; border:0.09375em solid #d5ae72; border-radius:1.5em; color:#c16800; line-height:1em;}
+.sub_tit p span {font-size:0.8125em; font-family:'GmarketSansMedium';}
+.sub_tit p strong {font-size:0.8125em; font-family:'GmarketSansBold';}
+
+/* PASS Ticket 응모항목 */
+.passticket_list {display:flex; flex-wrap:wrap; justify-content:space-between; row-gap:1.5625em; margin-top:1.875em; padding:0 1.25em;}
+.passticket_list div.item {width:9.5em; text-align:center; font-family:'NanumSquareRound';}
+.passticket_list div.item input {position:absolute; opacity:0;}
+.passticket_list div.item div.img {position:relative; width:9.5em; height:6.71875em; overflow:hidden; background-color:#eeeeee; border-radius:0.3125em; overflow:hidden;}
+.passticket_list div.item div.img span.txt {display:inline-flex; justify-content:center; align-items:center; position:absolute; right:0; bottom:0; width:4em; height:2em; background-color:#9c9088; border-radius:0.22727em 0 0 0; color:#fff; font-size:0.6875em; font-weight:800; font-family:'NanumSquareRound'; line-height:1em; letter-spacing: -0.05em;}
+.passticket_list div.item div.img span.close {position:absolute; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.3);}
+.passticket_list div.item p.tit {margin-top:1em; font-size:0.9375em; font-weight:bolder; line-height:1em; letter-spacing:-0.1em; white-space:nowrap}
+.passticket_list div.item p.txt {margin-top:0.7em; font-size:0.66666em; font-weight:bold; line-height:1em;}
+.passticket_list div.item p.count {margin-top:0.90909em; margin-bottom:0.90909em; color:#fc3a4a; font-size:0.73333em; font-weight:bold; line-height:1em;}
+
+.passticket_list div.item span.checkmark {display:inline-flex; position:relative; width:3.6875em; height:0.9375em; background-color:#fff; border:0.0625em solid #bbbbbb; border-radius:100px; vertical-align:top;}
+.passticket_list div.item span.checkmark span.txt {position:relative; padding-left:1.25em; color:#bbbbbb; font-size:0.6875em; white-space:nowrap;}
+.passticket_list div.item span.checkmark span.txt::before {content:""; display:block; position:absolute; top:42%; left:0.5em; width:0.7em; height:0.4em; border-width:0 0 0.125em 0.125em; border-style:solid; border-color:#bbb; transform:translateY(-50%) rotate(-45deg); transform-origin:50% 50%; font-size:inherit;}
+.passticket_list div.item input:checked ~ label span.checkmark {background-color:#fc3a4a; border-color:#fc3a4a; color:#fff;}
+.passticket_list div.item input:checked ~ label span.checkmark span.txt {color:#fff;}
+.passticket_list div.item input:checked ~ label span.checkmark span.txt::before {border-color:#fff;}
+
+
+/* 내 응모현황 · 당첨조회 */
+.ev_btn div {display:flex; justify-content:space-between; align-items:center; margin-top:3em; padding:0 1.25em;}
+.ev_btn div a,
+.ev_btn div button {display:inline-flex; justify-content:center; align-items:center; height:2.8125em; background-color:#fc3a4a; border-radius:2.8125em; text-decoration:none; color:#fff;}
+.ev_btn div a span,
+.ev_btn div button span {font-size:1em; font-family:'NanumSquareRound'; font-weight:bold;}
+
+
+
+	
+
+/* 메인 중앙팝업 인디케이터 */
+.bnr_dots_bottomCenter {position:absolute; bottom:4%; left:50%; width:auto; margin:0 auto; text-align:center; z-index:1; transform:translateX(-50%);}
+.bnr_dots_bottomCenter li {display:inline-block;}
+.bnr_dots_bottomCenter li + li {margin-left:6px;}
+.bnr_dots_bottomCenter li button {box-sizing:border-box; display:block; width:1em; height:1em; border-radius:100%; background-color:#a1a1a1; font-size:0.34375em; overflow:hidden; text-indent:-999px;}
+.bnr_dots_bottomCenter li.slick-active button {background-color:#ffcf67;}
+
+
+
+/* 티켓받기 */
+.getTicket {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:2; font-size:4.44444vw;}
+.getTicket .content {position:absolute; top:50%; left:0; width:100%; max-width:720px; text-align:center; transform:translateY(-75%); animation:all 0.2s}
+.getTicket .content .img_ticket {width:11.40625em; margin:0 auto;}
+.getTicket .content .count {margin-top:24px; color:#fff; font-weight:bold; font-size:27px; font-family:'yg-jalnan';}
+.getTicket div.close {position:absolute; top:23px; right:18px; width:40px; height:40px;}
+.getTicket div.close button {position:relative; width:100%; height:100%; font-size:0; vertical-align:top;}
+.getTicket div.close button::before,
+.getTicket div.close button::after {content:""; display:block; position:absolute; top:50%; left:50%; width:80%; height:2px; background-color:#fff;}
+.getTicket div.close button::before {transform:translate(-50%, -50%) rotate(45deg)}
+.getTicket div.close button::after {transform:translate(-50%, -50%) rotate(-45deg)}
+@media screen and (min-width: 720px) {
+	.getTicket {font-size:2em;}
+	.getTicket .content {left:50%; width:720px; margin:0 auto; transform:translateX(-50%) translateY(-75%);}
+}
+
+
+/* alert형 모달 */
+.layer.alert {display:none; font-family:'Noto Sans KR';}
+.layer.alert::before {content:""; position:fixed; top:0; right:0; bottom:0; left:0; background-color:rgba(0,0,0,0.8); z-index:100;}
+.layer.alert .layerBox {box-sizing:border-box; position:fixed; top:50%; left:20px; right:20px; background-color:#fff; border-radius:6px; transform:translateY(-50%); z-index:100; box-shadow:0 0 5px rgba(0,0,0,0.5);}
+.layer.alert .content {padding:36px 18px; color:#000; font-weight:700; word-break:keep-all; text-align:center;}
+.layer.alert .txt {margin-top:12px; padding:0 18px 36px; color:#000; font-size:16px; line-height:1.5; font-weight:400; word-break:keep-all;}
+.layer.alert .alert_btn {display:flex; width:100%; border-top:1px solid #e7e7e7;}
+.layer.alert .alert_btn .btn {width:100%; min-width:50%;}
+.layer.alert .alert_btn .btn button {color:#000; font-family:400;}
+.layer.alert .alert_btn .btn button span {display:block; padding:16px 0 17px; font-size:18px; line-height:1.5;}
+.layer.alert .alert_btn .btn:last-child button {color:#ff3782; font-weight:700;}
+@media screen and (min-width: 720px) {
+	.layer.alert .layerBox {left:50%; right:auto; width:648px; transform:translate(-50%,-50%);}
+}
+/* .layer.alert::after {content:""; display:block; position:fixed; top:10px; right:10px; width:20px; height:20px;;} */
+.layer.alert div.close {position:fixed; top:23px; right:18px; width:40px; height:40px; z-index:100;}
+.layer.alert div.close button {position:relative; width:100%; height:100%; font-size:0;}
+.layer.alert div.close button::before,
+.layer.alert div.close button::after {content:""; display:block; position:absolute; top:50%; left:50%; width:80%; height:2px; background-color:#fff;}
+.layer.alert div.close button::before {transform:translate(-50%, -50%) rotate(45deg)}
+.layer.alert div.close button::after {transform:translate(-50%, -50%) rotate(-45deg)}
+
+
+/* 하단 응모하기 */
+.ev_footer_btn {position:-webkit-sticky; position:sticky; bottom:0; left:0; width:100%; z-index:1;}
+.ev_footer_btn .footer_myticket {position:absolute; top:0; left:0; width:100%; transform:translateY(-132.78688%); text-align:center;}
+.ev_footer_btn .footer_myticket::before {content:""; display:block; position:absolute; left:50%; bottom:0; width:0.625em; height:0.625em; background-color:#fff; border-width:0 0.0625em 0.0625em 0; border-style:solid; border-color:#000; transform:translateX(-50%) rotate(45deg); transform-origin: 0 100%; z-index:1;}
+.ev_footer_btn .footer_myticket p {display:inline-flex; justify-content:center; align-items:center; position:relative; width:13.75em; height:1.9375em; margin:0 auto; border:0.0625em solid #000; border-radius:100px; background-color:#fff; font-size:0.84375em;}
+.ev_footer_btn .footer_myticket p span {font-family:'GmarketSansMedium'; line-height:1em;}
+.ev_footer_btn .footer_myticket p strong {margin-left:0.5em; font-family:'GmarketSansBold'; line-height:1em;}
+.ev_footer_btn button.btn {display:flex; justify-content:center; align-items:center; width:100%; height:3.125em; background-color:#ff5454; color:#fff; font-family:'NanumSquareRound'; font-weight:bold; text-decoration:none;}
+.ev_footer_btn button.btn span {font-size:0.875em;}
+
+.ev_footer_btn {font-size:4.44444vw;}
+@media screen and (min-width: 720px) {
+	.ev_footer_btn {font-size:2em;}
+}
+
+/* 이벤트 당첨내역 */
+.luckBox_list_wrap {position:fixed; top:0; right:0; bottom:0; left:0; background-color:#fff; overflow-y:scroll; z-index:2; transform:translateX(100%); transition:all 0.3s ease}
+.luckBox_list_wrap.active {transform:translateX(0%);}
+.luckBox_list_wrap .luck_box_com {padding:15px 18px 15px; text-align:right;}
+.luckBox_list_wrap .luck_box_com button {width:auto; padding:5px 15px; border-radius:100px; background-color:#f8f9fb; color:#999; font-size:13px; font-weight:700;}
+.luckBox_list_wrap .luck_box_com button span {position:relative; padding-right:12px;}
+.luckBox_list_wrap .luck_box_com button span::before {content:""; display:block; position:absolute; top:50%; right:0; width:8px; height:8px; border-top:1.5px solid #bbb; border-right:1.5px solid #bbb; transform-origin:right top; transform:rotate(45deg);}
+.luckBox_list_wrap .luck_box_list {margin-top:12px;}
+.luckBox_list_wrap .luck_box_list .item {display:flex; align-items:center; width:100%; padding:15px 18px;}
+.luckBox_list_wrap .luck_box_list .item div.img {background-color:#f8f9fb; border-radius:100%; margin:0 12px 0 0;}
+.luckBox_list_wrap .luck_box_list .item div.img img {width:42px; height:42px; vertical-align:top;}
+.luckBox_list_wrap .luck_box_list .item div.txt {flex:1; position:relative;}
+.luckBox_list_wrap .luck_box_list .item div.txt strong {display:block; color:#000; font-size:1em; line-height:1.5em; font-weight:400;}
+.luckBox_list_wrap .luck_box_list .item div.txt span {display:block; margin-top:2px; color:#999; font-size:0.875em; line-height:1.2857em;}
+.luckBox_list_wrap .luck_box_list .item > span {display:inline-block; height:30px; background-color:#ff3782; color:#fff; border-radius:100px; padding:0 12px; line-height:30px; font-size:12px; font-weight:bold;}
+.luckBox_list_wrap .luck_box_list .not {position:fixed; top:50%; left:0; width:100%; text-align:center; transform:translateY(-50%);}
+.luckBox_list_wrap .luck_box_list .not span.img {display:inline-block;}
+.luckBox_list_wrap .luck_box_list .not span.img img {width:54px; height:54px;}
+.luckBox_list_wrap .luck_box_list .not p {margin-top:15px; font-size:1.125em; font-weight:bold;}
+
+.selectBox {padding:0 18px; background-color:#f8f9fB;}
+.selectBox .item_select {display:inline-block; position:relative;}
+.selectBox .item_select::after {content:""; display:block; position:absolute; right:0; top:50%; width:6px; height:6px; border-width:0 1.5px 1.5px 0; border-style:solid; border-color:#999; transform:translate(-50%,-50%) rotate(45deg);}
+.selectBox select {display:inline-block; box-sizing:border-box; position:relative; width:auto; height:36px; padding:5px 2em 5px 0; border:0; background-color:transparent; font-size:12px; font-weight:400; background:url('../../images/event/ev_211108_voting/ico_arrow_list_small_down.png') no-repeat right center / 2em}
+.selectBox select option {padding:10px;}
+</style>
+
+</head>
+
+
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KCRSQZV" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<div class="evPageWrap">
+
+	<div class="evSection">
+
+		<div class="ev_220721">
+			<div class="top_img">
+				<img src="../images/ev_220721_img1.jpg" alt="지금 패스 티켓으로 도심휴가 떠나세요!">
+				<div><button type="button" id="btn_ttttt"><span>놓친 티켓 확인하고 응모하기</span></button></div>
+			</div>
+
+			<div class="myticketBox">
+				<div class="myticket">
+					<div>
+						<div class="tit"><strong>내 티켓은 몇개?</strong></div>
+						<div>
+							<p><strong>MY PASS TICKET</strong></p>
+						</div>
+					</div>
+					<div><span>잔여 1명</span></div>
+				</div>
+
+				<div class="ev_date">
+					<div class="tit"><strong class="deco"><span>이벤트기간</span></strong></div>
+					<div class="list">
+						<ol>
+							<li class="active">
+								<div class="no"><strong>1회차</strong></div>
+								<div class="date"><p>22.08.02~22.08.22</p></div>
+								<div class="result"><p>당첨자 발표 22.08.29</p></div>
+							</li>
+							<li>
+								<div class="no"><strong>2회차</strong></div>
+								<div class="date"><p>22.08.23~22.09.12</p></div>
+								<div class="result"><p>당첨자 발표 22.09.19</p></div>
+							</li>
+							<li>
+								<div class="no"><strong>3회차</strong></div>
+								<div class="date"><p>22.09.13~22.10.03</p></div>
+								<div class="result"><p>당첨자 발표 22.10.11</p></div>
+							</li>
+							<li>
+								<div class="no"><strong>4회차</strong></div>
+								<div class="date"><p>22.10.04~22.10.24</p></div>
+								<div class="result"><p>당첨자 발표 22.10.31</p></div>
+							</li>
+							<li>
+								<div class="no"><strong>5회차</strong></div>
+								<div class="date"><p>22.10.25~22.11.14</p></div>
+								<div class="result"><p>당첨자 발표 22.11.21</p></div>
+							</li>
+							<!-- <li class="end"> 종료된 이벤트 샘플 맨 밑으로 내리고 class end 추가
+								<div class="no"><strong>1회차</strong></div>
+								<div class="date"><p>22.08.02~22.08.22</p></div>
+								<div class="result"><p>당첨자 발표 22.08.29</p></div>
+							</li> -->
+						</ol>
+					</div>
+				</div>
+			</div>
+
+			<!-- 띠배너 -->
+			<div><img src="../images/bnr_220721_bnr.png" alt=""></div>
+
+			<div class="box howToWrap">
+				<div class="box_tit">
+					<p>
+						<strong>참여방법</strong>
+					</p>
+				</div>
+
+				<div class="howToJoinList">
+					
+					<div class="item">
+						<div class="innerBox">
+							<div class="flag">
+								<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 50.009">
+									<path d="M3.999,0H39.999c2.21,0,4.001,1.792,4.001,4.002V50.009l-21.838-10.001L0,50.009V4.002C0,1.792,1.79,0,3.999,0Z" style="fill-rule:evenodd;"/>
+								</svg>
+								<span>01</span>
+							</div>
+							<div class="con">
+								<dl>
+									<dt class="tit">PASS 앱의 다양한 서비스<br />가입하고 체험해보기!</dt>
+									<dd class="txt">
+										<p>금융, 건강, 운세, 주식 등 다양한<br />
+											PASS 부가서비스 유료 가입하면<br />
+											PASS Ticket 드립니다 !</p>
+										<p>부가서비스 당 하루에 한번만<br />
+											받을 수 있어요!</p>
+										<p>가입한 부가서비스 이용할 수록<br />
+											Ticket 더 ! 드립니다!</p>
+									</dd>
+								</dl>
+								<div class="img"><img src="../images/img_how01.png" alt=""></div>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="innerBox">
+							<div class="flag">
+								<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 50.009">
+									<path d="M3.999,0H39.999c2.21,0,4.001,1.792,4.001,4.002V50.009l-21.838-10.001L0,50.009V4.002C0,1.792,1.79,0,3.999,0Z" style="fill-rule:evenodd;"/>
+								</svg>
+								<span>02</span>
+							</div>
+							<div class="con">
+								<dl>
+									<dt class="tit">PASS 앱 매일매일 출석체크 하기 ^O^</dt>
+									<dd class="txt">
+										<p>연속 누적 출석일수가 많아질수록 <br>PASS Ticket 더 드립니다!</p>
+										<p>30일 연속 출석 달성 시에는 <br>별도 경품에 자동 응모됩니다.</p>
+									</dd>
+								</dl>
+								<div class="img"><img src="../images/img_how02.png" alt=""></div>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="innerBox">
+							<div class="flag">
+								<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 50.009">
+									<path d="M3.999,0H39.999c2.21,0,4.001,1.792,4.001,4.002V50.009l-21.838-10.001L0,50.009V4.002C0,1.792,1.79,0,3.999,0Z" style="fill-rule:evenodd;"/>
+								</svg>
+								<span>03</span>
+							</div>
+							<div class="con">
+								<dl>
+									<dt class="tit">PASS 앱 서비스 꾸준히~ 이용하기!</dt>
+									<dd class="txt">
+										<p>자주, 오래 이용할수록 PASS 티켓이<br />
+											늘어나요!</p>
+										<p>놓친 티켓은 없는지 꼭! 확인하세요</p>
+									</dd>
+								</dl>
+								<div class="img"><img src="../images/img_how03.png" alt=""></div>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="innerBox">
+							<div class="flag">
+								<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 50.009">
+									<path d="M3.999,0H39.999c2.21,0,4.001,1.792,4.001,4.002V50.009l-21.838-10.001L0,50.009V4.002C0,1.792,1.79,0,3.999,0Z" style="fill-rule:evenodd;"/>
+								</svg>
+								<span>04</span>
+							</div>
+							<div class="con">
+								<dl>
+									<dt class="tit">PASS Ticket 수만큼 응모하고<br />
+										당첨자 발표 확인!</dt>
+									<dd class="txt">
+										<p>PASS 티켓만 있으면 무한응모,<br />
+											중복응모가능!</p>
+										<p>이벤트기간 확인하시고 놓치지말고<br />
+											Ticket 응모하세요!</p>
+										<p>두근두근 당첨자 꼭! 확인하기~</p>
+									</dd>
+								</dl>
+								<div class="img"><img src="../images/img_how04.png" alt=""></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			
+			<!-- 경품 선택 -->
+			<div class="box ev_select_wrap">
+				<div class="box_tit">
+					<p>
+						<strong>경품 선택</strong>
+						<span>원하는 경품에 필요한 응모티켓 수량을 확인하신 후<br />[응모하기]를 눌러주세요.</span>
+					</p>
+				</div>
+
+				<div class="ticketGroup">
+					<div class="sub_tit">
+						<p><span>PASS Ticket</span>&nbsp;<strong>5장</strong></p>
+					</div>
+					<div class="passticket_list">
+						<div class="item">
+							<input type="checkbox" id="pt_01_01" name="chkck01" disabled>
+							<label for="pt_01_01">
+								<div class="img">
+									<img src="../images/ev_220721_p_img_5_01.png" alt="시그니엘 프리미어 더블/트윈">
+									<span class="txt">2명</span>
+									<span class="close"><img src="../images/ev_closed.png" alt="이벤트 종료"></span>
+								</div>
+								<p class="tit">시그니엘 서울 숙박권 1박권</p>
+								<p class="txt">시그니엘 프리미어 더블/트윈</p>
+								<p class="count">(1000명 응모)</p>
+								<span class="checkmark"><span class="txt">응모하기</span></span>
+							</label>
+						</div>
+						<div class="item">
+							<input type="checkbox" id="pt_01_02" name="chkck01">
+							<label for="pt_01_02">
+								<div class="img">
+									<img src="../images/ev_220721_p_img_5_02.png" alt="주중 디너 성인 2인 식사권">
+									<span class="txt">4명</span>
+									<!-- <span class="close"><img src="../images/ev_closed.png" alt="이벤트 종료"></span> -->
+								</div>
+								<p class="tit">웨스턴 조선 서울</p>
+								<p class="txt">주중 디너 성인 2인 식사권</p>
+								<p class="count">(1000명 응모)</p>
+								<span class="checkmark"><span class="txt">응모하기</span></span>
+							</label>
+						</div>
+						<div class="item">
+							<input type="checkbox" id="pt_01_03" name="chkck01">
+							<label for="pt_01_03">
+								<div class="img">
+									<img src="../images/ev_220721_p_img_5_03.png" alt="L011W1 화이트">
+									<span class="txt">5명</span>
+									<!-- <span class="close"><img src="../images/ev_closed.png" alt="이벤트 종료"></span> -->
+								</div>
+								<p class="tit">LG틔운 미니</p>
+								<p class="txt">L011W1 화이트</p>
+								<p class="count">(1000명 응모)</p>
+								<span class="checkmark"><span class="txt">응모하기</span></span>
+							</label>
+						</div>
+						<div class="item">
+							<input type="checkbox" id="pt_01_04" name="chkck01">
+							<label for="pt_01_04">
+								<div class="img">
+									<img src="../images/ev_220721_p_img_5_04.png" alt="아쿠아리움 4인 입장권">
+									<span class="txt">20명</span>
+									<!-- <span class="close"><img src="../images/ev_closed.png" alt="이벤트 종료"></span> -->
+								</div>
+								<p class="tit">서울 코엑스</p>
+								<p class="txt">아쿠아리움 4인 입장권</p>
+								<p class="count">(1000명 응모)</p>
+								<span class="checkmark"><span class="txt">응모하기</span></span>
+							</label>
+						</div>
+						<div class="item">
+							<input type="checkbox" id="pt_01_05" name="chkck01">
+							<label for="pt_01_05">
+								<div class="img">
+									<img src="../images/ev_220721_p_img_5_05.png" alt="3만원 상품권 교환권">
+									<span class="txt">80명</span>
+									<!-- <span class="close"><img src="../images/ev_closed.png" alt="이벤트 종료"></span> -->
+								</div>
+								<p class="tit">SK 주유권</p>
+								<p class="txt">3만원 상품권 교환권</p>
+								<p class="count">(1000명 응모)</p>
+								<span class="checkmark"><span class="txt">응모하기</span></span>
+							</label>
+						</div>
+						<div class="item">
+							<input type="checkbox" id="pt_01_06" name="chkck01">
+							<label for="pt_01_06">
+								<div class="img">
+									<img src="../images/ev_220721_p_img_5_06.png" alt="황금올리브 치킨+콜라1.25L">
+									<span class="txt">100명</span>
+									<!-- <span class="close"><img src="../images/ev_closed.png" alt="이벤트 종료"></span> -->
+								</div>
+								<p class="tit">BBQ</p>
+								<p class="txt">황금올리브 치킨+콜라1.25L</p>
+								<p class="count">(1000명 응모)</p>
+								<span class="checkmark"><span class="txt">응모하기</span></span>
+							</label>
+						</div>
+						<div class="item">
+							<input type="checkbox" id="pt_01_07" name="chkck01">
+							<label for="pt_01_07">
+								<div class="img">
+									<img src="../images/ev_220721_p_img_5_07.png" alt="1만원 상품권 교환권">
+									<span class="txt">100명</span>
+									<!-- <span class="close"><img src="../images/ev_closed.png" alt="이벤트 종료"></span> -->
+								</div>
+								<p class="tit">신세계이마트</p>
+								<p class="txt">1만원 상품권 교환권</p>
+								<p class="count">(1000명 응모)</p>
+								<span class="checkmark"><span class="txt">응모하기</span></span>
+							</label>
+						</div>
+					</div><!-- // passticket_list -->
+				</div><!-- // ticketGroup -->
+
+				<div class="ticketGroup">
+					<div class="sub_tit">
+						<p><span>PASS Ticket</span>&nbsp;<strong>3장</strong></p>
+					</div>
+					<div class="passticket_list">
+						<div class="item">
+							<input type="checkbox" id="pt_02_01" name="chkck02">
+							<label for="pt_02_01">
+								<div class="img">
+									<img src="../images/ev_220721_p_img_3_01.png" alt="문화상품권 5천원권">
+									<span class="txt">100명</span>
+									<!-- <span class="close"><img src="../images/ev_closed.png" alt="이벤트 종료"></span> -->
+								</div>
+								<p class="tit">컬쳐랜드</p>
+								<p class="txt">문화상품권 5천원권</p>
+								<p class="count">(1000명 응모)</p>
+								<span class="checkmark"><span class="txt">응모하기</span></span>
+							</label>
+						</div>
+						<div class="item">
+							<input type="checkbox" id="pt_02_02" name="chkck02">
+							<label for="pt_02_02">
+								<div class="img">
+									<img src="../images/ev_220721_p_img_3_02.png" alt="카페 아메리카노 Tall">
+									<span class="txt">100명</span>
+									<!-- <span class="close"><img src="../images/ev_closed.png" alt="이벤트 종료"></span> -->
+								</div>
+								<p class="tit">스타벅스</p>
+								<p class="txt">카페 아메리카노 Tall</p>
+								<p class="count">(1000명 응모)</p>
+								<span class="checkmark"><span class="txt">응모하기</span></span>
+							</label>
+						</div>
+						<div class="item">
+							<input type="checkbox" id="pt_02_03" name="chkck02">
+							<label for="pt_02_03">
+								<div class="img">
+									<img src="../images/ev_220721_p_img_3_03.png" alt="싱글킹 아이스크림">
+									<span class="txt">100명</span>
+									<!-- <span class="close"><img src="../images/ev_closed.png" alt="이벤트 종료"></span> -->
+								</div>
+								<p class="tit">배스킨라빈스</p>
+								<p class="txt">싱글킹 아이스크림</p>
+								<p class="count">(1000명 응모)</p>
+								<span class="checkmark"><span class="txt">응모하기</span></span>
+							</label>
+						</div>
+					</div><!-- // passticket_list -->
+				</div><!-- // ticketGroup -->
+
+				<div class="ticketGroup">
+					<div class="sub_tit">
+						<p><span>PASS Ticket</span>&nbsp;<strong>2장</strong></p>
+					</div>
+					<div class="passticket_list">
+						<div class="item">
+							<input type="checkbox" id="pt_03_01" name="chkck03">
+							<label for="pt_03_01">
+								<div class="img">
+									<img src="../images/ev_220721_p_img_2_01.png" alt="까르보불닭볶음면(용기)">
+									<span class="txt">100명</span>
+									<!-- <span class="close"><img src="../images/ev_closed.png" alt="이벤트 종료"></span> -->
+								</div>
+								<p class="tit">삼양</p>
+								<p class="txt">까르보불닭볶음면(용기)</p>
+								<p class="count">(1000명 응모)</p>
+								<span class="checkmark"><span class="txt">응모하기</span></span>
+							</label>
+						</div>
+						<div class="item">
+							<input type="checkbox" id="pt_03_02" name="chkck03">
+							<label for="pt_03_02">
+								<div class="img">
+									<img src="../images/ev_220721_p_img_2_02.png" alt="모바일금액권 1,000원권">
+									<span class="txt">100명</span>
+									<!-- <span class="close"><img src="../images/ev_closed.png" alt="이벤트 종료"></span> -->
+								</div>
+								<p class="tit">CU 편의점</p>
+								<p class="txt">모바일금액권 1,000원권</p>
+								<p class="count">(1000명 응모)</p>
+								<span class="checkmark"><span class="txt">응모하기</span></span>
+							</label>
+						</div>
+					</div><!-- // passticket_list -->
+				</div><!-- // ticketGroup -->
+				
+			</div><!-- // ev_select_wrap -->
+			<!-- // 경품 선택 -->
+
+			<div class="ev_btn">
+				<div>
+					<button type="button" id="btn_list1"><span>내 응모현황 · 당첨조회</span></button>
+				</div>
+			</div><!-- // ev_btn -->
+
+		</div><!-- // ev_220721 -->
+
+	</div><!-- // evSection -->
+
+	<div class="evFooterAlert dark"><!-- dark, light, gray -->
+		<dl>
+			<dt><strong>꼭 확인하세요.</strong></dt>
+			<dd><p class="txt">보유한 티켓 수 만큼 참여할 수 있습니다.</p></dd>
+			<dd><p class="txt">경품 당첨 내역은 ‘내 응모현황 당첨조회＇에서 확인할 수 있습니다.</p></dd>
+			<dd><p class="txt">당첨된 경품은 양도 불가하며, 경품수령의사를 밝히지 않는 경우 당첨이 취소됩니다.</p></dd>
+			<dd><p class="txt">약관은 “PASS이벤트>더보기>이용약관 및 정책“메뉴에서 확인 할 수 있습니다.</p></dd>
+			<dd><p class="txt">당첨된 모바일 쿠폰상품은 등록된 휴대전화로 일괄 배송 예정입니다.</p></dd>
+			<dd><p class="txt">시그니엘 서울 숙박권 1박권 (소비자가 786,500원), 웨스턴 조선 서울 2인 주중 디너 식사권 (소비자가 275,500원), LG틔운 미니(소비자가 180,000원), 서울 코엑스 아쿠아리움 4인 입장권(소비자가 64,000원) 소비자가 5만원 초과 경품의 제세공과금(경품 소비자가의 22%)은 당첨자 본인 부담입니다. </p></dd>
+			<dd><p class="txt">5만원 초과 경품의 제세공과금(22%)은 당첨자 본인 부담이며 개별 연락하여 주소지 확인 및 제세공과금 납부 안내 후, 일괄 배송 진행될 예정입니다.</p></dd>
+			<dd><p class="txt">비정상적인 방법으로 응모하여 당첨되는 경우, 당첨이 취소 될 수 있으며 정보 오기재로 인한 경품 반송 및 분실은 당사에서 책임지지 않습니다.</p></dd>
+			<dd><p class="txt">본 이벤트의 경품 및 내용 변경될 수 있으며, 실제 경품은 이미지와 다를 수 있습니다.</p></dd>
+			<dd><p class="txt">이벤트 참여 후 U+ 모바일 서비스를 해지하거나 명의 및 휴대폰 번호를 변경하면 당첨이 취소됩니다.</p></dd>
+			<dd><p class="txt">지급된 티켓은 이벤트 종료 후 자동 소멸 됩니다.</p></dd>
+			<dd><p class="txt">이벤트에 대한 더 자세한 사항은 고객센터 1599-4273-⑦로 문의바랍니다.</p></dd>
+		</dl>
+	</div><!-- // evFooterAlert -->
+
+	<div class="ev_footer_btn">
+		<div class="footer_myticket">
+			<p>
+				<span>응모티켓</span> <strong>0장</strong>
+			</p>
+		</div>
+		<button type="button" class="btn"><span>응모하기</span></button>
+	</div><!-- // ev_footer_btn -->
+
+</div><!-- // evPageWrap -->
+
+
+
+
+<!-- 놓친 티켓 확인하고 응모하기 -->
+<div class="layer getTicket" style="display:block;">
+	<div class="content">
+		<div class="img_ticket animated flipInY">
+			<img src="../images/img_getticket.png" alt="티켓">
+			<div class="count">티켓 <span>+1</span>장</div>
+		</div>
+	</div>
+	<div class="close"><button type="button"><span>닫기</span></button></div>
+</div>
+
+
+<!-- 내 응모현황 -->
+<div class="luckBox_list_wrap" id="list111">
+	<div class="luck_box_com"><button type="button"><span>이벤트 확인하기</span></button></div>
+	<div class="selectBox">
+		<select name="" id="">
+			<option value="11.23~12.06 응모내역">11.23~12.06 응모내역</option>
+			<option value="12.07~12.20 응모내역">12.07~12.20 응모내역</option>
+			<option value="12.21~01.03 응모내역 ">12.21~01.03 응모내역 </option>
+			<option value="01.04~01.17 응모내역">01.04~01.17 응모내역</option>
+			<option value="01.18~01.31 응모내역">01.18~01.31 응모내역</option>
+		</select>
+	</div>
+	<div class="luck_box_list">
+
+		<!-- 당첨내역 있을 시 -->
+		<div>
+			<div class="item">
+				<div class="img"><img src="../images/small/p_sm_img_5_01.png" alt="시그니엘 서울 숙박권 1박권 프리미어 더블/트윈"></div>
+				<div class="txt">
+					<strong class="tit">시그니엘 서울 숙박권 1박권 프리미어 더블/트윈</strong>
+					<span class="date">2022.08.29</span>
+				</div>
+				<span>응모중</span><!-- <span>당첨</span> -->
+			</div>
+			<div class="item">
+				<div class="img"><img src="../images/small/p_sm_img_5_02.png" alt="웨스턴 조선 서울 주중 디너 성인 2인 식사권"></div>
+				<div class="txt">
+					<strong class="tit">웨스턴 조선 서울 주중 디너 성인 2인 식사권</strong>
+					<span class="date">2022.08.29</span>
+				</div>
+				<span>응모중</span><!-- <span>당첨</span> -->
+			</div>
+			<div class="item">
+				<div class="img"><img src="../images/small/p_sm_img_5_03.png" alt="LG틔운 미니 L011W1 화이트"></div>
+				<div class="txt">
+					<strong class="tit">LG틔운 미니 L011W1 화이트</strong>
+					<span class="date">2022.08.29</span>
+				</div>
+				<span>응모중</span><!-- <span>당첨</span> -->
+			</div>
+			<div class="item">
+				<div class="img"><img src="../images/small/p_sm_img_5_04.png" alt="서울 코엑스 아쿠아리움 4인 입장권"></div>
+				<div class="txt">
+					<strong class="tit">서울 코엑스 아쿠아리움 4인 입장권</strong>
+					<span class="date">2022.08.29</span>
+				</div>
+				<span>응모중</span><!-- <span>당첨</span> -->
+			</div>
+			<div class="item">
+				<div class="img"><img src="../images/small/p_sm_img_5_05.png" alt="SK 주유권 3만원 상품권 교환권"></div>
+				<div class="txt">
+					<strong class="tit">SK 주유권 3만원 상품권 교환권</strong>
+					<span class="date">2022.08.29</span>
+				</div>
+				<span>응모중</span><!-- <span>당첨</span> -->
+			</div>
+			<div class="item">
+				<div class="img"><img src="../images/small/p_sm_img_5_06.png" alt="BBQ 황금올리브 치킨+콜라1.25L"></div>
+				<div class="txt">
+					<strong class="tit">BBQ 황금올리브 치킨+콜라1.25L</strong>
+					<span class="date">2022.08.29</span>
+				</div>
+				<span>응모중</span><!-- <span>당첨</span> -->
+			</div>
+			<div class="item">
+				<div class="img"><img src="../images/small/p_sm_img_5_07.png" alt="신세계이마트 1만원 상품권 교환권"></div>
+				<div class="txt">
+					<strong class="tit">신세계이마트 1만원 상품권 교환권</strong>
+					<span class="date">2022.08.29</span>
+				</div>
+				<span>응모중</span><!-- <span>당첨</span> -->
+			</div>
+			<div class="item">
+				<div class="img"><img src="../images/small/p_sm_img_3_01.png" alt="컬쳐랜드 문화상품권 5천원권"></div>
+				<div class="txt">
+					<strong class="tit">컬쳐랜드 문화상품권 5천원권</strong>
+					<span class="date">2022.08.29</span>
+				</div>
+				<span>응모중</span><!-- <span>당첨</span> -->
+			</div>
+			<div class="item">
+				<div class="img"><img src="../images/small/p_sm_img_3_02.png" alt="스타벅스 카페 아메리카노 Tall"></div>
+				<div class="txt">
+					<strong class="tit">스타벅스 카페 아메리카노 Tall</strong>
+					<span class="date">2022.08.29</span>
+				</div>
+				<span>응모중</span><!-- <span>당첨</span> -->
+			</div>
+			<div class="item">
+				<div class="img"><img src="../images/small/p_sm_img_3_03.png" alt="배스킨라빈스 싱글킹 아이스크림"></div>
+				<div class="txt">
+					<strong class="tit">배스킨라빈스 싱글킹 아이스크림</strong>
+					<span class="date">2022.08.29</span>
+				</div>
+				<span>응모중</span><!-- <span>당첨</span> -->
+			</div>
+			<div class="item">
+				<div class="img"><img src="../images/small/p_sm_img_2_01.png" alt="삼양 까르보불닭볶음면(용기)"></div>
+				<div class="txt">
+					<strong class="tit">삼양 까르보불닭볶음면(용기)</strong>
+					<span class="date">2022.08.29</span>
+				</div>
+				<span>응모중</span><!-- <span>당첨</span> -->
+			</div>
+			<div class="item">
+				<div class="img"><img src="../images/small/p_sm_img_2_02.png" alt="CU 편의점 모바일금액권 1,000원권"></div>
+				<div class="txt">
+					<strong class="tit">CU 편의점 모바일금액권 1,000원권</strong>
+					<span class="date">2022.08.29</span>
+				</div>
+				<span>응모중</span><!-- <span>당첨</span> -->
+			</div>
+		</div>
+
+		<!-- 응모내역 없을 시 -->
+		<!-- <div class="not">
+			<span class="img"><img src="../images/ico_gift.png" alt="img"></span>
+			<p>응모한 이벤트가 없습니다.</p>
+		</div> -->
+	</div>
+	<div class="ddd" style="position:-webkit-sticky; position:sticky; bottom:0; left:0; width:100%; padding:20px; text-align:center;">
+		<p style="background-color:#222; padding:10px; border-radius:5px; color:#fff; font-size:0.875em; text-shadow:0 0 3px rgba(0,0,0,0.5);">
+			당첨자 발표일 5/6일로부터 2주 내<br />당첨된 경품 순차 발송 예정입니다.
+		</p>
+	</div>
+</div>
+
+
+
+<!-- 당첨내역 -->
+<div class="luckBox_list_wrap" id="list222">
+	<div class="luck_box_com"><button type="button"><span>이벤트 확인하기</span></button></div>
+	<div class="selectBox">
+		<select name="" id="">
+			<option value="11.23~12.06 응모내역">11.23~12.06 응모내역</option>
+			<option value="12.07~12.20 응모내역">12.07~12.20 응모내역</option>
+			<option value="12.21~01.03 응모내역 ">12.21~01.03 응모내역 </option>
+			<option value="01.04~01.17 응모내역">01.04~01.17 응모내역</option>
+			<option value="01.18~01.31 응모내역">01.18~01.31 응모내역</option>
+		</select>
+	</div>
+	<div class="luck_box_list">
+
+		<!-- 당첨내역 있을 시 -->
+		<div>
+			<div class="item">
+				<div class="img"><img src="../../images/event/ev_220404_voting/small/p_sm_img_5_01.png" alt="해피머니 5천원권"></div>
+				<div class="txt">
+					<strong class="tit">해피머니 5천원권</strong>
+					<span class="date">2022.05.25</span>
+				</div>
+				<span>당첨</span>
+			</div>
+			<div class="item">
+				<div class="img"><img src="../../images/event/ev_220404_voting/small/p_sm_img_5_01.png" alt="해피콘 1만원권"></div>
+				<div class="txt">
+					<strong class="tit">해피콘 1만원권</strong>
+					<span class="date">2022.05.25</span>
+				</div>
+				<span>당첨</span>
+			</div>
+			<div class="item">
+				<div class="img"><img src="../../images/event/ev_220404_voting/small/p_sm_img_5_01.png" alt="신세계상품권 1만원권"></div>
+				<div class="txt">
+					<strong class="tit">신세계상품권 1만원권</strong>
+					<span class="date">2022.05.25</span>
+				</div>
+				<span>미당첨</span>
+			</div>
+			<div class="item">
+				<div class="img"><img src="../../images/event/ev_220404_voting/small/p_sm_img_5_01.png" alt="해피머니 5천원권"></div>
+				<div class="txt">
+					<strong class="tit">해피콘 1만원권</strong>
+					<span class="date">2022.05.25</span>
+				</div>
+				<span>당첨</span>
+			</div>
+			<div class="item">
+				<div class="img"><img src="../../images/event/ev_220404_voting/small/p_sm_img_5_01.png" alt="신세계상품권 1만원권"></div>
+				<div class="txt">
+					<strong class="tit">신세계상품권 1만원권</strong>
+					<span class="date">2022.05.25</span>
+				</div>
+				<span>당첨</span>
+			</div>
+		</div>
+
+		<!-- 당첨내역 없을 시 -->
+		<!-- <div class="not">
+			<span class="img"><img src="../../images/event/ev_210305/ico_gift.png" alt="img"></span>
+			<p>이벤트 당첨내역이 없습니다.</p>
+		</div> -->
+	</div>
+	<div class="ddd" style="position:-webkit-sticky; position:sticky; bottom:0; left:0; width:100%; padding:20px; text-align:center;">
+		<p style="background-color:#222; padding:10px; border-radius:5px; color:#fff; font-size:0.875em; text-shadow:0 0 3px rgba(0,0,0,0.5);">
+			당첨자 발표일 12/13일로부터 2주 내<br />당첨된 경품 순차 발송 예정입니다.
+		</p>
+	</div>
+</div>
+
+<!-- 응모하기 버튼 눌렀을때 나오는 팝업들-->
+<div class="layer alert" id="xxxxx" style="display:block;"> <!-- id xxxxx는 임시로 넣어둔겁니다. 바꿔도 됩니다.-->
+	<div class="layerBox">
+		<div class="alert_content">
+			<div class="content">PASS 경품 이벤트에<br />
+				정상적으로 응모하셨습니다.</div>
+		</div>
+	</div>
+	<div class="close"><button type="button"><span>닫기</span></button></div>
+</div>
+
+<div class="layer alert" style="display:block;">
+	<div class="layerBox">
+		<div class="alert_content">
+			<div class="content">경품에 응모할 티켓이<br />부족합니다.<br />
+			   경품을 다시 선택하세요.</div>
+		</div>
+	</div>
+	<div class="close"><button type="button"><span>닫기</span></button></div>
+</div>
+
+
+
+
+
+<script>
+
+	$(document).ready(function(){
+
+		/* 이하 스크립트는 모두 무시하세요.. 기획자보여주려고 임시로 만든거에요. */
+		
+		/* ??????? 읭?? */
+		$("a").on("click", function(){
+			var xxx = $(this).attr("title");
+			console.log(xxx)
+			if(xxx) {
+				alert(xxx)
+			} else {
+				alert($(this).find("img").attr("alt"))
+			}
+		})
+
+		/* 참여방법 슬라이드 */
+		$('.howToJoinList').slick({
+			dots: true,
+			dotsClass: "bnr_dots_bottomCenter",
+			infinite: true,
+			arrows: false
+		});
+
+
+		/* 내 응모현황 당첨조회 클릭시 */
+		$("button#btn_list1").on("click", function(){
+			$("#list111").addClass("active");
+		})
+
+		/* 내 응모현황 당첨조회 클릭시 후 나온 화면에서 이벤트 확인하기 클릭시 */
+		$(".luck_box_com button").on("click", function(){
+			$(".luckBox_list_wrap").removeClass("active");
+		})
+
+
+		/* 놓친 티켓 확인하고 응모하기 클릭시 */
+		$("#btn_ttttt").on("click", function(){
+			$(".getTicket").show()
+		})
+
+
+		/* 레이어팝업 닫기 */
+		$(".layer .close button, .layer button.close").on("click", function(){
+			$(this).parents(".layer").hide();
+		})
+		
+		/* 응모하기 버튼 눌렀을때 */
+		let joinMyticket = document.querySelector(".ev_footer_btn button.btn");
+		if(joinMyticket != null) {
+			joinMyticket.addEventListener("click", function(){
+				document.querySelector("#xxxxx").style.display = 'block'
+			})
+		}
+
+
+	})
+	</script>
+
+</body>
+</html>

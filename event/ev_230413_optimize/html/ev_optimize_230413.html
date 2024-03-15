@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>대출이자 지원 이벤트</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/ev_common.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<style>
+	.wrap {padding-bottom:0;}
+	.ev_230413 {position:relative; background-color:#F89AB3;}
+	.ev_230413 img {vertical-align:top;}
+	.ev_230413 div {position:relative;}
+	
+	.ev_230413 .btn {position:absolute; top:31.8125em; left:0; width:100%; padding:0 1.125em;}
+	.ev_230413 .btn a {display:block; height:3em; background-color:#000; border-radius:0.5em; text-decoration:none; text-align:center; line-height:3em;}
+	.ev_230413 .btn a span {color:#fff !important; font-size:1em; font-family:'Noto Sans KR'; font-weight:500;}
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="evPageWrap">
+
+	<div class="evSection">
+
+		<div class="ev_230413">
+			<div class="top_img"><img src="../images/ev_230413_img1.png" alt=""></div>
+			<div class="btn"><a href="" type="button"><span>이벤트 참여하기</span></a></div>
+		</div><!-- // ev_230413 -->
+
+	</div><!-- // evSection -->
+
+
+<script>
+	let aLink = document.querySelectorAll("a");
+	if(aLink.length > 0) {
+		aLink.forEach(function(item){
+			item.addEventListener("click", function(event){
+				event.preventDefault();
+				alert(item.innerText);
+			})
+		})
+	}
+	</script>
+
+</body>
+</html>

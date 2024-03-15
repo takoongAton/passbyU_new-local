@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=block" rel="stylesheet">
+<style>
+.evSection {position:relative; max-width:720px; margin:0 auto;}
+#gtmBtnEventArea {position:fixed; right:0; bottom:0; left:0; width:100%; max-width:720px; margin:0 auto;}
+</style>
+</head>
+<body>
+
+<div id="app">
+  <div class="evPageWrap">
+
+    <div class="evSection">
+
+      <!-- img body-->
+      <div class="bodyImgStyle">
+        <!-- <img id="bodyImg" class="body-area" :src="params.eventImg" alt=""> -->
+        <img id="bodyImg" src="../images/pass_money_body.png">
+      </div>
+
+      <!-- img btn-->
+      <div id="gtmBtnEventArea">
+        <!-- <img id="btnImg" :src="params.eventBtn" alt=""> -->
+        <img id="btnImg" src="../images/pass_money_btn_fix.png">
+      </div>
+
+    </div><!-- // evSection -->
+
+  </div><!-- // evPageWrap -->
+
+</div> <!-- // vue -->
+
+
+<script type="text/javascript">
+// 이미지 요소를 선택합니다.
+const image = document.querySelector('#bodyImg');
+const bodyImgStyle = document.querySelector(".bodyImgStyle");
+
+// 이미지가 로드된 후에 실행되도록 이벤트 리스너를 추가합니다.
+image.addEventListener('load', function () {
+  console.log("asdfasf")
+    // 이미지를 Canvas에 그립니다.
+    const canvas = document.createElement('canvas');
+    canvas.width = image.width;
+    canvas.height = image.height;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(image, 0, 0, image.width, image.height);
+
+    // 이미지의 픽셀 데이터를 가져옵니다.
+    const imageData = ctx.getImageData(0, 0, image.width, image.height);
+
+    // 이미지의 마지막 픽셀 위치를 계산합니다.
+    const lastPixelIndex = (image.width * image.height - 1) * 4; // RGBA 값이므로 4를 곱합니다.
+
+    // 마지막 픽셀의 컬러 값을 추출합니다.
+    const lastPixelData = [
+        imageData.data[lastPixelIndex],         // Red
+        imageData.data[lastPixelIndex + 1],     // Green
+        imageData.data[lastPixelIndex + 2],     // Blue
+        imageData.data[lastPixelIndex + 3]      // Alpha
+    ];
+
+    // 추출된 색상 값을 RGB 형식으로 변환합니다.
+    const color = `rgb(${lastPixelData[0]}, ${lastPixelData[1]}, ${lastPixelData[2]})`;
+
+    // 결과를 console.log로 출력합니다.
+    console.log(`마지막 픽셀의 색상: ${color}`);
+
+    document.querySelector("body").style.backgroundColor = color;
+});
+
+
+
+const btnImg = document.getElementById("btnImg");
+btnImg.addEventListener("load", function(){
+  const btnImgHeight = btnImg.height;
+    console.log(btnImgHeight);
+    bodyImgStyle.style.paddingBottom = btnImgHeight + "px";
+})
+
+</script>
+</body>
+</html>

@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>PASS 앱 이벤트</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/ev_common.css">
+
+
+<style>
+.ev_230724 {padding-bottom:3.75em; background-color:#415eff; font-family:'Noto Sans KR';}
+.ev_230724 img {vertical-align:top;}
+.ev_230724 div {position:relative;}
+.ev_230724 div.top_img {height:26.375em; background: rgb(145,239,255); background: linear-gradient(0deg, rgba(145,239,255,1) 0%, rgba(145,200,255,1) 25%, rgba(51,119,255,1) 90%, rgba(65,94,255,1) 100%);}
+
+/* .ev_230724 .innerbox {position:relative; padding:0 1.5em; background: rgb(145,239,255); background:url('../images/bg.png'), linear-gradient(180deg, rgba(145,239,255,1) 0%, rgba(145,200,255,1) 25%, rgba(51,119,255,1) 90%, rgba(65,94,255,1) 100%); background-repeat:no-repeat; background-size:22.5em auto;} */
+.ev_230724 .innerbox {position:relative; padding:0 1.5em; background: rgb(145,239,255); background:linear-gradient(180deg, rgba(145,239,255,1) 0%, rgba(145,200,255,1) 25%, rgba(51,119,255,1) 90%, rgba(65,94,255,1) 100%);}
+.ev_230724 .innerbox::before {content:""; display:block; position:absolute; top:0; left:0; width:100%; height:100%; background:url('../images/bg.png') no-repeat left 7em / 22.5em auto;}
+.ev_230724 .innerbox .tit_wrap {text-align:center;}
+.ev_230724 .innerbox .tit_wrap h2.tit {display:flex; justify-content:center; align-items:center; height:2.3125em; background:url('../images/ev_230724_tit_bg.png') no-repeat center / 16.46875em auto; line-height:0.8; font-family:'GmarketSansMedium';}
+.ev_230724 .innerbox .tit_wrap h2.tit p {position:relative; top:0.1em; color:#fff; font-size:1.25em;}
+.ev_230724 .innerbox .tit_wrap h2.tit strong {display:inline-block;}
+.ev_230724 .innerbox .tit_wrap h2.tit span {display:inline-block; color:#00ffff;}
+.ev_230724 .innerbox .tit_wrap p.txt {margin-top:1.38461em; color:#000; font-size:0.875em; line-height:1.46153em; font-family:'GmarketSansMedium';}
+.ev_230724 .innerbox .tit_wrap p.txt strong {font-family:'GmarketSansBold';}
+
+
+.ev_230724 .innerbox button.btn {height:3em; background-color:#000; border-radius:0.3125em; color:#fff;}
+.ev_230724 .innerbox button.btn span {display:inline-block; font-weight:bold;}
+
+.ev_230724 .innerbox .box_item {}
+.ev_230724 .innerbox .box_item + .box_item {margin-top:3em;}
+
+.ev_230724_img2 {margin-top:1.75em;}
+.ev_230724_img2 img {width:20.46875em; max-width:unset;}
+.btn_detail button span {display:inline-block; position:relative; padding:0 1em;}
+.btn_detail button span::after {content:""; display:block; position:absolute; top:50%; right:0; width:0.58823em; height:0.58823em; border-width:2px 2px 0 0; border-style:solid; border-color:#fff; transform:rotate(45deg); transform-origin:100% 0;}
+
+.btn_dark {display:flex; justify-content:center; align-items:center; background-color:#222;;
+	padding:0.75em 0 calc(constant(safe-area-inset-bottom) + 0.75em);
+	padding:0.75em 0 calc(env(safe-area-inset-bottom) + 0.75em);
+}
+.btn_dark span {display:block; color:#fff; font-size:1.0625em; line-height:1em; font-weight:bold; font-family:'Noto Sans KR';}
+
+.date_list {margin-top:1.75em;}
+.date_item {background-color:#fff; border-radius:0.625em; overflow:hidden;}
+.date_item + .date_item {margin-top:0.5em;}
+.date_item .triger {display:flex; flex-direction:column; justify-content:center; position:relative; height:5em; padding:1.125em; background-color:#0030b4; color:#fff;border-radius:0.625em;}
+.date_item .triger div.tit strong {display:inline-block; position:relative; top:0.1em; font-size:1.25em; vertical-align:top; line-height:1; font-family:'GmarketSansBold';}
+.date_item .triger div.tit span {display:inline-block; width:5.70833em; height:1.66666em; margin-left:0.5em; vertical-align:top; background-color:#fff; border-radius:100px; color:#0030b4; font-size:0.75em; line-height:1.75em; font-weight:bold; text-align:center;}
+.date_item .triger p.date {font-size:0.75em; margin-top:0.5625em;}
+.date_item .triger::after {content:""; display:block; position:absolute; top:50%; right:1.25em; width:0.75em; height:0.75em; border-width:0 0.1875em 0.1875em 0; border-style:solid; border-color:#fff; transform:translateY(-75%) rotate(45deg); transition:all 0.2s ease;}
+.date_item.active .triger::after {transform:translateY(-35%) rotate(225deg);}
+
+.date_item.off .triger {background-color:#eee;}
+.date_item.off .triger div.tit strong {color:#555;}
+.date_item.off .triger div.tit span {background-color:#555; color:#fff;;}
+.date_item.off .triger p.date {color:#888;}
+.date_item.off .triger::after {border-color:#888;}
+
+
+div.ddd {height:0; padding:0 1.5em; text-align:center; transition:all 0.4s ease;}
+div.ddd .flex {display:flex; justify-content:center; align-items:flex-start; gap:1.5em;}
+div.ddd .flex + .flex {margin-top:1.5em;}
+div.ddd .flex .p_item {}
+div.ddd .flex .p_item .img {position:relative; width:6.75em; height:6.75em;}
+div.ddd .flex .p_item .img.big {width:9.375em; height:9.375em;}
+div.ddd .flex .p_item .img.small {}
+div.ddd .flex .p_item .img::before {content:""; position:absolute; top:0; left:0; width:100%; height:100%; border-radius:100%; background-color:#e3f0ff; }
+div.ddd .flex .p_item .img img {position:relative; z-index:1;}
+div.ddd .flex .p_item .img span.circle {display:block; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);}
+div.ddd .flex .p_item .img.big span.circle {width:12.25em;}
+div.ddd .flex .p_item .img.small span.circle {width:7.625em;}
+div.ddd .flex .p_item .img div.count {display:inline-flex; justify-content:center; align-items:center; position:absolute; right:0; bottom:0; width:3em; height:3em; background-color:#529FF7; border-radius:100%;}
+div.ddd .flex .p_item .img div.count span {color:#fff; font-size:0.75em; font-weight:bold;}
+div.ddd .flex .p_item p {margin-top:1em; font-size:0.875em; line-height:1.28571em; font-weight:bold;}
+div.ddd p.txt {margin-top:0.72727em; color:#888; font-size:0.6875em;}
+div.ddd button {height:3em; margin-top:1.125em; background-color:#000; border-radius:0.1875em; color:#fff; font-weight:bold;}
+div.ddd button span {font-size:1.0625em;}
+.date_item.active div.ddd {height:auto; padding:1.5em 1.5em 0.75em 1.5em;}
+div.ddd button:disabled {background-color:#ddd; color:#888;}
+
+
+
+/* 챌린지 내용 박스 */
+.challenge_wrap {margin-top:3.5625em;}
+.challenge_wrap .challenge_tab {display:flex; justify-content:space-between; align-items:flex-end; width:100%; gap:0.125em;}
+.challenge_wrap .challenge_tab button {position:relative; width:100%; height:2.625em; background-color:#ddf2ff; border-radius:0.625em 0.625em 0 0;}
+.challenge_wrap .challenge_tab button span {color:#000; font-size:0.875em; font-family:'GmarketSansMedium';}
+.challenge_wrap .challenge_tab button.active {height:2.625em; background-color:#fff;}
+.challenge_wrap .challenge_tab button.active span {font-size:1em; font-weight:bold; font-family:'GmarketSansBold';}
+.challenge_wrap .challenge_tab button div.benefit_bubble {position:absolute; top:-0.25em; left:50%; width:3.9375em; transform:translate(-50%,-100%); animation: benefit_bubble 0.75s infinite;}
+@keyframes benefit_bubble {
+	0% {top:-0.25em}
+	50% {top:-0.4em}
+	100% {top:-0.25em}
+}
+
+.challenge_wrap .challenge_content {display:none; padding:1.34375em 1.5em 1.5em 1.5em; background-color:#fff; border-radius:0 0 0.625em 0.625em;}
+.challenge_wrap .challenge_content button {height:3em; background-color:#000; border-radius:0.1875em; color:#fff; font-weight:bold;}
+.challenge_wrap .challenge_content .challenge_cont {display:flex; flex-direction:column; justify-content:space-between; position:relative; width:100%; gap:1.09375em; text-align:center; animation: challenge_cont 0.5s forwards;}
+
+.challenge_wrap .challenge_content .challenge_cont p.txt {margin-top:1.53846em; font-size:0.8125em; line-height:1.46153em; font-family:'GmarketSansMedium'; letter-spacing:-0.05em;}
+.challenge_wrap .challenge_content .challenge_cont p.small_txt {margin-top:0.6em; color:#888; font-size:0.625em; line-height:1.4; font-weight:400;}
+
+
+.challenge_wrap .challenge_content .challenge_cont .cont_top {height:17.4375em;}
+.challenge_wrap .challenge_content .challenge_cont .cont_top > strong {display:inline-flex; justify-content:center; align-items:center; width:4.875em; height:1.5em; background-color:#000; border-radius:100px;}
+.challenge_wrap .challenge_content .challenge_cont .cont_top > strong span {position:relative; top:0.12em; color:#fff; font-size:0.75em; font-family:'GmarketSansMedium';}
+.challenge_wrap .challenge_content .challenge_cont .cont_top p.tit {margin-top:0.5em; color:#0030B4; font-size:1.25em; line-height:1.15em; font-family:'GmarketSansBold';}
+.challenge_wrap .challenge_content .challenge_cont .cont_bottom button {}
+.challenge_wrap .challenge_content .challenge_cont .cont_bottom button span {display:inline-block; position:relative; padding-right:1em; font-size:1.0625em; line-height:1.47058em; font-family:'Noto Sans KR';}
+.challenge_wrap .challenge_content .challenge_cont .cont_bottom button span::after {content:""; display:block; position:absolute; top:50%; right:0; width:0.58823em; height:0.58823em; border-width:2px 2px 0 0; border-style:solid; border-color:#fff; transform:rotate(45deg); transform-origin:100% 0;}
+
+
+.challenge_wrap .challenge_content .challenge_cont .box {margin-top:1.125em; padding:0.9375em 0.625em; background-color:rgba(145,196,255,0.25); border-radius:0.625em; text-align:left;}
+.challenge_wrap .challenge_content .challenge_cont .box > div {display:flex; align-items:center; width:100%; gap:1.125em;}
+.challenge_wrap .challenge_content .challenge_cont .box > div .img {display:inline-flex; width:4.875em; height:4.875em;}
+.challenge_wrap .challenge_content .challenge_cont .box > div dl {flex:1;}
+.challenge_wrap .challenge_content .challenge_cont .box > div dl dt {color:#0058ff; font-size:0.9375em; font-weight:bold; font-family:'GmarketSansBold';}
+.challenge_wrap .challenge_content .challenge_cont .box > div dl dd {margin-top:0.35em; font-size:0.625em; line-height:1.5em; font-family:'GmarketSansMedium';}
+
+@keyframes challenge_cont {
+	0% {left:0.75em; opacity:0;}
+	100% {left:0em; opacity:1;}
+}
+
+/* 챌린지 추가 혜택 */
+.add_benefit {position:relative; margin-top:2.625em; padding:1.71875em 1.5em 0.75em; background-color:#fff; border-radius:0.625em; text-align:center;}
+.add_benefit span.add {display:block; position:absolute; position:absolute; top:0; left:50%; width:2.625em; height:2.625em; background-color:#080aec; border-radius:100%; transform:translate(-50%,-50%);}
+.add_benefit span.add::before,
+.add_benefit span.add::after {content:""; display:block; position:absolute; top:50%; left:50%; width:47.61904%; height:7.14285%; background-color:#00ffff; border-radius:10px}
+.add_benefit span.add::before {transform:translate(-50%,-50%);}
+.add_benefit span.add::after {transform:translate(-50%,-50%) rotate(90deg);}
+.add_benefit div.tit {color:#0030b4; font-size:1.25em; line-height:1.15; font-family:'GmarketSansBold'; font-weight:bold;}
+.add_benefit .box {margin-top:0.1875em; background-color:#e3f0ff; border-radius:0.625em;}
+.add_benefit .box p {padding:2.38461em 1em; font-size:0.8125em; font-family:'GmarketSansMedium';}
+.add_benefit .box p strong {font-family:'GmarketSansBold';}
+.add_benefit .box p strong span {position:relative; background-color:#8cf0ff;}
+.add_benefit > span.txt {display:inline-block; margin-top:0.5em; color:#888; font-size:0.75em; line-height:1.5em;}
+
+
+/* 하단 푸터 추가 작업 */
+.evFooterAlert dl dt {font-weight:500;}
+.evFooterAlert dl dd {padding-left:0.75em;}
+.evFooterAlert dd.hidden {display:none;}
+.evFooterAlert dl dd p.txt::before {content:"-"}
+.evFooterAlert button.more {padding:0.5625em 0; }
+.evFooterAlert button.more span {display:inline-flex; align-items:center; position:relative; height:1.5em; padding:0 1.83333em; color:#333; font-size:0.75em;}
+.evFooterAlert button.more span::after {content:""; display:block; position:absolute; top:50%; right:0; width:1.5em; height:1.5em; background:url('../images/ico_btn_caution_fold.png') no-repeat center / contain; transform:translateY(-50%) rotate(180deg); transition:all 0.1s linear;}
+.evFooterAlert button.more.active span::after {transform:translateY(-50%) rotate(0deg);}
+
+/* 하단 고정버튼 추가 작업 */
+.footer_fixed_btn {position:-webkit-sticky; position:sticky; bottom:0; left:0; font-size:4.44444vw;}
+@media screen and (min-width: 720px) {
+	.footer_fixed_btn {font-size:2em;}
+}
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="evPageWrap">
+
+	<div class="evSection">
+
+		<div class="ev_230724">
+			<div class="top_img"><img src="../images/ev_230724_img1.png" alt=""></div>
+
+			<div class="innerbox">
+				
+				<div class="box_item">
+					<div class="tit_wrap">
+						<h2 class="tit">
+							<p><strong>“<span>PASS 챌린지</span>”</strong>란?</p>
+						</h2>
+		
+						<p class="txt">
+							<strong>PASS가 제공하는 다양한 서비스</strong>를 알아보고,<br />
+							<strong>실제로 경험</strong>해보는 이벤트 입니다.
+						</p>
+					</div>
+					<!-- // tit_wrap -->
+	
+					<div class="ev_230724_img2"><img src="../images/ev_230724_img2.png" alt=""></div>
+	
+					<div class="btn_detail">
+						<button type="button" class="btn"><span>챌린지 자세히보기</span></button>
+					</div>
+				</div>
+				<!-- // box_item -->
+
+				<div class="box_item">
+					<div class="tit_wrap">
+						<h2 class="tit">
+							<p><strong><span>경품 응모</span></strong> 일정</p>
+						</h2>
+						<p class="txt">
+							PASS 챌린지 하나만 달성해도 각 회차별 한 번씩<br />
+							<strong>총 3회 중복 응모</strong>가 가능합니다.
+						</p>
+					</div>
+					<!-- // tit_wrap -->
+
+					<div class="date_list">
+						<div class="date_item active"><!-- off, active, (off + active)-->
+							<div class="triger">
+								<div class="tit">
+									<strong>1회차 응모기간</strong><span>진행중</span>
+								</div>
+								<p class="date">2023.08.08(화) ~ 2023.08.20(일)</p>
+							</div>
+		
+							<div class="ddd">
+		
+								<div class="flex">
+									<div class="p_item">
+										<div class="img big">
+											<span class="circle">
+												<img src="../images/img_p01.png" alt="">
+											</span>
+											<div class="count"><span>100명</span></div>
+										</div>
+										<p>배스킨라빈스 싱글킹</p>
+									</div>
+								</div>
+								
+								<button type="button"><span>1회차 응모하기</span></button>
+								<p class="txt">당첨자 발표는 8월 29일(화)에  진행됩니다.</p>
+							</div>
+		
+						</div>
+						<!-- // date_item -->
+		
+		
+						<div class="date_item off">
+							<div class="triger">
+								<div class="tit">
+									<strong>2회차 응모기간</strong><span>진행예정</span>
+								</div>
+								<p class="date">2023.08.21(월) ~ 2023.09.02(토)</p>
+							</div>
+		
+							<div class="ddd">
+								<div class="flex">
+									<div>
+										<div class="p_item">
+											<div class="img small">
+												<span class="circle">
+													<img src="../images/img_p02.png" alt="">
+												</span>
+												<div class="count"><span>30명</span></div>
+											</div>
+											<p>신세계상품권<br />
+												5만원 권</p>
+										</div>
+									</div>
+									<div>
+										<div class="p_item">
+											<div class="img small">
+												<span class="circle">
+													<img src="../images/img_p03.png" alt="">
+												</span>
+												<div class="count"><span>50명</span></div>
+											</div>
+											<p>신세계상품권<br />
+												1만원 권</p>
+										</div>
+									</div>
+								</div>
+								
+								<button type="button" disabled><span>2회차 진행예정</span></button>
+								<p class="txt">당첨자 발표는 9월 12일(화)에 진행됩니다.</p>
+							</div>
+		
+						</div>
+						<!-- // date_item -->
+		
+		
+						<div class="date_item off">
+							<div class="triger">
+								<div class="tit">
+									<strong>3회차 응모기간</strong><span>진행예정</span>
+								</div>
+								<p class="date">2023.09.03(일) ~ 2023.09.15(금)</p>
+							</div>
+		
+							<div class="ddd">
+		
+								<div class="flex">
+									<div class="p_item">
+										<div class="img big">
+											<span class="circle">
+												<img src="../images/img_p04.png" alt="">
+											</span>
+											<div class="count"><span>1명</span></div>
+										</div>
+										<p>MacBook Air<br />
+											M2 15 (실버)</p>
+									</div>
+								</div>
+
+								<div class="flex">
+									<div>
+										<div class="p_item">
+											<div class="img small">
+												<span class="circle">
+													<img src="../images/img_p02.png" alt="">
+												</span>
+												<div class="count"><span>20명</span></div>
+											</div>
+											<p>신세계상품권<br />
+												5만원 권</p>
+										</div>
+									</div>
+									<div>
+										<div class="p_item">
+											<div class="img small">
+												<span class="circle">
+													<img src="../images/img_p03.png" alt="">
+												</span>
+												<div class="count"><span>30명</span></div>
+											</div>
+											<p>신세계상품권<br />
+												1만원 권</p>
+										</div>
+									</div>
+								</div>
+								
+								<button type="button" disabled><span>3회차 진행예정</span></button>
+								<p class="txt">당첨자 발표는 9월 26일(화)에 진행됩니다.</p>
+							</div>
+		
+						</div>
+						<!-- // date_item -->
+						
+					</div>
+					<!-- // date_list -->
+
+				</div>
+				<!-- // box_item -->
+
+
+
+
+				<div class="box_item" id="detail_box">
+					<div class="tit_wrap">
+						<h2 class="tit">
+							<p><strong><span>챌린지 내용</span></strong></p>
+						</h2>
+						<p class="txt">
+							이벤트 기간 내 챌린지를 완수해주세요<br />
+							<strong>성공한 챌린지가 많을수록</strong><br />
+							당첨 확률이 올라간답니다 !
+						</p>
+					</div>
+					<!-- // tit_wrap -->
+
+					<div class="challenge_wrap">
+						<div class="challenge_tab">
+							<button type="button" onclick="openTab(event, 'tab1')" class="tab-btn"><span>챌린지1</span></button>
+							<button type="button" onclick="openTab(event, 'tab2')" class="tab-btn"><span>챌린지2</span></button>
+							<button type="button" onclick="openTab(event, 'tab3')" class="tab-btn"><span>챌린지3</span></button>
+							<button type="button" onclick="openTab(event, 'tab4')" class="tab-btn active"><span>챌린지4</span>
+								<div class="benefit_bubble"><img src="../images/img_bubble.png" alt="추가혜택"></div>
+							</button>
+						</div>
+		
+						<div class="challenge_content tab-content" id="tab1">
+							<div class="challenge_cont">
+								<div class="cont_top">
+									<strong><span>챌린지1</span></strong>
+									<p class="tit">PASS 인증서 사용하기</p>
+									<div class="box">
+										<div>
+											<div class="img"><img src="../images/img_c01.png" alt=""></div>
+											<dl>
+												<dt>PASS 인증서</dt>
+												<dd>
+													공공기관, 금융기관 등 다양한<br />
+													사용처에서 안전하고 간편하게<br />
+													사용 가능한 국가대표 안심 인증서
+												</dd>
+											</dl>
+										</div>
+									</div>
+									<p class="txt">
+										간편로그인 전자서명, 마이데이터 인증 등<br />
+										<strong>PASS 인증서 1회 이상 사용</strong>하면<br />
+										챌린지 성공
+									</p>
+								</div>
+								<div class="cont_bottom">
+									<button type="button"><span>PASS 인증서 바로가기</span></button>
+								</div>
+							</div>
+						</div>
+
+						<div class="challenge_content tab-content" id="tab2">
+							<div class="challenge_cont">
+								<div class="cont_top">
+									<strong><span>챌린지2</span></strong>
+									<p class="tit">모바일신분증 등록하기</p>
+									<div class="box">
+										<div>
+											<div class="img"><img src="../images/img_c02.png" alt=""></div>
+											<dl>
+												<dt>모바일 신분증</dt>
+												<dd>
+													신원 확인부터 성인 인증까지<br />
+													지갑을 두고 나와도 간편하게<br />
+													확인 가능한 민간 최초 공인 신분증
+												</dd>
+											</dl>
+										</div>
+									</div>
+									<p class="txt">
+										모바일 주민등록증 또는 운전면허증<br />
+										<strong>하나만 등록해도</strong>챌린지 성공!
+									</p>
+									<p class="small_txt">※ 모바일 신분증을 이미 등록하여 사용 중이라면<br />
+										다시 등록하지 않아도 미션 성공으로 인정돼요 </p>
+								</div>
+								<div class="cont_bottom">
+									<button type="button"><span>모바일신분증 바로가기</span></button>
+								</div>
+							</div>
+						</div>
+
+						<div class="challenge_content tab-content" id="tab3">
+							<div class="challenge_cont">
+								<div class="cont_top">
+									<strong><span>챌린지3</span></strong>
+									<p class="tit">국민비서 가입하기</p>
+									<div class="box">
+										<div>
+											<div class="img"><img src="../images/img_c03.png" alt=""></div>
+											<dl>
+												<dt>국민비서</dt>
+												<dd>
+													건강·교육·교통 등 나에게 필요한<br />
+													생활 알림을 실시간으로 받아보는<br />
+													행정안전부의 알림서비스
+												</dd>
+											</dl>
+										</div>
+									</div>
+									<p class="txt">
+										<strong>국민비서 약관 동의</strong>하고<br />
+										<strong>알림 신청</strong>하면 챌린지 성공 !
+									</p>
+								</div>
+								<div class="cont_bottom">
+									<button type="button"><span>국민비서 바로가기</span></button>
+								</div>
+							</div>
+						</div>
+
+						<div class="challenge_content tab-content" id="tab4">
+							<div class="challenge_cont">
+								<div class="cont_top">
+									<strong><span>챌린지4</span></strong>
+									<p class="tit">스마트항공권 등록하기</p>
+									<div class="box">
+										<div>
+											<div class="img"><img src="../images/img_c04.png" alt=""></div>
+											<dl>
+												<dt>스마트항공권</dt>
+												<dd>
+													국내선 탑승 시 QR코드 하나로<br />
+													탑승권 정보와 신분을 한 번에<br />
+													확인할 수 있는 모바일 신분증<br />
+													기반의 탑승권 서비스
+												</dd>
+											</dl>
+										</div>
+									</div>
+									<p class="txt">
+										<strong>스마트항공권 약관 동의</strong>하고,<br />
+										<strong>모바일체크인까지 완료</strong>하면  챌린지 성공!
+									</p>
+									<p class="small_txt">※ 체크인은 출발 24시간 전부터 가능하며,<br />
+										체크인이 완료된 후에 탑승권 정보를 볼 수 있어요</p>
+								</div>
+								<div class="cont_bottom">
+									<button type="button"><span>스마트항공권 바로가기</span></button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- // challenge_wrap -->
+		
+					<div class="add_benefit">
+						<span class="add"></span>
+						<div class="tit">추가혜택</div>
+						<div class="box">
+							<p>
+								챌린지 4
+								<strong><span>“스마트항공권 등록하기”</span>를<br />
+								완수</strong>하고 경품에 응모한 분에게는 무.조.건<br />
+								<strong><span>PASS머니 2,000P</span></strong> 를 드립니다!
+							</p>
+						</div>
+						<span class="txt">*9월말 일괄 지급</span>
+					</div>
+					<!-- // add_benefit -->
+				</div>
+				<!-- // box_item -->
+
+			</div>
+			<!-- // innerbox -->
+
+
+		</div><!-- // ev_230724 -->
+
+	</div><!-- // evSection -->
+
+
+	<div class="evFooterAlert gray"><!-- dark, light, gray -->
+		<dl>
+			<dt><strong>꼭 확인해주세요!</strong></dt>
+			<dd><p class="txt">본 이벤트는 1인 최대 3회 응모 가능합니다.</p></dd>
+			<dd><p class="txt">이벤트 기간 : 23.08.08(화) ~ 23.09.15(금)</p></dd>
+			<dd><p class="txt">본 이벤트는 당사의 사정에 의해 변경 혹은 중단될 수 있습니다.</p></dd>
+			<dd><p class="txt">추가 혜택으로 제공하는 PASS 머니는 이벤트 예산 소진 시 조기 마감될 수 있습니다.</p></dd>
+			<dd><p class="txt">이벤트 종료일까지 챌린지 성공 상태를 유지하셔야 이벤트 참여가 정상적으로 인정됩니다.</p></dd>
+			<dd class="hidden"><p class="txt">이벤트 참여를 위해 수집된 개인정보는 경품 발송 이외의 목적으로 활용되지 않으며, 이벤트 종료 후 일괄 파기됩니다.</p></dd>
+			<dd class="hidden"><p class="txt">이벤트 참여 후 U+ 모바일 서비스를 해지하거나 휴대폰 명의 또는 번호를 변경하는 경우, PASS 회원 탈퇴 후 재가입하는 경우에는 당첨 대상에서 제외됩니다.</p></dd>
+			<dd class="hidden"><p class="txt">이벤트 경품 및 내용은 변경될 수 있으며, 실제 경품은 상기 이미지와 상이할 수 있습니다.</p></dd>
+			<dd class="hidden"><p class="txt">이벤트 경품은 양도 불가하며, 경품 수령 의사를 밝히지 않는 경우 당첨이 취소됩니다.</p></dd>
+			<dd class="hidden"><p class="txt">5만 원 초과 경품의 제세 공과금(22%)은 당첨자 본인 부담이며, 제세공과금 납부 안내 및 주소지 확인을 위해 개별 연락 예정입니다.</p></dd>
+			<dd class="hidden"><p class="txt">모바일 기프티콘은 등록된 휴대폰 번호로 발송됩니다.</p></dd>
+			<dd class="hidden"><p class="txt">정보 오기재로 인한 경품 반송 및 분실은 당사에서 책임지지 않으며, 재발송 되지 않습니다.</p></dd>
+			<dd class="hidden"><p class="txt">이벤트에 대한 더 자세한 사항은 고객센터(114)로 문의 바랍니다.</p></dd>
+		</dl>
+		<button type="button" class="more"><span>유의사항 더 보기</span></button>
+	</div><!-- // evFooterAlert -->
+
+	<!-- <div>배너영역</div> -->
+	
+</div><!-- // evPageWrap -->
+
+<script>
+
+/* 1회차, 2회차.. 열고닫기 */
+let date_items = document.querySelectorAll(".date_item");
+date_items.forEach(function(item,index){
+	// let tirger = item.querySelector(".triger")
+	item.querySelector(".triger").addEventListener("click", function(){
+		if(!item.closest(".active")){
+			// item.closest(".date_item").querySelector(".ddd").style.display = "none";
+			item.classList.add("active");
+		} else {
+			// item.closest(".date_item").querySelector(".ddd").style.display = "block";
+			item.classList.remove("active");
+		}
+	})
+})
+
+
+/* 유의사항 더보기 */
+let btn_more = document.querySelector(".evFooterAlert button.more");
+let alert_hiddens = document.querySelectorAll(".evFooterAlert dd.hidden");
+
+btn_more.addEventListener("click", function(){
+	if(!btn_more.closest(".active")){
+		btn_more.classList.add("active");
+		alert_hiddens.forEach(function(item){
+			item.style.display = "block";
+		})
+	} else {
+		btn_more.classList.remove("active");
+		alert_hiddens.forEach(function(item){
+			item.style.display = "none";
+		})
+	}
+})
+
+
+/* 챌린지 자세히 보기 */
+let btn_detail = document.querySelector(".btn_detail button");
+btn_detail.addEventListener("click", function(){
+	let detailBox = document.querySelector("#detail_box");
+	let top_img_height = document.querySelector(".top_img").clientHeight * 0.94;
+	let detailBoxY = detailBox.offsetTop + top_img_height;
+	window.scrollTo({
+		top: detailBoxY,
+		left: 0,
+		behavior: 'smooth'
+	})
+})
+
+
+
+/* 챌린지 탭 */
+// 최초 진입시 tab4 활성화
+document.getElementById('tab4').style.display = 'block';
+function openTab(event, tabName) {
+	var i, tabContent, tabButtons;
+	tabContent = document.getElementsByClassName('tab-content');
+	for (i = 0; i < tabContent.length; i++) {
+	tabContent[i].style.display = 'none';
+	}
+	document.getElementById(tabName).style.display = 'block';
+
+	// 모든 버튼에서 active 클래스 제거
+	tabButtons = document.getElementsByClassName('tab-btn');
+	for (i = 0; i < tabButtons.length; i++) {
+	tabButtons[i].classList.remove('active');
+	}
+
+	// 선택된 버튼에 active 클래스 추가
+	event.currentTarget.classList.add('active');
+}
+</script>
+
+
+
+</body>
+</html>

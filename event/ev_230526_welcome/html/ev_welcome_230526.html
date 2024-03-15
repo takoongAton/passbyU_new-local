@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>PASS 앱 이벤트</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+	<!-- <meta name='viewport' content='initial-scale=1, viewport-fit=cover'> -->
+	
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/ev_common.css">
+	
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+
+
+	
+<style>
+	.wrap {padding-bottom:0;}
+	.ev_230526 {background-color:#5A2E86; font-family: 'Nanum Gothic', sans-serif;}
+	.ev_230526 * {font-family:inherit; line-height:inherit;}
+	.ev_230526 img {vertical-align:top;}
+	.ev_230526 div {position:relative;}
+	.ev_230526 div.top_img {}
+	.ev_230526 div.top_img p.date {position:absolute; top:16.68583em; left:0; width:100%; text-align:center;; height:2.37666em; color:#5A2E86; font-size:0.75em; line-height:2.37666em; font-weight:bold; text-align:center; letter-spacing:-0.05em;}
+
+
+	.ev_230526 div.txt_wrap {padding:1.875em 1.125em}
+	.ev_230526 div.txt_wrap div {padding:1.4375em 0; border:0.125em solid #79e2eb; border-radius:1.25em; color:#79E2EB;}
+	.ev_230526 div.txt_wrap div p {font-size:1.125em; font-weight:bold; text-align:center;}
+	.ev_230526 div.txt_wrap div p strong {display:inline-block; position:relative; margin-top:0.5em; background-color:#4B1F77; font-size:1.11111em;}
+
+	.ev_230526 div.txt_wrap div p span.txt1 {display:block; line-height:1.11111em;}
+	.ev_230526 div.txt_wrap div p span.txt2 {display:block; font-size:0.83333em;}
+
+	.evFooterAlert {background-color:#464646; color:#9F9F9F}
+	
+	.ev_230526 .ev_join {position:-webkit-sticky; position:sticky; bottom:0; left:0; z-index:1;}
+	.ev_230526 .btn_dark {box-sizing:content-box; display:flex; justify-content:center; align-items:center; height:3.4375em; padding-top:0.2em; background-color:#79EBE2; font-size:1.0625em; font-family:'Noto Sans KR'; font-weight:bold;
+		padding:0 0 calc(constant(safe-area-inset-bottom) - 24px);
+		padding:0 0 calc(env(safe-area-inset-bottom) - 24px);
+	}
+	.ev_230526 .btn_dark span {display:block; line-height:1em; color:#5A2E86;}
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="evPageWrap">
+
+	<div class="evSection">
+
+		<div class="ev_230526">
+			<div class="top_img"><img src="../images/ev_230526_img1.png" alt="">
+				<p class="date">2023년 6월 1일(목) ~ 2023년 6월 30일(금)</p>
+			</div>
+			<div class="txt_wrap">
+				<div>
+					<p>
+						<span class="txt1">이벤트에 응모한 분들 중 추첨을 통하여</span>
+						<strong>신세계 상품권 & 스타벅스 아메리카노</strong>
+						<span class="txt2">를 드립니다!</span>
+					</p>
+				</div>
+			</div>
+			<div><img src="../images/ev_230526_img2.png" alt=""></div>
+
+			<div class="evFooterAlert"><!-- dark, light, gray -->
+				<dl>
+					<dt><strong>이벤트 유의사항</strong></dt>
+					<dd><p class="txt">본 이벤트는 1인 1회 응모 가능합니다.</p></dd>
+					<dd><p class="txt">타 통신사에서 PASS를 이용하셨더라도, LG U+ PASS 가입이 처음이시라면 이벤트 응모가 가능합니다. </p></dd>
+					<dd><p class="txt">이벤트 참여를 위해 수집된 개인정보는 경품 발송 이외의 목적으로 활용되지 않으며, 이벤트 종료 후 일괄 파기됩니다.</p></dd>
+					<dd><p class="txt">회원 탈퇴 후 재가입 하는 경우, 당첨 대상에서 제외됩니다.</p></dd>
+					<dd><p class="txt">이벤트 참여 후 U+ 모바일 서비스를 해지하거나 휴대폰 명의 또는 번호를 변경하는 경우 당첨 대상에서 제외됩니다.</p></dd>
+					<dd><p class="txt">이벤트 경품 및 내용은 변경될 수 있으며, 실제 경품은 상기 이미지와 상이할 수 있습니다.</p></dd>
+					<dd><p class="txt">모바일 기프티콘은 등록된 휴대폰 번호로 발송됩니다.</p></dd>
+					<dd><p class="txt">정보 오기재로 인한 경품 반송 및 분실은 당사에서 책임지지 않으며, 재발송 되지 않습니다.</p></dd>
+					<dd><p class="txt">이벤트에 대한 더 자세한 사항은 고객센터(114)로 문의 바랍니다.</p></dd>
+				</dl>
+			</div><!-- // evFooterAlert -->
+		
+			<div class="ev_join"><button type="button" class="btn_dark"><span>이벤트 응모하기</span></button></div>
+			
+
+		</div><!-- // ev_230526 -->
+
+	</div><!-- // evSection -->
+
+</div><!-- // evPageWrap -->
+
+
+<script>
+
+	$(document).ready(function(){
+		$(".evAgeeLayer .close").click(function(){
+			$(".evAgeeLayer").removeClass("on")
+		})
+	
+		$("a").on("click", function(){
+			var xxx = $(this).attr("title");
+			console.log(xxx)
+			if(xxx) {
+				alert(xxx)
+			} else {
+				alert($(this).find("img").attr("alt"))
+			}
+		})
+		
+		$(".open_privacy").on("click", function(){
+			openLayer();
+		})
+
+
+		$("a.link1").on("click", function(){
+			alert("PASS 앱 설치하러 가기")
+		})
+
+		function openLayer (){
+			$(".evAgeeLayer").addClass("on")
+		}
+
+		$(".layer div.btn_group button").on("click", function(){
+			$(this).parents(".layer").hide();
+		})
+
+	})
+	</script>
+
+</body>
+</html>

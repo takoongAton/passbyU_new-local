@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>PASS 앱 이벤트</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/ev_common.css">
+	<link rel="stylesheet" href="../css/slick.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- <script src="../js/jquery-1.12.4.min.js"></script> -->
+	<script src="../js/slick.js" type="text/javascript" charset="utf-8"></script>
+
+	<!-- Google Tag Manager -->
+	<script>
+	(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-KCRSQZV');
+	</script>
+	<!-- End Google Tag Manager -->
+
+
+<style>
+@font-face {
+	font-family: 'S-CoreDream-4Regular';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'S-CoreDream-5Medium';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'S-CoreDream-6Bold';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-6Bold.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'S-CoreDream-7ExtraBold';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-7ExtraBold.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.ev_221214 {font-family:'S-CoreDream-4Regular';}
+.ev_221214 img {vertical-align:top;}
+.ev_221214 div {}
+
+.bnr_dots_bottomCenter {display:flex; justify-content:center; align-items:flex-end; column-gap:0.4375em; position:absolute; bottom:0; left:50%; height:1.4375em; transform:translate(-50%,100%);}
+.bnr_dots_bottomCenter * {vertical-align:top;}
+.bnr_dots_bottomCenter li {display:inline-block; width:1em; height:1em; font-size:0.5em;}
+.bnr_dots_bottomCenter li button {width:1em; height:1em; overflow:hidden; background-color: #fff; border-radius:100%; color:transparent;}
+.bnr_dots_bottomCenter li.slick-active button {background-color:#002c67;}
+
+.ev_221214 .appUpdate {padding:0 1.5625em; background-color:#dbf0ff;}
+.ev_221214 .appUpdate .inner {display:flex; justify-content:center; column-gap:0.625em; background-color:#fff;}
+.ev_221214 .appUpdate .inner > div {display:inline-block;}
+.ev_221214 .appUpdate button {width:6.875em;}
+
+.ev_221214 .evTab {padding:0 1.5625em; background-color:#3b7af7;}
+.ev_221214 .evTab .inner {display:flex; justify-content:center; border-radius:0.5em 0.5em 0 0; overflow:hidden;}
+.ev_221214 .evTab .inner > div {display:inline-block;}
+.ev_221214 .evTab button {width:9.6875em; height:2.54em; background-color:#6495f7; color:#3b7af7; font-family:'S-CoreDream-5Medium';}
+.ev_221214 .evTab button span {position:relative; top:0.12em}
+.ev_221214 .evTab button.active {background-color:#fff; color:#17416a;}
+
+.ev_221214 .box4 {position:relative;}
+.ev_221214 .box4 p {position:absolute; top:39%; left:50%; color:#fff; font-size:1.375em; line-height:1.22727em; font-weight:900; transform:translate(-50%,0%); text-shadow:0 0.1em 0.5em rgba(0,0,0,0.25); white-space:nowrap; text-align:center;font-family:'S-CoreDream-6Bold'; letter-spacing:-0.05em;}
+
+.ev_221214 .ev_btn_wrap {position:-webkit-sticky; position:sticky; left:0; bottom:0; width:100%; z-index:1;}
+
+.ev_221214 .tab_con {background-color:#3b7af7;}
+.ev_221214 .tab_con .evInfo {height:40.96875em; padding:0 1.5625em; text-align:center;background:#3b7af7 url('../images/ev_221214_img5_bg.png') no-repeat left bottom / cover}
+.ev_221214 .tab_con .evInfo .inner {padding:2em 0; background-color:#fff; border-radius:0 0 0.5em 0.5em;}
+.ev_221214 .tab_con .evInfo .inner div.tit {padding-bottom:1.65625em;}
+.ev_221214 .tab_con .evInfo .inner div.tit img {width:11.875em;}
+.ev_221214 .tab_con .evInfo .inner div.tit div {display:flex; justify-content:center; align-items:flex-start;}
+.ev_221214 .tab_con .evInfo .inner div.tit div span img {width:3.09375em;}
+.ev_221214 .tab_con .evInfo .inner div.tit div strong {color:#17416a; font-size:1.3125em; font-family:'S-CoreDream-7ExtraBold';}
+.ev_221214 .tab_con .evInfo .inner div.tit div + div {margin-top:0.3125em;}
+.ev_221214 .tab_con .evInfo .inner dl dt {display:inline-flex; align-items:center; justify-content:center; width:9.375em; height:1.96875em; border-radius:1.96875em; background-color:#c3e6ff; color:#333333;}
+.ev_221214 .tab_con .evInfo .inner dl strong {font-size:1em; font-family:'S-CoreDream-6Bold'; transform:translateY(0.125em);}
+.ev_221214 .tab_con .evInfo .inner dl + dl {margin-top:1.875em;}
+.ev_221214 .tab_con .evInfo .inner dl dt + dd {margin-top:0.9375em;}
+.ev_221214 .tab_con .evInfo .inner dl dd.txt p {font-size:0.9375em; line-height:1.33333em;}
+.ev_221214 .tab_con .evInfo .inner dl dd.img img {display:inline-block; width:10.9375em;}
+.ev_221214 .tab_con .evInfo .inner dl dd.txt p span {display:block; margin-top:0.25em; font-size:0.86666em;}
+.ev_221214 .tab_con .evInfo .inner dl dd.txt p span.red {color:#fc2b52; font-size:0.66666em;}
+.ev_221214 .tab_con .evInfo .inner dl dd.txt p span.blue {color:#3b7af7}
+.ev_221214 .tab_con .evInfo.ev2 .inner dl dt {color:#fff; background-color: #3b7af7;}
+
+
+.ev_221214 .ev_join {position:-webkit-sticky; position:sticky; bottom:0; left:0; width:100%; height:3.4375em; background-color:#fc2b52;}
+.ev_221214 .ev_join span {display:inline-block; position:relative; top:0.125em; padding-right:0.75em; color:#fff; font-size:1.125em; line-height:1em; font-family:'Noto Sans KR'; font-weight:bold;}
+.ev_221214 .ev_join span::before {content:""; display:block; position:absolute; top:50%; right:0; width:0.5em; height:0.5em; margin-top:0.0625em; border-width:0.1em 0.1em 0 0; border-style:solid; border-color:#fff; transform:rotate(45deg); transform-origin: 100% 0;}
+.ev_221214 .slick_wrap {position:relative;}
+.ev_221214 .slick_wrap * {vertical-align:top;}
+.ev_221214 .slide_wrap {position:absolute !important; top:0; left:1.5625em; right:1.5625em;}
+.ev_221214 .slick-list {border-radius:10px; overflow:hidden;}
+
+.ev_221214 .slick-arrow {position:absolute; top:12.375em; width:1.75em; height:1.75em; background-color:#a6ccff; border-radius:100%; z-index:1; overflow:hidden; color:transparent;}
+.ev_221214 .slick-arrow.slick-prev {left:1.21875em;}
+.ev_221214 .slick-arrow.slick-next {right:1.21875em;}
+
+.ev_221214 .slick-arrow::before {content:""; display:block; position:absolute; width:40%; height:40%; border-style:solid; border-color:#fff;}
+.ev_221214 .slick-arrow.slick-prev::before {top:50%; left:28%; border-width:0.16em 0 0 0.16em; transform:rotate(-45deg); transform-origin:0 0;;}
+.ev_221214 .slick-arrow.slick-next::before {top:50%; right:28%; border-width:0.16em 0.16em 0 0; transform: rotate(45deg); transform-origin:100% 0;;}
+.ev_221214 .slick-arrow.slick-disabled {background-color:#dde2e9}
+</style>
+
+</head>
+
+
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KCRSQZV" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="evPageWrap">
+
+	<div class="evSection">
+
+		<div class="ev_221214">
+			<div><img src="../images/ev_221214_img1.jpg" alt=""></div>
+			<div><img src="../images/ev_221214_img2.jpg" alt=""></div>
+			<div class="appUpdate">
+				<div class="inner">
+					<div><button type="button"><span><img src="../images/btn_app_google.png" alt="Google Play"></span></button></div>
+					<div><button type="button"><span><img src="../images/btn_app_apple.png" alt="App Store"></span></button></div>
+				</div>
+			</div>
+
+			<div><img src="../images/ev_221214_img3.png" alt=""></div>
+
+			<div class="box4">
+				<img src="../images/ev_221214_img4.png" alt="">
+				<p>
+					PASS 휴대폰결제<br />
+					오픈 이벤트 2종에 참여하세요!
+				</p>
+			</div>
+
+			<div class="evTab">
+				<div class="inner">
+					<div><button type="button" class="active"><span>이벤트 1</span></button></div>
+					<div><button type="button" class=""><span>이벤트 2</span></button></div>
+				</div>
+			</div>
+
+			<div class="evTabCon">
+
+				<div class="tab_con">
+					<div class="evInfo ev1">
+						<div class="inner">
+							<div class="tit"><img src="../images/ev_221214_img4_1.png" alt="PASS 휴대폰 결제 서비스 이용동의하기" /></div>
+							<dl>
+								<dt><strong>이벤트 기간</strong></dt>
+								<dd class="txt">
+									<p>22년 12월 19일 ~ 23년 01월 20일</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt><strong>이벤트 대상</strong></dt>
+								<dd class="txt">
+									<p>이벤트 기간동안<br />
+										이벤트 페이지 응모한 후 PASS 앱에서<br />
+										휴대폰결제 서비스 가입(이용동의)한 고객 중<br />
+										2,000 명 선착순 추첨 </p>
+									<p><span class="red">* 제외 대상 : 기존 휴대폰결제 서비스 가입(이용동의) 고객</span></p>
+								</dd>
+							</dl>
+							<dl>
+								<dt><strong>경품</strong></dt>
+								<dd class="img"><img src="../images/ev_221214_img5_1_1.png" alt="CU편의점 이천원 상품권"></dd>
+								<dd class="txt">
+									<p>22년 12월 19일 ~ 23년 01월 20일</p>
+									<p><span class="blue">* 23년 2월 15일 이후 발송 예정</span></p>
+								</dd>
+							</dl>
+						</div>
+					</div>
+
+					<!-- <div><img src="../images/ev_221214_img5_1.png" alt="이벤트1 컨텐츠"></div> -->
+					<div><img src="../images/ev_221214_img6_1.png" alt=""></div>
+					<div class="slick_wrap"><img src="../images/ev_221214_img7_bg.jpg" alt="">
+						<div class="slide_wrap">
+							<div class="item"><img src="../images/ev_221214_img7_01.png" alt=""></div>
+							<div class="item"><img src="../images/ev_221214_img7_02.png" alt=""></div>
+							<div class="item"><img src="../images/ev_221214_img7_03.png" alt=""></div>
+							<div class="item"><img src="../images/ev_221214_img7_04.png" alt=""></div>
+							<div class="item"><img src="../images/ev_221214_img7_05.png" alt=""></div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="tab_con" style="display:none;">
+					<div class="evInfo ev2">
+						<div class="inner">
+							<div class="tit"><img src="../images/ev_221214_img4_1.png" alt="PASS 휴대폰 결제 서비스 이용동의하기" /></div>
+							<dl>
+								<dt><strong>이벤트 기간</strong></dt>
+								<dd class="txt">
+									<p>22년 12월 19일 ~ 23년 01월 20일</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt><strong>이벤트 대상</strong></dt>
+								<dd class="txt">
+									<p>이벤트 기간동안<br />
+										이벤트 페이지 응모한 후<br />
+										휴대폰 결제 시 PASS 앱 인증을 이용한 고객<br />
+										중 1,000 명 선착순 추첨
+									</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt><strong>경품</strong></dt>
+								<dd class="img"><img src="../images/ev_221214_img5_2_1.png" alt="스타벅스 아메리카노 1000명"></dd>
+								<dd class="txt">
+									<p>스타벅스 아메리카노</p>
+									<p><span class="blue">* 23년 2월 15일 이후 발송 예정</span></p>
+								</dd>
+							</dl>
+						</div>
+					</div>
+					<div><img src="../images/ev_221214_img6_2.jpg" alt=""></div>
+				</div>
+
+			</div><!-- // evTabCon -->
+
+			<div class="ev_btn_wrap">
+				<button type="button" class="ev_join"><span>이벤트 1 참여하기</span></button>
+				<button type="button" class="ev_join" style="display:none"><span>이벤트 2 참여하기</span></button>
+			</div>
+
+			<div><img src="../images/ev_221214_img8.jpg" alt="유의사항"></div>
+			
+		</div><!-- // ev_221214 -->
+
+	</div><!-- // evSection -->
+
+</div><!-- // evPageWrap -->
+
+
+<script>
+
+	$(document).ready(function(){
+
+		
+
+		
+		$(".evAgeeLayer .close").click(function(){
+			$(".evAgeeLayer").removeClass("on")
+		})
+	
+		$("a").on("click", function(){
+			var xxx = $(this).attr("title");
+			console.log(xxx)
+			if(xxx) {
+				alert(xxx)
+			} else {
+				alert($(this).find("img").attr("alt"))
+			}
+		})
+
+		$(".open_privacy").on("click", function(){
+			openLayer();
+		})
+
+
+		$("a.link1").on("click", function(){
+			alert("PASS 앱 설치하러 가기")
+		})
+
+		function openLayer (){
+			$(".evAgeeLayer").addClass("on")
+		}
+
+		$(".layer div.btn_group button").on("click", function(){
+			$(this).parents(".layer").hide();
+		})
+
+
+
+		/* 이벤트 참여하기 */
+		$(".ev_join").on("click", function(){
+			alert($(this).text())
+		})
+
+		/* 이미지 슬라이드 */
+		$('.slide_wrap').slick({
+			dotsClass: "bnr_dots_bottomCenter",
+			autoplay: false,
+			autoplaySpeed: 3000,
+			infinite: false,
+			arrows: true,
+			dots:true
+		})
+
+		/* 탭 테스트 */
+		const tabBtns = document.querySelectorAll(".evTab button");
+		const tabCons = document.querySelectorAll(".tab_con");
+		const tabJoinBtns  = document.querySelectorAll(".ev_btn_wrap button")
+		tabBtns.forEach(function(item,index){
+			item.addEventListener("click", function(){
+				if(!this.classList.contains("active")) {
+					tabCon(index);
+				}
+			})
+		})
+		function tabCon(idx){
+			tabBtns.forEach(function(item){
+				item.classList.remove("active");
+			})
+			tabCons.forEach(function(item){
+				item.style.display = 'none'
+			})
+			tabJoinBtns.forEach(function(item){
+				item.style.display = 'none';
+			})
+			tabBtns[idx].classList.add("active");
+			tabCons[idx].style.display = 'block';
+			tabJoinBtns[idx].style.display = 'block';
+		}
+	})
+	</script>
+
+</body>
+</html>

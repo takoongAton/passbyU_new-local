@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>PASS 앱 이벤트</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/ev_common.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<!-- Google Tag Manager -->
+	<script>
+	(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-KCRSQZV');
+	</script>
+	<!-- End Google Tag Manager -->
+
+
+<style>
+.ev_220822 {background-color:#fff;}
+
+
+.evForm_wrap {padding:0 1.875em; background-color:#ffeef5;}
+/* 정답 O / X */
+.ev_220822 .evForm {position:relative; padding:2.5em 0; background-color:#fff; color:#000; text-align:center; border-radius:0.9375em; overflow:hidden;}
+.ev_220822 .evForm dl {display:table; display:flex; justify-content:center;}
+.ev_220822 .evForm dl::after {content:""; display:block; height:0; clear:both;}
+.ev_220822 .evForm dl dt {display:flex; align-items:center; box-sizing:border-box; padding-left:0.5em; text-align:left; font-size:0.9375em; letter-spacing:-0.05em; font-weight:bold; white-space:nowrap;}
+.ev_220822 .evForm dl dd {display:flex; align-items:center; padding-left:1.75em;}
+.ev_220822 .evForm dl dd div {display:inline-block; position:relative;}
+.ev_220822 .evForm dl dd div + div {margin-left:1.84375em;}
+.ev_220822 .evForm input[type="radio"] {position:absolute; width:0; height:0; border:0 none; opacity:0;}
+.ev_220822 .evForm input[type="radio"] + label span.checkmark {content:""; display:inline-block; position:absolute; top:50%; left:0; width:0.9375em; height:0.9375em; background-color:#fff; border:0.21875em solid #989898; vertical-align:top; border-radius:100%; transform:translateY(-50%);}
+.ev_220822 .evForm input[type="radio"]:checked + label span.checkmark {/* border-color:#242424; */ border:0; background-color: #242424;}
+.ev_220822 .evForm input[type="radio"]:checked + label span.checkmark::before {content:""; display:block; position:absolute; bottom:50%; right:50%; width:40%; height:60%; border:0.1em solid #fff; border-top:0; border-left:0; transform:translate(-8%, 36%) rotate(45deg); transform-origin: 100% 100%;}
+.ev_220822 .evForm label {display:block; padding-left:1.25em; line-height:1;}
+.ev_220822 .evForm label span {display:block; padding-left:4px; font-weight:bold;}
+.ev_220822 .evForm label span img {display:inline-block; width:auto; height:1.1875em;}
+
+
+/* 버튼 크기 */
+.ev_220822 div.btn {text-align:center;}
+.ev_220822 .btn_row {padding:1.09375em 0 1.71875em; background-color:#fff; text-align:center;}
+.ev_220822 .btn_row button {width:9em;}
+.ev_220822 .btn_row button + button {margin-left:0.5em;}
+
+
+.myCGVcoupon {display:none; padding:1em 0; background-color:#302b2b; color:#ffe400; box-shadow:inset 0 0 10px rgba(0,0,0,0.5); text-align:center; font-size:1em}
+.myCGVcoupon p + div {margin-top:0.25em; padding-top:0.25em; font-size:1.125em;}
+.myCGVcoupon p a {color:#ffe400;}
+.myCGVcoupon div p {display:inline-block; line-height:1.5em;}
+.myCGVcoupon div button {display:inline-block; width:auto; margin-left:1em; padding:0.6em 0; color:#fff; font-size:0.75em; line-height:1em; text-decoration:underline; vertical-align:top;}
+.myCGVcoupon span {display:block; margin-top:0.5em; font-size:0.75em; color:#fff;}
+
+/* 팝업 */
+.layer.modal {text-align:center;}
+.layer.modal::before {content:""; position:fixed; top:0; right:0; bottom:0; left:0; background-color:rgba(0,0,0,0.5);}
+.layer.modal .layerBox {box-sizing:border-box; position:fixed; top:50%; left:20px; right:20px; background-color:#fff; border-radius:6px; transform:translateY(-50%); z-index:1; min-width:260px;}
+.layer.modal .layer_content {padding-top:1.5em}
+.layer.modal .layer_content .layer_tit {padding-bottom:0.5em;}
+.layer.modal .layer_content p {padding:1.5em; font-size:0.875em; word-break:keep-all;}
+.layer.modal .content {padding:36px 18px; color:#000; font-weight:700; word-break:keep-all; text-align:center;}
+.layer.modal .txt {margin-top:12px; padding:0 18px 36px; color:#000; font-size:16px; line-height:1.5; font-weight:400; word-break:keep-all;}
+.layer.modal .alert_btn {display:flex; justify-content:space-between; width:100%; border-top:1px solid #e7e7e7; font-size:1em;}
+.layer.modal .alert_btn .btn:first-of-type {width:30%;}
+.layer.modal .alert_btn .btn:last-of-type {width:70%; border-left:1px solid #e7e7e7;}
+.layer.modal .alert_btn .btn button {color:#000; font-family:400;}
+.layer.modal .alert_btn .btn button span {display:block; padding:16px 0 17px; line-height:1.5;}
+.layer.modal .alert_btn .btn:last-child button {color:#ff3782; font-weight:700;}
+
+.evForm_wrap + .btn_row {background-color: #ffeef5;}
+</style>
+
+</head>
+
+
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KCRSQZV" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<div class="evPageWrap">
+
+	<div class="evSection">
+
+		<div class="ev_220822">
+			<!-- <div class="share"><button type="button" class="btn4"><img src="../images/ev_220225_btn4.png" alt="공유하기"></button></div> -->
+
+			<div><img src="../images/ev_220822_img1.png" alt="PASS 모바일운전면허증, 어디까지 알고 계시나요?"></div>
+			<div><img src="../images/ev_220822_img2.png" alt="이벤트 기간은 22년 3월 2일부터 선착순 경품 소진 시 까지. 경품은 CGV 2천원 할인권 선착순 100% 증정. 2명 결제하면 4천원까지 할인."></div>
+			<div><img src="../images/ev_220822_img3.png" alt="참여방법. 첫째, 모바일운전면허증을 등록한다. 둘째, O X 퀴즈에 참여하고 이벤트를 응모한다. 셋째, 모바일운전면허증으로 선거하고 CGV영화 보러 간다."></div>
+
+			<div class="btn_row">
+				<button type="button" class="btn1"><img src="../images/ev_220822_btn1.png" alt="나의 CGV쿠폰 확인하기"></button>
+				<button type="button" class="btn2"><img src="../images/ev_220822_btn2.png" alt="쿠폰 등록 하러 가기"></button>
+			</div>
+			
+			<div class="myCGVcoupon">
+				<p>CGV 2,000원 할인권</p>
+				<div><p class="mycodeNum">304175914533024</p><button type="button" class="copy_code">복사하기</button></div>
+				<span>#쿠폰사용은 9/30까지 가능합니다.</span>
+			</div>
+
+			<div><img src="../images/ev_220822_img4.png" alt="퀴즈 : 선거 시, PASS 모바일운전면허증으로 신분확인 된다?"></div>
+
+			<div class="evForm_wrap">
+				<div class="evForm">
+					<dl>
+						<dt><span>정답</span></dt>
+						<dd>
+							<div><input type="radio" name="ra01" id="radio01"><label for="radio01"><span class="checkmark"></span><span><img src="../images/ev_220822_chk1.png" alt="된다."></span></label></div>
+							<div><input type="radio" name="ra01" id="radio02"><label for="radio02"><span class="checkmark"></span><span><img src="../images/ev_220822_chk2.png" alt="안된다."></span></label></div>
+						</dd>
+					</dl>
+				</div>
+			</div>
+			<div class="btn_row">
+				<button type="button" class="btn2"><img src="../images/ev_220822_btn3.png" alt="참여하고 상품받기"></button>
+				<button type="button" class="btn3"><img src="../images/ev_220822_btn4.png" alt="모바일운전면허 등록하기"></button>
+			</div>
+
+			<div><img src="../images/ev_220822_img5.png" alt="쿠폰 사용 유의사항"></div>
+		</div>
+
+	</div><!-- // evSection -->
+	
+</div><!-- // evPageWrap -->
+
+
+
+<!-- 이벤트 참여 완료 팝업 -->
+<div class="layer modal">
+	<div class="layerBox">
+		<div class="layer_content">
+			<div class="layer_tit"><strong>이벤트 참여가 완료 되었습니다.</strong></div>
+			<div class="layer_con">
+				<strong>CVG 2,000원 할인권<br />
+					(304175914533024)</strong>
+			</div>
+			<p>PASS 모바일운전면허로 편리하게 성인여부 확인하세요~</p>
+		</div>
+		<div class="alert_content">
+			<div class="alert_btn">
+				<div class="btn"><button type="button" class="cancel"><span>닫기</span></button></div>
+				<div class="btn"><button type="button" class="ok"><span>모바일 운전면허 등록하기</span></button></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<div class="evAgeeLayer on" style="display:none;">
+	<div class="tit">개인정보 수집 동의</div>
+	<div class="con">내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br></div>
+	<div class="fBtnSticky"><button type="button" class=""><span>동의/동의철회</span></button></div>
+	<button type="button" class="close"><span>팝업닫기</span></button>
+</div><!-- // evAgeeLayer -->
+
+
+
+<div class="layer alert" style="display:none;">
+	<div class="dim"></div>
+	<div class="layer_inner">
+		<div class="layer_content">
+			<div class="pass_logo"><img src="../images/ico_logo_main.png" alt="PASS"></div>
+			<div class="tit">타이틀텍스트</div>
+			<p class="txt">서브텍스트<br />서브텍스트</p>
+		</div>
+		<div class="btn_group">
+			<div><button type="button" class="prev"><span>취소</span></button></div><!-- prev, back, cancel -->
+			<div><button type="button" class="next"><span>확인</span></button></div>
+		</div>
+	</div>
+</div><!-- // .layer.alert -->
+
+
+<script>
+	$("button").on("click", function(){
+
+		var xxx = $(this).find("img").attr("alt");
+		if(xxx) {alert(xxx)}
+		
+	})
+	$("button.btn1").on("click", function(){
+		$(".myCGVcoupon").slideDown(200);
+	})
+
+	$(".layer.modal button").on("click", function(){
+		$(this).parents(".layer").hide();
+	})
+</script>
+
+</body>
+</html>

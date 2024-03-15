@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>주민등록증 모바일 확인서비스</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/ev_common.css">
+	<link rel="stylesheet" href="../css/slick.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- <script src="../js/jquery-1.12.4.min.js"></script> -->
+	<script src="../js/slick.js" type="text/javascript" charset="utf-8"></script>
+
+	<!-- Google Tag Manager -->
+	<script>
+	(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-KCRSQZV');
+	</script>
+	<!-- End Google Tag Manager -->
+
+
+<style>
+	.ev_221025 {background-color:#55a0e6;}
+	/* .ev_221025 {padding-bottom:3.75em;} */
+	.ev_221025 img {vertical-align:top;}
+	.ev_221025 div {position:relative;}
+
+	.ev_221025 .ev_form {padding:1.5625em 0 0; background-color:#55a0e6;}
+	.ev_221025 .ev_form div.tit {font-size:1.25em; font-family:'GmarketSansMedium'; text-align:center;}
+	.ev_221025 .ev_form p {margin-top:1em; padding-bottom:0.5em; color:#444;}
+	.ev_221025 .ev_form .ipt {padding-bottom:0.625em;}
+	.ev_221025 .ev_form .ipt input {box-sizing:border-box; height:3.4375em; padding:0 1.5625em; background-color:#fff; border:0; border-radius:0.625em; color:#333; font-family:'GmarketSansMedium';}
+	.ev_221025 .ev_form .ipt input::placeholder {color:#666;}
+	.ev_221025 .ev_form .chk_wrap {display:inline-block; margin-top:1.25em; padding-right:1.25em;}
+	.ev_221025 .ev_form .chk_wrap * {vertical-align:top;}
+	.ev_221025 .ev_form .chk_wrap label {display:inline-block; position:relative; vertical-align:top;}
+	.ev_221025 .ev_form .chk_wrap label input {position:absolute; opacity:0;}
+	.ev_221025 .ev_form .chk_wrap label input + span.checkmark {position:absolute; top:50%; left:0; width:1em; height:1em; background-color:#fff; border-radius:100%; transform:translateY(-50%);}
+	.ev_221025 .ev_form .chk_wrap label input + span.checkmark::before {content:""; display:block; position:absolute; top:50%; left:50%; width:60%; height:35%; border-width:0.1em; border-style:solid; border-color:transparent transparent #ccc #ccc; transform: translate(-50%,-85%) rotate(-45deg); }
+	.ev_221025 .ev_form .chk_wrap label input:checked + span.checkmark {background-color:#222;}
+	.ev_221025 .ev_form .chk_wrap label input:checked + span.checkmark::before {border-color:transparent transparent #fff #fff;}
+	.ev_221025 .ev_form .chk_wrap label span.txt {display:block; padding-top:0.15em; padding-left:2em; color:#222; font-size:0.75em; font-family:'GmarketSansMedium';}
+	.ev_221025 .ev_form table {width:100%; margin-top:1em; border-top:1px solid #aaa; border-bottom:1px solid #aaa; font-size:0.6875em; font-family:'GmarketSansMedium';}
+	.ev_221025 .ev_form table th,
+	.ev_221025 .ev_form table td {padding:1.175em 1em 1em 1em; font-weight:normal;}
+	.ev_221025 .ev_form table th {background-color:#f8f5f0; color:#666; border-right:1px solid #aaa;}
+	.ev_221025 .ev_form table td {background-color:#fff; color:#222;}
+	.ev_221025 .ev_form table tr + tr th {border-top:1px solid #aaa;}
+	.ev_221025 .ev_form table tr + tr td {border-top:1px solid #aaa;}
+
+	.ev_221025 .btn_dark {display:flex; justify-content:center; align-items:center; height:3.4375em; padding-top:0.2em; background-color:#222; border-radius:0.625em; color:#fff; font-size:1.0625em; font-family:'GmarketSansMedium';}
+	.ev_221025 .btn_dark span {display:block; line-height:1em;}
+
+
+	.bnr_dots_bottomCenter {position:absolute; bottom:0; left:50%; transform:translateX(-50%); bottom:1em;}
+	.bnr_dots_bottomCenter li {display:inline-block;padding:0 0.25em;}
+	.bnr_dots_bottomCenter li button {width:0.34375em; height:0.34375em; overflow:hidden; background-color: #fff; border-radius:100%; color:transparent; opacity:0.5;}
+	.bnr_dots_bottomCenter li.slick-active button {opacity:1;}
+	.slick-list {font-size:0;}
+	.slick-arrow {position:absolute; top:56%; transform:translateY(-50%); width:20px; height:20px; z-index: 10; color:transparent}
+	.slick-arrow::before {content:""; display:block; position:absolute; top:50%; width:9px; height:9px; border-style:solid; border-color:rgba(0,0,0,0.33);}
+	
+	.slick-prev {display:none; left:1em;}
+	.slick-prev::before {left:0;  border-width:2px 0 0 2px; transform:rotate(-45deg); transform-origin:0 0;;}
+	.slick-next {display:none; right:1em;}
+	.slick-next::before {right:0; border-width:2px 2px 0 0; transform:rotate(45deg); transform-origin:100% 0;}
+</style>
+
+</head>
+
+
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KCRSQZV" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<style>
+.storeBtn {background-color:#fff; text-align:center;}
+.storeBtn button {width:auto;}
+.storeBtn button img {width:auto; width:8.125em;}
+
+</style>
+<div class="evPageWrap">
+
+	<div class="evSection">
+
+		<div class="ev_221025">
+			<div class="top_img"><img src="../images/ev_221025_img1.png" alt="PASS에서 누리는 주민등록증 모바일 확인서비스!"></div>
+			
+			<div>
+				<button type="button"><span><img src="../images/ev_221025_btn1.png" alt="PASS 주민등록증 등록하러 가기"></span></button>
+			</div>
+			
+			<div><img src="../images/ev_221025_img2.png" alt="본 이벤트는 최신 버전의 PASS 앱 이용고객만 응모 가능합니다."></div>
+
+			<div style="padding:0 1.25em 2.125em;">
+				<div style="box-shadow:0 0 8px rgba(0,0,0,0.15);">
+					<div><img src="../images/ev_221025_img3.png" alt="이벤트 기간내 주민등록증 등록만 해도 자동응모"></div>
+					<div class="storeBtn">
+						<button><span><img src="../images/ev_221025_btn2.png" alt="플레이스토어"></span></button>
+						<button><span><img src="../images/ev_221025_btn3.png" alt="앱스토어"></span></button>
+					</div>
+					<div><img src="../images/ev_221025_img5.png" alt="경품 당첨확률 높이는 TIP"></div>
+					<div>
+						<button><span><img src="../images/ev_221025_btn4.png" alt="등록하러 가기"></span></button>
+					</div>
+					<div><img src="../images/ev_221025_img6.png" alt="유의사항: 실물 주민등록증 정상적으로 사용 가능한 사용자에 한하여 본인 명의의 휴대폰 1대에서만 등록 및 사용이가능합니다."></div>
+
+					<div>
+						<div class="slide_wrap">
+							<div class="item"><img src="../images/ev_221025_img7_1.png" alt="이미지1"></div>
+							<div class="item"><img src="../images/ev_221025_img7_2.png" alt="이미지2"></div>
+							<div class="item"><img src="../images/ev_221025_img7_3.png" alt="이미지3"></div>
+							<div class="item"><img src="../images/ev_221025_img7_4.png" alt="이미지4"></div>
+							<div class="item"><img src="../images/ev_221025_img7_5.png" alt="이미지5"></div>
+							<div class="item"><img src="../images/ev_221025_img7_6.png" alt="이미지6"></div>
+							<div class="item"><img src="../images/ev_221025_img7_7.png" alt="이미지6"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div><!-- // ev_221025 -->
+
+	</div><!-- // evSection -->
+
+	<div class="evFooterAlert dark"><!-- dark, light, gray -->
+		<dl>
+			<dt><strong>꼭 확인하세요.</strong></dt>
+			<dd><p class="txt">당첨된 모바일 쿠폰상품은 등록된 휴대전화번호로 일괄배송 예정입니다.</p></dd>
+			<dd><p class="txt">5만원 초과 경품의 제세공과금 (경품 소비자가의 22%)은 당첨자 본인 부담이며, 개별 연락하여 주소지확인 및 제세공과금 납부 안내 후, 일괄 배송 진행될 예정입니다.</p></dd>
+			<dd><p class="txt">제세공과금 처리를 위해 당첨자의 주민등록증 사본을 요구할 수 있습니다.</p></dd>
+			<dd><p class="txt">본 이벤트의 내용 및 경품은 당사 사정에 의해 별도 사전고지 없이 변경될 수 있으며, 실제 경품은 이미지와 다를 수 있습니다.</p></dd>
+			<dd><p class="txt">비정상적인 방법으로 응모하여 당첨되는 경우 당첨이 취소될 수 있으며, 정보 오기재로 인한 경품 반송 및 분실은 당사에서 책임지지 않습니다.</p></dd>
+			<dd><p class="txt">이벤트 참여 후 U+ 모바일 서비스를 해지하거나 명의 및 휴대폰번호를 변경하면 당첨이 취소됩니다.</p></dd>
+			<dd><p class="txt">약관은 'PASS이벤트>더보기>이용약관 및 정책' 메뉴에서 확인할 수 있습니다.</p></dd>
+			<dd><p class="txt">이벤트에 대한 더 자세한 사항은 고객센터 1599-4273-⑦로 문의바랍니다.</p></dd>
+		</dl>
+	</div><!-- // evFooterAlert -->
+	
+</div><!-- // evPageWrap -->
+
+
+<div class="evAgeeLayer on" style="display: none">
+	<div class="tit">개인정보 수집 동의</div>
+	<div class="con">내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br>내용이 들어갑니다.<br></div>
+	<div class="fBtnSticky"><button type="button" class=""><span>동의/동의철회</span></button></div>
+	<button type="button" class="close"><span>팝업닫기</span></button>
+</div><!-- // evAgeeLayer -->
+
+
+
+<div class="layer alert">
+	<div class="dim"></div>
+	<div class="layer_inner">
+		<div class="layer_content">
+			<div class="pass_logo"><img src="../images/ico_logo_main.png" alt="PASS"></div>
+			<div class="tit">새로운 버전이<br />출시되었습니다.<br />앱스토어로 이동합니다.</div>
+			<!-- <p class="txt">서브텍스트<br />서브텍스트</p> -->
+		</div>
+		<div class="btn_group">
+			<div><button type="button" class="prev"><span>닫기</span></button></div><!-- prev, back, cancel -->
+			<div><button type="button" class="next"><span>업데이트</span></button></div>
+		</div>
+	</div>
+</div><!-- // .layer.alert -->
+
+
+<script>
+
+	$(document).ready(function(){
+
+
+		// $('.slide_wrap').slick({
+		// 	dots: true,
+		// 	dotsClass: "bnr_dots_bottomCenter",
+		// 	infinite: false,
+		// 	arrows: true
+		// });
+
+
+
+		$('.slide_wrap').on('init', function(event, slick) {
+			$(".slick-prev").hide();
+		}) .slick({
+			dotsClass: "bnr_dots_bottomCenter",
+			autoplay: true,
+			autoplaySpeed: 3000,
+			infinite: false,
+			arrows: true,
+			dots:true
+		})
+		.on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+		})
+		.on('afterChange', function(event, slick, currentSlide) {
+			console.log(currentSlide)
+			if(currentSlide < 1) {
+				$(".slick-prev").hide();
+			} else {
+				$(".slick-prev").show();
+			}
+			if(currentSlide > 5) {
+				$(".slick-next").hide();
+			} else {
+				$(".slick-next").show();
+			}
+		});
+
+	
+		$(".evAgeeLayer .close").click(function(){
+			$(".evAgeeLayer").removeClass("on")
+		})
+	
+		$("a").on("click", function(){
+			var xxx = $(this).attr("title");
+			console.log(xxx)
+			if(xxx) {
+				alert(xxx)
+			} else {
+				alert($(this).find("img").attr("alt"))
+			}
+		})
+		
+		$(".open_privacy").on("click", function(){
+			openLayer();
+		})
+
+
+		$("a.link1").on("click", function(){
+			alert("PASS 앱 설치하러 가기")
+		})
+
+		function openLayer (){
+			$(".evAgeeLayer").addClass("on")
+		}
+
+		$(".layer div.btn_group button").on("click", function(){
+			$(this).parents(".layer").hide();
+		})
+
+	})
+	</script>
+
+</body>
+</html>

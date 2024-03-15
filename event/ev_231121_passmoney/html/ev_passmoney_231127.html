@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>모바일신분증 등록 이벤트</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/ev_common.css">
+	<link rel="stylesheet" href="../css/slick.css">
+	<style>
+		.ev_231127 {background-color:#fff; overflow:hidden;}
+		.ev_231127 img {vertical-align:top; border:0; max-width:100%;}
+		.ev_231127 div {position:relative;}
+
+		.ev_231127 .top {position:relative;}
+		.ev_231127 .top button {position:absolute; bottom:4.6875%; left:6.66666%; width:86.66666%;}
+		.ev_231127 .content {padding:0 6.66666% 6.66666vw;}
+		.ev_231127 .content > div:first-of-type {padding:11.66666vw 0 2.77777vw;}
+		.ev_231127 .content .box1 {position:relative;}
+		.ev_231127 .content .box1 button {position:absolute; bottom:3.48162%; right:7.6923%; left:7.6923%; width:84.61538%; max-width:100%;}
+
+		.ev_231127 div.btm_btn {display:flex; align-items:center; position:relative; bottom:0; right:0; left:0; width:100%; max-width:720px; margin:0 auto; background-color:#000;}
+		.ev_231127 div.btm_btn {padding-bottom:calc(constant(safe-area-inset-bottom)); padding-bottom:calc(env(safe-area-inset-bottom));}
+		@media screen and (min-width:720px) {
+			.ev_231127 .content {padding-bottom:48px;}
+			.ev_231127 .content > div:first-of-type {padding:84px 0 20px;}
+		}
+	</style>
+</head>
+
+<body>
+
+<div class="evPageWrap">
+
+	<div class="evSection">
+
+		<div class="ev_231127">
+			<div><img src="../images/ev_231127_img1.png" alt="모바일신분증 등록 이벤트"></div>
+			<div class="content">
+				<div><img src="../images/ev_231127_img2.png" alt="PASS머니 더 모으고 싶다면?"></div>
+				<div class="box1">
+					<img src="../images/ev_231127_img3.png" alt="금융사기방지 첫 가입시 100% 지급!">
+					<button type="button" class="btn_btn1"><span><img src="../images/ev_231127_btn1.png" alt="이벤트 자세히보기"></span></button>
+				</div>
+			</div>
+			<div class="btm_btn">
+				<button type="button" class="btn_btn2"><img src="../images/ev_231127_btn2.png" alt="룰렛 돌리러 가기"></button>
+			</div>
+		</div><!-- // ev_231127 -->
+
+	</div><!-- // evSection -->
+
+</div><!-- // evPageWrap -->
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="../js/slick.min.js"></script>
+
+
+<script>
+	/* 대충 버튼 눌리면 어멋? */
+	let btns = document.querySelectorAll("button");
+	btns.forEach(function(item){
+		item.addEventListener("click", function(){
+			let img = item.querySelector("img");
+			if(img) {
+				if(img.getAttribute("title")) {
+					alert(img.getAttribute("title"))
+				} else {
+					alert(img.getAttribute("alt"))
+				}
+			} else {
+				alert(item.innerText)
+			}
+		})
+	})
+	/* // 대충 버튼 눌리면 어멋? */
+
+</script>
+
+</body>
+</html>

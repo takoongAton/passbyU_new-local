@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>PASS 앱 이벤트</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/ev_common.css">
+	<style>
+		.ev_220731 {background-color:#d5b2e0;}
+		.ev_220731 img {vertical-align:top; border:0;}
+		.ev_220731 div {position:relative;}
+		.top_img .deco {position:absolute; z-index:1;}
+		.top_img .deco1 {width:4.67763em; top:29.3092em; left:0;}
+		.top_img .deco2 {width:4.58881em; top:26.79276em; right:0;}
+		
+	</style>
+</head>
+
+<body>
+
+<div class="evPageWrap">
+
+	<div class="evSection">
+
+		<div class="ev_220731">
+			<div class="top_img"><img src="../images/ev_220731_img1.png" alt="PASS에 드디어 sello 등장!">
+				<div class="deco deco1"><img src="../images/ev_220731_deco1.png" alt="풍선1"></div>
+				<div class="deco deco2"><img src="../images/ev_220731_deco2.png" alt="풍선2"></div>
+			</div>
+				<div style="padding:0 1.125em 1.6875em;">
+					<div style="padding-bottom:1.94444em; background-color:#f9e9ed; border-radius:1.5em; overflow:hidden;">
+						<div><img src="../images/ev_220731_img2.png" alt="PASS x sello 제휴이벤트, 기간 8월 1일부터 8월 31일 까지, 당첨자 발표 9월 10일 개별안내"></div>
+
+						<div><button type="button"><span><img src="../images/ev_220731_btn1.png" alt="내 중고폰 견적받기"></span></button></div>
+
+						<div><img src="../images/ev_220731_img3.png" alt="신세계 상품권 2만원 또는 1만원권"></div>
+
+						<div><button type="button"><span><img src="../images/ev_220731_btn2.png" alt="이벤트 참여하기"></span></button></div>
+					</div>
+				</div>
+			<div><img src="../images/ev_220731_img5.png" alt="이벤트 유의사항"></div>
+		</div><!-- // ev_220731 -->
+
+	</div><!-- // evSection -->
+
+</div><!-- // evPageWrap -->
+
+
+<script>
+	/* 대충 버튼 눌리면 어멋? */
+	let btns = document.querySelectorAll("button");
+	btns.forEach(function(item){
+		item.addEventListener("click", function(){
+			let img = item.querySelector("img");
+			if(img) {
+				if(img.getAttribute("title")) {
+					alert(img.getAttribute("title"))
+				} else {
+					alert(img.getAttribute("alt"))
+				}
+			} else {
+				alert(item.innerText)
+			}
+		})
+	})
+	/* // 대충 버튼 눌리면 어멋? */
+
+</script>
+
+</body>
+</html>
