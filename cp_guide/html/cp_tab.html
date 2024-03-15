@@ -1,0 +1,122 @@
+ <!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>PASS by U+</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/animate.css">
+	<link rel="stylesheet" href="../css/fonts/NotoSansKR-WEB.css">
+	<link rel="stylesheet" href="../css/cp_common.css">
+</head>
+<body>
+
+<div class="cp_wrap">
+	<div class="header">	
+	</div><!-- // header -->
+
+	<div class="header_tab">
+		<ul class="col4"><!-- col2 ~ col5 -->
+			<li class="on"><span>Tab0</span></li>
+			<li><span>Tab2</span></li>
+			<li><span>Tab3</span></li>
+			<li><span>Tab4</span></li>
+		</ul>
+	</div><!-- // header_tab -->
+
+	<div class="header_tab">
+		<ul class="col4">
+			<li class="on"><span>신용</span></li>
+			<li><span>금융거래</span></li>
+			<li><span>휴대폰</span></li>
+			<li><span>운세</span></li>
+		</ul>
+	</div>
+
+	<div class="header_tab">
+		<ul class="col3">
+			<li class="on"><span>Tab1</span></li>
+			<li><span>Tab2</span></li>
+			<li><span>Tab3</span></li>
+		</ul>
+	</div>
+
+	<div class="header_tab">
+		<ul class="col3">
+			<li class="on"><span>가입혜택</span></li>
+			<li><span>무료운세</span></li>
+			<li><span>이벤트</span></li>
+		</ul>
+	</div>
+
+	<!-- <div class="header_tab">
+		<ul class="col3">
+			<li class="on"><span>가입혜택</span></li>
+			<li><span>무료운세</span></li>
+			<li><span>이벤트</span></li>
+		</ul>
+	</div> --><!-- // header_tab -->
+
+	<div class="cp_content_wrap">
+		컨텐츠가 들어갑니다.<br />
+		컨텐츠가 들어갑니다.<br />
+		컨텐츠가 들어갑니다.<br />
+		컨텐츠가 들어갑니다.<br />
+		컨텐츠가 들어갑니다.<br />
+		컨텐츠가 들어갑니다.<br />
+		컨텐츠가 들어갑니다.<br />
+		컨텐츠가 들어갑니다.<br />
+		컨텐츠가 들어갑니다.<br />
+		컨텐츠가 들어갑니다.<br />
+		컨텐츠가 들어갑니다.<br />
+		컨텐츠가 들어갑니다.<br />
+		컨텐츠가 들어갑니다.<br />
+		컨텐츠가 들어갑니다.<br />
+		컨텐츠가 들어갑니다.<br />
+		컨텐츠가 들어갑니다.<br />
+		컨텐츠가 들어갑니다.<br />
+		컨텐츠가 들어갑니다.<br />
+		컨텐츠가 들어갑니다.<br />
+		컨텐츠가 들어갑니다.<br />
+		컨텐츠가 들어갑니다.<br />
+		컨텐츠가 들어갑니다.<br />
+		컨텐츠가 들어갑니다.<br />
+		컨텐츠가 들어갑니다.<br />
+		컨텐츠가 들어갑니다.<br />
+		컨텐츠가 들어갑니다.<br />
+	</div><!-- // content_wrap -->
+
+	<div class="footer_wrap">
+		<div class="footer_info">
+			<span>서비스이용약관</span>
+			<span>상품이용약관</span>
+			<span>개인정보처리방침</span>
+		</div>
+		<div class="footer_info">
+			<p>서비스 제공사 : (주)아톤</p>
+			<p>서비스 이용문의 : <a href="tel:02-318-0802">02-318-0802</a> (<a href="mailto:help@home.co.kr">help@home.co.kr</a>)</p>
+			<p>가입/해지 관련 문의 : 080-869-4273</p>
+		</div>
+	</div><!-- // footer_wrap -->
+</div><!-- // cp_wrap -->
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- <script src="../js/jquery-1.12.4.min.js"></script> -->
+
+
+<script>
+$(document).ready(function(){
+	/* 구현 샘플 입니다. */
+	$(".header_tab li").on("click", function(){
+		$(this).siblings().removeClass("on");
+		$(this).addClass("on")
+	})
+})
+</script>
+</body>
+</html>

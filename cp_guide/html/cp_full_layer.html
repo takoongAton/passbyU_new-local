@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko" class="fixed">
+	<head>
+	<title>PASS by U+</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/animate.css">
+	<link rel="stylesheet" href="../css/fonts/NotoSansKR-WEB.css">
+	<!-- <link rel="stylesheet" href="../css/PASSbyUplus_new.css"> -->
+	<link rel="stylesheet" href="../css/cp_common.css">
+</head>
+<body class="fixed">
+
+<div class="cp_wrap fixed">
+
+	<div class="cp_content_wrap">
+		<button class="open_alert" style="display:inline-block; width:40%; margin:30px; padding:10px; background-color:#f7f7f7; border:1px solid #666;">버튼</button>
+
+	</div><!-- // content_wrap -->
+
+	<div class="footer_wrap">
+	
+	</div><!-- // footer_wrap -->
+</div><!-- // cp_wrap -->
+
+
+<!-- <div class="cp_modal_dim"></div>
+<div class="cp_modal">
+	<div class="cp_modal_content">
+		<div class="tit">서비스 접속에<br />불편을 드려 죄송합니다.</div>
+		<div class="txt">서비스 접속이 원활하지 않습니다.<br />잠시 후, 다시 접속 부탁드립니다.</div>
+		<div class="modal_btn">
+			<div class="btn"><button type="button" class="cancel"><span>취소</span></button></div>
+			<div class="btn"><button type="button" class="ok"><span>확인</span></button></div>
+		</div>
+	</div>
+</div> -->
+
+<div class="cp_full_layer" style="display:none;">
+	<div class="header">
+		<div class="inner">
+			<div class="tit">전면팝업</div>
+			<div class="btn"><button type="button"><span>닫기</span></button></div>
+		</div>
+	</div>
+	<div class="layer_content">
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.내용 끝.
+	</div>
+	
+</div>
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+<script src="../js/jquery-1.12.4.min.js"></script>
+
+
+<script>
+$(document).ready(function(){
+	/* 구현 샘플 */
+	/* 모달팝업 */
+	$(".open_alert").on("click", function(){
+		$(".cp_full_layer").show()
+		$("html, body, .cp_wrap").addClass("fixed");
+	})
+
+	$(".cp_full_layer div.btn").on("click", function(){
+		$(".cp_full_layer").hide();
+		$("html, body, .cp_wrap").removeClass("fixed");
+	})
+
+	/* 메뉴 */
+	$(".header_nav > div.btn").on("click", function(){
+		$(this).toggleClass("on");
+		$(".header_nav > div.btn + div").toggleClass("on");
+	})
+})
+
+/*
+$(document).ready(function(){
+
+	$(".cp_modal_dim, .cp_modal button.cancel").on("click", function(){
+		modal_dim();
+		$("body").removeClass("fixed");
+	})
+
+	function modal_dim(){
+		$(".cp_modal, .cp_modal_dim").hide();
+	}
+
+	function xx_fixed(){
+		$("html, body, .cp_wrap").toggleClass("fixed");
+	}
+
+	$(".cp_full_layer > div.btn").on("click", function(){
+		xx_fixed();
+		modal_dim();
+		$(".cp_full_layer").hide();
+	})
+
+})*/
+</script>
+</body>
+</html>

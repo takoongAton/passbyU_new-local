@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>PASS by U+</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/animate.css">
+	<link rel="stylesheet" href="../css/fonts/NotoSansKR-WEB.css">
+	<!-- <link rel="stylesheet" href="../css/PASSbyUplus_new.css"> -->
+	<link rel="stylesheet" href="../css/cp_common.css">
+<style>
+/* cp사 해더 */
+.cp_header {position:relative; height:48px; background-color:#fff; text-align:center; z-index:10;}
+.cp_header h1 {font-size:1em; line-height:3em; font-weight:bold; font-family:"Noto Sans KR";}
+.cp_header div {position:absolute; top:0;}
+.cp_header div span {display:block; line-height:1em;}
+.cp_header div span.txt {display:block; font-size:11px; font-family:'Helvetica Neue';}
+.cp_header div.util-btn.left {left:6px;}
+.cp_header div.util-btn.right {right:6px;}
+.cp_header div button {width:48px; height:48px; text-align:center;}
+.cp_header div button svg {display:inline-block; vertical-align:top;}
+.cp_header div button span img {display:inline-block; width:24px; height:24px; vertical-align:top;}
+.cp_header div.util-btn.left button.btnClose {transform:rotate(180deg);}
+</style>
+</head>
+<body>
+
+<div class="cp_wrap">
+	
+	<div class="cp_header">
+
+		<div class="util-btn left">
+			<button class="btnClose">
+				<span class="img"><img src="../images/cp_common/btn_top_close.png" alt="닫기" /></span>
+			</button>
+			<button type="button" class="btnBack">
+				<span class="img"><img src="../images/cp_common/btn_top_back.png" alt="이전" /></span>
+			</button>
+		</div>
+
+		<h1>부가서비스명</h1>
+
+		<div class="util-btn right">
+			<button type="button" class="btnMore">
+				<span class="img"><img src="../images/cp_common/btn_top_more.png" alt="더보기" /></span>
+			</button>
+			<button type="button">
+				<span class="img"><img src="../images/cp_common/btn_top_food.png" alt="식단홈" /></span>
+				<span class="txt">식단홈</span>
+			</button>
+			<button class="btnClose">
+				<span class="img"><img src="../images/cp_common/btn_top_close.png" alt="닫기" /></span>
+			</button>
+		</div>
+
+	</div><!-- // cp_header -->
+
+	<div class="cp_header"><img src="../images/temp/sam_header2.png" alt="샘플" /></div><!-- 개발시 삭제 -->
+
+	<div class="cp_content_wrap">
+		<div class="cp_error">
+			<div class="img"><img src="../images/cp_common/icon_alert.png" alt="알림" /></div>
+			<div class="tit">서비스 접속에<br />불편을 드려서 죄송합니다.</div>
+			<p class="txt">현재 원인 및 복구 진행중입니다.<br />신속한 복구를 위해 최선을 다하겠습니다.</p>
+		</div><!-- // cp_error -->
+	</div><!-- // content_wrap -->
+
+</div><!-- // cp_wrap -->
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- <script src="../js/jquery-1.12.4.min.js"></script> -->
+
+
+<script>
+$(document).ready(function(){
+
+
+
+})
+</script>
+</body>
+</html>

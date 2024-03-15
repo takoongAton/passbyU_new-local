@@ -1,0 +1,255 @@
+ <!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>증권 무료페이지</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/animate.css">
+	<link rel="stylesheet" href="../css/fonts/NotoSansKR-WEB.css">
+	<link rel="stylesheet" href="../css/cp_common.css">
+	<link rel="stylesheet" href="../css/cp_stock.css">
+<style>
+/* .cp_weekly_fund .card_news .card_panel .panel {min-height:500px;} */
+/* .cp_weekly_fund .card_news .card_panel .panel div.item::before {content:""; position:absolute; top:0; left:0; width:339px; height:238px; background-color:#ff6600;} */
+
+/* @media screen and (max-width:414px) {
+.cp_weekly_fund .card_news .card_panel .panel {min-height:266.19px;}
+}
+
+@media screen and (max-width:375px) {
+.cp_weekly_fund .card_news .card_panel .panel {min-height:238.72px;}
+}
+
+@media screen and (max-width:360px) {
+.cp_weekly_fund .card_news .card_panel .panel {min-height:228.16px;}
+}
+
+@media screen and (max-width:320px) {
+.cp_weekly_fund .card_news .card_panel .panel {min-height:200px;}
+} */
+
+</style>
+</head>
+<body>
+
+<div class="cp_wrap">
+
+	<div class="header"><img src="../images/temp/sam_header_fund1.png" alt="샘플" /></div><!-- // 앱 영역 header -->
+
+	<div class="cp_stock">
+		
+		<div class="cp_weekly_fund">
+			<div class="this_week">
+				<h2>이번주 집중 테마</h2>
+				<div class="tit"><span>"</span>식료품 업종<span>"</span></div>
+				<ul>
+					<li><span>&nbsp;</span>영화[기생충] 효과로 '짜파구리' 관심증가</li>
+					<li><span>&nbsp;</span>코로나 19영향, 점직적 영향 완화 예상</li>
+					<li><span>&nbsp;</span>해외 매출 성장으로 실적개선 예상</li>
+				</ul>
+				<div class="bg"><img src="../images/cp_stock/this_week_bg1.png" alt="배경" /></div><!-- bg1,2,3 -->
+			</div><!-- // this_week -->
+
+			<div class="tema_stock">
+				<div class="tit">테마 관련주</div>
+				<dl>
+					<dt><span>#</span>사조오양</dt>
+					<dd class="up"><em>29.68</em><span>%</span></dd>
+				</dl>
+				<dl>
+					<dt><span>#</span>CJ씨푸드</dt>
+					<dd class="down"><em>29.68</em><span>%</span></dd>
+				</dl>
+				<dl>
+					<dt><span>#</span>삼보판지</dt>
+					<dd class="down"><em>29.68</em><span>%</span></dd>
+				</dl>
+			</div><!-- // tema_stock -->
+
+			<div class="card_news">
+				<div class="tit">프리미엄 카드뉴스</div>
+				<div class="card_panel_wrap">
+					<div class="card_panel">
+						<div class="panel">
+							<div class="item">
+								<img src="../images/temp/cardbnr_1.png" alt="이미지" />
+								<dl class="txt">
+									<dt>코로나19<br />세계적 대유행 공식화 공식화 공식화 공식화 공식화</dt>
+									<dd>말머리</dd>
+								</dl>
+							</div>
+						</div>
+						<div class="panel">
+							<div class="item"><img src="../images/temp/cardbnr_2.png" alt="이미지" /></div>
+						</div>
+						<div class="panel">
+							<div class="item"><img src="../images/temp/cardbnr_3.png" alt="이미지" /></div>
+						</div>
+						<div class="panel">
+							<div class="item"><img src="../images/temp/cardbnr_4.png" alt="이미지" /></div>
+						</div>
+					</div>
+					<!-- <div class="pagination pagingDot"></div> -->
+
+					<div class="pagingDot">
+						<div class="selected">1</div>
+						<div>2</div>
+						<div>3</div>
+						<div>4</div>
+					</div>
+				</div>
+			</div><!-- // card_news -->
+
+			<div class="btn"><button type="button"><span>프리미엄 종목분석 전체보기</span></button></div>
+		</div><!-- // cp_weekly_fund -->
+
+	</div>
+<style>
+
+
+/* @media screen and (max-width:320px) {
+	.eg-flick-viewport, .eg-flick-camera {min-height:200px !important;}
+}
+
+@media screen and (max-width:360px) {
+	.eg-flick-viewport, .eg-flick-camera {min-height:228.16px !important;}
+}
+
+@media screen and (max-width:375px) {
+	.eg-flick-viewport, .eg-flick-camera {min-height:238.72px !important;}
+} */
+
+
+</style>
+</div><!-- // cp_wrap -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- <script src="../js/jquery-1.12.4.min.js"></script> -->
+<script src="../js/flicking.pkgd.js"></script>
+<!-- <script src="../js/pagination.js"></script> -->
+<script>
+
+$(document).ready(function(){
+
+	/*
+	https://naver.github.io/egjs-flicking/release/latest/doc/eg.Flicking.html
+	https://naver.github.io/egjs-flicking/projects/shoppingsearch.html
+	https://github.com/naver/egjs-flicking
+	위 3개의 url을 참조하였습니다.
+	*/
+	
+	
+
+/*
+	var xx = 0;
+	var panel_item_img = $(".card_panel .panel img");
+	panel_item_img.each(function(){
+		idx = panel_item_img.index($(this));
+
+
+
+		panel_item_img.eq(idx).on('load', function() {
+			
+			console.log(xx)
+			if(xx == panel_item_img.length -1) {
+				card_panel_wrap();
+			}
+			xx++;
+		}).on("error", function(){
+			alert("똥")
+		});
+	})
+*/
+
+
+	/*$(".card_panel .panel:last img").on('load', function() {
+		card_panel_wrap();
+	});*/
+
+
+/*var panel_item = $(".card_panel .panel img");
+panel_item.each(function(){
+	idx = panel_item.index($(this));
+	console.log(panel_item)
+})*/
+/*$(".card_panel .panel:last-child img").on('load', function() {
+  card_panel_wrap();
+});*/
+
+
+/*var panel_item = $(".card_panel .panel");
+console.log(panel_item.length)
+var xx = panel_item.length;
+$(panel_item.eq(xx)).on('load', function() {
+  card_panel_wrap();
+});*/
+
+
+
+
+
+})
+
+$(window).on('load', function(){
+	function card_panel_wrap(){
+
+		var pagingDot = $(".pagingDot div");
+
+		/* pagination */
+		var total = 4;
+		/*var total  = $(".card_panel .panel").length;*/
+		/* flicking */
+		var card_panel = new eg.Flicking(".card_panel", {
+			infinite: true,
+			infiniteThreshold: 300,
+			lastIndex: total,
+			bound: true,
+			adaptive: true,
+			hanger: "100%",
+			anchor: "100%",
+		});
+		card_panel.on("needPanel", function (e) {
+			if (e.range.min === total) {
+				/* set last panel */
+				e.panel.insertAfter('<div class="panel more"><button type="button" onclick="test();"><span></span></button></div>');
+			}
+		});
+		function getData(panel){
+
+		}
+		card_panel.on("restore", function (e) {
+			console.log(e.index)
+			if(e.index >= total) {
+				test();
+			}
+		});
+		card_panel.on("moveEnd", function (e) {
+			console.log("moveEnd : " + e.index)
+			pagingDot.removeClass("selected");
+			pagingDot.eq(e.index).addClass("selected");
+			if(e.index >= total) pagingDot.eq(e.index -1).addClass("selected");
+		});
+
+		card_panel.on("moveStart", function (e) {
+			console.log("moveStart : " + e.index)
+		});
+		card_panel.on("move", function (e) {
+			console.log("move : " + e.index)
+		});
+		card_panel.addPlugins(CustomPagination(".pagingDot"));
+	}
+	card_panel_wrap();
+});
+
+function test(){
+	alert("링크연결");
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko" class="fixed">
+	<head>
+	<title>PASS by U+</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/animate.css">
+	<link rel="stylesheet" href="../css/fonts/NotoSansKR-WEB.css">
+	<!-- <link rel="stylesheet" href="../css/PASSbyUplus_new.css"> -->
+	<link rel="stylesheet" href="../css/cp_common.css">
+</head>
+<body class="fixed">
+
+<div class="cp_wrap fixed">
+
+	<div class="header_tab">
+		<ul class="col4"><!-- col5 ~ col2 -->
+			<li class="on"><span>Tab1</span></li>
+			<li><span>Tab2</span></li>
+			<li><span>Tab3</span></li>
+			<li><span>Tab4</span></li>
+		</ul>
+	</div><!-- // header_tab -->
+
+	<div class="header_nav line">
+		<div class="btn"><button type="button" class="on"><span>서비스 안내</span></button></div>
+		<div>
+			<dl>
+				<dt>신용정보 변동관리</dt>
+				<dd>- 신용정보 변동내역</dd>
+				<dd>- 신용등급/평점 변동내역</dd>
+			</dl>
+			<dl>
+				<dt>신용정보조회</dt>
+				<dd>- 정보요약</dd>
+				<dd>- 거래정보</dd>
+				<dd>- 대출정보</dd>
+				<dd>- 연체정보</dd>
+			</dl>
+			<dl>
+				<dt>카드정보관리</dt>
+				<dd>- 카드개설현황</dd>
+				<dd>- 카드한도현황</dd>
+				<dd>- 연간이용실적</dd>
+			</dl>
+		</div>
+	</div>
+
+	<div class="cp_content_wrap">
+		<button class="open_alert" style="display:inline-block; width:40%; margin:30px; padding:10px; background-color:#f7f7f7; border:1px solid #666;">버튼</button>
+		<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다.<br />
+		내용이 들어갑니다. end
+	</div><!-- // content_wrap -->
+
+	<div class="footer_wrap">
+		<div class="footer_info">
+			<span>서비스이용약관</span>
+			<span>상품이용약관</span>
+			<span>개인정보처리방침</span>
+		</div>
+		<div class="footer_info">
+			<p>서비스 제공사 : (주)아톤</p>
+			<p>서비스 이용문의 : <a href="tel:02-318-0802">02-318-0802</a> (<a href="mailto:help@home.co.kr">help@home.co.kr</a>)</p>
+			<p>가입/해지 관련 문의 : 080-869-4273</p>
+		</div>
+	</div><!-- // footer_wrap -->
+</div><!-- // cp_wrap -->
+
+
+<div class="cp_modal_dim" style="display:block;"></div>
+<div class="cp_alert" style="display:block;">
+	<div class="cp_alert_content">
+		<div class="tit">[서비스명]</div>
+		<div class="txt">서비스이용을 해지하시겠습니까?</div>
+		<div class="alert_btn">
+			<div class="btn"><button type="button" class="close"><span>취소</span></button></div>
+			<div class="btn"><button type="button" class="ok"><span>확인</span></button></div>
+		</div>
+	</div>
+</div>
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+<script src="../js/jquery-1.12.4.min.js"></script>
+
+
+<script>
+
+$(document).ready(function(){
+	/* 구현 샘플 */
+	/* 모달팝업 */
+	$(".open_alert").on("click", function(){
+		$(".cp_modal_dim, .cp_alert").show()
+		$("html, body, .cp_wrap").addClass("fixed");
+	})
+
+	$(".cp_modal_dim, .cp_alert button.close").on("click", function(){
+		$(".cp_alert, .cp_modal_dim").hide();
+		$("html, body, .cp_wrap").removeClass("fixed");
+	})
+
+	/* 메뉴 */
+	$(".header_nav > div.btn").on("click", function(){
+		$(this).toggleClass("on");
+		$(".header_nav > div.btn + div").toggleClass("on");
+	})
+})
+</script>
+</body>
+</html>
