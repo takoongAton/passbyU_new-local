@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>PASS 마인드케어</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	
+	<link rel="stylesheet" href="../css/reset.css" />
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<style>
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+.passMindcare {position:relative; max-width:720px; margin:0 auto; font-size:4.44444vw; background:#ebf4d1;}
+
+@media screen and (min-width: 720px) {
+	.passMindcare {font-size:2em;}
+}
+.passMindcare .btn {position:-webkit-sticky; position:sticky; bottom:0; left:0; width:100%; background-color: #222; color:#fff;}
+.passMindcare .btn button {height:3.75em;}
+.passMindcare .btn span {display:block; color:#fff; font-size:1em; font-weight:700; font-family:'Pretendard-Regular';}
+.form_wrap {background:#ebf4d1;}
+
+.form_wrap {padding-top:2.8125em; padding-bottom:2.34375em;}
+.form_wrap .input_wrap {padding:0 1.8125em;}
+.form_wrap .input_wrap dl {display:flex; align-items:center; width:100%;}
+.form_wrap .input_wrap dl + dl {margin-top:1.25em;}
+.form_wrap .input_wrap dt {height:100%; width:5.78125em; padding-left:1.375em;}
+.form_wrap .input_wrap dt strong {display:block; font-size:0.84375em; font-weight:bold; font-family:'Pretendard-Regular';}
+.form_wrap .input_wrap dd {flex:1;}
+.form_wrap .input_wrap dd * {vertical-align:top;}
+.form_wrap .input_wrap input[type="text"] {border:0; background-color:transparent; width:100%; height:1.71875em; font-size:0.84375em; border-bottom:1px solid #000;}
+.form_wrap .input_wrap input[type="text"]::placeholder {font-size:inherit;}
+.form_wrap .input_wrap dd label {display:inline-flex; align-items:center; position:relative;}
+.form_wrap .input_wrap dd input[type="radio"] {position:absolute; top:0; left:0; width:0; height:0; opacity:0;}
+.form_wrap .input_wrap dd input[type="radio"] + span.checkmark {display:inline-block; width:1em; height:1em; background-color:#fff; border:0.21875em solid #888888; border-radius:100%;}
+.form_wrap .input_wrap dd input[type="radio"]:checked + span.checkmark {border-color:#ff3a4a;}
+.form_wrap .input_wrap dd label span.txt {display:inline-block; margin-left:0.75em; color:#000; font-size:0.875em; font-weight:bold;}
+.form_wrap .input_wrap dd label + label {margin-left:2.8125em;}
+
+.agree_wrap {margin-top:1.25em; padding:0 1.8125em;}
+.agree_wrap .inner {display:flex; justify-content: flex-start; align-items: flex-start; padding:1.1875em 1.15625em 0.875em; background-color:#fff; border-radius:0.875em; overflow:hidden;}
+.agree_wrap .inner .agree {width:1.46875em; padding-top:0.09375em;}
+.agree_wrap .inner .agree label {display:inline-block; position:relative; vertical-align:top; line-height:1.29629em;}
+.agree_wrap .inner .agree label input {position:absolute; top:0; left:0; width:0; height:0; opacity:0;}
+.agree_wrap .inner .agree label input + span.checkmark {display:block; position:relative; width:0.875em; height:0.875em; border-radius:100%; background-color:#999;}
+.agree_wrap .inner .agree label input + span.checkmark::before {content:""; display:block; position:absolute; bottom:30%; left:45%; width:52%; height:35%; border-width:0 0 0.0625em 0.0625em; border-style:solid; border-color:#fff; transform:rotate(-45deg);transform-origin:0 100%;}
+.agree_wrap .inner .agree label input:checked + span.checkmark {background-color:#ff3a4a;}
+.agree_wrap .inner .txt {color:#335844;}
+.agree_wrap .inner .txt div.tit {font-size:0.84375em; line-height:1.29629em;; font-family:'Pretendard-Regular';}
+.agree_wrap .inner .txt div.tit + dl {margin-top:0.625em;}
+.agree_wrap .inner .txt dl {display:flex; width:100%;}
+.agree_wrap .inner .txt dl dt strong {display:block; font-size:0.6875em; line-height:1.36363em; font-family:'Pretendard-Regular'; font-weight:bold;}
+.agree_wrap .inner .txt dl dd {flex:1; padding-left:0.5em;}
+.agree_wrap .inner .txt dl dd p {font-size:0.6875em; line-height:1.36363em; font-family:'Pretendard-Regular';}
+</style>
+</head>
+
+
+<body>
+
+<div class="passMindcare">
+
+	<div><img src="../images/mindcare_img_230207_01.png" alt="PASS 마인드케어 서비스 오픈 알림 신청하세요!"></div>
+
+	<div class="form_wrap">
+		<div class="input_wrap">
+			<dl>
+				<dt><strong>단말 정보</strong></dt>
+				<dd>
+					<div>
+						<label>
+							<input type="radio" name="radio1" />
+							<span class="checkmark"></span>
+							<span class="txt">iOS</span>
+						</label>
+						<label>
+							<input type="radio" name="radio1" />
+							<span class="checkmark"></span>
+							<span class="txt">Android</span>
+						</label>
+					</div>
+				</dd>
+			</dl>
+			<dl>
+				<dt><strong>휴대폰 번호</strong></dt>
+				<dd>
+					<div>
+						<input type="text" placeholder="휴대폰 번호 입력">
+					</div>
+				</dd>
+			</dl>
+		</div>
+
+		<div class="agree_wrap">
+			<div class="inner">
+				<div class="agree">
+					<label>
+						<input type="checkbox" class="checkbox" />
+						<span class="checkmark"></span>
+					</label>
+				</div>
+				<div class="txt">
+					<div class="tit"><strong>[필수] 개인정보수집동의</strong></div>
+					<dl>
+						<dt><strong>수집항목</strong></dt>
+						<dd><p>단말정보, 휴대폰번호</p></dd>
+					</dl>
+					<dl>
+						<dt><strong>이용목적</strong></dt>
+						<dd><p>서비스 오픈알림 PUSH 발송 업무 처리</p></dd>
+					</dl>
+					<dl>
+						<dt><strong>보유기간</strong></dt>
+						<dd><p>동의일로부터 서비스 오픈알림 PUSH 발송<br />종료 후 파기</p></dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="btn"><button type="button"><span>오픈 알림받기 신청하기</span></button></div>
+
+</div><!-- // passSurvey -->
+
+</body>
+</html>

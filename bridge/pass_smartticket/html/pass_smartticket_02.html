@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>PASS 스마트티켓 운항정보</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	
+	<link rel="stylesheet" href="../css/reset.css" />
+	<link rel="stylesheet" href="../css/pass_smartticket.css" />
+
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+</head>
+
+<body>
+
+<div class="passSmartticket">
+
+	<div class="airLine_search_wrap">
+		<div class="search_airline">
+			<div class="row">
+				<div class="item">
+					<div class="tit">출발/도착</div>
+					<div class="ipt_select">
+						<select name="" id="">
+							<option value="출발">출발</option>
+							<option value="도착">도착</option>
+						</select>
+					</div>
+				</div>
+	
+				<div class="item">
+					<div class="tit">공항</div>
+					<div class="ipt_select">
+						<select name="" id="">
+							<option value="선택" selected disabled>선택</option>
+							<option value="김포국제공항">김포국제공항</option>
+							<option value="제주국제공항">제주국제공항</option>
+							<option value="대구국제공항">대구국제공항</option>
+							<option value="김해국제공항">김해국제공항</option>
+							<option value="청주국제공항">청주국제공항</option>
+							<option value="무안국제공항">무안국제공항</option>
+							<option value="양양국제공항">양양국제공항</option>
+							<option value="울산공항">울산공항</option>
+							<option value="광주공항">광주공항</option>
+							<option value="여수공항">여수공항</option>
+							<option value="포항경주공항">포항경주공항</option>
+							<option value="사천공항">사천공항</option>
+							<option value="군산공항">군산공항</option>
+							<option value="원주공항">원주공항</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<!-- // row -->
+
+			<div class="row">
+				<div class="item">
+					<div class="tit">항공사</div>
+					<div class="ipt_select">
+						<select name="" id="">
+							<option value="전체" selected>전체</option>
+							<option value="대한항공">대한항공</option>
+							<option value="아시아나항공">아시아나항공</option>
+							<option value="에어부산">에어부산</option>
+							<option value="에어서울">에어서울</option>
+							<option value="제주항공">제주항공</option>
+							<option value="진에어">진에어</option>
+							<option value="티웨이항공">티웨이항공</option>
+							<option value="하이에어">하이에어</option>
+							<option value="에어로케이">에어로케이</option>
+							<option value="에어프레미아">에어프레미아</option>
+							<option value="이스타">이스타</option>
+							<option value="플라이강원">플라이강원</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item">
+					<div class="tit">전체 시간</div>
+					<div class="ipt_select">
+						<select name="" id="">
+							<option value="선택" selected disabled>선택</option>
+							<option value="00:00 ~ 00:59">00:00 ~ 00:59</option>
+							<option value="01:00 ~ 01:59">01:00 ~ 01:59</option>
+							<option value="02:00 ~ 02:59">02:00 ~ 02:59</option>
+							<option value="03:00 ~ 03:59">03:00 ~ 03:59</option>
+							<option value="04:00 ~ 04:59">04:00 ~ 04:59</option>
+							<option value="05:00 ~ 05:59">05:00 ~ 05:59</option>
+							<option value="06:00 ~ 06:59">06:00 ~ 06:59</option>
+							<option value="07:00 ~ 07:59">07:00 ~ 07:59</option>
+							<option value="08:00 ~ 08:59">08:00 ~ 08:59</option>
+							<option value="09:00 ~ 09:59">09:00 ~ 09:59</option>
+							<option value="10:00 ~ 10:59">10:00 ~ 10:59</option>
+							<option value="11:00 ~ 11:59">11:00 ~ 11:59</option>
+							<option value="12:00 ~ 12:59">12:00 ~ 12:59</option>
+							<option value="13:00 ~ 13:59">13:00 ~ 13:59</option>
+							<option value="14:00 ~ 14:59">14:00 ~ 14:59</option>
+							<option value="15:00 ~ 15:59">15:00 ~ 15:59</option>
+							<option value="16:00 ~ 16:59">16:00 ~ 16:59</option>
+							<option value="17:00 ~ 17:59">17:00 ~ 17:59</option>
+							<option value="18:00 ~ 18:59">18:00 ~ 18:59</option>
+							<option value="19:00 ~ 19:59">19:00 ~ 19:59</option>
+							<option value="20:00 ~ 20:59">20:00 ~ 20:59</option>
+							<option value="21:00 ~ 21:59">21:00 ~ 21:59</option>
+							<option value="22:00 ~ 22:59">22:00 ~ 22:59</option>
+							<option value="23:00 ~ 23:59">23:00 ~ 23:59</option>
+						</select>
+					</div>
+				</div>
+			</div>
+
+		</div><!-- // search_airline -->
+
+
+		<button type="button" class="submit"><span>조회하기</span></button>
+
+	</div><!-- // airLine_search_wrap -->
+
+
+	<div class="ariLine_content_wrap">
+		
+		<div class="box_alert">
+			<div class="alert">
+				<span><img src="../images/ico_mw_main_notice.png" alt="아이콘"></span>
+				<p>아래 운항 스케줄은 항공사 사정으로 변경될 수 있으니, 항공편에 대한 정확한 정보는 해당 항공사를 통해 확인해주시기 바랍니다.</p>
+			</div>
+		</div>
+		
+		<div class="result_list">
+			<div class="nodata">검색 결과가 없습니다. </div>
+
+			<div class="result_items" style="display:none;">
+				<div class="box">
+					<div class="airline_time">
+						<div class="row">
+							<dl>
+								<dt>시간</dt>
+								<dd>09:10</dd>
+							</dl>
+							<div class="arrow"></div>
+							<dl>
+								<dt>변경시간</dt>
+								<dd><strong>09:30</strong></dd>
+							</dl>
+						</div>
+					</div>
+					<div class="airline_detail">
+						<div class="row">
+							<dl>
+								<dt>목적지</dt>
+								<dd>제주</dd>
+							</dl>
+							<dl>
+								<dt>구분</dt>
+								<dd>국내선</dd>
+							</dl>
+							<dl>
+								<dt>탑승구</dt>
+								<dd>6</dd>
+							</dl>
+						</div>
+		
+						<div class="row">
+							<dl>
+								<dt>항공사</dt>
+								<dd>아시아나항공</dd>
+							</dl>
+							<dl>
+								<dt>편명</dt>
+								<dd>KE1065</dd>
+							</dl>
+							<dl>
+								<dt>현황</dt>
+								<dd><strong>탑승구 입장</strong></dd>
+							</dl>
+						</div>
+		
+					</div>
+				</div><!-- // box -->
+		
+				<div class="box">
+					<div class="airline_time">
+						<div class="row">
+							<dl>
+								<dt>시간</dt>
+								<dd>09:10</dd>
+							</dl>
+							<div class="arrow"></div>
+							<dl>
+								<dt>변경시간</dt>
+								<dd><strong>09:30</strong></dd>
+							</dl>
+						</div>
+					</div>
+					<div class="airline_detail">
+						<div class="row">
+							<dl>
+								<dt>목적지</dt>
+								<dd>제주</dd>
+							</dl>
+							<dl>
+								<dt>구분</dt>
+								<dd>국내선</dd>
+							</dl>
+							<dl>
+								<dt>탑승구</dt>
+								<dd>6</dd>
+							</dl>
+						</div>
+		
+						<div class="row">
+							<dl>
+								<dt>항공사</dt>
+								<dd>아시아나항공</dd>
+							</dl>
+							<dl>
+								<dt>편명</dt>
+								<dd>KE1065</dd>
+							</dl>
+							<dl>
+								<dt>현황</dt>
+								<dd><strong>탑승구 입장</strong></dd>
+							</dl>
+						</div>
+		
+					</div>
+				</div><!-- // box -->
+		
+				<div class="box">
+					<div class="airline_time">
+						<div class="row">
+							<dl>
+								<dt>시간</dt>
+								<dd>09:10</dd>
+							</dl>
+							<div class="arrow"></div>
+							<dl>
+								<dt>변경시간</dt>
+								<dd><strong>09:30</strong></dd>
+							</dl>
+						</div>
+					</div>
+					<div class="airline_detail">
+						<div class="row">
+							<dl>
+								<dt>목적지</dt>
+								<dd>제주</dd>
+							</dl>
+							<dl>
+								<dt>구분</dt>
+								<dd>국내선</dd>
+							</dl>
+							<dl>
+								<dt>탑승구</dt>
+								<dd>6</dd>
+							</dl>
+						</div>
+		
+						<div class="row">
+							<dl>
+								<dt>항공사</dt>
+								<dd>아시아나항공</dd>
+							</dl>
+							<dl>
+								<dt>편명</dt>
+								<dd>KE1065</dd>
+							</dl>
+							<dl>
+								<dt>현황</dt>
+								<dd><strong>탑승구 입장</strong></dd>
+							</dl>
+						</div>
+		
+					</div>
+				</div><!-- // box -->
+		
+				<div class="box">
+					<div class="airline_time">
+						<div class="row">
+							<dl>
+								<dt>시간</dt>
+								<dd>09:10</dd>
+							</dl>
+							<div class="arrow"></div>
+							<dl>
+								<dt>변경시간</dt>
+								<dd><strong>09:30</strong></dd>
+							</dl>
+						</div>
+					</div>
+					<div class="airline_detail">
+						<div class="row">
+							<dl>
+								<dt>목적지</dt>
+								<dd>제주</dd>
+							</dl>
+							<dl>
+								<dt>구분</dt>
+								<dd>국내선</dd>
+							</dl>
+							<dl>
+								<dt>탑승구</dt>
+								<dd>6</dd>
+							</dl>
+						</div>
+		
+						<div class="row">
+							<dl>
+								<dt>항공사</dt>
+								<dd>아시아나항공</dd>
+							</dl>
+							<dl>
+								<dt>편명</dt>
+								<dd>KE1065</dd>
+							</dl>
+							<dl>
+								<dt>현황</dt>
+								<dd><strong>탑승구 입장</strong></dd>
+							</dl>
+						</div>
+		
+					</div>
+				</div><!-- // box -->	
+			</div><!-- // result_items -->
+			
+		</div><!-- // result_list-->
+		
+	</div><!-- // ariLine_content_wrap -->
+
+</div><!-- // passSmartticket -->
+
+
+<script src="../js/temp.js"></script>
+
+
+</body>
+</html>

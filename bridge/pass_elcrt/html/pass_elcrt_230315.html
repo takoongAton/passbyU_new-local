@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>전자문서</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/slick.css">
+	<!-- <link rel="stylesheet" href="../../css/PASSbyUplus_new.css"> -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=block">
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/slick.js" charset="utf-8"></script>
+	
+</head>
+<body>
+
+<style>
+
+.evPageWrap {max-width:720px; margin:0 auto;}
+
+/* 이벤트 컨텐츠 */
+
+
+.wrap {padding-bottom:0;}
+.wrap section {font-size:4.44444vw;}
+@media screen and (min-width: 720px) {
+	.wrap section {font-size:2em;}
+}
+/* @media screen and (max-width:359px) {
+	.wrap section {font-size:8vw;}
+} */
+
+
+.e_wrap {max-width:720px; margin:0 auto; font-family:'Noto Sans KR';}
+.e_top {padding:1.125em 1.125em 0;}
+.e_wrap * {font-family:'Noto Sans KR';}
+.e_wrap .e_top > p.tit {position:relative; font-size:1.25em; line-height:1.45em; z-index:10;}
+
+.e_type {position:relative; margin-top:6.25em; z-index:9;}
+.e_type .bg {position:absolute; top:0; right:-11px; width:14.5625em; transform:translateY(-84.68468%); z-index:0;}
+.e_type .img {position:absolute; top:0; right:0; width:10.9375em; position:absolute; top:0; transform:translateY(-92.39766%); z-index:2;}
+.e_type .item_group {display:flex; flex-wrap: wrap; flex-direction:row; justify-content:space-between; position:relative; margin-top:1.0625em; z-index:1;}
+.e_type .item_group .item {display:flex; flex-direction:column; width:9.375em; height:11.5em; border-radius:0.625em; box-shadow:0 3px 6px rgba(0,0,0,0.16); background-color:#fff;}
+.e_type .item_group .item + .item {}
+.e_type .item_group .item:nth-child(2) ~ .item {margin-top:0.9375em;}
+.e_type .item_group .item dl {display:flex; flex-direction:column; justify-content:flex-start; width:100%; height:100%; padding:1.5em 0.75em 0.875em; cursor:pointer;}
+.e_type .item_group .item strong {display:inline-block; position:relative;  font-weight:bold; font-size:1em; line-height:1.5em;}
+.e_type .item_group .item span.icon {display:block; position:relative; width:100%;}
+.e_type .item_group .item span.icon img {display:block; width:1.5em; height:1.5em;}
+.e_type .item_group .item span.icon::before {content:""; display:block; position:absolute; top:50%; right:0; width:0.5em; height:0.5em; margin-top:1px; border-width:1px 1px 0 0; border-style:solid; border-color:#000000; transform:rotate(45deg); transform-origin: 100% 0;}
+.e_type .item_group .item span.new {display:inline-flex; justify-content:center; align-items:center; position:relative; top:-0.3em; width:1.55555em; height:1.55555em; background-color:#ff3a4a; border-radius:100%; color:#fff; font-size:0.5625em;}
+.e_type .item_group .item dt + dd {margin-top:0.45454em;}
+.e_type .item_group .item dd p {color:#999; font-size:0.6875em; line-height:1.63636em; letter-spacing:0em; word-break:keep-all;}
+.e_type .item_group .item dd:last-of-type {display:flex; flex:1;}
+.e_type .item_group .item .link {text-align:right; border-top:1px solid #e7e7e7;}
+.e_type .item_group .item .link button {display:inline-block; position:relative; width:100%; padding:0.6875em 0.75em 0.75em 0; padding-right:0.8182em; color:#888888; font-size:0.8375em; line-height:1em; text-decoration:none; text-align:right;}
+/* .e_type .item_group .item .link button::after {content:""; display:block; position:absolute; top:50%; right:0; width:5px; height:5px; border-width:1px 1px 0 0; border-style:solid; border-color:#888888; transform:rotate(45deg); transform-origin: 100% 0;} */
+.e_type .item_group .item .link button span {display:block; position:relative; padding-right:0.81818em; color:#888; font-size:0.6875em; line-height:1.54545em;}
+.e_type .item_group .item .link button span::after {content:""; display:block; position:absolute; top:50%; right:0; width:5px; height:5px; border-width:1px 1px 0 0; border-style:solid; border-color:#888888; transform:rotate(45deg); transform-origin: 100% 0;}
+
+.e_notice {border-radius:10px; overflow:hidden;}
+.e_notice p {height:1.42857em; line-height:1.42857em; padding-left:1.9em; background:url('../images/ico_mw_main_notice.png') no-repeat left center / 1.25em; font-size:0.875em; overflow:hidden; white-space:nowrap; word-break:break-all; text-overflow:ellipsis;}
+.e_notice .item_list {padding:1.0625em 0.75em; background-color:#F8F9FB;}
+.slick-initialized .slick-slide {line-height:1.25em;}
+.slick-initialized .slick-slide > div {line-height:1.25em;}
+
+
+.e_bnr {position:relative; margin-top:1em;}
+.e_bnr img {vertical-align:top;}
+.e_bnr_list {margin-top:1em; overflow:hidden; border-radius:10px; overflow:hidden; line-height:0;}
+.e_bnr_dots {position:absolute; bottom:1em; left:0.75em; line-height:0; z-index:10;}
+.e_bnr_dots li {display:inline-block;}
+.e_bnr_dots li + li {margin-left:6px;}
+.e_bnr_dots li button {width:0.3125em; height:0.3125em; background-color:rgba(255,255,255,0.4); border-radius:100%; line-height:0; color:transparent;}
+.e_bnr_dots li.slick-active button {background-color:rgba(255,255,255,1);}
+
+.e_bottom {width:100%; max-width:720px; margin:0 auto; padding:0 1.125em;}
+
+
+.service_bnr_list {width:9.375em; height:11.5em; margin-top:0.9375em;}
+
+@media screen and (max-width:359px) {
+	/* .e_type .item_group .item dd p br {display:none;} */
+
+	/* .e_type .item_group {display:block; position:relative; width:100%;}
+	.e_type .item_group .item {	display:flex; flex-direction:column; width:100%; height:auto; border-radius:0.625em; box-shadow:0 3px 6px rgba(0,0,0,0.16); background-color:#fff; font-size:16px;}
+	.e_type .item_group .item + .item {margin-top:0.9375em;}
+	.e_type .item_group .item strong {font-size:16px; line-height:1.5em;}
+	.e_type .item_group .item span.icon img {width:24px; height:24px;}
+	.e_type .item_group .item span.icon::before {content:""; display:block; position:absolute; top:50%; right:0; width:8px; height:8px; margin-top:1px; border-width:1px 1px 0 0; border-style:solid; border-color:#000000; transform:rotate(45deg); transform-origin: 100% 0;}
+	.e_type .item_group .item span.new {display:inline-flex; justify-content:center; align-items:center; width:1.55555em; height:1.55555em; background-color:#ff3a4a; border-radius:100%; color:#fff; font-size:0.5625em;}
+	.e_type .item_group .item dd p {font-size:11px;}
+	.e_type .item_group .item .link button {font-size:16px;}
+	.e_type .item_group .item .link button span {font-size:11px;}
+	.service_bnr_list {width:100%; height:auto; margin-top:0.9375em;}
+	.e_bnr_dots {bottom:10%; left:10%;}
+	.e_bnr_dots li button {width:0.7em; height:0.7em;} */
+}
+
+@media screen and (min-width:720px) {
+	/* .e_type .item_group .item dd p br {display:none;} */
+}
+
+ul.e_notice_wrap {display:-ms-flexbox; display:flex; justify-content:space-around; margin-top:1em; padding-bottom:1em;}
+ul.e_notice_wrap a,
+ul.e_notice_wrap button {display:inline-flex; align-items:center; text-decoration:none; color:#000000;}
+ul.e_notice_wrap a span.ico,
+ul.e_notice_wrap button span.ico {display:inline-block; width:2em; height:2em;}
+ul.e_notice_wrap a span.txt,
+ul.e_notice_wrap button span.txt {display:inline-block; padding-left:0.5em; color:#000000; font-size:0.875em; line-height:32px; font-weight:500; font-family:'Noto Sans KR';}
+</style>
+
+	<div class="wrap">
+		<section>
+			<div class="e_wrap">
+
+				<div class="e_top">
+
+					<p class="tit">
+						생활에 필요한 증명서<br />
+						<strong>이제 PASS에서 바로<br />
+							이용하세요.</strong>
+					</p>
+
+
+					<div class="e_type">
+						<div class="bg"><img src="../images/elcrt_bg.png" alt=""></div>
+						<div class="img"><img src="../images/elcrt_img3.png" alt=""></div>
+						<div class="e_notice">
+							<div class="item_list">
+								<div class="item" onclick="">
+									<p>1전자문서 서비스 시스템 공지 안내전자문서 서비스 시스템 공지 안내전자문서 서비스 시스템 공지 안내전자문서 서비스 시스템 공지 안내...</p>
+								</div>
+								<div class="item" onclick="">
+									<p>2전자문서 서비스 시스템 공지 안내전자문서 서비스 시스템 공지 안내전자문서 서비스 시스템 공지 안내전자문서 서비스 시스템 공지 안내...</p>
+								</div>
+								<div class="item" onclick="">
+									<p>3전자문서 서비스 시스템 공지 안내전자문서 서비스 시스템 공지 안내전자문서 서비스 시스템 공지 안내전자문서 서비스 시스템 공지 안내...</p>
+								</div>
+							</div>
+						</div>
+						<div class="item_group">
+							<div class="item">
+								<dl onclick="">
+									<dt>
+										<span class="icon"><img src="../images/ico_service_certification_document.png" alt="아이콘"></span>
+										<strong>국민비서</strong>
+										<span class="new">N</span>
+									</dt>
+									<dd class="txt">
+										<p>
+											건강·교육·교통 등<br />
+											다양한 분야의 알림을<br />
+											제공하는 서비스
+										</p>
+									</dd>
+								</dl>
+								<div class="link"><button type="button" onclick=""><span>이용방법 보기</span></button></div>
+							</div>
+							<div class="item">
+								<dl onclick="">
+									<dt>
+										<span class="icon"><img src="../images/ico_service_certification_document2.png" alt="아이콘"></span>
+										<strong>자격증명</strong>
+									</dt>
+									<dd class="txt">
+										<p>
+											원스탑으로<br />
+											각종 자격 증명서를<br />
+											발급하는 서비스
+										</p>
+									</dd>
+								</dl>
+								<div class="link"><button type="button" onclick=""><span>이용방법 보기</span></button></div>
+							</div>
+							<div class="item">
+								<dl onclick="">
+									<dt>
+										<span class="icon"><img src="../images/icon_documentbox2.png" alt="아이콘"></span>
+										<strong>전자문서</strong>
+									</dt>
+									<dd class="txt">
+										<p>
+											공공기관의 증명서를<br />
+											직접 발급/열람 및<br />
+											제출하는 서비스
+										</p>
+									</dd>
+								</dl>
+								<div class="link"><button type="button" onclick=""><span>이용방법 보기</span></button></div>
+							</div>
+							<div class="service_bnr_list">
+								<div class="wallet_bnr_item"><img src="../images/wallet_bn_01.png" alt="전자문서 활용법"></div>
+								<div class="wallet_bnr_item"><img src="../images/wallet_bn_02.png" alt="자주 묻는 질문"></div>
+								<div class="wallet_bnr_item"><img src="../images/wallet_bn_03.png" alt="모바일 지갑"></div>
+								<div class="wallet_bnr_item"><img src="../images/wallet_bn_04.png" alt="공지사항"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="e_bottom">
+				
+	
+				<!-- <div class="e_bnr">
+					<div class="e_bnr_list">
+						<div class="item"><img src="../images/Banner_A_1.png" alt="배너"></div>
+						<div class="item"><img src="../images/Banner_A_1.png" alt="배너"></div>
+						<div class="item"><img src="../images/Banner_A_1.png" alt="배너"></div>
+						<div class="item"><img src="../images/Banner_A_1.png" alt="배너"></div>
+					</div>
+				</div> -->
+
+				<ul class="e_notice_wrap">
+					<li><a href="#g"><span class="ico"><img src="../images/ico_card_notice.png" alt="아이콘"></span><span class="txt">공지사항</span></a></li>
+					<li><a href="#g"><span class="ico"><img src="../images/ico_card_alert.png" alt="아이콘"></span><span class="txt">사용안내</span></a></li>
+				</ul>
+				<!-- <ul class="e_notice_wrap"> a태그 사용 불가시
+					<li><button type="button"><span class="ico"><img src="../images/ico_card_notice.png" alt="아이콘"></span><span class="txt">공지사항</span></button></li>
+					<li><button type="button"><span class="ico"><img src="../images/ico_card_alert.png" alt="아이콘"></span><span class="txt">사용안내</span></button></li>
+				</ul> -->
+			</div>
+			
+		</section>
+	</div>
+
+
+<script>
+	$(document).ready(function(){
+		slick_sample();
+	})
+
+	function slick_sample(){
+
+		let e_bnr_list = document.querySelectorAll(".e_bnr_list .item");
+		// console.log(e_bnr_list.length)
+		if(e_bnr_list.length > 1) {
+			$('.e_bnr_list').slick({
+				dots: true,
+				dotsClass: "e_bnr_dots",
+				infinite: true,
+				arrows: false,
+				autoplay: true,
+				autoplaySpeed: 3000,
+			});
+		}
+
+		let e_notice_list = document.querySelectorAll(".e_notice .item_list .item");
+		if(e_notice_list.length > 1) {
+			$('.item_list').slick({
+				dots: false,
+				infinite: true,
+				arrows: false,
+			});
+		}
+
+		let service_bnr_list = document.querySelectorAll(".service_bnr_list .wallet_bnr_item");
+		if(service_bnr_list.length > 1) {
+			$('.service_bnr_list').slick({
+				centerMode:false,
+				draggable:false,
+				dotsClass: "e_bnr_dots",
+				arrows:false,
+				autoplay:true,
+				autoplaySpeed:3000,
+				slidesToShow:1,
+				slidesToScroll:1,
+				dots:true,
+			});
+		}
+	}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>PASS 서베이</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	
+	<link rel="stylesheet" href="../css/reset.css" />
+	<link rel="stylesheet" href="../css/survey.css" />
+	<link rel="stylesheet" href="../css/slick.css" />
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+
+
+<body>
+
+<div class="passSurvey">
+
+	<div class="guidePageTit">
+		<h1>이용가이드</h1>
+		<button type="button" class="close"><span>닫기</span></button>
+	</div>
+
+	<div class="guide_slide_wrap">
+		<div class="guide_slide">
+			<div class="guide_item">
+				<!-- <p>언제 어디서 증명이 필요한 순간<br />PASS에서 간편하게 발급하고 제출하세요!</p> -->
+				<div class="img"><img src="../images/guide_img01.png" alt="가이드 이미지"></div>
+				<!-- <p>모바일 가입증명 후 발급하기 선택</p> -->
+			</div>
+			<div class="guide_item">
+				<!-- <p>언제 어디서 증명이 필요한 순간<br />PASS에서 간편하게 발급하고 제출하세요!</p> -->
+				<div class="img"><img src="../images/guide_img02.png" alt="가이드 이미지"></div>
+				<!-- <p>모바일 가입증명 후 발급하기 선택</p> -->
+			</div>
+		</div>
+	</div>
+
+	<div class="btnFixed">
+		<button type="button"><span>서비스 바로가기</span></button>
+	</div>
+
+</div><!-- // passSurvey -->
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="../js/slick.js"></script>
+
+<script>
+	$(document).ready(function(){
+		/*
+		let wrap = document.querySelector(".wrap")
+		const footer = document.querySelector("footer");
+		if(footer) {
+			wrap.style.height = 100 + '%';
+			wrap.style.display = 'flex';
+			wrap.style.flexDirection = 'column'
+			wrap.querySelector("section").style.flex = 1;
+
+			console.log("footer 있다.")
+		}
+		*/
+
+		$('.guide_slide').slick({
+			dotsClass: "guide_bottomCenter",
+			autoplay: false,
+			autoplaySpeed: 3000,
+			infinite: false,
+			arrows: false,
+			dots:true
+		})
+	})
+</script>
+
+</body>
+</html>

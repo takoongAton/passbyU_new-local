@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>PASS 서베이</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	
+	<link rel="stylesheet" href="../css/reset.css" />
+	<link rel="stylesheet" href="../css/survey.css" />
+	<link rel="stylesheet" href="../css/slick.css" />
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+
+
+<body>
+
+<div class="passSurvey">
+
+	<div class="homePointWrap">
+		<!-- <div class="homeTop">
+			<div class="item">
+				<dl>
+					<dt>PASS 서베이 포인트 현황 </dt>
+					<dd>3,000 P</dd>
+				</dl>
+				<div class="img"><img src="../images/home_icon00.png" alt="아이콘" /></div>
+			</div>
+			<a href="#g"><span>포인트 내역 상세보기</span></a>
+		</div> -->
+		<div class="homeTop">
+			<div class="item">
+				<dl>
+					<dt>쉽게 돈 버는 설문조사</dt>
+					<dd>PASS 서베이 함께해요</dd>
+				</dl>
+				<div class="img"><img src="../images/home_icon00.png" alt="아이콘" /></div>
+			</div>
+			<a href="#g"><span>포인트 내역 상세보기</span></a>
+		</div>
+	</div><!-- // home-point-wrap -->
+
+	<div class="home-list">
+		<div class="home-item">
+			<dl>
+				<dt class="tit"><strong>PASS 서베이 모든것</strong></dt>
+				<dd class="txt"><p>서비스 이용가이드와<br />포인트 쌓는 꿀팁 확인하세요</p></dd>
+			</dl>
+			<div class="img"><img src="../images/home_icon01.png" alt="아이콘"></div>
+		</div>
+		<div class="home-item">
+			<dl>
+				<dt class="tit"><strong>설문으로 쏠쏠한 앱테크</strong></dt>
+				<dd class="txt"><p>설문 참여만 하면 포인트 차곡차곡!<br />
+					PASS를 통해 소중한 의견 들려주세요. </p></dd>
+			</dl>
+			<div class="img"><img src="../images/home_icon02.png" alt="아이콘"></div>
+		</div>
+		<div class="home-item">
+			<dl>
+				<dt class="tit"><strong>포인트 전환</strong></dt>
+				<dd class="txt"><p>5,000 포인트 이상 적립 시<br />
+					현금 또는 문화상품권으로 전환!</p></dd>
+			</dl>
+			<div class="img"><img src="../images/home_icon03.png" alt="아이콘"></div>
+		</div>
+	</div>
+
+	<div class="home_bnr">
+		<div class="slide_wrap">
+			<div class="item"><img src="../images/home_bnr_sam01.png" alt="PASS 서베이 배너"></div>
+			<div class="item"><img src="../images/home_bnr_sam01.png" alt="PASS 서베이 배너"></div>
+			<div class="item"><img src="../images/home_bnr_sam01.png" alt="PASS 서베이 배너"></div>
+		</div>
+	</div>
+
+	<div class="linkNotice">
+		<a href="#g"><span class="ico"><img src="../images/icon_notice.png" alt="공지사항 아이콘"></span><span class="txt">공지사항</span></a>
+		<a href="#g"><span class="ico"><img src="../images/icon_faq.png" alt="자주하는 질문 아이콘"></span><span class="txt">자주 묻는 질문</span></a>
+	</div>
+</div><!-- // passSurvey -->
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="../js/slick.js"></script>
+
+<script>
+	$(document).ready(function(){
+		/*
+		let wrap = document.querySelector(".wrap")
+		const footer = document.querySelector("footer");
+		if(footer) {
+			wrap.style.height = 100 + '%';
+			wrap.style.display = 'flex';
+			wrap.style.flexDirection = 'column'
+			wrap.querySelector("section").style.flex = 1;
+
+			console.log("footer 있다.")
+		}
+		*/
+
+
+		let listLength;
+		$('.slide_wrap').slick({
+			dotsClass: "bnr_dots_bottomCenter",
+			autoplay: false,
+			autoplaySpeed: 3000,
+			infinite: false,
+			arrows: false,
+			dots:true
+		})
+	})
+</script>
+
+</body>
+</html>
