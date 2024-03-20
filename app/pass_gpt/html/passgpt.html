@@ -122,7 +122,7 @@
         
         <div class="chat_footer_wrap">
 
-            <div class="hashtag_wrap" style="display:none;"><!-- none, flex -->
+            <div class="hashtag_wrap" style="display:flex;"><!-- none, flex -->
                 <button type="button" class="btn_hash"><span>#이용가이드</span></button>
                 <button type="button" class="btn_hash"><span>#인기검색어</span></button>
                 <button type="button" class="btn_hash"><span>#FAQ</span></button>
@@ -167,6 +167,16 @@
 
 
    <script src="../js/temp.js"></script>
+
+
+   <script>
+    let btnHash = document.querySelector(".hashtag_wrap button.btn_hash");
+    btnHash.addEventListener("click", function(){
+        
+        console.log(btnHash.innerText);
+        receive(btnHash.innerText)
+    })
+   </script>
 
   </body>
 </html>

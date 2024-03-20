@@ -92,7 +92,28 @@ function printAsk(newAsk){
     receive(testMessage);
 }
 
+
+function receiveMsg(message, hashFlag){
+    let hashFlag = hashFlag;
+    let receiveMessage = message;
+    if(receiveMessage.indexOf("#") == 0 && hashFlag == true) {
+        /* 해시태그 클릭시 */
+        return false;
+    }
+    else  {
+
+    }
+}
+
 function receive(testMessage) {
+    console.log(testMessage.indexOf("#"))
+    if(testMessage.indexOf("#") == 0) {
+        console.log("??")
+        return false;
+    }
+    else  {
+
+    }
     const divChatAns = document.createElement("div");
     divChatAns.classList.add("chat")
     divChatAns.classList.add("receive");
@@ -104,6 +125,9 @@ function receive(testMessage) {
     spanIcon.classList.add("author");
     spanIcon.innerHTML = "<img src='../images/ico_chatbot.png' />";
 
+    const receiveWrap = document.createElement("div");
+    receiveWrap.classList.add("receive_wrap")
+
     const divBubbleAns = document.createElement("div");
     divBubbleAns.classList.add("bubble");
     divBubbleAns.classList.add("receive");
@@ -113,7 +137,20 @@ function receive(testMessage) {
 
     divAuthor.appendChild(spanIcon);
     divChatAns.appendChild(divAuthor);
-    divChatAns.appendChild(divBubbleAns)
+    divChatAns.appendChild(receiveWrap);
+    receiveWrap.appendChild(divBubbleAns);
+
+    const receivePlusWrap = document.createElement("div");
+    receivePlusWrap.classList.add("receive_plus_wrap");
+
+    const receiveBtnHash = document.createElement("button");
+    receiveBtnHash.classList.add("btn_hash");
+    receiveBtnHash.innerHTML = `<span>${testMessage}</span>`;
+
+    receivePlusWrap.appendChild(receiveBtnHash);
+    
+    receiveWrap.appendChild(receivePlusWrap);
+
     chatHistory.appendChild(divChatAns);
 
     typing();

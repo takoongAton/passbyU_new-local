@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>국회의원선거X모바일신분증 홍보</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/ev_common.css">
+	<link rel="stylesheet" href="../css/slick.css">
+<style>
+.ev_240320 {padding-bottom:3.375em; background-color:#fff; overflow:hidden; font-family:'Noto Sans KR';}
+.ev_240320 img {vertical-align:top; border:0; max-width:100%;}
+.ev_240320 div {position:relative;}
+
+.ev_240320 div.top span.img {position:absolute; height:auto; line-height:1;}
+.ev_240320 div.top span.img.img01 {top:12.91666em; right:1.691666em; width:6.166666em; animation: anibubble01 0.3s 0.3s ease forwards; opacity:0;}
+.ev_240320 div.top span.img.img02 {top:15.58333em; left:1.64583em; width:5.54166em; animation: anibubble02 0.3s 0.6s ease forwards; opacity:0;}
+@keyframes anibubble01 {
+	0% {transform:scale(0.5); transform-origin:0 100%; opacity:0;}
+	85% {transform:scale(1.1); transform-origin:0 100%; opacity:1;}
+	100% {transform:scale(1); transform-origin:0 100%; opacity:1;}
+}
+
+@keyframes anibubble02 {
+	0% {transform:scale(0.5); transform-origin:100% 100%; opacity:0;}
+	85% {transform:scale(1.1); transform-origin:100% 100%; opacity:1;}
+	100% {transform:scale(1); transform-origin:100% 100%; opacity:1;}
+}
+
+.box.box1 {padding:1.66666em 0; background-color:#F8F7FC; text-align:center;}
+.box.box1 div.title img {display:inline-block; width:19.833333em; line-height:1;}
+.box.box1 .step_wrap {margin-top:1.666666em}
+.box.box1 .step_wrap div.step {display:block; text-align:center;}
+.box.box1 .step_wrap div.step strong {display:inline-block; padding:0 0.833333em; border:1px solid #431984; border-radius:1.66666em; color:#431984; font-size:1em; line-height:1.666666em; font-weight:bold;}
+.box.box1 .step_wrap .step_slick_wrap {margin-top:0.8em;}
+.box.box1 .step_wrap .step_slick_wrap div.item {padding:2px 0.625em 4px;}
+.box.box1 .step_wrap .step_slick_wrap div.item div.item_inner {border-radius:0.333333em; box-shadow:0 2px 4px rgba(0,0,0,0.16); overflow:hidden;}
+.box.box1 .step_wrap .step_slick_wrap div.item div.item_inner img {display:block; line-height:1;}
+
+.box.box1 .micro_img {margin-top:0.833333em; padding:0 1.33333em;}
+.box.box1 .micro_img div.item {background-color:#fff; border-radius:0.333333em; box-shadow:0 2px 4px rgba(0,0,0,0.16);}
+.box.box1 .micro_img div.item + div.item {margin-top:0.83333em;}
+
+.alert_d {padding:1em 1.6em; background-color:#312E33; color:#fff; font-size:0.8375em; line-height:1.4em; letter-spacing:-0.05em; text-align:center;}
+
+.box.box2 {padding:1.25em 0 1.66666em; background-color:#F0F0F0;}
+.box.box2 div.title {padding:1.25em 1.33333em;}
+.box.box2 .check_wrap + .check_wrap {margin-top:1.66666em;}
+.box.box2 .check_wrap .check_img {text-align:center;}
+.box.box2 .check_wrap .check_img img {display:inline-block; width:2.5em; height:auto; line-height:1;}
+.box.box2 .check_wrap p.txt {margin-top:0.41666em; font-size:1em; text-align:center; letter-spacing:-0.05em;}
+.box.box2 .check_wrap p.txt_small {margin-top:0.3125em; padding:0 2em; color:#6E6E6E; font-size:0.6875em; line-height:1.375em; text-align:right;}
+.box.box2 .check_wrap + .check_wrap p.txt_small {text-align:center;}
+
+.box.box2 .slide_txt_wrap {margin-top:0.833333em; overflow:hidden; padding-bottom:2px;}
+.box.box2 .slide_txt_wrap div.row {display:flex; gap:0.5em; transition:all 0.2s ease;}
+.box.box2 .slide_txt_wrap div.row.row1 {animation: identifier 20s 0.5s infinite linear;}
+.box.box2 .slide_txt_wrap div.row.row2 {flex-direction: row-reverse; animation: identifier2 10s 0.5s infinite linear; margin-top:0.5em; }
+.box.box2 .slide_txt_wrap div.row strong {display:inline-block; padding:0.25em 1em; background-color:#fff; border:1px solid #431984; border-radius:1.5em; color:#431984; font-size:1em; line-height:1.5em;}
+.box.box2 .slide_txt_wrap div.row div {display:flex; white-space:nowrap; gap:0.5em;}
+@keyframes identifier {
+	0% {transform:translateX(0%);}
+	100% {transform:translateX(calc(-100% + 0.5em));}
+}
+@keyframes identifier2 {
+	0% {transform:translateX(0%);}
+	100% {transform:translateX(calc(100% + 0.5em));}
+}
+.box.box2 .slide_widget {margin-top:0.8em;}
+.box.box2 .slide_widget div.item {padding:2px 0.625em 4px;}
+.box.box2 .slide_widget div.item div.item_inner {border-radius:0.333333em; box-shadow:0 2px 4px rgba(0,0,0,0.16); overflow:hidden;}
+.box.box2 .slide_widget div.item div.item_inner img {display:block; line-height:1;}
+
+.box.box3 {padding:2.5em 0 1.66666em; background-color:#fff;}
+.box.box3 div.title {padding:0 1.33333em;}
+
+.ev_240320 div.btm_btn {display:flex; align-items:center; position:fixed; bottom:0; right:0; left:0; width:100%; max-width:720px; margin:0 auto;}
+.ev_240320 div.btm_btn button {box-sizing:content-box; height:3.33333em; padding-bottom:calc(constant(safe-area-inset-bottom)); padding-bottom:calc(env(safe-area-inset-bottom));}
+.ev_240320 div.btm_btn button.btn_btn1 {background-color:#080808;}
+.ev_240320 div.btm_btn button.btn_btn2 {background-color:#6C42AD;}
+.ev_240320 div.btm_btn button span {display:block; color:#fff; font-size:1em; line-height:1.25em; font-weight:bold;}
+@media only screen and (min-width:720px) {
+	.ev_240320 div.btm_btn button {height:106px;}
+	.ev_240320 {padding-bottom:106px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="evPageWrap">
+
+	<div class="evSection">
+
+		<div class="ev_240320">
+
+			<div><img src="../images/ev_240320_img1.png" alt="PASS모바일신분증"></div>
+			<div><img src="../images/ev_240320_img2.png" alt="제22대 국회의원선거 일정"></div>
+			<div><img src="../images/ev_240320_img3.png" alt="투표소에서 사용 가능한 신분증 공식 인정."></div>
+
+			<div class="box box1">
+				<div class="title"><img src="../images/ev_240320_tit1.png" alt="미리 미리 준비하고 간편하게 사용하세요."></div>
+				<div class="step_wrap">
+					<div class="step"><strong>하나. 등록하기</strong></div>
+					<div class="step_slick_wrap" id="step_slick01">
+						<div class="list">
+							<div class="item">
+								<div class="item_inner">
+									<img src="../images/ev_240320_img4_1.png" alt="이미지1">
+								</div>
+							</div>
+							<div class="item">
+								<div class="item_inner">
+									<img src="../images/ev_240320_img4_2.png" alt="이미지2">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="step_wrap">
+					<div class="step"><strong>둘.사용하기</strong></div>
+					<div class="step_slick_wrap" id="step_slick02">
+						<div class="list">
+							<div class="item">
+								<div class="item_inner">
+									<img src="../images/ev_240320_img5_1.png" alt="이미지1">
+								</div>
+							</div>
+							<div class="item">
+								<div class="item_inner">
+									<img src="../images/ev_240320_img5_2.png" alt="이미지2">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- // box box1-->
+
+			<div class="alert_d">
+				※ 유의사항 : 캡처본은 사용할 수 없어요.<br />
+				반드시 PASS 앱을 켜서 모바일 신분증을 열어주세요!
+			</div>
+
+			<div class="box box2">
+				<div class="title"><img src="../images/ev_240320_tit2.png" alt="모바일신분증 활용 꿀팁까지 꼼꼼하게 확인해보세요"></div>
+				<div class="check_wrap">
+					<div class="check_img"><img src="../images/img_check.png" alt=""></div>
+					<p class="txt">모바일 신분증은 실물 신분증과 동일한<br />
+						법적 효력을 가지고 있으므로 투표소 외에도<br />
+						다양한 오프라인 사용처에서 이용할 수 있어요.</p>
+
+					<div class="slide_txt_wrap">
+						<div class="row row1">
+							<div>
+								<strong>시험장</strong>
+								<strong>편의점</strong>
+								<strong>무인 자판기</strong>
+								<strong>적십자</strong>
+								<strong>시험장</strong>
+								<strong>편의점</strong>
+								<strong>무인 자판기</strong>
+								<strong>적십자</strong>
+								<strong>시험장</strong>
+								<strong>편의점</strong>
+								<strong>무인 자판기</strong>
+								<strong>적십자</strong>
+							</div>
+							<div>
+								<strong>시험장</strong>
+								<strong>편의점</strong>
+								<strong>무인 자판기</strong>
+								<strong>적십자</strong>
+								<strong>시험장</strong>
+								<strong>편의점</strong>
+								<strong>무인 자판기</strong>
+								<strong>적십자</strong>
+								<strong>시험장</strong>
+								<strong>편의점</strong>
+								<strong>무인 자판기</strong>
+								<strong>적십자</strong>
+							</div>
+						</div>
+						<div class="row row2">
+							<div>
+								<strong>국내 여객선</strong>
+								<strong>국내선 항공</strong>
+								<strong>국내 낚시배</strong>
+								<strong>CGV</strong>
+								<strong>국내 여객선</strong>
+								<strong>국내선 항공</strong>
+								<strong>국내 낚시배</strong>
+								<strong>CGV</strong>
+								<strong>국내 여객선</strong>
+								<strong>국내선 항공</strong>
+								<strong>국내 낚시배</strong>
+								<strong>CGV</strong>
+								<strong>국내 여객선</strong>
+								<strong>국내선 항공</strong>
+								<strong>국내 낚시배</strong>
+								<strong>CGV</strong>
+							</div>
+							<div>
+								<strong>국내 여객선</strong>
+								<strong>국내선 항공</strong>
+								<strong>국내 낚시배</strong>
+								<strong>CGV</strong>
+								<strong>국내 여객선</strong>
+								<strong>국내선 항공</strong>
+								<strong>국내 낚시배</strong>
+								<strong>CGV</strong>
+								<strong>국내 여객선</strong>
+								<strong>국내선 항공</strong>
+								<strong>국내 낚시배</strong>
+								<strong>CGV</strong>
+								<strong>국내 여객선</strong>
+								<strong>국내선 항공</strong>
+								<strong>국내 낚시배</strong>
+								<strong>CGV</strong>
+							</div>
+						</div>
+					</div>
+					<p class="txt_small">
+						*금융권 등 일부 사용처에서는 현재 사용이 어려워요.<br />
+						앞으로 더 추가해갈게요.
+					</p>
+				</div>
+				
+				
+				<div class="check_wrap">
+					<div class="check_img"><img src="../images/img_check.png" alt=""></div>
+					<p class="txt">휴대폰 바탕화면에 위젯을 추가하면,<br />
+						모바일신분증으로 바로 들어갈 수 있어요.</p>
+					<p class="txt_small">
+						*OS에 따라 위젯 설정 화면은 상이할 수 있습니다.
+					</p>
+				</div>
+				<!-- // check_wrap -->
+
+				<div class="slide_widget">
+					<div class="list">
+						<div class="item">
+							<div class="inner"><img src="../images/img_wiget_01.png" alt="위젯01"></div>
+						</div>
+						<div class="item">
+							<div class="inner"><img src="../images/img_wiget_02.png" alt="위젯02"></div>
+						</div>
+						<div class="item">
+							<div class="inner"><img src="../images/img_wiget_03.png" alt="위젯03"></div>
+						</div>
+					</div>
+				</div>
+				<!-- // slide_widget -->
+
+			</div>
+			<!-- // box box2 -->
+
+			<div class="box box3">
+				<div class="title"><img src="../images/ev_240320_tit3.png" alt="제 22대 국회의원 선거" /></div>
+			</div>
+
+			<!-- <div class="privacy_slick_wrap">
+				<div class="list">
+					<div class="item">
+						<div class="img"><img src="../images/ev_240320_img4_1.png" alt="ㅇㅇㅇ"></div>
+						<button type="button"><span>이벤트 바로가기</span></button>
+					</div>
+					<div class="item">
+						<div class="img"><img src="../images/ev_240320_img4_2.png" alt="ㅇㅇㅇ"></div>
+						<button type="button"><span>이벤트 바로가기</span></button>
+					</div>
+					<div class="item">
+						<div class="img"><img src="../images/ev_240320_img4_3.png" alt="ㅇㅇㅇ"></div>
+						<button type="button"><span>이벤트 바로가기</span></button>
+					</div>
+				</div>
+			</div> -->
+
+			<div class="btm_btn">
+				<button type="button" class="btn_btn1"><span>모바일 주민등록증<br />등록하기</span></button>
+				<button type="button" class="btn_btn2"><span>모바일 운전면허증<br />등록하기</span></button>
+			</div>
+
+		</div><!-- // ev_240320 -->
+
+	</div><!-- // evSection -->
+
+</div><!-- // evPageWrap -->
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="../js/slick.min.js"></script>
+
+<!-- <style>
+table td {border:1px solid #ddd;}
+table th {border:1px solid #000;background-color:#f8f8f8;}
+</style>
+<table>
+	<tr>
+		<th rowspan="2">일련번호</th>
+		<th>이용자번호</th>
+		<th>발급상태</th>
+		<th>발급일시</th>
+		<th>폐기일시</th>
+		<th rowspan="2">채널구분</th>
+	</tr>
+	<tr>
+		<th colspan="2">접속기기ID</th>
+		<th colspan="2">접속기기</th>
+	</tr>
+
+	<tr>
+		<td rowspan="2">1111</td>
+		<td>1111</td>
+		<td>1111</td>
+		<td>1111</td>
+		<td>1111</td>
+		<td rowspan="2">1111</td>
+	</tr>
+	<tr>
+		<td colspan="2">2222</td>
+		<td colspan="2">2222</td>
+	</tr>
+</table> -->
+
+
+<script>
+	/* 대충 버튼 눌리면 어멋? */
+	let btns = document.querySelectorAll("button");
+	btns.forEach(function(item){
+		item.addEventListener("click", function(){
+			let img = item.querySelector("img");
+			if(img) {
+				if(img.getAttribute("title")) {
+					alert(img.getAttribute("title"))
+				} else {
+					alert(img.getAttribute("alt"))
+				}
+			} else {
+				alert(item.innerText)
+			}
+		})
+	})
+	/* // 대충 버튼 눌리면 어멋? */
+
+
+	$(document).ready(function(){
+		
+		$('#step_slick01 div.list').slick({
+			autoplay: true,
+			autoplaySpeed: 5000,
+			dots: false,
+			arrows: false,
+			infinite: false,
+			centerMode: true,
+			// dotsClass: "dot",
+			centerPadding: '1.75em',
+			speed: 300,
+			slidesToShow: 1
+		});
+
+		$('#step_slick02 div.list').slick({
+			autoplay: true,
+			autoplaySpeed: 5000,
+			dots: false,
+			arrows: false,
+			infinite: false,
+			centerMode: true,
+			// dotsClass: "dot",
+			centerPadding: '1.75em',
+			speed: 300,
+			slidesToShow: 1
+		});
+
+		$('.slide_widget div.list').slick({
+			autoplay: true,
+			autoplaySpeed: 5000,
+			dots: false,
+			arrows: false,
+			infinite: false,
+			centerMode: true,
+			// dotsClass: "dot",
+			centerPadding: '1.75em',
+			speed: 300,
+			slidesToShow: 1
+		});
+		
+		
+
+		// $('.privacy_slick_wrap div.list').on('init', function(event, slick) {
+		// 	$(".slick-prev").hide();
+		// }) .slick({
+		// 	autoplay: true,
+		// 	autoplaySpeed: 5000,
+		// 	dots: false,
+		// 	arrows: true,
+		// 	infinite: false,
+		// 	centerMode: true,
+		// 	// dotsClass: "dot",
+		// 	centerPadding: '30px',
+		// 	speed: 300,
+		// 	slidesToShow: 1
+		// })
+		// .on('afterChange', function(event, slick, currentSlide) {
+		// 	console.log(currentSlide)
+		// 	if(currentSlide < 1) {
+		// 		$(".slick-prev").hide();
+		// 	} else {
+		// 		$(".slick-prev").show();
+		// 	}
+		// 	if(currentSlide > 1) {
+		// 		$(".slick-next").hide();
+		// 	} else {
+		// 		$(".slick-next").show();
+		// 	}
+		// });
+
+
+
+
+	})
+</script>
+
+</body>
+</html>
