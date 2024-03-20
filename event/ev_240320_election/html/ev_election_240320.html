@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="../css/reset.css">
 	<link rel="stylesheet" href="../css/ev_common.css">
 	<link rel="stylesheet" href="../css/slick.css">
-<style>
+	<style>
 .ev_240320 {padding-bottom:3.375em; background-color:#fff; overflow:hidden; font-family:'Noto Sans KR';}
 .ev_240320 img {vertical-align:top; border:0; max-width:100%;}
 .ev_240320 div {position:relative;}
@@ -54,18 +54,20 @@
 .box.box2 .check_wrap + .check_wrap p.txt_small {text-align:center;}
 
 .box.box2 .slide_txt_wrap {margin-top:0.833333em; overflow:hidden; padding-bottom:2px;}
-.box.box2 .slide_txt_wrap div.row {display:flex; gap:0.5em; transition:all 0.2s ease;}
-.box.box2 .slide_txt_wrap div.row.row1 {animation: identifier 20s 0.5s infinite linear;}
-.box.box2 .slide_txt_wrap div.row.row2 {flex-direction: row-reverse; animation: identifier2 10s 0.5s infinite linear; margin-top:0.5em; }
+.box.box2 .slide_txt_wrap div.row {display:flex; gap:0.5em;}
+.box.box2 .slide_txt_wrap div.row.row1 {}
+.box.box2 .slide_txt_wrap div.row.row1 div {padding-right:0.5em; animation: identifier 10s infinite linear; padding-right:0.5em;}
+.box.box2 .slide_txt_wrap div.row.row2 {flex-direction: row-reverse;}
+.box.box2 .slide_txt_wrap div.row.row2 div {padding-left:0.5em; animation: identifier2 10s infinite linear; margin-top:0.5em; padding-left:0.5em;}
 .box.box2 .slide_txt_wrap div.row strong {display:inline-block; padding:0.25em 1em; background-color:#fff; border:1px solid #431984; border-radius:1.5em; color:#431984; font-size:1em; line-height:1.5em;}
-.box.box2 .slide_txt_wrap div.row div {display:flex; white-space:nowrap; gap:0.5em;}
+.box.box2 .slide_txt_wrap div.row div {display:flex; white-space:nowrap; gap:0.5em; }
 @keyframes identifier {
 	0% {transform:translateX(0%);}
-	100% {transform:translateX(calc(-100% + 0.5em));}
+	100% {transform:translateX(-50%);}
 }
 @keyframes identifier2 {
 	0% {transform:translateX(0%);}
-	100% {transform:translateX(calc(100% + 0.5em));}
+	100% {transform:translateX(50%);}
 }
 .box.box2 .slide_widget {margin-top:0.8em;}
 .box.box2 .slide_widget div.item {padding:2px 0.625em 4px;}
@@ -84,7 +86,7 @@
 	.ev_240320 div.btm_btn button {height:106px;}
 	.ev_240320 {padding-bottom:106px;}
 }
-</style>
+		</style>
 </head>
 
 <body>
