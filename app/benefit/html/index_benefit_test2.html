@@ -52,33 +52,33 @@
 				<div class="ev_con">
 					<div class="card_list">
 						<div class="item">
-							<div class="card_bnr bodyImgStyle">
-								<div class="img"><img src="../images/temp/sam_benefit_bnr1.png" alt="이미지설명" class="bodyImg" /></div>
+							<div class="card_bnr bnrBg">
+								<div class="img"><img src="../images/temp/sam_benefit_bnr1.png" alt="이미지설명" class="bnrImg" /></div>
 							</div>
 						</div>
 						<div class="item">
-							<div class="card_bnr">
-								<div class="img"><img src="../images/temp/sam_benefit_bnr2.png" alt="이미지설명" /></div>
+							<div class="card_bnr bnrBg">
+								<div class="img"><img src="../images/temp/sam_benefit_bnr2.png" alt="이미지설명" class="bnrImg" /></div>
 							</div>
 						</div>
 						<div class="item">
-							<div class="card_bnr">
-								<div class="img"><img src="../images/temp/sam_benefit_bnr3.png" alt="이미지설명" /></div>
+							<div class="card_bnr bnrBg">
+								<div class="img"><img src="../images/temp/sam_benefit_bnr3.png" alt="이미지설명" class="bnrImg" /></div>
 							</div>
 						</div>
 						<div class="item">
-							<div class="card_bnr">
-								<div class="img"><img src="../images/temp/sam_benefit_bnr1.png" alt="이미지설명" /></div>
+							<div class="card_bnr bnrBg">
+								<div class="img"><img src="../images/temp/sam_benefit_bnr1.png" alt="이미지설명" class="bnrImg" /></div>
 							</div>
 						</div>
 						<div class="item">
-							<div class="card_bnr">
-								<div class="img"><img src="../images/temp/sam_benefit_bnr2.png" alt="이미지설명" /></div>
+							<div class="card_bnr bnrBg">
+								<div class="img"><img src="../images/temp/sam_benefit_bnr2.png" alt="이미지설명" class="bnrImg" /></div>
 							</div>
 						</div>
 						<div class="item">
-							<div class="card_bnr">
-								<div class="img"><img src="../images/temp/sam_benefit_bnr3.png" alt="이미지설명" /></div>
+							<div class="card_bnr bnrBg">
+								<div class="img"><img src="../images/temp/sam_benefit_bnr3.png" alt="이미지설명" class="bnrImg" /></div>
 							</div>
 						</div>
 					</div>
@@ -157,7 +157,7 @@ event_tab.action();
 
 
 // 이미지 요소를 선택합니다.
-const image = document.querySelector('.bodyImg');
+const image = document.querySelector('.bnrImg');
 
 // 이미지가 로드된 후에 실행되도록 이벤트 리스너를 추가합니다.
 image.addEventListener('load', function () {
@@ -190,7 +190,7 @@ image.addEventListener('load', function () {
     console.log(`마지막 픽셀의 색상: ${color}`);
 	console.log("class")
 
-    document.querySelector(".bodyImgStyle").style.backgroundColor = color;
+    document.querySelector(".bnrBg").style.backgroundColor = color;
 });
 
 
