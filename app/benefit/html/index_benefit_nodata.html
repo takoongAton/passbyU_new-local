@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>PASS by U+</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/benefit_event.css">
+	<!-- <link rel="stylesheet" href="../css/fonts/NotoSansKR-WEB.css"> -->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+	<!-- <script src="../js/jquery-1.12.4.min.js"></script> -->
+<style>
+
+</style>
+</head>
+<body>
+
+	<div class="benefit_wrap">
+
+		<div class="benefit_event_wrap">
+			<div class="benefit_event_tab_wrap">
+				<div class="event_tab">
+					<div class="tab">
+						<button type="button" class="active"><span>진행 중 이벤트</span></button>
+						<button type="button"><span>당첨자 발표</span></button>
+					</div>
+				</div><!-- // event_tab -->
+			</div><!-- // benefit_event_tab_wrap -->
+
+
+			<div class="benefit_event_con_wrap">
+				<div class="ev_con">
+					<div class="nodata_wrap">
+						<div class="nodata">
+							<span class="icon"><img src="../images/ico_notice.png" alt="안내"></span>
+							<dl>
+								<dt><strong>현재 진행중인 이벤트가 없습니다.</strong></dt>
+								<dd>
+									<p>
+										현재 진행중인 이벤트가 없습니다.<br />
+										더 나은 이벤트로 찾아 뵙겠습니다.
+									</p>
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+
+				<div class="ev_con" style="display:none;">
+					<div class="nodata_wrap">
+						<div class="nodata">
+							<span class="icon"><img src="../images/ico_notice.png" alt="안내"></span>
+							<dl>
+								<dt><strong>이벤트 당첨자 발표 내역이 없습니다.</strong></dt>
+							</dl>
+						</div>
+					</div>
+				</div>
+				
+			</div><!-- // benefit_event_con_wrap -->
+
+		</div><!-- // benefit_event_wrap -->
+	</div><!-- // wrap -->
+
+<script>
+
+var event_tab;
+event_tab = {
+	tab : document.querySelectorAll(".event_tab button"),
+	con : document.querySelectorAll(".ev_con"),
+	custom : document.querySelector(".event_tab span.btn"),
+	action : function(){
+		event_tab.tab.forEach(function(item,index,arr){
+			item.addEventListener("click", function(){
+				idx = index;
+				for(i=0; i< event_tab.tab.length; i++) {
+					event_tab.tab[i].classList.remove("active");
+					event_tab.con[i].style.display = "none";
+				}
+				event_tab.con[idx].style.display = "block"
+				this.classList.add("active");
+			})
+			var x = item.classList.contains("active");
+			if(x) { 
+				event_tab.defaultAction(index, arr);
+				return false;
+			}
+		});
+	},
+	defaultAction : function(index, arr) {
+		for(i=0; i< event_tab.tab.length; i++) {
+			event_tab.con[i].style.display = "none";
+		}		event_tab.con[index].style.display = "block";
+	}
+}
+event_tab.action();
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>PASS by U+</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/benefit_event.css">
+	<style>
+	.card_bnr {text-align:center;}
+	.card_bnr .img {height:60px;}
+	.card_bnr img {max-width:100%; width:auto; height:100%}
+	</style>
+	<!-- <link rel="stylesheet" href="../css/fonts/NotoSansKR-WEB.css"> -->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+	<!-- <script src="../js/jquery-1.12.4.min.js"></script> -->
+<!-- <style>
+.wrap {height:100%;}
+.benefit_event_wrap {display:flex; flex-direction:column; width:100%; height:100%;}
+.benefit_event_con_wrap {flex:1;}
+.header_temp {position:-webkit-sticky; position:sticky; top:0; height:54px; padding-left:18px; line-height:54px; background-color:#fff; font-size:22px; font-weight:700; font-family:'Noto Sans KR'; z-index:2;}
+.tab_temp {padding:0 1.125em; border-bottom:1px solid #ddd;}
+.tab_temp button {display:inline-block; position:relative; width:auto; height:36px;}
+.tab_temp button + button {margin-left:1em;;}
+.tab_temp button span {display:block; position:relative; padding:0 2px; color:#888; font-family:'Noto Sans KR';}
+.tab_temp button.active {}
+.tab_temp button.active::before {content:""; display:block; position:absolute; bottom:0; left:0; width:100%; height:2px; background-color:#000;;}
+.tab_temp button.active span {color:#000; font-weight:bold;}
+</style> -->
+</head>
+<body>
+
+	<div class="benefit_wrap">
+
+		<div class="benefit_event_wrap">
+			<div class="benefit_event_tab_wrap">
+				<div class="event_tab">
+					<div class="tab">
+						<button type="button" class="active"><span>진행 중 이벤트</span></button>
+						<button type="button"><span>당첨자 발표</span></button>
+					</div>
+				</div><!-- // event_tab -->
+			</div><!-- // benefit_event_tab_wrap -->
+
+
+			<div class="benefit_event_con_wrap">
+				
+				<div class="ev_con">
+					<div class="card_list">
+						<div class="item">
+							<div class="card_bnr bodyImgStyle">
+								<div class="img"><img src="../images/temp/sam_benefit_bnr1.png" alt="이미지설명" id="bodyImg" /></div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="card_bnr">
+								<div class="img"><img src="../images/temp/sam_benefit_bnr2.png" alt="이미지설명" /></div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="card_bnr">
+								<div class="img"><img src="../images/temp/sam_benefit_bnr3.png" alt="이미지설명" /></div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="card_bnr">
+								<div class="img"><img src="../images/temp/sam_benefit_bnr1.png" alt="이미지설명" /></div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="card_bnr">
+								<div class="img"><img src="../images/temp/sam_benefit_bnr2.png" alt="이미지설명" /></div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="card_bnr">
+								<div class="img"><img src="../images/temp/sam_benefit_bnr3.png" alt="이미지설명" /></div>
+							</div>
+						</div>
+					</div>
+				</div><!-- // ev_con -->
+
+
+				<div class="ev_con" style="display:none;">
+					<div class="nodata_wrap">
+						<div class="nodata">
+							<span class="icon"><img src="../images/ico_notice.png" alt="안내"></span>
+							<dl>
+								<dt><strong>이벤트 당첨자 발표 내역이 없습니다.</strong></dt>
+							</dl>
+						</div>
+					</div>
+					<!-- <div class="service_card">
+						<div class="card_list">
+							<div class="item">
+								<div class="card_bnr">
+									<div class="img"><img src="../images/temp/sam_benefit_bnr2.png" alt="이미지설명" /></div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="card_bnr">
+									<div class="img"><img src="../images/temp/sam_benefit_bnr3.png" alt="이미지설명" /></div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="card_bnr">
+									<div class="img"><img src="../images/temp/sam_benefit_bnr1.png" alt="이미지설명" /></div>
+								</div>
+							</div>
+						</div>
+					</div> -->
+				</div>
+			</div><!-- // benefit_event_con_wrap -->
+
+		</div><!-- // benefit_event_wrap -->
+	</div><!-- // wrap -->
+
+<script>
+
+var event_tab;
+event_tab = {
+	tab : document.querySelectorAll(".event_tab button"),
+	con : document.querySelectorAll(".ev_con"),
+	custom : document.querySelector(".event_tab span.btn"),
+	action : function(){
+		event_tab.tab.forEach(function(item,index,arr){
+			item.addEventListener("click", function(){
+				idx = index;
+				for(i=0; i< event_tab.tab.length; i++) {
+					event_tab.tab[i].classList.remove("active");
+					event_tab.con[i].style.display = "none";
+				}
+				event_tab.con[idx].style.display = "block"
+				this.classList.add("active");
+			})
+			var x = item.classList.contains("active");
+			if(x) { 
+				event_tab.defaultAction(index, arr);
+				return false;
+			}
+		});
+	},
+	defaultAction : function(index, arr) {
+		for(i=0; i< event_tab.tab.length; i++) {
+			event_tab.con[i].style.display = "none";
+		}		event_tab.con[index].style.display = "block";
+	}
+}
+event_tab.action();
+
+
+
+// 이미지 요소를 선택합니다.
+const image = document.querySelector('#bodyImg');
+const bodyImgStyle = document.querySelector(".bodyImgStyle");
+
+// 이미지가 로드된 후에 실행되도록 이벤트 리스너를 추가합니다.
+image.addEventListener('load', function () {
+  console.log("asdfasf")
+    // 이미지를 Canvas에 그립니다.
+    const canvas = document.createElement('canvas');
+    canvas.width = image.width;
+    canvas.height = image.height;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(image, 0, 0, image.width, image.height);
+
+    // 이미지의 픽셀 데이터를 가져옵니다.
+    const imageData = ctx.getImageData(0, 0, image.width, image.height);
+
+    // 이미지의 마지막 픽셀 위치를 계산합니다.
+    const lastPixelIndex = (image.width * image.height - 1) * 4; // RGBA 값이므로 4를 곱합니다.
+
+    // 마지막 픽셀의 컬러 값을 추출합니다.
+    const lastPixelData = [
+        imageData.data[lastPixelIndex],         // Red
+        imageData.data[lastPixelIndex + 1],     // Green
+        imageData.data[lastPixelIndex + 2],     // Blue
+        imageData.data[lastPixelIndex + 3]      // Alpha
+    ];
+
+    // 추출된 색상 값을 RGB 형식으로 변환합니다.
+    const color = `rgb(${lastPixelData[0]}, ${lastPixelData[1]}, ${lastPixelData[2]})`;
+
+    // 결과를 console.log로 출력합니다.
+    console.log(`마지막 픽셀의 색상: ${color}`);
+
+    document.querySelector("body").style.backgroundColor = color;
+});
+
+
+
+</script>
+</body>
+</html>

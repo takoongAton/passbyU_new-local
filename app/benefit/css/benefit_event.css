@@ -1,0 +1,23 @@
+.benefit_wrap {height:100%;}
+
+.benefit_event_wrap {display:flex; flex-direction:column; width:100%; height:100%; margin-top:0; padding:22px 1.125em 1.125em;  }
+.benefit_event_con_wrap {flex:1; letter-spacing:-0.05em; overflow-y:auto;}
+.benefit_event_tab_wrap {padding-bottom:0.8125em;}
+.benefit_event_tab_wrap .tab {display:-webkit-flex; display:flex; width:100%;}
+.benefit_event_tab_wrap .tab button {height:28px; border:1px solid #888888; border-radius:6px; text-align:center;}
+.benefit_event_tab_wrap .tab button span {color:#888; font-size:0.875em; line-height:1em; font-weight:400; font-family:'Noto Sans KR';}
+.benefit_event_tab_wrap .tab button.active {background-color:#000; border-color:transparent}
+.benefit_event_tab_wrap .tab button.active span {color:#fff; font-weight:700;}
+.benefit_event_tab_wrap .tab button:first-child {margin-right:10px;}
+.benefit_event_wrap .card_list {}
+.benefit_event_wrap .card_list .item + .item  {margin-top:0.75em;}
+
+.ev_con {height:100%;}
+
+.benefit_wrap .nodata_wrap {display:flex; justify-content:center; align-items:center; height:100%;}
+.benefit_wrap .nodata {text-align:center;}
+.benefit_wrap .nodata span.icon {display:inline-block; width:54px; height:54px;}
+.benefit_wrap .nodata dl {margin-top:15px;}
+.benefit_wrap .nodata dt strong {display:block; font-size:18px; line-height:26px;;}
+.benefit_wrap .nodata dd {margin-top:8px;}
+.benefit_wrap .nodata dd p {font-size:16px; line-height:22px;}
