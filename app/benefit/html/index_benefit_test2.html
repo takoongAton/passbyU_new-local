@@ -52,33 +52,33 @@
 				<div class="ev_con">
 					<div class="card_list">
 						<div class="item">
-							<div class="card_bnr bnrBg">
-								<div class="img"><img src="../images/temp/sam_benefit_bnr1.png" alt="이미지설명" class="bnrImg" /></div>
+							<div class="card_bnr bodyImgStyle">
+								<div class="img"><img src="../images/temp/sam_benefit_bnr1.png" alt="이미지설명" class="bodyImg" /></div>
 							</div>
 						</div>
 						<div class="item">
-							<div class="card_bnr bnrBg">
-								<div class="img"><img src="../images/temp/sam_benefit_bnr2.png" alt="이미지설명" class="bnrImg" /></div>
+							<div class="card_bnr">
+								<div class="img"><img src="../images/temp/sam_benefit_bnr2.png" alt="이미지설명" /></div>
 							</div>
 						</div>
 						<div class="item">
-							<div class="card_bnr bnrBg">
-								<div class="img"><img src="../images/temp/sam_benefit_bnr3.png" alt="이미지설명" class="bnrImg" /></div>
+							<div class="card_bnr">
+								<div class="img"><img src="../images/temp/sam_benefit_bnr3.png" alt="이미지설명" /></div>
 							</div>
 						</div>
 						<div class="item">
-							<div class="card_bnr bnrBg">
-								<div class="img"><img src="../images/temp/sam_benefit_bnr1.png" alt="이미지설명" class="bnrImg" /></div>
+							<div class="card_bnr">
+								<div class="img"><img src="../images/temp/sam_benefit_bnr1.png" alt="이미지설명" /></div>
 							</div>
 						</div>
 						<div class="item">
-							<div class="card_bnr bnrBg">
-								<div class="img"><img src="../images/temp/sam_benefit_bnr2.png" alt="이미지설명" class="bnrImg" /></div>
+							<div class="card_bnr">
+								<div class="img"><img src="../images/temp/sam_benefit_bnr2.png" alt="이미지설명" /></div>
 							</div>
 						</div>
 						<div class="item">
-							<div class="card_bnr bnrBg">
-								<div class="img"><img src="../images/temp/sam_benefit_bnr3.png" alt="이미지설명" class="bnrImg" /></div>
+							<div class="card_bnr">
+								<div class="img"><img src="../images/temp/sam_benefit_bnr3.png" alt="이미지설명" /></div>
 							</div>
 						</div>
 					</div>
@@ -155,9 +155,9 @@ event_tab.action();
 
 
 
-/*
+
 // 이미지 요소를 선택합니다.
-const image = document.querySelector('.bnrImg');
+const image = document.querySelector('.bodyImg');
 
 // 이미지가 로드된 후에 실행되도록 이벤트 리스너를 추가합니다.
 image.addEventListener('load', function () {
@@ -190,49 +190,8 @@ image.addEventListener('load', function () {
     console.log(`마지막 픽셀의 색상: ${color}`);
 	console.log("class")
 
-    document.querySelector(".bnrBg").style.backgroundColor = color;
+    document.querySelector(".bodyImgStyle").style.backgroundColor = color;
 });
-*/
-
-
-let images = document.querySelectorAll(".bnrImg");
-images.forEach(function(item){
-	// 이미지가 로드된 후에 실행되도록 이벤트 리스너를 추가합니다.
-	item.addEventListener('load', function () {
-	console.log("asdfasf")
-		// 이미지를 Canvas에 그립니다.
-		const canvas = document.createElement('canvas');
-		canvas.width = item.width;
-		canvas.height = item.height;
-		const ctx = canvas.getContext('2d');
-		ctx.drawImage(item, 0, 0, item.width, item.height);
-
-		// 이미지의 픽셀 데이터를 가져옵니다.
-		const imageData = ctx.getImageData(0, 0, item.width, item.height);
-
-		// 이미지의 마지막 픽셀 위치를 계산합니다.
-		const lastPixelIndex = (item.width * item.height - 1) * 4; // RGBA 값이므로 4를 곱합니다.
-
-		// 마지막 픽셀의 컬러 값을 추출합니다.
-		const lastPixelData = [
-			imageData.data[lastPixelIndex],         // Red
-			imageData.data[lastPixelIndex + 1],     // Green
-			imageData.data[lastPixelIndex + 2],     // Blue
-			imageData.data[lastPixelIndex + 3]      // Alpha
-		];
-
-		// 추출된 색상 값을 RGB 형식으로 변환합니다.
-		const color = `rgb(${lastPixelData[0]}, ${lastPixelData[1]}, ${lastPixelData[2]})`;
-
-		// 결과를 console.log로 출력합니다.
-		console.log(`마지막 픽셀의 색상: ${color}`);
-		console.log("class")
-
-		// document.querySelector(".bnrBg").style.backgroundColor = color;
-		console.log(color)
-	});
-})
-
 
 
 
