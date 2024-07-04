@@ -154,9 +154,10 @@ event_tab.action();
 
 
 
+
+
 // 이미지 요소를 선택합니다.
 const image = document.querySelector('.bodyImg');
-const bodyImgStyle = document.querySelector(".bodyImgStyle");
 
 // 이미지가 로드된 후에 실행되도록 이벤트 리스너를 추가합니다.
 image.addEventListener('load', function () {
@@ -189,7 +190,7 @@ image.addEventListener('load', function () {
     console.log(`마지막 픽셀의 색상: ${color}`);
 	console.log("class")
 
-    document.querySelector("body").style.backgroundColor = color;
+    document.querySelector(".card_bnr").style.backgroundColor = color;
 });
 
 
