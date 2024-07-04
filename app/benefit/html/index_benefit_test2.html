@@ -225,8 +225,9 @@ images.forEach(function(item){
 
 		// 결과를 console.log로 출력합니다.
 		console.log(`마지막 픽셀의 색상: ${color}`);
-		console.log("class")
 
+		item.closest(".bnrBg").style.backgroundColor = color;
+		console.log("closest")
 		// document.querySelector(".bnrBg").style.backgroundColor = color;
 		console.log(color)
 	});
