@@ -15,7 +15,7 @@
 	<link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
 
 	<style>
-	.card_bnr {position:relative; text-align:center; background-color:#f7f7f7; border-radius:10px; overflow:hidden;}
+	.card_bnr {position:relative; text-align:center; background-color:#f5f5f5; border-radius:10px; overflow:hidden;}
 	.bnrBg.active {}
 	.bnrBg.active .bgColor {position:absolute; top:0; left:50%; width:100%; height:100%; transform:translateX(-50%);
 		animation: ani_bg 0s 1 ease-in-out forwards;
@@ -91,19 +91,19 @@
 						<div class="item">
 							<div class="card_bnr bnrBg">
 								<div class="bgColor"></div>
-								<div class="img"><img src="../images/temp/sam_benefit_bnr1.png" alt="이미지설명" class="bnrImg" /></div>
+								<div class="img"><img src="../images/temp/sam_benefit_bnr4.png" alt="이미지설명" class="bnrImg" /></div>
 							</div>
 						</div>
 						<div class="item">
 							<div class="card_bnr bnrBg">
 								<div class="bgColor"></div>
-								<div class="img"><img src="../images/temp/sam_benefit_bnr2.png" alt="이미지설명" class="bnrImg" /></div>
+								<div class="img"><img src="../images/temp/sam_benefit_bnr5.png" alt="이미지설명" class="bnrImg" /></div>
 							</div>
 						</div>
 						<div class="item">
 							<div class="card_bnr bnrBg">
 								<div class="bgColor"></div>
-								<div class="img"><img src="../images/temp/sam_benefit_bnr3.png" alt="이미지설명" class="bnrImg" /></div>
+								<div class="img"><img src="../images/temp/sam_benefit_bnr6.png" alt="이미지설명" class="bnrImg" /></div>
 							</div>
 						</div>
 					</div>
@@ -178,7 +178,6 @@
 
 
 
-
 	/* 
 	// 이미지 요소를 선택합니다.
 	const image = document.querySelector('.bnrImg');
@@ -222,7 +221,7 @@
 	images.forEach(function(item){
 		// 이미지가 로드된 후에 실행되도록 이벤트 리스너를 추가합니다.
 		item.addEventListener('load', function () {
-		console.log("asdfasf")
+		
 			// 이미지를 Canvas에 그립니다.
 			const canvas = document.createElement('canvas');
 			canvas.width = item.width;
@@ -260,6 +259,7 @@
 			// document.querySelector(".bnrBg").style.backgroundColor = color;
 			console.log(color)
 		});
+		
 	})
 </script>
 </body>
