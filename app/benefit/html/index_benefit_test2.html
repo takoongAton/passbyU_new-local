@@ -22,7 +22,7 @@
 	}
 	.card_bnr .img {}
 	.card_bnr .img {position:relative; width:100%; max-width:375px; margin:0 auto;}
-	.card_bnr img {max-width:100%; width:auto; height:auto; max-height:100%; border-radius:10px;
+	.card_bnr img {position:relative; max-width:100%; width:auto; height:auto; max-height:100%; border-radius:10px;
 		animation: ani_img 0.4s 1 ease-in-out forwards;
 	}
 	@keyframes ani_bg {
@@ -30,8 +30,8 @@
 		100% {width:100%; opacity:1;}
 	}
 	@keyframes ani_img {
-		0% {opacity:0;}
-		100% {width:100%;}
+		0% {opacity:0; left:-10px;}
+		100% {width:100%; left:0px;}
 	}
 	</style>
 	<!-- <link rel="stylesheet" href="../css/fonts/NotoSansKR-WEB.css"> -->
