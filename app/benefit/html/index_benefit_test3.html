@@ -269,6 +269,17 @@
 		});
 		
 	})
+
+
+
+	function showAlertWithScreenSize() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            alert(`브라우저 화면 크기: 너비 = ${width}px, 높이 = ${height}px`);
+        }
+
+        // 페이지 로드 시 화면 크기를 알림으로 출력
+        window.addEventListener('load', showAlertWithScreenSize);
 </script>
 </body>
 </html>
