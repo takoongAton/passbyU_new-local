@@ -11,9 +11,10 @@
 	<link rel="stylesheet" href="../css/reset.css">
 	<link rel="stylesheet" href="../css/benefit_event.css">
 	<style>
-	.card_bnr {text-align:center;}
-	.card_bnr .img {height:60px;}
-	.card_bnr img {max-width:100%; width:auto; height:100%}
+	.card_bnr {position:relative; text-align:center; background-color:#f7f7f7;}
+	.card_bnr .img {}
+	.card_bnr .img {position:relative; width:100%; max-width:375px; margin:0 auto;}
+	.card_bnr img {max-width:100%; width:auto; height:100%; border-radius:10px;}
 	</style>
 	<!-- <link rel="stylesheet" href="../css/fonts/NotoSansKR-WEB.css"> -->
 	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
@@ -210,15 +211,20 @@ document.addEventListener("DOMContentLoaded", function () {
 			// 이미지의 픽셀 데이터를 가져옵니다.
 			const imageData = ctx.getImageData(0, 0, item.width, item.height);
 
+			
+			// 이미지의 첫 번째 픽셀 
+			const firstPixelIndex = 0; // 첫 번째 픽셀
+
+			
 			// 이미지의 마지막 픽셀 위치를 계산합니다.
 			const lastPixelIndex = (item.width * item.height - 1) * 4; // RGBA 값이므로 4를 곱합니다.
 
 			// 마지막 픽셀의 컬러 값을 추출합니다.
 			const lastPixelData = [
-				imageData.data[lastPixelIndex],         // Red
-				imageData.data[lastPixelIndex + 1],     // Green
-				imageData.data[lastPixelIndex + 2],     // Blue
-				imageData.data[lastPixelIndex + 3]      // Alpha
+				imageData.data[firstPixelIndex],         // Red
+				imageData.data[firstPixelIndex + 1],     // Green
+				imageData.data[firstPixelIndex + 2],     // Blue
+				imageData.data[firstPixelIndex + 3]      // Alpha
 			];
 
 			// 추출된 색상 값을 RGB 형식으로 변환합니다.
