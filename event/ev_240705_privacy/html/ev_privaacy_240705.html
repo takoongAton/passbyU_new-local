@@ -23,7 +23,12 @@
 		.ev_240705 div.top div.tit {font-size:1.08333em; line-height:1.15384em; font-weight:300;}
 		.ev_240705 div.top p.txt {margin-top:0.71428em; font-size:1.45833em; line-height:1.14285em; font-weight:300;}
 		.ev_240705 div.top p.txt strong {font-weight:700;}
-		.ev_240705 div.top div.img {position:absolute; z-index:0; right:0.83333em; bottom:2.75em; width:14.41666em;}
+		.ev_240705 div.top div.img {position:absolute; z-index:0; right:0.83333em; bottom:2.75em; width:14.41666em; animation: ani_app_icon 1s infinite ease-in-out;}
+		@keyframes ani_app_icon {
+			0% {transform:translateY(0);}
+			50% {transform:translateY(-0.2em);}
+			100% {transform:translateY(0);}
+		}
 
 		/* 슬라이드 간격 */
 		.guide_slide_wrap {margin-top:20px; padding:2.08333em 2.08333em 0 2.08333em; border-radius:0.83333em; background-color:#F2F2F2; text-align:center;}
