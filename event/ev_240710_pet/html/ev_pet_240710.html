@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>반려동물 프로모션</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/ev_common.css">
+	<style>
+		.ev_240710 {
+			padding-bottom:3.33333em;
+			padding-bottom:calc(constant(safe-area-inset-bottom) + 3.33333em); padding-bottom:calc(env(safe-area-inset-bottom) + 3.33333em);
+			background-color:#fff; overflow:hidden; font-family:'pretendard';
+			text-align:center;
+		}
+		.ev_240710 img {vertical-align:top; border:0; max-width:100%;}
+		.ev_240710 div {position:relative;}
+		.ev_240710 div.top {background-color:#4B97FF;}
+		
+		.ev_240710 div.top div.dog {position:absolute; z-index:0; top:37.72727%; left:14.81481%; width:13.375em; animation: ani_app_icon 0.75s 1 forwards ease-in-out;}
+		@keyframes ani_app_icon {
+			0% {top:100%;}
+			70% {top:37%;}
+			100% {top:37.72727%;}
+		}
+
+		/* 이벤트 메인 컨텐츠 */
+		.ev_content {padding:2.58333em 0 0 0; background-color:#fff; border-radius:1.66666em 1.66666em 0 0; margin-top:-1.66666em; overflow:hidden;}
+		.ev_content .img_qr img {width:10.83333em;}
+		.ev_content .box_group {margin-top:2.5em;}
+		.ev_content .box_group > div.tit {text-align:center;}
+		.ev_content .box_group > div.tit strong {display:inline-block;}
+		.ev_content .box_group > div.tit p {margin-top:1.11111em; color:#989898; font-size:0.75em; line-height:1.5em;}
+
+		.ev_content p.txt {margin-top:0.83333em; font-size:1em; line-height:1.25em; font-weight:400;}
+		.ev_content div.box_group > div.tit strong {width:11.5em;}
+		.ev_content div.box_group + div.box_group > div.tit strong {width:7.16666em;}
+		.ev_content div.box_group + div.box_group + div.box_group > div.tit strong {width:13em;}
+
+		.ev_content .box_group p.txt {}
+		.ev_content .box_group p.txt + p.txt {}
+		.ev_content .box_group p.txt + p.sub_txt {margin-top:1em; color:#989898; font-size:0.83333em; line-height:1.45em; font-weight:500;}
+		.ev_content .box_group p.txt strong {font-weight:700;}
+		.ev_content .box_group div.img img {width:auto; height:15.41666em; margin-top:0.83333em;}
+
+		.ev_content > div.img {margin-top:1.25em;}
+		/* // 이벤트 메인 컨텐츠 */
+
+		/* 텍스트 슬라이드 */
+		.slide_txt_wrap {margin-top:1.66666em; overflow:hidden;}
+		.slide_txt_wrap div.row {display:flex; gap:0.5em;}
+		.slide_txt_wrap div.row.row1 {}
+		.slide_txt_wrap div.row.row1 > div {padding-right:0.5em; animation: identifier 10s infinite linear; padding-right:0.5em;}
+		.slide_txt_wrap div.row.row2 {flex-direction: row-reverse;}
+		.slide_txt_wrap div.row.row2 > div {padding-left:0.5em; animation: identifier2 10s infinite linear; margin-top:0.75em; padding-left:0.5em;}
+		.slide_txt_wrap div.row strong {display:inline-block; padding:0.25em 1em; background-color:#fff; border:1px solid #431984; border-radius:1.5em; color:#431984; font-size:1em; line-height:1.5em;}
+		.slide_txt_wrap div.row > div {display:flex; white-space:nowrap; gap:0.5em; }
+		.slide_txt_wrap div.row > div div.item {display:flex; align-items:center; gap:0.166666em; height:2.5em; padding:0 0.95833em; border:1px solid #707070; border-radius:2.5em;}
+		.slide_txt_wrap div.row > div div.item span.icon {display:inline-block; width:1.33333em; height:1.33333em; overflow:hidden;}
+		.slide_txt_wrap div.row > div div.item span.txt {display:inline-block; font-size:1em; line-height:1.5em; font-weight:bold;}
+		@keyframes identifier {
+			0% {transform:translateX(0%);}
+			100% {transform:translateX(-50%);}
+		}
+		@keyframes identifier2 {
+			0% {transform:translateX(0%);}
+			100% {transform:translateX(50%);}
+		}
+		/* 텍스트 슬라이드 */
+
+		.ev_240710 div.btm_btn {display:flex; align-items:center; position:fixed; bottom:0; right:0; left:0; width:100%; max-width:720px; margin:0 auto;}
+		.ev_240710 div.btm_btn button {box-sizing:content-box; height:3.33333em; padding-bottom:calc(constant(safe-area-inset-bottom)); padding-bottom:calc(env(safe-area-inset-bottom)); font-weight:bold;}
+		.ev_240710 div.btm_btn button.btn_btn1 {background-color:#194B90; color:#fff;}
+
+
+		
+	</style>
+</head>
+
+<body>
+
+<div class="evPageWrap">
+
+	<div class="evSection">
+
+		<div class="ev_240710">
+			<div class="top">
+				<div class="bg"><img src="../images/ev_230710_img_top.png" alt="PASS 팻 신분증"></div>
+				<div class="dog"><img src="../images/ev_230710_img_top_dog.png" alt="강아지"></div>
+			</div>
+
+			<div class="ev_content">
+
+				<div class="img_qr"><img src="../images/ev_230710_img_qr.png" alt="팻 QR"></div>
+				<p class="txt">
+					<strong>우리집 반려동물 등록</strong>하고<br />
+					필요한 정보를 편하게 찾아보세요
+				</p>
+
+				<div class="box_group">
+					<div class="tit"><strong><img src="../images/ev_230710_tit_01.png" alt="펫 신분증이란?"></strong></div>
+					<div class="box_content">
+
+						<p class="txt">새로운 반려동물을 등록하거나<br />
+							이미 가지고 있는 펫등록증을 등록할 수 있어요!</p>
+
+						<p class="txt"><strong>지자체에서 운영하는 반려동물 공원</strong> 입장 시<br />
+							<strong>QR로 출입</strong>도 하고<br />
+							<strong>동물등록번호가 필요할 때</strong><br />
+							바로바로 확인할 수 있어요</p>
+
+						<p class="sub_txt">*반려동물을 새로 등록하면 외장칩도 배송됩니다</p>
+
+						<div class="img">
+							<span><img src="../images/ev_230710_img_pet_id.png" alt=""></span>
+						</div>
+
+						<div class="slide_txt_wrap">
+							<div class="row row1">
+								<div>
+									<div class="item">
+										<span class="icon"><img src="../images/ico_playground_01.png" alt=""></span>
+										<span class="txt">화성 동탄여울공원 반려가족 놀이터</span>
+									</div>
+									<div class="item">
+										<span class="icon"><img src="../images/ico_playground_02.png" alt=""></span>
+										<span class="txt">화성 백미힐링마당 반려가족 놀이터</span>
+									</div>
+									<div class="item">
+										<span class="icon"><img src="../images/ico_playground_03.png" alt=""></span>
+										<span class="txt">고양시 덕수공원 반려견 놀이터</span>
+									</div>
+									<div class="item">
+										<span class="icon"><img src="../images/ico_playground_01.png" alt=""></span>
+										<span class="txt">화성 동탄여울공원 반려가족 놀이터</span>
+									</div>
+									<div class="item">
+										<span class="icon"><img src="../images/ico_playground_02.png" alt=""></span>
+										<span class="txt">화성 백미힐링마당 반려가족 놀이터</span>
+									</div>
+									<div class="item">
+										<span class="icon"><img src="../images/ico_playground_03.png" alt=""></span>
+										<span class="txt">고양시 덕수공원 반려견 놀이터</span>
+									</div>
+								</div>
+							</div>
+							<div class="row row2">
+								<div>
+									<div class="item">
+										<span class="icon"><img src="../images/ico_playground_04.png" alt=""></span>
+										<span class="txt">고양시 서구 반려동물공원</span>
+									</div>
+									<div class="item">
+										<span class="icon"><img src="../images/ico_playground_05.png" alt=""></span>
+										<span class="txt">서울 동작반려견공원</span>
+									</div>
+									<div class="item">
+										<span class="icon"><img src="../images/ico_playground_06.png" alt=""></span>
+										<span class="txt">서울 은평구 탑골생태공원</span>
+									</div>
+									<div class="item">
+										<span class="icon"><img src="../images/ico_playground_04.png" alt=""></span>
+										<span class="txt">고양시 서구 반려동물공원</span>
+									</div>
+									<div class="item">
+										<span class="icon"><img src="../images/ico_playground_05.png" alt=""></span>
+										<span class="txt">서울 동작반려견공원</span>
+									</div>
+									<div class="item">
+										<span class="icon"><img src="../images/ico_playground_06.png" alt=""></span>
+										<span class="txt">서울 은평구 탑골생태공원</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<!-- // box_group -->
+
+				<div class="box_group">
+					<div class="tit"><strong><img src="../images/ev_230710_tit_02.png" alt="펫 캘린더"></strong></div>
+					<div class="box_content">
+						<p class="txt">
+							반려동물을 등록하면 자동으로 <strong>생일,<br />
+								필수 접종 정보, 권장 접종 사항이 등록</strong> 되고<br />
+							해당 일자에 APP PUSH도 보내드려요
+						</p>
+						<div class="img">
+							<span><img src="../images/ev_230710_img_pet_calendar.png" alt="펫 캘린더"></span>
+						</div>
+					</div>
+				</div>
+				<!-- // box_group -->
+
+				<div class="box_group">
+					<div class="tit"><strong><img src="../images/ev_230710_tit_03_pet_run.png" alt="펫 펫세권"></strong></div>
+					<div class="box_content">
+						<p class="txt">
+							반려동물을 위한 <strong>동물병원, 반려동물용품점,<br />
+								미용실, 반려동물과 함께 갈 수 있는 음식점</strong>과<br />
+							<strong>카페</strong> 등의 정보를 확인할 수 있어요
+						</p>
+						<div class="img">
+							<span><img src="../images/ev_230710_img_pet_map.png" alt="펫세권"></span>
+						</div>
+					</div>
+				</div>
+				<!-- // box_group -->
+
+				<div class="img"><img src="../images/ev_230710_img_dog.png" alt="펫신분증 등록하라개"></div>
+
+			</div>
+			<!-- // ev_content -->
+
+			
+			<div class="btm_btn">
+				<button type="button" class="btn_btn1"><span>펫 신분증 구경하기</span></button>
+			</div>
+
+		</div><!-- // ev_240710 -->
+
+	</div><!-- // evSection -->
+
+</div><!-- // evPageWrap -->
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="../js/slick.min.js"></script>
+
+
+
+<script>
+	/* 대충 버튼 눌리면 어멋? */
+	let btns = document.querySelectorAll("button");
+	btns.forEach(function(item){
+		item.addEventListener("click", function(){
+			let btnTit = item.getAttribute('title')
+			if(btnTit) {
+				alert(btnTit);
+			} else {
+				let img = item.querySelector("img");
+				if(img) {
+					if(img.getAttribute("title")) {
+						alert(img.getAttribute("title"))
+					} else {
+						alert(img.getAttribute("alt"))
+					}
+				} else {
+					alert(item.innerText)
+				}
+			}
+		})
+	})
+	/* // 대충 버튼 눌리면 어멋? */
+</script>
+</body>
+</html>
