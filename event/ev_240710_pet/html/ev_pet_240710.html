@@ -54,19 +54,19 @@
 		.slide_txt_wrap div.row.row1 > div {animation: identifier 8s infinite linear;}
 		.slide_txt_wrap div.row.row2 {justify-content:flex-end;}
 		.slide_txt_wrap div.row.row2 > div {animation: identifier2 8s infinite linear; margin-top:0.75em;}
-		.slide_txt_wrap div.row > div {display:flex; white-space:nowrap; gap:0.41666em; padding:0.20833em}
+		.slide_txt_wrap div.row > div {display:flex; white-space:nowrap; gap:0.41666em; padding:0.20833em;}
 		.slide_txt_wrap div.row > div div.item {display:flex; align-items:center; gap:0.166666em; height:2.5em; padding:0 0.95833em; border:1px solid #707070; border-radius:2.5em;}
 		.slide_txt_wrap div.row > div div.item span.icon {display:inline-block; width:1.33333em; height:1.33333em; overflow:hidden;}
 		.slide_txt_wrap div.row > div div.item span.txt {display:inline-block; font-size:1em; line-height:1.5em; font-weight:bold; color:#ff6600;}
 		@keyframes identifier {
 			0% {transform:translateX(0%);}
-			/* 99% {transform:translateX(-50%);} */
-			100% {transform:translateX(calc(-50% - 1px));}
+			50% {transform:translateX(-50%);}
+			100% {transform:translateX(-50%);}
 		}
 		@keyframes identifier2 {
 			0% {transform:translateX(0%);}
-			/* 99% {transform:translateX(50%);} */
-			100% {transform:translateX(calc(50% - 1px));}
+			50% {transform:translateX(50%);}
+			100% {transform:translateX(50%);}
 		}
 		/* 텍스트 슬라이드 */
 
