@@ -9,16 +9,8 @@
 .benefit_event_tab_wrap .tab button.active {background-color:#000; border-color:transparent}
 .benefit_event_tab_wrap .tab button.active span {color:#fff; font-weight:700;}
 .benefit_event_tab_wrap .tab button:first-child {margin-right:10px;}
-.benefit_event_wrap .card_list {display:flex; flex-direction:column; gap:10px;}
-.benefit_event_wrap .card_list .item + .item  {}
-.benefit_event_wrap .card_list .item .card_bnr {position:relative; text-align:center; background-color:#f5f5f5; border-radius:10px; overflow:hidden; background-color:transparent; transition:all 0.2s ease;}
-.benefit_event_wrap .card_list .item .card_bnr .img {position:relative; width:100%; /* max-width:375px; */ margin:0 auto;}
-.benefit_event_wrap .card_list .item .card_bnr img {position:relative; max-width:100%; width:auto; height:auto; max-height:100%; border-radius:10px;
-    animation: ani_img 0.4s 1 ease-in-out forwards;
-}
-@keyframes ani_img {
-    0% {opacity:0;} 50% {opacity:0;} 100% {opacity:1;}
-}
+.benefit_event_wrap .card_list {}
+.benefit_event_wrap .card_list .item + .item  {margin-top:0.75em;}
 
 .ev_con {height:100%;}
 
@@ -29,8 +21,3 @@
 .benefit_wrap .nodata dt strong {display:block; font-size:18px; line-height:26px;;}
 .benefit_wrap .nodata dd {margin-top:8px;}
 .benefit_wrap .nodata dd p {font-size:16px; line-height:22px;}
-
-@media screen and (min-width: 664px) {
-    .benefit_event_wrap .card_list {display:flex; flex-direction:row; flex-wrap:wrap;}
-    .benefit_event_wrap .card_list div.item {width:calc(50% - 5px);}
-}
