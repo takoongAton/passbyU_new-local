@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>반려동물 프로모션</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/ev_common.css">
+	<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+	<style>
+		.ev_240710 {
+			padding-bottom:3.33333em;
+			padding-bottom:calc(constant(safe-area-inset-bottom) + 3.33333em); padding-bottom:calc(env(safe-area-inset-bottom) + 3.33333em);
+			background-color:#fff; overflow:hidden; font-family:"Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+			text-align:center;
+		}
+		.ev_240710 img {vertical-align:top; border:0; max-width:100%;}
+		.ev_240710 div {position:relative;}
+		.ev_240710 div.top {background-color:#4B97FF;}
+
+		/* 이벤트 메인 컨텐츠 */
+		.ev_content {background-color:#061939; border-radius:1.66666em 1.66666em 0 0; margin-top:-1.66666em; overflow:hidden;}
+		
+		.ev_240710 div.btm_btn {display:flex; align-items:center; position:fixed; bottom:0; right:0; left:0; width:100%; max-width:720px; margin:0 auto;}
+		.ev_240710 div.btm_btn button {box-sizing:content-box; height:3.33333em; padding-bottom:calc(constant(safe-area-inset-bottom)); padding-bottom:calc(env(safe-area-inset-bottom)); font-weight:bold;}
+		.ev_240710 div.btm_btn button.btn_btn1 {background-color:#FFD138; color:#08285D;}
+	</style>
+</head>
+
+<body>
+
+<div class="evPageWrap">
+
+	<div class="evSection">
+
+		<div class="ev_240710">
+			<div class="top">
+				<img src="../images/ev_240805_img_01.png" alt="">
+			</div>
+
+			<div class="ev_content">
+				<div><img src="../images/ev_240805_img_02.png" alt=""></div>
+			</div>
+			<!-- // ev_content -->
+			 
+			<div class="btm_btn">
+				<button type="button" class="btn_btn1"><span>기프트샵 바로가기</span></button>
+			</div>
+
+		</div><!-- // ev_240710 -->
+
+	</div><!-- // evSection -->
+
+</div><!-- // evPageWrap -->
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="../js/slick.min.js"></script>
+
+
+
+<script>
+	/* 대충 버튼 눌리면 어멋? */
+	let btns = document.querySelectorAll("button");
+	btns.forEach(function(item){
+		item.addEventListener("click", function(){
+			let btnTit = item.getAttribute('title')
+			if(btnTit) {
+				alert(btnTit);
+			} else {
+				let img = item.querySelector("img");
+				if(img) {
+					if(img.getAttribute("title")) {
+						alert(img.getAttribute("title"))
+					} else {
+						alert(img.getAttribute("alt"))
+					}
+				} else {
+					alert(item.innerText)
+				}
+			}
+		})
+	})
+	/* // 대충 버튼 눌리면 어멋? */
+</script>
+</body>
+</html>
