@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>PASS by U+</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/agree_minor.css">
+	<!-- <link rel="stylesheet" href="../css/fonts/NotoSansKR-WEB.css"> -->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+	<!-- <script src="../js/jquery-1.12.4.min.js"></script> -->
+</head>
+<body>
+
+	<div class="header_wrap">
+		<div class="temp">
+			<button type="button"><span><img src="../images/temp/btn_top_back.png" alt="이전"></span></button>
+			<h1>보호자(법정대리인)동의</h1>
+		</div>
+		<!-- // temp 삭제 -->
+	</div>
+
+	<div class="agreement_minor_wrap">
+		<div class="txt_wrap">
+			<strong>만 19세 미만 고객은<br />
+				보호자(법정대리인)의 동의가 필요합니다.</strong>
+			<p>만 19세 미만 고객은 보호자(법정대리인) 동의 후 휴대폰결제 서비스 가입 및 이용이 가능합니다.<br />
+				미성년 가입자 휴대폰 개통시 등록한 법정대리인의 정보를 입력해 주세요.</p>
+		</div>
+
+		<hr />
+
+		<div class="agree_chk_wrap">
+			<div class="chk_all"><label><input type="checkbox" class="agree all" checked><span class="checkmark"></span><span class="txt">전체선택</span></label></div>
+			<ul>
+				<li><label><input type="checkbox" class="agree item"><span class="checkmark"></span><span class="txt">(필수) 휴대폰결제  서비스 이용동의</span></label><button type="button" class="btn_popup full"><span>보기</span></button></li>
+				<li><label><input type="checkbox" class="agree item"><span class="checkmark"></span><span class="txt">(필수) LGU+ 개인정보 수집 및 이용 동의</span></label><button type="button"><span>보기</span></button></li>
+				<li><label><input type="checkbox" class="agree item"><span class="checkmark"></span><span class="txt">(필수) 개인정보  수집 및 이용동의</span></label><button type="button"><span>보기</span></button></li>
+				<li><label><input type="checkbox" class="agree item"><span class="checkmark"></span><span class="txt">(필수) 본인확인서비스 이용약관</span></label><button type="button"><span>보기</span></button></li>
+				<li><label><input type="checkbox" class="agree item"><span class="checkmark"></span><span class="txt">(필수) 고유식별정보의 처리동의</span></label><button type="button"><span>보기</span></button></li>
+				<li><label><input type="checkbox" class="agree item"><span class="checkmark"></span><span class="txt">(필수) 통신사 이용 약관</span></label><button type="button"><span>보기</span></button></li>
+				<li><label><input type="checkbox" class="agree item"><span class="checkmark"></span><span class="txt">(필수) 개인정보의 제3자 제공 동의</span></label><button type="button"><span>보기</span></button></li>
+			</ul>
+			<div class="txt">미성년 가입자 휴대폰 개통 시 등록한 법정대리인 정보를 입력해야 합니다. 법정대리인 명의의 휴대폰을 준비해주세요.<br />
+				등록된 법정대리인 정보를 모르실 경우 <button type="button"><span>여기</span></button> 를눌러주세요.</div>
+		</div>
+		<!-- // agree_chk_wrap -->
+
+		<hr />
+
+
+		<div class="agree_info_wrap">
+			<div class="info_list">
+				<div class="item">
+					<label class="tit">보호자(법정대리인)이름</label>
+					<div class="ipt_wrap">
+						<div class="set_ipt">
+							<input type="text" placeholder="김엘지">
+						</div>
+					</div>
+				</div>
+
+				<div class="item">
+					<label class="tit">주민등록번호</label>
+					<div class="ipt_wrap">
+						<div class="set_ipt">
+							<input type="text" placeholder="예:900101" />
+						</div>
+						<span class="dash">-</span>
+						<div class="set_ipt">
+							<div class="last_number">
+								<input type="text">
+								<span class="img"><img src="../images/img_hidden.png" alt=""></span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="item">
+					<label class="tit">휴대폰번호</label>
+					<div class="ipt_wrap">
+						<div class="set_sel">
+							<select name="" id="">
+								<option value="통신사선택" selected disabled>통신사선택</option>
+								<option value="LG U+(알뜰폰)">LG U+(알뜰폰)</option>
+								<option value="통신사1">통신사1</option>
+								<option value="통신사2">통신사2</option>
+							</select>
+						</div>
+						<div class="set_ipt">
+							<input type="text" placeholder="01012345678" />
+						</div>
+					</div>
+				</div>
+
+				<div class="item">
+					<label class="tit">인증번호</label>
+					<div class="ipt_wrap">
+						<div class="set_ipt">
+							<input type="text" placeholder="인증번호입력" />
+						</div>
+						<button type="button"><span>인증번호 발송</span></button>
+					</div>
+					
+					<p class="txt">법정대리인 휴대폰으로 전송된 인증번호를 입력해주세요.</p>
+					
+					<div class="timer">
+						<span class="ico"><img src="../images/ico_clock.png" alt="시계 아이콘"></span>
+						<span class="txt">남은 시간 02:59</span>
+					</div>
+				</div>
+			</div>
+			<!-- // info_list -->
+		</div>
+		<!-- // agree_info_wrap -->
+
+		<div class="btn">
+			<button type="button" disabled><span>확인</span></button>
+		</div>
+
+	</div>
+	<!-- // agreement_minor_wrap -->
+
+
+
+<div class="layer alert">
+	<div class="dim"></div>
+	<div class="inner">
+		<div class="txt_wrap">
+			<p>법정대리인으로 등록된 정보는<br />
+				<strong>홍*동</strong>
+				<br /><br />
+				
+				휴대폰번호는<br />
+				<strong>010-****-1234</strong><br />
+				입니다. </p>
+		</div>
+		<div class="btn_group">
+			<button type="button" class="btn_close"><span>닫기</span></button>
+		</div>
+	</div>
+</div>
+
+
+<div class="layer full">
+	<div class="layer_full_header">
+		<div class="temp">
+			<h1>보호자(법정대리인)의 미성년자<br />
+				PASS서비스 가입동의</h1>
+			<button type="button" class="btn_close"><span><img src="../images/temp/btn_top_close.png" alt="닫기"></span></button>
+		</div>
+	</div>
+	<div class="layer_full_body">
+		보호자(법정대리인)의 미성년자 PASS서비스 가입 동의<br /><br />
+
+본인은 상기 미성년자의 법ㅈ어대리인으로서 당해 미성년자가 (주)LG유플러스(이라 ‘회사’라 함)의 PASS(이하 ‘서비스’라 함)를 신청함에 있어 아래와 같이 동의합니다.<br /><br />
+
+기재 된 미성년자의 개인정보를 회사가 안내한 개인정보 수집이용동의의 내용에 따라 수집·이용·제공·처리위탁하는 것에 대해 동의합니다.
+	</div>
+</div>
+
+
+<script>
+let btns = document.querySelectorAll("button");
+btns.forEach(function(item){
+	item.addEventListener("click", function(e){
+		console.log("btn_click")
+		if(item.closest(".btn_close")) {
+			e.target.closest(".layer").style.display = "none";
+		}
+	})
+})
+</script>
+</body>
+</html>
