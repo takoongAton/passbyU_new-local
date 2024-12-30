@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>2024년도 PASS인증서 X 연말정산</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/ev_common.css">
+	<!-- <link rel="stylesheet" href="../css/slick.css"> -->
+	<style>
+		.ev_241230 {
+			background-color:#fff;
+			padding-bottom:3.333333em;
+			padding-bottom:calc(constant(safe-area-inset-bottom) + 3.33333em); padding-bottom:calc(env(safe-area-inset-bottom) + 3.33333em);
+			overflow:hidden;
+		}
+		.ev_241230 img {vertical-align:top; border:0; max-width:100%;}
+		.ev_241230 div {position:relative;}
+		.ev_241230 div.btm_btn {display:flex; align-items:center; position:fixed; bottom:0; right:0; left:0; width:100%; max-width:720px; margin:0 auto;}
+		.ev_241230 div.btm_btn button {padding-bottom:calc(constant(safe-area-inset-bottom)); padding-bottom:calc(env(safe-area-inset-bottom));}
+		.ev_241230 div.btm_btn button.btn_btn1 {background-color:#242424;}
+		.ev_241230 div.btm_btn button.btn_btn2 {background-color:#3C21C7;}
+	</style>
+</head>
+
+<body>
+
+<div class="evPageWrap">
+
+	<div class="evSection">
+
+		<div class="ev_241230">
+			<div><img src="../images/ev_241230_img1.png" alt="올해 연말정산, PASS인증서로 준비하세요!"></div>
+			<div><img src="../images/ev_241230_img2.png" alt="1 국세청 홈택스 접속 후 간편인증 선택. 2 통신사 PASS 선택 후, 본인인증 정보 입력 및 인증 요청. 3 PASS인증서로 간편인증 완료. 4 로그인 완료 후, 홈택스에서 연말정산 시작"></div>
+			<div><img src="../images/ev_241230_img3.png" alt="전국민 연말정산, 올해도 PASS인증서가 함께 합니다."></div>
+			<div><img src="../images/ev_241230_img4.png" alt="PASS인증서! 휴대폰 번호 입력만 하면 간편하게 발급 가능해요."></div>
+			<div class="btm_btn">
+				<button type="button" class="btn_btn1"><span><img src="../images/ev_241230_btn1.png" alt="홈택스 바로가기"></span></button>
+				<button type="button" class="btn_btn2"><span><img src="../images/ev_241230_btn2.png" alt="인증서 발급하기"></span></button>
+			</div>
+		</div><!-- // ev_241230 -->
+
+	</div><!-- // evSection -->
+
+</div><!-- // evPageWrap -->
+
+<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="../js/slick.min.js"></script> -->
+
+
+
+<script>
+	/* 대충 버튼 눌리면 어멋? */
+	let btns = document.querySelectorAll("button");
+	btns.forEach(function(item){
+		item.addEventListener("click", function(){
+			let img = item.querySelector("img");
+			if(img) {
+				if(img.getAttribute("title")) {
+					alert(img.getAttribute("title"))
+				} else {
+					alert(img.getAttribute("alt"))
+				}
+			} else {
+				alert(item.innerText)
+			}
+		})
+	})
+	/* // 대충 버튼 눌리면 어멋? */
+
+</script>
+
+</body>
+</html>
