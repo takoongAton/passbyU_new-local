@@ -1,0 +1,205 @@
+/* 가로 스크롤 형식 공통 */
+.scroll-wrapper {overflow-y:hidden; overflow-x:auto; -webkit-overflow-scrolling:touch;}
+.scroll-wrapper::-webkit-scrollbar {display:none !important;}
+.scroll-wrapper .scroll {display:-webkit-inline-box; display:-webkit-inline-flex; display:inline-flex;}
+.scroll-wrapper .scroll .item {white-space:nowrap;} /* 구분 칸 */
+/* 가로 스크롤 형식 공통 */
+
+.passmoney_wrap {max-width:720px; min-height:100vh; margin:0 auto; background-color:#F5F5F5;}
+
+/* 상단 탭메뉴 */
+.passmoney_tab {display:flex; position:relative; margin-bottom:24px;}
+.passmoney_tab::before {content:""; display:block; position:absolute; bottom:0; left:0; width:100%; height:1px; background-color:#ddd;}
+.passmoney_tab button {display:flex; justify-content:center; align-items:center; position:relative; width:100%;}
+.passmoney_tab button.active::before {content:""; display:block; position:absolute; bottom:0; left:0; width:100%; height:2px; background-color:#000;}
+.passmoney_tab button span {display:block; padding:10px 0; color:#999; font-size:14px; line-height:20px;}
+.passmoney_tab button.active span {color:#000; font-weight:700;}
+/* // 상단 탭메뉴 */
+
+/* 첫 번째 배너 */
+.passmoney_bnr_slick {padding:0 18px;}
+.passmoney_bnr_slick .inner {position:relative; border-radius:8px; overflow:hidden;}
+.pagingInfo {display:inline-flex; align-items:center; gap:4px; position:absolute; top:6px; right:6px; min-width:60px; height:24px; padding:0 10px; border-radius:12px; background-color:rgba(0,0,0,0.5); overflow:hidden;}
+.pagingInfo div.count {color:#fff; font-size:12px; letter-spacing:0.24em;}
+.pagingInfo .btn_pause {width:12px; height:12px; overflow:hidden;}
+.pagingInfo .btn_play {display:none; width:12px; height:12px; overflow:hidden;}
+
+/* // 첫 번째 배너 */
+
+/* 컨텐츠 박스 */
+.passmoney_con_box {margin-top:16px;}
+.passmoney_con_box + .passmoney_con_box {margin-top:16px;}
+/* // 컨텐츠 박스 */
+
+div.passmoney_tit {display:flex; align-items:center; padding:13px 18px;}
+div.passmoney_tit strong {font-size:14px; line-height:20px; font-weight:700;}
+
+
+button.btn_attend {padding:11px 0 15px; border-radius:8px; background-color:#FF3A4A; box-shadow:inset 0 -4px 0px #CE2835;}
+button.btn_attend span {display:block; color:#fff; font-size:16px; line-height:24px; font-weight:700;}
+button.btn_attend:disabled,
+button.btn_attend[disabled] {background-color:#D7D8D9 !important; box-shadow:inset 0 -4px 0px #C3C3C3 !important;}
+
+
+.today_wrap {padding:0 18px;}
+.today_wrap div.inner {border-radius:8px; overflow:hidden; box-shadow:0 0 5px rgba(0,0,0,0.16); background-color:#fff;}
+.today_wrap .today_top {display:flex; justify-content:space-between; align-items:center; gap:10px; padding:14px 13px 13px 18px;}
+.today_wrap .today_top .txt_wrap {margin-top:8px;}
+.today_wrap .today_top .txt_wrap strong {display:block; color:#000; font-size:20px; line-height:24px; letter-spacing:-0.025em; word-break:keep-all;}
+.today_wrap .today_top .txt_wrap span {display:block; margin-top:4px; color:#888888; font-size:13px; line-height:19px; letter-spacing:-0.05em; word-break:keep-all;}
+.today_wrap .today_top div.img {max-width:108px;}
+.today_wrap .btn {padding:18px;}
+
+.today_wrap .my_more {display:flex; justify-content:space-between; align-items:center; padding:0 18px 18px;}
+.today_wrap .my_more p {font-size:14px; line-height:20px; font-weight:bold; letter-spacing:0;}
+.today_wrap .my_more p span {color:#FF3A4A;}
+.today_wrap .my_more button.btn_more {display:inline-flex; justify-content:center; align-items:center; width:80px; height:36px; border:1px solid #FF3A4A; border-radius:8px; line-height:1em; overflow:hidden;}
+.today_wrap .my_more button.btn_more span {color:#FF3A4A; font-size:14px; line-height:1em;}
+
+.pass_service {margin:-6px 0; padding:6px 18px;}
+.pass_service > div {display:flex; gap:0 12px;}
+.pass_service div.item {display:flex; flex-direction:column; gap:12px; width:120px; min-width:120px; height:108px; padding:18px; border-radius:9px; background-color:#fff; box-shadow:0 2px 6px rgba(0,0,0,0.16);}
+.pass_service div.item span.img {display:inline-block; width:24px; height:24px;}
+.pass_service div.item p.txt {color:#222; font-size:14px; line-height:16px;}
+
+.mission_wrap {padding:0 18px;}
+.mission_wrap div.inner {display:flex; flex-direction:column; gap:18px 0; padding:4px 0 18px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.16); background-color:#fff;}
+
+.mission_wrap .offerwall {display:flex; flex-direction:column; justify-content:center; align-items:center;}
+.mission_wrap .offerwall .img {display:inline-flex; justify-content:center; align-items:center; widtH:168px; height:168px; margin:0 auto; background:url('../images/img_use_bg.png') no-repeat center / contain;}
+.mission_wrap .offerwall img {width:144px; height:144px;}
+.mission_wrap .offerwall p {color:#888; font-size:12px; line-height:1.5em; text-align:center;}
+
+.mission_wrap ul {padding-top:12px;}
+.mission_wrap li {display:flex; justify-content:space-between; align-items:center; gap:8px; padding:9px 19px;}
+.mission_wrap li div.icon {width:46px; min-width:46px; height:46px; overflow:hidden;}
+.mission_wrap li div.icon img {width:46px; height:46px;}
+.mission_wrap li div.txt_wrap {flex:1;}
+.mission_wrap li div.txt_wrap strong {display:block; color:#222; font-size:12px; line-height:16px; font-weight:500;}
+.mission_wrap li div.txt_wrap span {display:block; margin-top:-1px; color:#888; font-size:10px; line-height:12px; font-weight:500; word-break:break-all; overflow:hidden; text-overflow:ellipsis; display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical;}
+.mission_wrap li div.reward {display:inline-flex; width:70px; min-width:70px;}
+.mission_wrap li div.reward span {display:flex; justify-content:center; align-items:center; width:100%; height:26px; border-radius:16px; background-color:rgba(255,58,74,0.16); color:#FF3A4A; font-size:13px; line-height:1em; font-weight:700; overflow:hidden;}
+.mission_wrap div.inner > div {padding:0 18px;}
+.mission_wrap div.inner > div button.btn_more {height:40px; border:1px solid #e6e6e6; border-radius:8px; background-color:#f7f7f7;}
+.mission_wrap div.inner > div button.btn_more span {display:block; color:#222; font-size:14px; line-height:20px;}
+
+
+
+
+
+/* 사용처 목록 */
+.passmoney_use_list {display:flex; flex-direction:column; gap:16px; padding:16px 18px 0;}
+.passmoney_use_list div.item {padding:18px; background-color:#fff; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.16);}
+.passmoney_use_list div.item div.tit {display:inline-flex; align-items:center; gap:4px;}
+.passmoney_use_list div.item div.tit span.icon {display:inline-block; width:24px; height:24px;}
+.passmoney_use_list div.item div.tit strong {display:inline-block; color:#000; font-size:14px; line-height:20px;}
+.passmoney_use_list div.item div.img {display:flex; justify-content:center; align-items:center; margin:0 auto; width:168px; height:168px; background:url('../images/img_use_bg.png') no-repeat center / contain; text-align:center;}
+.passmoney_use_list div.item div.img img {display:block; width:144px; height:144px;}
+.passmoney_use_list div.item p.txt {color:#888; font-size:12px; line-height:18px; text-align:center; word-break:keep-all;}
+.passmoney_use_list div.item button.btn_quick {height:40px; margin-top:16px; background-color:#f7f7f7; border:1px solid #e6e6e6; border-radius:8px;}
+.passmoney_use_list div.item button.btn_quick span {display:inline-block; color:#222; font-size:14px; line-height:1em;}
+/* // 사용처 목록 */
+
+/* PASS 머니 가이드 */
+.passmoney_guide_wrap {padding:0 18px;}
+.passmoney_guide_wrap div.img {padding:14px 0; text-align:center;}
+.passmoney_guide_wrap div.img img {display:inline-block; width:164px; height:164px;}
+.passmoney_guide_wrap .guide_box {padding:0 18px; border-radius:8px; background-color:#fff; box-shadow:0 2px 6px rgba(0,0,0,0.16);}
+.passmoney_guide_wrap .guide_box .item {padding:18px 0;}
+.passmoney_guide_wrap .guide_box .item + .item {border-top:1px solid #e6e6e6;}
+.passmoney_guide_wrap .guide_box .item .tit {display:flex; align-items:center; gap:6px;}
+.passmoney_guide_wrap .guide_box .item .tit span.icon {display:inline-block; width:18px; height:18px;}
+.passmoney_guide_wrap .guide_box .item .tit strong {color:#000; font-size:16px; line-height:24px;}
+.passmoney_guide_wrap .guide_box .item p {margin-top:12px; color:#000; font-size:14px; line-height:20px;}
+/* // PASS 머니 가이드 */
+
+
+/* PASS머니 FAQ확인하기 */
+.passmoney_faq {padding:14px 0; text-align:center;}
+.passmoney_faq a {display:inline-block; padding:10px; color:#888; text-decoration:none;}
+.passmoney_faq a span {display:block; color:#888; font-size:12px; line-height:18px; border-bottom:1px solid #888;}
+/* // PASS머니 FAQ확인하기 */
+
+.passmoney_view_bnr {padding:12px 18px 16px;}
+.passmoney_view_bnr ul {}
+.passmoney_view_bnr ul li {border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.16);}
+
+
+.passmoney_join_guide {padding:0 18px 18px;}
+.passmoney_join_guide .inner {padding-bottom:18px; background-color:#fff; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.16);}
+
+/* 캘린더 */
+.calender {}
+.calender div.tit {padding:18px; border-bottom:0.5px solid #e7e7e7; text-align:center;}
+.calender div.tit strong {display:block; color:#000; font-size:16px; line-height:24px; font-weight:700;}
+.calender ul.week {display:flex; flex-wrap:wrap; justify-content:center; gap:2.22222vw; margin-top:2.22222vw;}
+.calender ul.week li {display:inline-flex; justify-content:center; align-items:center; width:8.88888vw; color:#888888; font-size:2.77777vw; line-height:2.4em; font-weight:bold;}
+
+.calender ul.day_wrap {display:flex; flex-wrap:wrap; justify-content:flex-start; gap:2.22222vw; width:75.55555vw; margin:0 auto; margin-top:2.22222vw;}
+.calender ul.day_wrap li {min-width:8.88888vw; min-height:8.88888vw;}
+.calender ul.day_wrap li span.day {display:flex; justify-content:center; align-items:center; width:8.88888vw; height:8.88888vw; background-color: #F5F5F5; border-radius:100%; color:#000; font-size:2.77777vw;}
+.calender ul.day_wrap li span.today {display:flex; justify-content:center; align-items:center; width:8.88888vw; height:8.88888vw; background-color:#FFD9DA; border-radius:100%; color:#FF3A4A; font-size:2.77777vw; font-weight:700;}
+.calender ul.day_wrap li span.attend {display:flex; justify-content:center; align-items:center; width:8.88888vw; height:8.88888vw; padding-top:0.83333vw; background:url('../images/reward_bg.png') no-repeat center / contain; color:#fff; font-size:2.77777vw; font-weight:700;}
+.calender .btn {margin-top:16px; padding:0 18px;;}
+
+/* // 캘린더 */
+/* .calender .btn {margin-top:16px; padding:0 18px;;}
+.calender .btn button.btn_today {padding:11px 0 15px; border-radius:8px; background-color:#FF3A4A; box-shadow:inset 0 -4px 0px #CE2835;}
+.calender .btn button.btn_today span {display:block; color:#fff; font-size:16px; line-height:24px; font-weight:700;} */
+
+.month_sum {display:flex; flex-direction:column; width:100%; gap:8px; margin-top:16px; padding:0 18px;}
+.month_sum li {display:flex; justify-content:space-between; align-items:center; height:36px; padding:0 18px; background-color:#f8f8f8; border-radius:8px;}
+.month_sum li p {font-size:12px;}
+.month_sum li strong {color:#ff3a4a; font-size:14px; line-height:20px; font-weight:bold;}
+
+
+/* 상세페이지 하단 가이드 */
+.calender_guide {margin-top:16px;}
+.calender_guide ul {display:flex; flex-direction:column; gap:8px;}
+.calender_guide ul li {position:relative; padding-left:0.835em; color:#888; font-size:12px; line-height:18px;;}
+.calender_guide ul li::before {content:"*"; display:block; position:absolute; top:0; left:0; color:inherit; font-size:inherit; line-height:inherit; font-weight:bold;}
+/* 상세페이지 하단 가이드 */
+
+/* 상세페이지 달력용 */
+@media screen and (min-width:720px) {
+	.calender ul.week {display:flex; flex-wrap:wrap; justify-content:center; gap:16px; margin-top:16px; transition:margin 0.2s ease;}
+	.calender ul.week li {display:inline-flex; justify-content:center; align-items:center; width:64px; color:#888888; font-size:20px; line-height:24px; font-weight:bold; transition:all 0.2s ease;}
+
+	.calender ul.day_wrap {display:flex; flex-wrap:wrap; justify-content:flex-start; gap:16px; width:544px; margin:0 auto; margin-top:16px;}
+	.calender ul.day_wrap li {min-width:64px; min-height:64px;}
+	.calender ul.day_wrap li span.day {display:flex; justify-content:center; align-items:center; width:64px; height:64px; background-color: #F5F5F5; border-radius:100%; color:#000; font-size:20px;}
+	.calender ul.day_wrap li span.today {display:flex; justify-content:center; align-items:center; width:64px; height:64px; background-color:#FFD9DA; border-radius:100%; color:#FF3A4A; font-size:20px; font-weight:700;}
+	.calender ul.day_wrap li span.attend {display:flex; justify-content:center; align-items:center; width:64px; height:64px; padding-top:6px; background:url('../images/reward_bg.png') no-repeat center / contain; color:#fff; font-size:20px; font-weight:700;}
+}
+/* // 상세페이지 달력용 */
+
+
+
+
+/* layer.alert layer.confirm */
+.layer {text-align:center; font-family:'Noto Sans KR';}
+.layer .btn_group {display:flex; justify-content:space-between; border-top:0.5px solid #e7e7e7;}
+.layer .btn_group div {width:100%;}
+.layer .btn_group div button {height:3.75em;}
+.layer .btn_group div button.next {color:#ff3a4a; font-weight:bold;}
+.layer .btn_group div button.prev,
+.layer .btn_group div button.back,
+.layer .btn_group div button.cancel,
+.layer .btn_group div button.close {color:#000;}
+.layer .btn_group div button span {display:block; font-size:1.125em;}
+
+.layer.alert .layer_inner,
+.layer.confirm .layer_inner {position:fixed; top:50%; left:50%; min-width:280px; max-width:320px; width:80%; background-color:#fff; border-radius:0.375em; color:inherit; z-index:1000; overflow-y:auto; box-shadow:0 1px 2px rgba(0,0,0,0.2); transform:translate(-50%,-50%);}
+
+.layer.alert .layer_inner .layer_content,
+.layer.confirm .layer_inner .layer_content {padding:1.875em 1.125em; color:#000;}
+.layer.alert .layer_inner .layer_content {display:flex; flex-direction:column;}
+.layer .layer_content div.pass_logo {text-align:center; margin-bottom:36px;}
+.layer .layer_content div.pass_logo img {display:inline-block; width:74px; vertical-align:top;}
+.layer .layer_content div.img {width:168px; height:168px; margin:0 auto;}
+
+.layer .layer_content div.tit {color:#000; font-size:1.125em; line-height:1.5em; font-weight:700;}
+.layer .layer_content p.txt {color:#000; font-size:1em; line-height:1.5em;}
+
+.layer div.dim {position:fixed; top:0; right:0; bottom:0; left:0; height:100vh; background-color:rgba(0,0,0,0.5); z-index:10;}
+/* // layer.alert layer.confirm */

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>PASS by U+</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/passmoney.css">
+	<link rel="stylesheet" href="../css/slick.css">
+
+	<!-- <link rel="stylesheet" href="../../css/slick.css"> -->
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- <script src="../js/jquery-1.12.4.min.js"></script> -->
+
+	<!-- <script src="../../js/slick.js" type="text/javascript" charset="utf-8"></script> -->
+
+</head>
+<body>
+
+	<div class="passmoney_wrap">
+
+		<div class="passmoney_tab">
+			<button type="button"><span>머니 모으기</span></button>
+			<button type="button" class="active"><span>사용하기</span></button>
+			<button type="button"><span>알아보기</span></button>
+		</div>
+		<!-- // passmoney_tab -->
+
+		<div class="passmoney_bnr_slick">
+			<div class="inner">
+				<ul class="bnr_list">
+					<li class="item"><img src="../images/img_ad_bnr.png" alt="배너"></li>
+					<li class="item"><img src="../images/img_ad_bnr.png" alt="배너"></li>
+					<li class="item"><img src="../images/img_ad_bnr.png" alt="배너"></li>
+				</ul>
+				<div class="pagingInfo">
+					<div class="count"></div>
+					<button type="button" class="btn_pause"><span><img src="../images/ico_bn_dot_pause_l.png" alt="일시정지"></span></button>
+					<button type="button" class="btn_play"><span><img src="../images/ico_bn_dot_play_l.png" alt="재생"></span></button>
+				</div>
+			</div>
+		</div>
+		<!-- // passmoney_bnr_slick -->
+
+		<div class="passmoney_tab_con">
+
+			<div class="passmoney_use_list">
+				<div class="item">
+					<div class="tit">
+						<span class="icon"><img src="../images/ico_use_coupon.png" alt="모바일쿠폰 아이콘"></span>
+						<strong>모바일쿠폰 구매하기</strong>
+					</div>
+					<div class="img"><img src="../images/img_use_coupon.png" alt="이미지"></div>
+					<p class="txt">
+						적립한 머니로 모바일 쿠폰을 구매하거나<br />
+						다른 사람에게 선물할 수 있어요.
+					</p>
+					<button type="button" class="btn_quick"><span>기프트샵 바로가기</span></button>	
+				</div>
+
+				<div class="item">
+					<div class="tit">
+						<span class="icon"><img src="../images/ico_use_webtoon.png" alt="웹툰 아이콘"></span>
+						<strong>인기 웹툰과 소설 즐기기</strong>
+					</div>
+					<div class="img"><img src="../images/img_use_webtoon.png" alt="이미지"></div>
+					<p class="txt">
+						인기있는 콘텐츠들을<br />
+						PASS머니로 결제하고 감상해요.
+					</p>
+					<button type="button" class="btn_quick"><span>PASS웹툰 바로가기</span></button>	
+				</div>
+
+				<div class="item">
+					<div class="tit">
+						<span class="icon"><img src="../images/ico_use_account.png" alt="모바일 지갑아이콘"></span>
+						<strong>내 계좌로 인출하기</strong>
+					</div>
+					<div class="img"><img src="../images/img_use_account.png" alt="이미지"></div>
+					<p class="txt">
+						5,000원 이상 적립한 경우,<br />
+						PASS 가입자 본인 명의의 계좌로만 출금 가능해요.
+					</p>
+					<button type="button" class="btn_quick"><span>PASS머니 인출하기</span></button>	
+				</div>
+			</div>
+			<!-- // passmoney_use_list -->
+
+		</div>
+		<!-- // passmoney_tab_con -->
+
+		<div class="passmoney_faq">
+			<a href="#g"><span>PASS머니 FAQ 확인하기</span></a>
+		</div>
+
+	</div><!-- // passmoney_wrap -->
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="../js/slick.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+
+	$('.passmoney_bnr_slick').each(function () {
+        var $sliderContainer = $(this);
+        var $status = $sliderContainer.find('.pagingInfo .count');
+        var $slickElement = $sliderContainer.find('ul.bnr_list');
+        var $btnPause = $sliderContainer.find(".btn_pause");
+        var $btnPlay = $sliderContainer.find(".btn_play");
+
+        // 슬라이드 변경 시 페이지 정보 업데이트
+        $slickElement.on('init reInit afterChange', function (event, slick, currentSlide) {
+            var i = (currentSlide || 0) + 1;
+            $status.text(i + ' | ' + slick.slideCount);
+        });
+
+        // Slick 슬라이더 초기화
+        $slickElement.slick({
+            autoplay: true,
+            arrows: false
+        });
+
+        // 일시정지 버튼 클릭
+        $btnPause.on('click', function () {
+            $slickElement.slick('slickPause');
+            $(this).hide();
+            $btnPlay.show();
+        });
+
+        // 재생 버튼 클릭
+        $btnPlay.on('click', function () {
+            $slickElement.slick('slickPlay');
+            $(this).hide();
+            $btnPause.show();
+        });
+    });
+
+})
+
+</script>
+</body>
+</html>

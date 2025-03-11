@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>PASS by U+</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/passmoney.css">
+
+	<!-- <link rel="stylesheet" href="../../css/slick.css"> -->
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- <script src="../js/jquery-1.12.4.min.js"></script> -->
+
+	<!-- <script src="../../js/slick.js" type="text/javascript" charset="utf-8"></script> -->
+<style>
+/* 가로 스크롤 형식 공통 */
+.scroll-wrapper {overflow-y:hidden; overflow-x:auto; -webkit-overflow-scrolling:touch;}
+.scroll-wrapper::-webkit-scrollbar {display:none !important;}
+.scroll-wrapper .scroll {display:-webkit-inline-box; display:-webkit-inline-flex; display:inline-flex;}
+.scroll-wrapper .scroll .item {white-space:nowrap;} /* 구분 칸 */
+/* 가로 스크롤 형식 공통 */
+
+.passmoney_wrap {max-width:720px; margin:0 auto; background-color:#F5F5F5;}
+
+/* 상단 탭메뉴 */
+.passmoney_tab {display:flex; position:relative;}
+.passmoney_tab::before {content:""; display:block; position:absolute; bottom:0; left:0; width:100%; height:1px; background-color:#ddd;}
+.passmoney_tab button {display:flex; justify-content:center; align-items:center; position:relative; width:100%;}
+.passmoney_tab button.active::before {content:""; display:block; position:absolute; bottom:0; left:0; width:100%; height:2px; background-color:#000;}
+.passmoney_tab button span {display:block; padding:10px 0; color:#999; font-size:14px; line-height:20px;}
+.passmoney_tab button.active span {color:#000; font-weight:700;}
+/* // 상단 탭메뉴 */
+
+/* 첫 번째 배너 */
+.passmoney_bnr {padding:0 18px;}
+.passmoney_bnr .inner {}
+/* // 첫 번째 배너 */
+
+/* 컨텐츠 박스 */
+.passmoney_con_box {}
+.passmoney_con_box + .passmoney_con_box {margin-top:16px;}
+/* // 컨텐츠 박스 */
+
+div.passmoney_tit {display:flex; align-items:center; padding:13px 18px;}
+div.passmoney_tit strong {font-size:14px; line-height:20px; font-weight:700;}
+
+
+button.btn_today {padding:11px 0 15px; border-radius:8px; background-color:#FF3A4A; box-shadow:inset 0 -4px 0px #CE2835;}
+button.btn_today span {display:block; color:#fff; font-size:16px; line-height:24px; font-weight:700; text-shadow:0 0 3px rgba(0,0,0,0.4);}
+
+
+.today_wrap {padding:0 18px;}
+.today_wrap div.inner {border-radius:8px; overflow:hidden; box-shadow:0 0 5px rgba(0,0,0,0.16); background-color:#fff;}
+.today_wrap .today_top {display:flex; justify-content:space-between; align-items:center; gap:10px; padding:14px 13px 13px 18px;}
+.today_wrap .today_top .txt_wrap {margin-top:8px;}
+.today_wrap .today_top .txt_wrap strong {display:block; color:#000; font-size:20px; line-height:24px; letter-spacing:-0.025em; word-break:keep-all;}
+.today_wrap .today_top .txt_wrap span {display:block; margin-top:4px; color:#888888; font-size:13px; line-height:19px;; letter-spacing:-0.05em; word-break:keep-all;}
+.today_wrap .today_top div.img {max-width:108px;}
+.today_wrap .btn {padding:18px;}
+
+.today_wrap .my_more {display:flex; justify-content:space-between; align-items:center; padding:0 18px 18px;}
+.today_wrap .my_more p {font-size:14px; line-height:20px; font-weight:bold; letter-spacing:0;}
+.today_wrap .my_more p span {color:#FF3A4A;}
+.today_wrap .my_more button.btn_more {display:inline-flex; justify-content:center; align-items:center; width:80px; height:36px; border:1px solid #FF3A4A; border-radius:8px; line-height:1em; overflow:hidden;}
+.today_wrap .my_more button.btn_more span {color:#FF3A4A; font-size:14px; line-height:1em;}
+
+.pass_service {margin:-6px 0; padding:6px 18px;}
+.pass_service > div {display:flex; gap:0 12px;}
+.pass_service div.item {display:flex; flex-direction:column; gap:12px; width:120px; min-width:120px; height:108px; padding:18px; border-radius:9px; background-color:#fff; box-shadow:0 2px 6px rgba(0,0,0,0.16);}
+.pass_service div.item span.img {display:inline-block; width:24px; height:24px;}
+.pass_service div.item p.txt {color:#222; font-size:14px; line-height:16px;}
+
+.mission_wrap {padding:0 18px;}
+.mission_wrap div.inner {display:flex; flex-direction:column; gap:18px 0; padding:16px 0 18px; border-radius:8px;; box-shadow:0 2px 6px rgba(0,0,0,0.16); background-color:#fff;}
+.mission_wrap li {display:flex; justify-content:space-between; align-items:center; gap:8px; padding:9px 19px;}
+.mission_wrap li div.icon {width:46px; min-width:46px; height:46px; overflow:hidden;}
+.mission_wrap li div.icon img {width:46px; height:46px;}
+.mission_wrap li div.txt_wrap {flex:1;}
+.mission_wrap li div.txt_wrap strong {display:block; color:#222; font-size:12px; line-height:16px; font-weight:500;}
+.mission_wrap li div.txt_wrap span {display:block; margin-top:-1px; color:#888; font-size:10px; line-height:12px; font-weight:500; word-break:break-all; overflow:hidden; text-overflow:ellipsis; display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical;}
+.mission_wrap li div.reward {display:inline-flex; width:70px; min-width:70px;}
+.mission_wrap li div.reward span {display:flex; justify-content:center; align-items:center; width:100%; height:26px; border-radius:16px; background-color:rgba(255,58,74,0.16); color:#FF3A4A; font-size:13px; line-height:1em; font-weight:700; overflow:hidden;}
+.mission_wrap div.inner > div {padding:0 18px;}
+.mission_wrap div.inner > div button.btn_more {height:40px; border:1px solid #e6e6e6; border-radius:8px; background-color:#f7f7f7;}
+.mission_wrap div.inner > div button.btn_more span {display:block; color:#222; font-size:14px; line-height:20px;}
+
+/* 이벤트 참여 배너 */
+.ev_bnr_wrap {padding:0 18px;}
+.ev_bnr_wrap .inner {position:relative;}
+/* // 이벤트 참여 배너 */
+</style>
+</head>
+<body>
+
+	<div class="passmoney_wrap">
+
+		<div class="passmoney_tab">
+			<button type="button" class="active"><span>머니 모으기</span></button>
+			<button type="button"><span>사용하기</span></button>
+			<button type="button"><span>알아보기</span></button>
+		</div>
+		<!-- // passmoney_tab -->
+
+		<div class="passmoney_tab_con">
+
+			<div class="passmoney_bnr">
+				<div class="inner">
+					<ul>
+						<li><img src="../images/img_ad_bnr.png" alt="배너"></li>
+					</ul>
+				</div>
+			</div>
+			<!-- // passmoney_bnr -->
+
+			<div class="passmoney_con_box">
+				<div class="passmoney_tit"><strong>매일 출석하고 혜택 누리세요</strong></div>
+				<div class="today_wrap">
+					<div class="inner">
+						<div class="today_top">
+							<div class="txt_wrap">
+								<strong>1월 PASS 출석하고 머니 받자!</strong>
+								<span>이번 달 개근하면 보너스 머니 지급!</span>
+							</div>
+							<div class="img"><img src="../images/img_01.png" alt="도장 이미지"></div>
+						</div>
+						
+						<div class="btn">
+							<button type="button" class="btn_today"><span>오늘 출석하기</span></button>
+						</div>
+	
+						<div class="my_more">
+							<p>이번달 나의 출석일 <span>3</span>일</p>
+							<button type="button" class="btn_more"><span>더보기</span></button>
+						</div>
+					</div>
+				</div>
+				<!-- // today_wrap -->
+			</div>
+			<!-- // passmoney_con_box -->
+
+
+			<div class="passmoney_con_box">
+				<div class="passmoney_tit"><strong>PASS서비스 이용하고 적립하세요</strong></div>
+				<div class="pass_service scroll-wrapper">
+					<div class="scroll">
+						<div class="item">
+							<span class="img"><img src="../images/ico_money.png" alt="머니적립"></span>
+							<p class="txt">매일 미션<br />수행하기</p>
+						</div>
+						<div class="item">
+							<span class="img"><img src="../images/ico_survey.png" alt="설문"></span>
+							<p class="txt">맞춤형 설문<br />참여하기</p>
+						</div>
+						<div class="item">
+							<span class="img"><img src="../images/ico_luck.png" alt="오늘의운세"></span>
+							<p class="txt">운세 보고<br />복돈 받기</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- // passmoney_con_box -->
+
+			<div class="passmoney_con_box">
+				<div class="passmoney_tit"><strong>이벤트 참여하고 PASS머니 챙기세요</strong></div>
+				<div class="ev_bnr_wrap">
+					<div class="inner">
+						<div class="bnr"><img src="../images/sam_ing_bnr.png" alt="대출 비교하고 PASS머니 받자!"></div>
+					</div>
+				</div>
+			</div>
+			<!-- // passmoney_con_box -->
+
+
+			<div class="passmoney_con_box">
+				<div class="passmoney_tit"><strong>미션을 완료하면 적립이 쌓여요</strong></div>
+				<div class="mission_wrap">
+					<div class="inner">
+						<ul>
+							<li>
+								<div class="icon"><img src="../images/icon_fn.png" alt="Fn"></div>
+								<div class="txt_wrap">
+									<strong>파이낸셜뉴스 네이버 뉴스 구독</strong>
+									<span>미션완료하면</span>
+								</div>
+								<div class="reward">
+									<span>55원</span>
+								</div>
+							</li>
+							<li>
+								<div class="icon"><img src="../images/icon_nh.png" alt="NH농협은행"></div>
+								<div class="txt_wrap">
+									<strong>NH농협은행 페이스북 좋아요</strong>
+									<span>미션완료하면</span>
+								</div>
+								<div class="reward">
+									<span>270원</span>
+								</div>
+							</li>
+							<li>
+								<div class="icon"><img src="../images/icon_pass.png" alt="PASS"></div>
+								<div class="txt_wrap">
+									<strong>[회원가입] 생활정보 가입하고 다양한 혜택 받기</strong>
+									<span>PASS 생활정보 회원 가입하고 리워드 회원 가입하고 리워드 회원 가입하고 리워드</span>
+								</div>
+								<div class="reward">
+									<span>참여완료</span>
+								</div>
+							</li>
+						</ul>
+						
+						<div>
+							<button class="btn_more"><span>더 많은 미션 확인하기</span></button>
+						</div>
+					</div>
+					
+				</div>
+				<!-- // mission_wrap -->
+			</div>
+			<!-- // passmoney_con_box -->
+<style>
+.passmoney_faq {padding:14px 0; text-align:center;}
+.passmoney_faq a {display:inline-block; padding:10px; color:#888; text-decoration:none;}
+.passmoney_faq a span {display:block; color:#888; font-size:12px; line-height:18px; border-bottom:1px solid #888;}
+</style>
+			<div class="passmoney_faq">
+				<a href="#g"><span>PASS머니 FAQ 확인하기</span></a>
+			</div>
+
+		</div>
+		<!-- // passmoney_tab_con -->
+
+		
+		
+	</div><!-- // passmoney_wrap -->
+
+
+<!-- 도움말 팝업 -->
+<div class="layer help" style="display:none;">
+	<div class="layer_inner">
+		<dl>
+			<dt>문의내용 작성가이드</dt>
+			<dd>
+				궁금하신 내용을 상세하게 기재해 주시면 <i></i>더욱 빠르고 정확한 확인이 가능합니다.<br /><br />
+				
+				예시)<br />
+				· 오류 발생 일시<br />
+				· 오류 문구 및 코드
+			</dd>
+		</dl>
+		<div class="close"><button type="button"><span>닫기</span></button></div>
+	</div>
+</div><!-- // layer help -->
+
+
+<script>
+/*
+let select_btns = document.querySelectorAll(".select_btns");
+select_btns.forEach(function(selectBtnItem){
+	let btns = selectBtnItem.querySelectorAll("button");
+	btns.forEach(function(item){
+		item.addEventListener("click", function(){
+			let temp = item.parentElement.closest(".select_btns").querySelectorAll("button");
+			temp.forEach(function(ddd){
+				ddd.classList.remove("active");
+			})
+			item.classList.add("active")
+		})
+	})
+})
+*/
+
+const select_btns = document.querySelectorAll(".select_btns");
+
+select_btns.forEach(function(selectBtnItem) {
+	const btns = selectBtnItem.querySelectorAll("button");
+
+	function setActiveButton(activeButton) {
+		const buttons = selectBtnItem.querySelectorAll("button");
+		buttons.forEach(function(button) {
+			button.classList.remove("active");
+		});
+		activeButton.classList.add("active");
+	}
+
+	btns.forEach(function(item) {
+		item.addEventListener("click", function() {
+			setActiveButton(item);
+		});
+	});
+});
+
+
+
+
+
+/* 툴팁 도움말 */
+function layer_tooltip(ele) {
+	let btnTop = ele.offsetTop;
+	let btnLeft = ele.offsetLeft;
+	let btnHeight = ele.offsetHeight;
+	let btnWidth = ele.offsetWidth;
+	let ddd = document.querySelector(".layer.help");
+	ddd.style.display = "block";
+	ddd.style.top = btnTop + btnHeight + "px";
+	ddd.style.left = btnLeft + (btnWidth / 2) + "px";
+	ddd.classList.add("active");
+	return false;
+}
+
+let layers = document.querySelectorAll(".layer");
+if(layers.length > 0) {
+	layers.forEach(function(item){
+		btnClose = item.querySelector(".close button");
+		btnClose.addEventListener("click", function(item){
+			btnClose.closest(".layer").style.display = "none";
+		})
+	})	
+}
+
+let btnHelp = document.querySelector("button.btn_help")
+btnHelp.addEventListener("click", function(e){
+	layer_tooltip(this);
+})
+/* // 툴팁 도움말 */
+
+
+/*
+const image_input = document.querySelector(".image_input");
+var uploaded_image = "";
+
+image_input.addEventListener("change", function(){
+	const reader = new FileReader();
+	reader.addEventListener("load", () => {
+		uploaded_image = reader.result;
+		document.querySelector(".display_image").style.backgroundImage = `url(${uploaded_image})`
+	});
+	reader.readAsDataURL(this.files[0])
+})
+}
+*/
+
+</script>
+</body>
+</html>

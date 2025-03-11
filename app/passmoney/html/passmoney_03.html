@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>PASS by U+</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/passmoney.css">
+	<link rel="stylesheet" href="../css/slick.css">
+
+	<!-- <link rel="stylesheet" href="../../css/slick.css"> -->
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- <script src="../js/jquery-1.12.4.min.js"></script> -->
+
+	<!-- <script src="../../js/slick.js" type="text/javascript" charset="utf-8"></script> -->
+
+</head>
+<body>
+
+	<div class="passmoney_wrap">
+
+		<div class="passmoney_tab">
+			<button type="button"><span>머니 모으기</span></button>
+			<button type="button"><span>사용하기</span></button>
+			<button type="button" class="active"><span>알아보기</span></button>
+		</div>
+		<!-- // passmoney_tab -->
+
+		<div class="passmoney_bnr_slick">
+			<div class="inner">
+				<ul class="bnr_list">
+					<li class="item"><img src="../images/img_ad_bnr.png" alt="배너"></li>
+					<li class="item"><img src="../images/img_ad_bnr.png" alt="배너"></li>
+					<li class="item"><img src="../images/img_ad_bnr.png" alt="배너"></li>
+				</ul>
+				<div class="pagingInfo">
+					<div class="count"></div>
+					<button type="button" class="btn_pause"><span><img src="../images/ico_bn_dot_pause_l.png" alt="일시정지"></span></button>
+					<button type="button" class="btn_play"><span><img src="../images/ico_bn_dot_play_l.png" alt="재생"></span></button>
+				</div>
+			</div>
+		</div>
+		<!-- // passmoney_bnr_slick -->
+
+		<div class="passmoney_tab_con">
+
+			<div class="passmoney_guide_wrap">
+				<div class="img"><img src="../images/img_passmoney_notice.png" alt=""></div>
+				<div class="guide_box">
+					<div class="item">
+						<div class="tit">
+							<span class="icon"><img src="../images/ico_use_passmoney.png" alt=""></span>
+							<strong>PASS머니 란?</strong>
+						</div>
+						<p class="txt">
+							PASS 서비스 내 다양한 활동을 통해 적립하고 PASS머니 사용처에서 현금처럼 사용 가능한 돈을 말해요.
+						</p>
+					</div>
+					<div class="item">
+						<div class="tit">
+							<span class="icon"><img src="../images/ico_use_how.png" alt=""></span>
+							<strong>어떻게 사용하나요?</strong>
+						</div>
+						<p class="txt">
+							PASS에 입점한 서비스에서 결제 시 PASS머니를 활용할 수 있어요.<br />
+							또한 적립 금액이 5,000원 이상인 경우 PASS 가입자 명의와 동일한 계좌로 인출도 가능해요.
+						</p>
+					</div>
+				</div>
+			</div>
+			<!-- // passmoney_guide_wrap -->
+
+		</div>
+		<!-- // passmoney_tab_con -->
+
+		<div class="passmoney_faq">
+			<a href="#g"><span>PASS머니 FAQ 확인하기</span></a>
+		</div>
+		
+	</div><!-- // passmoney_wrap -->
+
+
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="../js/slick.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+
+	$('.passmoney_bnr_slick').each(function () {
+        var $sliderContainer = $(this);
+        var $status = $sliderContainer.find('.pagingInfo .count');
+        var $slickElement = $sliderContainer.find('ul.bnr_list');
+        var $btnPause = $sliderContainer.find(".btn_pause");
+        var $btnPlay = $sliderContainer.find(".btn_play");
+
+        // 슬라이드 변경 시 페이지 정보 업데이트
+        $slickElement.on('init reInit afterChange', function (event, slick, currentSlide) {
+            var i = (currentSlide || 0) + 1;
+            $status.text(i + ' | ' + slick.slideCount);
+        });
+
+        // Slick 슬라이더 초기화
+        $slickElement.slick({
+            autoplay: true,
+            arrows: false
+        });
+
+        // 일시정지 버튼 클릭
+        $btnPause.on('click', function () {
+            $slickElement.slick('slickPause');
+            $(this).hide();
+            $btnPlay.show();
+        });
+
+        // 재생 버튼 클릭
+        $btnPlay.on('click', function () {
+            $slickElement.slick('slickPlay');
+            $(this).hide();
+            $btnPause.show();
+        });
+    });
+
+})
+
+</script>
+</body>
+</html>
