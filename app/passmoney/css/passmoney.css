@@ -35,8 +35,8 @@ div.passmoney_tit {display:flex; align-items:center; padding:13px 18px;}
 div.passmoney_tit strong {font-size:14px; line-height:20px; font-weight:700;}
 
 
-button.btn_attend {height:50px; padding-bottom:2px; border-radius:8px; background-color:#FF3A4A; box-shadow:inset 0 -4px 0px #CE2835; line-height:1em;}
-button.btn_attend span {display:block; color:#fff; font-size:16px; line-height:1em; font-weight:700;}
+button.btn_attend {height:50px; border-radius:8px; background-color:#FF3A4A; box-shadow:inset 0 -4px 0px #CE2835; line-height:1em;}
+button.btn_attend span {color:#fff; font-size:16px; font-weight:700;}
 button.btn_attend:disabled,
 button.btn_attend[disabled] {background-color:#D7D8D9 !important; box-shadow:inset 0 -4px 0px #C3C3C3 !important;}
 
@@ -53,8 +53,8 @@ button.btn_attend[disabled] {background-color:#D7D8D9 !important; box-shadow:ins
 .today_wrap .my_more {display:flex; justify-content:space-between; align-items:center; padding:0 18px 18px;}
 .today_wrap .my_more p {font-size:14px; line-height:20px; font-weight:bold; letter-spacing:0;}
 .today_wrap .my_more p span {color:#FF3A4A;}
-.today_wrap .my_more button.btn_more {display:inline-flex; justify-content:center; align-items:center; width:80px; height:36px; border:1px solid #FF3A4A; border-radius:8px; line-height:1em; overflow:hidden;}
-.today_wrap .my_more button.btn_more span {display:block; color:#FF3A4A; font-size:14px; line-height:1em;}
+.today_wrap .my_more button.btn_more {width:80px; height:36px; border:1px solid #FF3A4A; border-radius:8px; overflow:hidden;}
+.today_wrap .my_more button.btn_more span {color:#FF3A4A; font-size:14px;}
 
 .pass_service {margin:-6px 0; padding:6px 18px;}
 .pass_service > div {display:flex; gap:0 12px;}
