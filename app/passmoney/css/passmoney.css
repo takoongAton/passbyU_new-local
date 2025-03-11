@@ -43,11 +43,11 @@ button.btn_attend[disabled] {background-color:#D7D8D9 !important; box-shadow:ins
 
 .today_wrap {padding:0 18px;}
 .today_wrap div.inner {border-radius:8px; overflow:hidden; box-shadow:0 0 5px rgba(0,0,0,0.16); background-color:#fff;}
-.today_wrap .today_top {display:flex; justify-content:space-between; align-items:center; gap:10px; padding:14px 13px 13px 18px;}
-.today_wrap .today_top .txt_wrap {margin-top:8px;}
+.today_wrap .today_top {display:flex; justify-content:space-between; align-items:center;}
+/* .today_wrap .today_top .txt_wrap {margin-top:8px;}
 .today_wrap .today_top .txt_wrap strong {display:block; color:#000; font-size:20px; line-height:24px; letter-spacing:-0.025em; word-break:keep-all;}
 .today_wrap .today_top .txt_wrap span {display:block; margin-top:4px; color:#888888; font-size:13px; line-height:19px; letter-spacing:-0.05em; word-break:keep-all;}
-.today_wrap .today_top div.img {max-width:108px;}
+.today_wrap .today_top div.img {max-width:108px;} */
 .today_wrap .btn {padding:18px;}
 
 .today_wrap .my_more {display:flex; justify-content:space-between; align-items:center; padding:0 18px 18px;}
@@ -63,25 +63,28 @@ button.btn_attend[disabled] {background-color:#D7D8D9 !important; box-shadow:ins
 .pass_service div.item p.txt {color:#222; font-size:14px; line-height:16px;}
 
 .mission_wrap {padding:0 18px;}
-.mission_wrap div.inner {display:flex; flex-direction:column; gap:18px 0; padding:4px 0 18px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.16); background-color:#fff;}
-
-.mission_wrap .offerwall {display:flex; flex-direction:column; justify-content:center; align-items:center;}
-.mission_wrap .offerwall .img {display:inline-flex; justify-content:center; align-items:center; widtH:168px; height:168px; margin:0 auto; background:url('../images/img_use_bg.png') no-repeat center / contain;}
-.mission_wrap .offerwall img {width:144px; height:144px;}
-.mission_wrap .offerwall p {color:#888; font-size:12px; line-height:1.5em; text-align:center;}
-
-.mission_wrap ul {padding-top:12px;}
-.mission_wrap li {display:flex; justify-content:space-between; align-items:center; gap:8px; padding:9px 19px;}
-.mission_wrap li div.icon {width:46px; min-width:46px; height:46px; overflow:hidden;}
-.mission_wrap li div.icon img {width:46px; height:46px;}
-.mission_wrap li div.txt_wrap {flex:1;}
-.mission_wrap li div.txt_wrap strong {display:block; color:#222; font-size:12px; line-height:16px; font-weight:500;}
-.mission_wrap li div.txt_wrap span {display:block; margin-top:-1px; color:#888; font-size:10px; line-height:12px; font-weight:500; word-break:break-all; overflow:hidden; text-overflow:ellipsis; display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical;}
-.mission_wrap li div.reward {display:inline-flex; width:70px; min-width:70px;}
-.mission_wrap li div.reward span {display:flex; justify-content:center; align-items:center; width:100%; height:26px; border-radius:16px; background-color:rgba(255,58,74,0.16); color:#FF3A4A; font-size:13px; line-height:1em; font-weight:700; overflow:hidden;}
-.mission_wrap div.inner > div {padding:0 18px;}
+.mission_wrap div.inner {display:flex; flex-direction:column; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.16); background-color:#fff;}
+.mission_wrap div.inner > div {}
 .mission_wrap div.inner > div button.btn_more {height:40px; border:1px solid #e6e6e6; border-radius:8px; background-color:#f7f7f7;}
 .mission_wrap div.inner > div button.btn_more span {display:block; color:#222; font-size:14px; line-height:20px;}
+
+.mission_wrap .offerwall {display:flex; flex-direction:column; justify-content:center; align-items:center; gap:16px 0; padding:18px 18px 18px;}
+.mission_wrap .offerwall .img {display:inline-flex; justify-content:center; align-items:center; widtH:180px; height:192px; margin:0 auto;}
+.mission_wrap .offerwall img {width:180px;}
+/* .mission_wrap .offerwall p {color:#888; font-size:12px; line-height:1.5em; text-align:center;} */
+.mission_wrap .offerwall button {height:40px; border:1px solid #e6e6e6; border-radius:8px; background-color:#f7f7f7;}
+.mission_wrap .offerwall button span {color:#222; font-size:14px;}
+
+.mission_wrap .list_open {display:flex; flex-direction:column; gap:18px 0; padding:16px 18px 18px}
+.mission_wrap .list_open li {display:flex; justify-content:space-between; align-items:center; gap:8px; padding:9px 19px;}
+.mission_wrap .list_open li div.icon {width:46px; min-width:46px; height:46px; overflow:hidden;}
+.mission_wrap .list_open li div.icon img {width:46px; height:46px;}
+.mission_wrap .list_open li div.txt_wrap {flex:1;}
+.mission_wrap .list_open li div.txt_wrap strong {display:block; color:#222; font-size:12px; line-height:16px; font-weight:500;}
+.mission_wrap .list_open li div.txt_wrap span {display:block; margin-top:-1px; color:#888; font-size:10px; line-height:12px; font-weight:500; word-break:break-all; overflow:hidden; text-overflow:ellipsis; display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical;}
+.mission_wrap .list_open li div.reward {display:inline-flex; width:70px; min-width:70px;}
+.mission_wrap .list_open li div.reward span {display:flex; justify-content:center; align-items:center; width:100%; height:26px; border-radius:16px; background-color:rgba(255,58,74,0.16); color:#FF3A4A; font-size:13px; line-height:1em; font-weight:700; overflow:hidden;}
+
 
 
 
@@ -104,7 +107,7 @@ button.btn_attend[disabled] {background-color:#D7D8D9 !important; box-shadow:ins
 .passmoney_guide_wrap {padding:0 18px;}
 .passmoney_guide_wrap div.img {padding:14px 0; text-align:center;}
 .passmoney_guide_wrap div.img img {display:inline-block; width:164px; height:164px;}
-.passmoney_guide_wrap .guide_box {padding:0 18px; border-radius:8px; background-color:#fff; box-shadow:0 2px 6px rgba(0,0,0,0.16);}
+.passmoney_guide_wrap .guide_box {border-radius:8px; background-color:#fff; box-shadow:0 2px 6px rgba(0,0,0,0.16); overflow:hidden;}
 .passmoney_guide_wrap .guide_box .item {padding:18px 0;}
 .passmoney_guide_wrap .guide_box .item + .item {border-top:1px solid #e6e6e6;}
 .passmoney_guide_wrap .guide_box .item .tit {display:flex; align-items:center; gap:6px;}
