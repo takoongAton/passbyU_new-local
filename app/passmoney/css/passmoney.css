@@ -35,8 +35,8 @@ div.passmoney_tit {display:flex; align-items:center; padding:13px 18px;}
 div.passmoney_tit strong {font-size:14px; line-height:20px; font-weight:700;}
 
 
-button.btn_attend {padding:11px 0 15px; border-radius:8px; background-color:#FF3A4A; box-shadow:inset 0 -4px 0px #CE2835;}
-button.btn_attend span {display:block; color:#fff; font-size:16px; line-height:24px; font-weight:700;}
+button.btn_attend {height:50px; padding-bottom:2px; border-radius:8px; background-color:#FF3A4A; box-shadow:inset 0 -4px 0px #CE2835; line-height:1em;}
+button.btn_attend span {display:block; color:#fff; font-size:16px; line-height:1em; font-weight:700;}
 button.btn_attend:disabled,
 button.btn_attend[disabled] {background-color:#D7D8D9 !important; box-shadow:inset 0 -4px 0px #C3C3C3 !important;}
 
@@ -54,7 +54,7 @@ button.btn_attend[disabled] {background-color:#D7D8D9 !important; box-shadow:ins
 .today_wrap .my_more p {font-size:14px; line-height:20px; font-weight:bold; letter-spacing:0;}
 .today_wrap .my_more p span {color:#FF3A4A;}
 .today_wrap .my_more button.btn_more {display:inline-flex; justify-content:center; align-items:center; width:80px; height:36px; border:1px solid #FF3A4A; border-radius:8px; line-height:1em; overflow:hidden;}
-.today_wrap .my_more button.btn_more span {color:#FF3A4A; font-size:14px; line-height:1em;}
+.today_wrap .my_more button.btn_more span {display:block; color:#FF3A4A; font-size:14px; line-height:1em;}
 
 .pass_service {margin:-6px 0; padding:6px 18px;}
 .pass_service > div {display:flex; gap:0 12px;}
@@ -76,13 +76,13 @@ button.btn_attend[disabled] {background-color:#D7D8D9 !important; box-shadow:ins
 .mission_wrap .offerwall button span {color:#222; font-size:14px;}
 
 .mission_wrap .list_open {display:flex; flex-direction:column; gap:18px 0; padding:16px 18px 18px}
-.mission_wrap .list_open li {display:flex; justify-content:space-between; align-items:center; gap:8px; padding:9px 19px;}
+.mission_wrap .list_open li {display:flex; justify-content:space-between; align-items:center; gap:8px; padding:9px 0;}
 .mission_wrap .list_open li div.icon {width:46px; min-width:46px; height:46px; overflow:hidden;}
 .mission_wrap .list_open li div.icon img {width:46px; height:46px;}
 .mission_wrap .list_open li div.txt_wrap {flex:1;}
 .mission_wrap .list_open li div.txt_wrap strong {display:block; color:#222; font-size:12px; line-height:16px; font-weight:500;}
 .mission_wrap .list_open li div.txt_wrap span {display:block; margin-top:-1px; color:#888; font-size:10px; line-height:12px; font-weight:500; word-break:break-all; overflow:hidden; text-overflow:ellipsis; display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical;}
-.mission_wrap .list_open li div.reward {display:inline-flex; width:70px; min-width:70px;}
+.mission_wrap .list_open li div.reward {display:inline-flex; width:70px; min-width:70px; height:25px; line-height:1em;}
 .mission_wrap .list_open li div.reward span {display:flex; justify-content:center; align-items:center; width:100%; height:26px; border-radius:16px; background-color:rgba(255,58,74,0.16); color:#FF3A4A; font-size:13px; line-height:1em; font-weight:700; overflow:hidden;}
 
 
