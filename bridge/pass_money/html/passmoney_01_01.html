@@ -171,6 +171,25 @@
 
 
 
+	<div class="layer alert" id="temp_id" style="display:none;"> <!-- id는 임시로 넣음 -->
+		<div class="dim"></div>
+		<div class="layer_inner">
+			<div class="layer_content">
+				<!-- <div class="pass_logo"><img src="../images/ico_logo_main.png" alt="PASS"></div> -->
+				<div class="tit">출석 완료!</div>
+				<div class="img"><img src="../images/ico_bridge_check.png" alt=""></div>
+				<p class="txt">PASS머니 %금액%원<br />
+					적립 완료!</p>
+			</div>
+			<div class="btn_group">
+				<!-- <div><button type="button" class="prev"><span>취소</span></button></div> -->
+				<!-- prev, back, cancel -->
+				<div><button type="button" class="next"><span>확인</span></button></div>
+			</div>
+		</div>
+	</div>
+	
+
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="../js/slick.min.js"></script>
 
@@ -214,6 +233,22 @@ $(document).ready(function(){
 
 })
 
+
+let btn_attend = document.querySelector(".btn_attend");
+btn_attend.addEventListener("click", function(){
+	document.querySelector("#temp_id").style.display = "block";
+})
+
+
+let layers = document.querySelectorAll(".layer");
+if(layers.length > 0) {
+	layers.forEach(function(item){
+		btnClose = item.querySelector("button");
+		btnClose.addEventListener("click", function(item){
+			this.closest(".layer").style.display = "none";
+		})
+	})
+}
 </script>
 </body>
 </html>
