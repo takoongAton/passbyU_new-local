@@ -92,15 +92,22 @@ button.btn_attend[disabled] {background-color:#D7D8D9 !important; box-shadow:ins
 
 /* 사용처 목록 */
 .passmoney_use_list {display:flex; flex-direction:column; gap:16px; padding:16px 18px 0;}
-.passmoney_use_list div.item {padding:18px; background-color:#fff; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.16);}
+/* .passmoney_use_list div.item {padding:18px; background-color:#fff; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.16);} */
+.passmoney_use_list div.item {position:relative; background-color:#fff; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.16); overflow:hidden;}
 .passmoney_use_list div.item div.tit {display:inline-flex; align-items:center; gap:4px;}
 .passmoney_use_list div.item div.tit span.icon {display:inline-block; width:24px; height:24px;}
 .passmoney_use_list div.item div.tit strong {display:inline-block; color:#000; font-size:14px; line-height:20px;}
 .passmoney_use_list div.item div.img {display:flex; justify-content:center; align-items:center; margin:0 auto; width:168px; height:168px; background:url('../images/img_use_bg.png') no-repeat center / contain; text-align:center;}
 .passmoney_use_list div.item div.img img {display:block; width:144px; height:144px;}
 .passmoney_use_list div.item p.txt {color:#888; font-size:12px; line-height:18px; text-align:center; word-break:keep-all;}
-.passmoney_use_list div.item button.btn_quick {height:40px; margin-top:16px; background-color:#f7f7f7; border:1px solid #e6e6e6; border-radius:8px;}
-.passmoney_use_list div.item button.btn_quick span {display:inline-block; color:#222; font-size:14px; line-height:1em;}
+.passmoney_use_list div.item .btn {position:absolute; bottom:5vw; left:0; width:100%; padding:0 5vw;}
+.passmoney_use_list div.item button.btn_quick {height:11.11111vw; margin-top:4.44444vw; background-color:#f7f7f7; border:1px solid #e6e6e6; border-radius:2.22222vw;}
+.passmoney_use_list div.item button.btn_quick span {display:inline-block; color:#222; font-size:3.88888vw; line-height:1em;}
+@media screen and (min-width:720px) {
+	.passmoney_use_list div.item .btn {bottom:36px; padding:0 36px;}
+	.passmoney_use_list div.item button.btn_quick {height:80px; margin-top:32px; background-color:#f7f7f7; border:1px solid #e6e6e6; border-radius:16px;}
+	.passmoney_use_list div.item button.btn_quick span {display:inline-block; color:#222; font-size:24px; line-height:1em;}
+}
 /* // 사용처 목록 */
 
 /* PASS 머니 가이드 */
