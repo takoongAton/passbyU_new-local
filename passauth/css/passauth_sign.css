@@ -1,0 +1,127 @@
+/* 공통 임시 */
+.header_wrap {position:-webkit-sticky; position:sticky; top:0; left:0; right:0; width:100%; max-width:720px; margin:0 auto; background-color:#fff; z-index:1;}
+.header_wrap div.temp {display:flex; justify-content:start; align-items:center; position:relative; gap:10px; width:100%; height:48px; padding:0 18px; text-align:center;}
+/* .header_wrap div.temp button {position:absolute; top:0; width:auto; padding:12px 0;} */
+/* .header_wrap div.temp button:first-of-type {left:18px;}
+.header_wrap div.temp button:last-of-type {right:18px;} */
+.header_wrap div.temp button {width:auto;}
+.header_wrap div.temp button span {display:block; width:24px; height:24px;}
+.header_wrap div.temp h1 {color:#000; font-size:16px; font-weight:normal;}
+/* 공통 임시 */
+
+
+.passauth_wrap {max-width:720px; margin:0 auto;}
+
+
+/* 상단 텍스트 공통 */
+.passauth_wrap .top .tit {padding:12px 18px;}
+.passauth_wrap .top .tit p {font-size:22px; line-height:30px; letter-spacing:-0.05em; word-break:keep-all;}
+.passauth_wrap .top p.txt {padding:0 18px; color:#888888;}
+/* // 상단 텍스트 공통 */
+
+
+
+/* 인증 방법 선택 */
+/* input형 */
+.selList {display:flex; flex-direction:column; gap:20px 0; margin-top:100px; padding:0 18px;}
+.selList .item label {display:flex; align-items:center; position:relative; width:100%; height:72px; padding:0 18px;}
+.selList .item label input {position:absolute; top:0; left:0; width:0; height:0; overflow:hidden; opacity:0;}
+.selList .item label span.checkmark {display:block; position:absolute; top:50%; right:18px; width:24px; height:24px; background: url('../images/btn_check02_off.png') no-repeat left center / 24px 24px; transform:translateY(-50%);}
+.selList .item label span.txt {color:#000; font-size:18px; line-height:28px;}
+.selList .item label span.txt::before {content:""; display:block; position:absolute; top:0; left:0; width:100%; height:100%; border-radius:8px; border:1px solid #000;}
+.selList .item label input:checked + span.checkmark {background-image:url('../images/btn_check02_on.png');}
+.selList .item label input:checked ~ span.txt {color:#FF3A4A;}
+.selList .item label input:checked ~ span.txt::before {border-color:#FF3A4A;}
+.selList .item label.default {}
+.selList .item label.default span.txt {color:#888;}
+.selList .item label.default input ~ span.txt::before {border-color:#888;}
+/* // input형 */
+
+/* button형 */
+.selList {display:flex; flex-direction:column; gap:20px 0; margin-top:100px; padding:0 18px;}
+.selList .item button {display:flex; justify-content:space-between; align-items:center; position:relative; width:100%; height:72px; padding:0 18px; border:1px solid #000; border-radius:8px;}
+.selList .item button span.checkmark {display:inline-block; width:24px; height:24px; background: url('../images/btn_check02_off.png') no-repeat left center / 24px 24px;}
+.selList .item button span.txt {padding:0 18px; color:#000; font-size:18px; line-height:28px;}
+.selList .item button.active {border-color:#FF3A4A;}
+.selList .item button.active span.checkmark {background-image:url('../images/btn_check02_on.png');}
+.selList .item button.active span.txt {color:#FF3A4A;}
+.selList .item button.default {border-color:#888;}
+.selList .item button.default span.txt {color:#888;}
+/* // button형 */
+/* // 인증 방법 선택 */
+
+
+
+/* 서명요청 */
+.passauth_sign_wrap {padding-bottom:48px;}
+.passauth_sign_top {text-align:center; margin-top:100px;}
+.passauth_sign_top span.ico {display:inline-block; width:72px; height:72px;}
+.passauth_sign_top div.tit {margin-top:40px;}
+.passauth_sign_top div.tit strong {display:block; font-size:18px; line-height:1.5em;}
+.passauth_sign_top p {margin-top:9px; color:#888888; font-size:16px; line-height:24px;}
+.passauth_sign {margin-top:40px; padding:18px;}
+.passauth_sign div.inner {padding:18px;  background-color:#F5F5F5; border-radius:12px; overflow:hidden;}
+.passauth_sign div.inner > div {text-align:center;}
+.passauth_sign div.inner > div span.ico {display:inline-block; width:20px; height:20px;}
+.passauth_sign div.inner > div p {margin-top:6px; color:#000; font-size:14px; line-height:20px;}
+.passauth_sign div.inner ul {display:flex; flex-direction:column; gap:9px; margin-top:10px;}
+.passauth_sign div.inner li {display:flex; align-items:flex-start; gap:2px; color:#888888; font-size:12px; line-height:18px;}
+.passauth_sign div.inner li span {color:#888888;}
+.passauth_sign div.inner li p {color:#888888; word-break:keep-all;}
+/* // 서명요청 */
+
+
+
+/* ARS 연결 */
+.ars_wrap {}
+.ars_wrap .passauth_num_wrap {margin-top:60px; padding:0 18px;}
+.ars_wrap .passauth_num_wrap .inner {display:flex; flex-direction:column; gap:10px; padding:20px; background-color:#F5F5F5; border-radius:12px; text-align:center; overflow:hidden;}
+.ars_wrap .passauth_num_wrap .inner span.txt {display:inline-block; color:#888888; font-size:14px; line-height:20px;}
+.ars_wrap .passauth_num_wrap .inner strong.codeNum {color:#FF3A4A; font-size:50px;}
+.ars_wrap .passauth_num_wrap .inner strong.phoneNum {color:#000; font-size:18px; line-height:27px; font-weight:bold;}
+.ars_wrap .passauth_num_wrap .timer {display:flex; align-items:center; justify-content:end; gap:4px; margin-top:6px; padding-right:3px;}
+.ars_wrap .passauth_num_wrap .timer span {display:inline-block; color:#FC3A4A; line-height:1em;}
+.ars_wrap .passauth_num_wrap .timer span.ico {width:16px; height:16px; line-height:0;}
+.ars_wrap .passauth_num_wrap .timer span.txt {font-size:14px; letter-spacing:0;}
+.ars_wrap ul {margin-top:30px; padding:0 18px;}
+.ars_wrap ul li {position:relative; padding-left:0.75em; color:#888; font-size:12px; line-height:1.5em;}
+.ars_wrap ul li::before {content:"*"; display:block; position:absolute; top:0; left:0; color:inherit; font-size:inherit; line-height:inherit;}
+/* // ARS 연결 */
+
+
+
+/* 하단 버튼 */
+.passauth_footer_btn {position:absolute; bottom:0; left:0; right:0; display:flex; width:100%; max-width:720px; margin:0 auto;}
+.passauth_footer_btn div.btn {width:100%;}
+.passauth_footer_btn div.btn button {height:48px; background-color:#000; color:#fff;}
+.passauth_footer_btn div.btn button span {font-size:16px;}
+.passauth_footer_btn div.btn button.btn_cancel {background-color:#EFF0F2;}
+.passauth_footer_btn div.btn button.btn_cancel span {color:#333;}
+.passauth_footer_btn div.btn button.btn_next {background-color:#333;}
+.passauth_footer_btn div.btn button.btn_next span {color:#fff;}
+/* // 하단 버튼 */
+
+
+
+/* 팝업 */
+div.layer.alert div.dim {position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.5); z-index: 1;}
+div.layer.alert div.inner {position:fixed; top:50%; left:50%; width:284px; background-color:#fff; border-radius:6px; transform: translate(-50%, -50%); text-align:center; z-index: 1;}
+div.layer.alert div.inner div.txt_wrap {display:flex; flex-direction:column; gap:10px; padding:36px 18px; line-height:1.5em;}
+div.layer.alert div.inner div.txt_wrap div.tit {}
+div.layer.alert div.inner div.txt_wrap div.tit strong {font-size:18px; line-height:1.5em; font-weight:bold;}
+div.layer.alert div.inner div.txt_wrap p {font-size:16px; line-height:1.5em; font-weight:400;}
+div.layer.alert div.inner .btn_group {display:flex; border-top:0.5px solid #E7E7E7;}
+div.layer.alert div.inner .btn_group button {width:100%; height:60px;}
+div.layer.alert div.inner .btn_group button span {display:block; color:#000; font-size:18px;}
+div.layer.alert div.inner .btn_group button.btn_next span {color:#FF3A4A; font-weight:bold;}
+
+
+div.layer.full {position:fixed; top:0; right:0; bottom:0; left:0; width:100%; max-width:720px; height:100%; margin:0 auto; background-color:#fff; z-index:1;}
+div.layer_full_header {position:-webkit-sticky; position:sticky; top:0; left:0; width:100%; border-bottom:8px solid #F8F9FB;}
+div.layer_full_header div.temp {display:flex; justify-content:center; align-items:center; position:relative; width:100%; height:48px; text-align:center;}
+div.layer_full_header div.temp h1 {font-size:14px; line-height:18px;}
+div.layer_full_header div.temp button {position:absolute; top:0; width:auto; padding:12px 0;}
+div.layer_full_header div.temp button.btn_close {right:18px;}
+div.layer_full_header div.temp button span {display:block; width:24px; height:24px;}
+div.layer_full_body {padding:18px; color:#666666; font-size:14px; line-height:20px;}
+/* 팝업 */

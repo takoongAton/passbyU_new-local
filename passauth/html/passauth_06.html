@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>휴대폰 결제2차인증</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/passauth_sign.css">
+	<!-- <link rel="stylesheet" href="../css/fonts/NotoSansKR-WEB.css"> -->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+	<!-- <script src="../js/jquery-1.12.4.min.js"></script> -->
+</head>
+<body>
+
+	<div class="header_wrap">
+		<div class="temp">
+			<button type="button"><span><img src="../images/btn_top_back.png" alt="이전"></span></button>
+			<h1>휴대폰결제</h1>
+		</div>
+		<!-- // temp 삭제 -->
+	</div>
+
+	<div class="passauth_wrap">
+
+		<div class="step_wrap" style="display:none;">
+			<div class="passauth_select">
+				<div class="top">
+					<div class="tit">
+						<p>알반/정기결체 차단 및 한도 변경을 위해서 아래 인증 방법 중 <strong>한가지를 선택</strong>해주세요</p>
+					</div>
+				</div>
+	
+				<div class="selList">
+					<div class="item">
+						<label>
+							<input type="radio" name="name01" class="test111">
+							<span class="checkmark"></span>
+							<span class="txt">PASS인증서 인증</span>
+						</label>
+					</div>
+					<div class="item">
+						<label>
+							<input type="radio" name="name01" class="test222">
+							<span class="checkmark"></span>
+							<span class="txt">ARS 인증</span>
+						</label>
+					</div>
+				</div>
+				<!-- // selList -->
+			</div>
+			<!-- // passauth_select -->
+		</div>
+		<!-- // step_wrap -->
+
+
+		<div class="step_wrap" style="display:none;">
+
+			<div class="passauth_sign_wrap">
+				<div class="passauth_sign_top">
+					<span class="ico"><img src="../images/img_app.png" alt="PASS"></span>
+					<div class="tit"><strong>PASS 앱 서명 요청</strong></div>
+					<p>PASS 앱에서 인증 서명을 완료해주세요.</p>
+				</div>
+	
+				<div class="passauth_sign">
+					<div class="inner">
+						<div>
+							<span class="ico"><img src="../images/ico_caution.png" alt="!"></span>
+							<p>PASS 앱에서 인증요청 알림이 오지 않았다면<br />먼저 아래 2가지 내용 확인해 주세요.</p>
+						</div>
+			
+						<ul>
+							<li>
+								<span>1.</span>
+								<p>이전 단계로 돌아가 다시 인증 요청 시도해주세요.</p>
+							</li>
+							<li>
+								<span>2.</span>
+								<p>PASS 앱 내 PASS 인증서 알림 수신동의 체크 상태 확인해 주세요.(설정 > 알림설정  > PASS인증서)</p>
+							</li>
+							<li>문제가 계속된다면, [PASS인증서 고객센터 : 1800-4273]으로 연락주세요.</li>
+						</ul>
+					</div>
+				</div>
+				<!-- // passauth_sign -->
+			</div>
+			<!-- // passauth_sign_wrap -->
+
+			<div class="passauth_footer_btn">
+				<div class="btn"><button type="button" class="btn_next"><span>인증완료</span></button></div>
+			</div>
+			<!-- // passauth_footer_btn -->
+		</div>
+		<!-- // step_wrap -->
+
+
+
+		<div class="step_wrap">
+
+			<div class="ars_wrap">
+				<div class="top">
+					<div class="tit">
+						<p>아래 번호로 <strong>ARS 인증을<br />
+							요청</strong>해 주세요</p>
+					</div>
+					<p class="txt">안전한 서비스 이용을 위해<br />
+						ARS 인증을 진행합니다.</p>
+				</div>
+	
+				<div class="passauth_num_wrap">
+					<div class="inner">
+						<span class="txt">전화번호</span>
+						<strong class="codeNum">65</strong>
+						<strong class="phoneNum">010-12**-34**</strong>
+					</div>
+					<div class="timer"><span class="ico"><img src="../images/ico_clock.png" alt="시계"></span><span class="txt">03:00</span></div>
+				</div>
+
+				<ul>
+					<li>인증 요청 후 3분 안에 ARS 인증을 완료해야 하며, 3분 이내 인증되지 않으면 다시 ARS 인증 요청을 해야 합니다.</li>
+					<li>정시/착신전환된 경우 ARS 인증이 불가합니다.</li>
+					<li>상기 연락처로 인증요청을 합니다.</li>
+				</ul>
+				
+			</div>
+			<!-- // ars_wrap -->
+
+			<div class="passauth_footer_btn">
+				<div class="btn"><button type="button" class="btn_cancel"><span>취소</span></button></div>
+				<div class="btn"><button type="button" class="btn_next"><span>ARS 인증 요청</span></button></div>
+			</div>
+			<!-- // passauth_footer_btn -->
+		</div>
+		<!-- // step_wrap -->
+
+
+		<div class="passauth_footer_btn" style="display:none;">
+			<div class="btn"><button type="button" class="btn_cancel"><span>취소</span></button></div>
+			<div class="btn"><button type="button" class="btn_next"><span>ARS 인증 완료</span></button></div>
+		</div>
+		<!-- // passauth_footer_btn -->
+
+	</div>
+	<!-- // passauth_wrap -->
+
+
+
+
+
+
+<div class="layer alert" style="display:block">
+	<div class="dim"></div>
+	<div class="inner">
+		<div class="txt_wrap">
+			<div class="tit">
+				<strong>일반결제<br />차단을 해제하시겠어요?</strong>
+			</div>
+			<p>
+				차단을 해제하려면<br />
+				인증이 필요합니다.
+			</p>
+		</div>
+		<div class="btn_group">
+			<button type="button" class="btn_close"><span>취소</span></button>
+			<button type="button" class="btn_next"><span>확인</span></button>
+		</div>
+	</div>
+</div>
+<!-- // .layer.alert -->
+
+
+
+<div class="layer alert" style="display:block">
+	<div class="dim"></div>
+	<div class="inner">
+		<div class="txt_wrap">
+			<div class="tit">
+				<strong>정기결제<br />
+					차단을 해제하시겠어요?</strong>
+			</div>
+			<p>
+				차단을 해제하려면<br />인증이 필요합니다.
+			</p>
+		</div>
+		<div class="btn_group">
+			<button type="button" class="btn_close"><span>취소</span></button>
+			<button type="button" class="btn_next"><span>확인</span></button>
+		</div>
+	</div>
+</div>
+<!-- // .layer.alert -->
+
+
+
+<div class="layer alert" style="display:block">
+	<div class="dim"></div>
+	<div class="inner">
+		<div class="txt_wrap">
+			<div class="tit">
+				<strong>일반결제 차단 해제가<br />완료되었습니다.</strong>
+			</div>
+		</div>
+		<div class="btn_group">
+			<button type="button" class="btn_next"><span>확인</span></button>
+		</div>
+	</div>
+</div>
+<!-- // .layer.alert -->
+
+
+
+<div class="layer alert" style="display:block">
+	<div class="dim"></div>
+	<div class="inner">
+		<div class="txt_wrap">
+			<div class="tit">
+				<strong>정기결제 차단 해제가<br/>
+					완료되었습니다.</strong>
+			</div>
+		</div>
+		<div class="btn_group">
+			<button type="button" class="btn_next"><span>확인</span></button>
+		</div>
+	</div>
+</div>
+<!-- // .layer.alert -->
+
+
+
+<div class="layer alert" style="display:block">
+	<div class="dim"></div>
+	<div class="inner">
+		<div class="txt_wrap">
+			<div class="tit">
+				<strong>한도를 증액하기 위해서는</strong>
+			</div>
+			<p>
+				인증이 필요합니다.
+			</p>
+		</div>
+		<div class="btn_group">
+			<button type="button" class="btn_close"><span>취소</span></button>
+			<button type="button" class="btn_next"><span>확인</span></button>
+		</div>
+	</div>
+</div>
+<!-- // .layer.alert -->
+
+
+
+<div class="layer alert" style="display:block">
+	<div class="dim"></div>
+	<div class="inner">
+		<div class="txt_wrap">
+			<div class="tit">
+				<strong>한도 설정이<br />
+					완료되었습니다.</strong>
+			</div>
+		</div>
+		<div class="btn_group">
+			<button type="button" class="btn_next"><span>확인</span></button>
+		</div>
+	</div>
+</div>
+<!-- // .layer.alert -->
+
+
+
+<div class="layer alert" style="display:block">
+	<div class="dim"></div>
+	<div class="inner">
+		<div class="txt_wrap">
+			<div class="tit">
+				<strong>PASS 인증서 미 발급</strong>
+			</div>
+			<p>
+				차단 해제를 위해<br />
+				PASS인증서 서명이 필요합니다.<br />
+				인증서 발급 후 다시 이용해 주세요.
+			</p>
+		</div>
+		<div class="btn_group">
+			<button type="button" class="btn_next"><span>확인</span></button>
+		</div>
+	</div>
+</div>
+<!-- // .layer.alert -->
+
+
+
+<div class="layer alert" style="display:block">
+	<div class="dim"></div>
+	<div class="inner">
+		<div class="txt_wrap">
+			<div class="tit">
+				<strong>ARS 인증에 성공했습니다.</strong>
+			</div>
+			<p>
+				계속 진행하시려면<br />확인을 눌러주세요.
+			</p>
+		</div>
+		<div class="btn_group">
+			<button type="button" class="btn_next"><span>확인</span></button>
+		</div>
+	</div>
+</div>
+<!-- // .layer.alert -->
+
+
+
+<div class="layer alert" style="display:block">
+	<div class="dim"></div>
+	<div class="inner">
+		<div class="txt_wrap">
+			<div class="tit">
+				<strong>ARS 인증 확인이<br />
+					실패하였습니다.</strong>
+			</div>
+			<p>잠시 후에 다시 시도해 주세요.</p>
+		</div>
+		<div class="btn_group">
+			<button type="button" class="btn_next"><span>확인</span></button>
+		</div>
+	</div>
+</div>
+<!-- // .layer.alert -->
+
+
+
+<div class="layer alert" style="display:block">
+	<div class="dim"></div>
+	<div class="inner">
+		<div class="txt_wrap">
+			<div class="tit">
+				<strong>ARS 인증 시간이<br />
+					초과하였습니다.</strong>
+			</div>
+			<p>ARS 인증을 다시 시도해 주세요.</p>
+		</div>
+		<div class="btn_group">
+			<button type="button" class="btn_next"><span>ARS 인증 재시도</span></button>
+		</div>
+	</div>
+</div>
+<!-- // .layer.alert -->
+
+
+
+
+<script>
+/* 임시 */
+let btns = document.querySelectorAll(".layer button");
+if(btns.length > 0) {
+	btns.forEach(function(item){
+		item.addEventListener("click", function(e){
+			// if(item.closest(".btn_close")) {
+				e.target.closest(".layer").style.display = "none";
+			// }
+		})
+	})
+}
+/* // 임시 */
+
+/* input형 */
+let selList = document.querySelector(".selList");
+if(selList) {
+	selList.addEventListener("change", function(){
+		let labels = selList.querySelectorAll("label");
+		labels.forEach(function(label){
+			let input = label.querySelector("input");
+			label.classList.toggle("active", input.checked);
+			label.classList.toggle("default", !input.checked);
+		})
+	})
+}
+/* // input형 */
+
+
+/* 버튼형 테스트 */
+let selBtns = document.querySelectorAll(".selList button");
+if(selBtns.length > 0) {
+	selBtns.forEach(function(item){
+		item.addEventListener("click", function(){
+			selBtns.forEach(function(item){
+				item.classList.remove("active");
+				item.classList.add("default");
+			})
+			item.classList.toggle("active");
+			item.classList.toggle("default");
+			console.log("v")
+		})
+	})
+}
+/* // 버튼형 테스트 */
+
+
+</script>
+</body>
+</html>
