@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>휴대폰 결제2차인증</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/passauth_sign.css">
+	<!-- <link rel="stylesheet" href="../css/fonts/NotoSansKR-WEB.css"> -->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+	<!-- <script src="../js/jquery-1.12.4.min.js"></script> -->
+</head>
+<body>
+	<div class="passauth_wrap">
+
+		<div class="passauth_result_wrap">
+			<div class="passauth_result">
+				<div class="result_head">
+					<div class="tit"><strong>PASS 인증실패</strong></div>
+					<span>%(사이트명)</span>
+				</div>
+			</div>
+			<div class="certificate_com">
+				<div class="img"><img src="../images/ico_certificate_com.png" alt="이미지" /></div>
+				<p>이용중인 사이트로 돌아가<br />
+					인증을 재시도해주세요.</p>
+			</div>
+		</div>
+		<!-- // passauth_result_wrap -->
+
+		
+		
+
+		<div class="passauth_footer_btn">
+			<div class="btn"><button type="button" class="btn_next"><span>닫기</span></button></div>
+		</div>
+		<!-- // passauth_footer_btn -->
+		
+
+	</div>
+	<!-- // passauth_wrap -->
+
+
+
+
+
+
+<div class="layer alert" style="display:none">
+	<div class="dim"></div>
+	<div class="inner">
+		<div class="txt_wrap">
+			<div class="tit">
+				<strong>일반결제<br />차단을 해제하시겠어요?</strong>
+			</div>
+			<p>
+				차단을 해제하려면<br />
+				인증이 필요합니다.
+			</p>
+		</div>
+		<div class="btn_group">
+			<button type="button" class="btn_close"><span>취소</span></button>
+			<button type="button" class="btn_next"><span>확인</span></button>
+		</div>
+	</div>
+</div>
+<!-- // .layer.alert -->
+
+
+<script>
+/* 임시 */
+let btns = document.querySelectorAll(".layer button");
+if(btns.length > 0) {
+	btns.forEach(function(item){
+		item.addEventListener("click", function(e){
+			// if(item.closest(".btn_close")) {
+				e.target.closest(".layer").style.display = "none";
+			// }
+		})
+	})
+}
+let btnClose = document.querySelector(".passauth_footer_btn button.btn_next");
+btnClose.addEventListener("click", () => {
+	alert("닫기")
+})
+/* // 임시 */
+
+/* input형 */
+let selList = document.querySelector(".selList");
+if(selList) {
+	selList.addEventListener("change", function(){
+		let labels = selList.querySelectorAll("label");
+		labels.forEach(function(label){
+			let input = label.querySelector("input");
+			label.classList.toggle("active", input.checked);
+			label.classList.toggle("default", !input.checked);
+		})
+	})
+}
+/* // input형 */
+
+
+/* 버튼형 테스트 */
+let selBtns = document.querySelectorAll(".selList button");
+if(selBtns.length > 0) {
+	selBtns.forEach(function(item){
+		item.addEventListener("click", function(){
+			selBtns.forEach(function(item){
+				item.classList.remove("active");
+				item.classList.add("default");
+			})
+			item.classList.toggle("active");
+			item.classList.toggle("default");
+			console.log("v")
+		})
+	})
+}
+/* // 버튼형 테스트 */
+
+
+
+
+</script>
+</body>
+</html>

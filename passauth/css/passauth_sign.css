@@ -125,3 +125,17 @@ div.layer_full_header div.temp button.btn_close {right:18px;}
 div.layer_full_header div.temp button span {display:block; width:24px; height:24px;}
 div.layer_full_body {padding:18px; color:#666666; font-size:14px; line-height:20px;}
 /* 팝업 */
+
+
+
+
+/* 인증 시도/실패 화면 */
+.passauth_result_wrap {border-bottom:8px solid #F8F9FB;}
+.passauth_result_wrap .result_head {padding:36px 0 35px; text-align:center;}
+.passauth_result_wrap .result_head div.tit {}
+.passauth_result_wrap .result_head div.tit strong {display:inline-block; color:#000; font-size:22px; line-height:33px; font-weight:bold;}
+.passauth_result_wrap .result_head span {display:inline-block; color:#FC3A4A; font-size:18px; line-height:27px; font-weight:400;}
+.certificate_com {position:fixed; top:50%; width:100%; max-width:720px; margin:0 auto; text-align:center; transform:translateY(-50%);}
+.certificate_com div.img img {display:inline-block; width:180px; height:auto;}
+.certificate_com p {margin-top:18px; color:#000; font-size:18px; line-height:26px; font-weight:400;}
+/* // 인증 시도/실패 화면 */
