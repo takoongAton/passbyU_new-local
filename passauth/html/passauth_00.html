@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>휴대폰 결제2차인증</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/passauth_sign.css">
+	<!-- <link rel="stylesheet" href="../css/fonts/NotoSansKR-WEB.css"> -->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+	<!-- <script src="../js/jquery-1.12.4.min.js"></script> -->
+</head>
+<body>
+
+	<div class="header_wrap">
+		<div class="temp">
+			<button type="button"><span><img src="../images/btn_top_back.png" alt="이전"></span></button>
+			<h1>휴대폰결제</h1>
+		</div>
+		<!-- // temp 삭제 -->
+	</div>
+
+	<div class="passauth_wrap">
+
+		<div class="step_wrap">
+			<div class="passauth_select">
+				<div class="top">
+					<div class="tit">
+						<p>PASS 인증서 인증요청을 위해<br />
+							<strong>PASS 가입자 성명</strong>을 입력하신다음<br />
+							<strong>‘인증요청’버튼</strong>을 눌러주세요</p>
+					</div>
+				</div>
+
+				<div class="userInfo">
+					<div class="tit">가입자성명</div>
+					<div class="ipt_wrap">
+						<input type="text" placeholder="이름" />
+					</div>
+				</div>
+	
+			</div>
+			<!-- // passauth_select -->
+		</div>
+		<!-- // step_wrap -->
+
+		<div class="passauth_footer_btn">
+			<div class="btn"><button type="button" class="btn_next" disabled><span>인증요청</span></button></div>
+		</div>
+		<!-- // passauth_footer_btn -->
+
+	</div>
+	<!-- // passauth_wrap -->
+
+
+
+
+
+
+<div class="layer alert" style="display:none">
+	<div class="dim"></div>
+	<div class="inner">
+		<div class="txt_wrap">
+			<div class="tit">
+				<strong>일반결제<br />차단을 해제하시겠어요?</strong>
+			</div>
+			<p>
+				차단을 해제하려면<br />
+				인증이 필요합니다.
+			</p>
+		</div>
+		<div class="btn_group">
+			<button type="button" class="btn_close"><span>취소</span></button>
+			<button type="button" class="btn_next"><span>확인</span></button>
+		</div>
+	</div>
+</div>
+<!-- // .layer.alert -->
+
+
+<script>
+/* 임시 */
+let btns = document.querySelectorAll(".layer button");
+if(btns.length > 0) {
+	btns.forEach(function(item){
+		item.addEventListener("click", function(e){
+			// if(item.closest(".btn_close")) {
+				e.target.closest(".layer").style.display = "none";
+			// }
+		})
+	})
+}
+
+
+let ipt = document.querySelector(".ipt_wrap input")
+ipt.addEventListener("input", function(e, item){
+	if(e.target.value != "") {
+		console.log(e.target.value);
+		document.querySelector(".passauth_footer_btn button.btn_next").disabled = false;
+	} else {
+		console.log("빈값");
+		document.querySelector(".passauth_footer_btn button.btn_next").disabled = true;
+	}
+})
+/* // 임시 */
+
+</script>
+</body>
+</html>

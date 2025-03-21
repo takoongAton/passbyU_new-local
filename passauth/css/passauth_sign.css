@@ -99,6 +99,7 @@
 .passauth_footer_btn div.btn button.btn_cancel span {color:#333;}
 .passauth_footer_btn div.btn button.btn_next {background-color:#333;}
 .passauth_footer_btn div.btn button.btn_next span {color:#fff;}
+.passauth_footer_btn div.btn button.btn_next:disabled {background-color:#D7D8D9 !important;}
 /* // 하단 버튼 */
 
 
@@ -139,3 +140,14 @@ div.layer_full_body {padding:18px; color:#666666; font-size:14px; line-height:20
 .certificate_com div.img img {display:inline-block; width:180px; height:auto;}
 .certificate_com p {margin-top:18px; color:#000; font-size:18px; line-height:26px; font-weight:400;}
 /* // 인증 시도/실패 화면 */
+
+
+
+
+/* 가입자 성명 입력 */
+.userInfo {margin-top:60px; padding:0 18px;}
+.userInfo .ipt_wrap {margin-top:9px; border:1px solid #ddd; border-radius:12px; overflow:hidden;}
+.userInfo .ipt_wrap:focus-within {border-color:#000;}
+.userInfo .ipt_wrap input {padding:15px 18px; border:none; background-color:#fff; color:#000; font-size:18px;}
+.userInfo .ipt_wrap input::placeholder {color:#888; font-size:inherit;}
+/* // 가입자 성명 입력 */
