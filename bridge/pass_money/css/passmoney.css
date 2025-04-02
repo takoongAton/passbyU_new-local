@@ -7,6 +7,22 @@
 
 .passmoney_wrap {max-width:720px; min-height:100vh; margin:0 auto; background-color:#F5F5F5;}
 
+
+/* 내 머니 */
+.passmoney_mymoney {padding:12px 18px; background: rgb(255,255,255);
+	background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(245,245,245,0.4) 30%, rgba(245,245,245,1) 100%)}
+.passmoney_mymoney .inner {display:flex; justify-content:space-between; padding:18px; background-color:#fff; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.16);}
+.passmoney_mymoney .inner div.txt_wrap {display:inline-flex; align-items:center; gap:4px;}
+.passmoney_mymoney .inner div.txt_wrap span.ico {width:24px; height:24px;}
+.passmoney_mymoney .inner div.txt_wrap span.txt {color:#000; font-size:14px; font-weight:bold;}
+
+.passmoney_mymoney .inner div.mymoney {display:flex; align-items:center;}
+.passmoney_mymoney .inner div.mymoney strong.money {}
+.passmoney_mymoney .inner div.mymoney span.unit {margin-left:2px;}
+.passmoney_mymoney .inner div.mymoney span.ico {width:16px; height:16px; margin-left:6px;}
+/* // 내 머니 */
+
+
 /* 상단 탭메뉴 */
 .passmoney_tab {display:flex; position:relative; margin-bottom:24px;}
 .passmoney_tab::before {content:""; display:block; position:absolute; bottom:0; left:0; width:100%; height:1px; background-color:#ddd;}
