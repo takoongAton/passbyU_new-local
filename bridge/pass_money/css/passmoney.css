@@ -9,12 +9,18 @@
 
 
 /* 내 머니 */
-.passmoney_mymoney {padding:12px 18px; background: rgb(255,255,255);
+.passmoney_mymoney {margin-top:20px; padding:12px 18px; background: rgb(255,255,255);
 	background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(245,245,245,0.4) 30%, rgba(245,245,245,1) 100%)}
-.passmoney_mymoney .inner {display:flex; justify-content:space-between; padding:18px; background-color:#fff; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.16);}
+.passmoney_mymoney .inner {display:flex; justify-content:space-between; align-items:center; padding:18px; background-color:#fff; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.16);}
 .passmoney_mymoney .inner div.txt_wrap {display:inline-flex; align-items:center; gap:4px;}
 .passmoney_mymoney .inner div.txt_wrap span.ico {width:24px; height:24px;}
 .passmoney_mymoney .inner div.txt_wrap span.txt {color:#000; font-size:14px; font-weight:bold;}
+
+.passmoney_mymoney .inner div.state {display:flex; align-items:center;}
+
+.passmoney_mymoney .inner div.state p.txt {color:#222; font-size:14px; line-height:17px;}
+.passmoney_mymoney .inner div.state a {display:inline-block; color:#222; font-size:14px; line-height:17px; font-weight:400;}
+.passmoney_mymoney .inner div.state span.ico {display:inline-block; width:18px; height:18px;;}
 
 .passmoney_mymoney .inner div.mymoney {display:flex; align-items:center;}
 .passmoney_mymoney .inner div.mymoney strong.money {}
@@ -74,7 +80,7 @@ button.btn_attend[disabled] {background-color:#D7D8D9 !important; box-shadow:ins
 
 .pass_service {margin:-6px 0; padding:6px 18px;}
 .pass_service > div {display:flex; gap:0 12px;}
-.pass_service div.item {display:flex; flex-direction:column; gap:12px; width:120px; min-width:120px; height:108px; padding:18px; border-radius:9px; background-color:#fff; box-shadow:0 2px 6px rgba(0,0,0,0.16);}
+.pass_service div.item {display:flex; flex-direction:column; gap:12px; width:120px; min-width:120px; height:108px; border-radius:9px; background-color:#fff; box-shadow:0 2px 6px rgba(0,0,0,0.16); overflow:hidden;}
 .pass_service div.item span.img {display:inline-block; width:24px; height:24px;}
 .pass_service div.item p.txt {color:#222; font-size:14px; line-height:16px;}
 
