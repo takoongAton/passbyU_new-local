@@ -9,7 +9,7 @@
 
 
 /* 내 머니 */
-.passmoney_mymoney {margin-top:20px; padding:12px 18px; background: rgb(255,255,255);
+.passmoney_mymoney {padding:12px 18px; background: rgb(255,255,255);
 	background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(245,245,245,0.4) 30%, rgba(245,245,245,1) 100%)}
 .passmoney_mymoney .inner {display:flex; justify-content:space-between; align-items:center; padding:18px; background-color:#fff; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.16);}
 .passmoney_mymoney .inner div.txt_wrap {display:inline-flex; align-items:center; gap:4px;}
