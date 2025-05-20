@@ -301,7 +301,7 @@ $(document).ready(function(){
         $slickElement.on('init reInit afterChange', function (event, slick, currentSlide) {
             var i = (currentSlide || 0) + 1;
             $status.text(i + ' | ' + slick.slideCount);
-			$status.html(`<strong>${i}</strong><span>|</span>${slick.slideCount}</span>`);
+			$status.html(`<strong>${i}</strong><span>|</span><span>${slick.slideCount}</span>`);
         });
 
         // Slick 슬라이더 초기화
