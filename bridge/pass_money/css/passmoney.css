@@ -23,7 +23,7 @@
 .passmoney_mymoney .inner div.state span.ico {display:inline-block; width:18px; height:18px;;}
 
 .passmoney_mymoney .inner div.mymoney {display:flex; align-items:center;}
-.passmoney_mymoney .inner div.mymoney strong.money {display:inline-block; line-height:24px; background-color:#0066ff;}
+.passmoney_mymoney .inner div.mymoney strong.money {display:inline-block; line-height:24px;}
 .passmoney_mymoney .inner div.mymoney span.unit {display:inline-block; margin-left:2px; line-height:24px;}
 .passmoney_mymoney .inner div.mymoney span.ico {display:inline-block; width:16px; height:16px; margin-left:6px;}
 /* // 내 머니 */
@@ -41,9 +41,9 @@
 /* 첫 번째 배너 */
 .passmoney_bnr_slick {padding:0 18px;}
 .passmoney_bnr_slick .inner {position:relative; border-radius:8px; overflow:hidden;}
-.passmoney_bnr_slick .inner .item {border-radius:8px; overflow:hidden;}
+.passmoney_bnr_slick .inner .item {border-radius:8px; line-height:0; overflow:hidden;}
 .pagingInfo {display:inline-flex; align-items:center; gap:4px; position:absolute; top:6px; right:6px; height:24px; padding:0 6px; border-radius:12px; background-color:rgba(0,0,0,0.5); overflow:hidden;}
-.pagingInfo div.count {color:#fff; font-size:12px; letter-spacing:0.24em;}
+.pagingInfo div.count {color:#fff; font-size:12px; letter-spacing:0.24em; line-height:24px;}
 .pagingInfo .btn_pause {width:12px; height:12px; overflow:hidden;}
 .pagingInfo .btn_play {display:none; width:12px; height:12px; overflow:hidden;}
 
