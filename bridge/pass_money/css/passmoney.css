@@ -23,9 +23,9 @@
 .passmoney_mymoney .inner div.state span.ico {display:inline-block; width:18px; height:18px;;}
 
 .passmoney_mymoney .inner div.mymoney {display:flex; align-items:center;}
-.passmoney_mymoney .inner div.mymoney strong.money {}
-.passmoney_mymoney .inner div.mymoney span.unit {margin-left:2px;}
-.passmoney_mymoney .inner div.mymoney span.ico {width:16px; height:16px; margin-left:6px;}
+.passmoney_mymoney .inner div.mymoney strong.money {display:inline-block; background-color:#ff6600;}
+.passmoney_mymoney .inner div.mymoney span.unit {display:inline-block; margin-left:2px;}
+.passmoney_mymoney .inner div.mymoney span.ico {display:inline-block; width:16px; height:16px; margin-left:6px;}
 /* // 내 머니 */
 
 
