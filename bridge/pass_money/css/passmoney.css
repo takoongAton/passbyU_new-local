@@ -5,7 +5,7 @@
 .scroll-wrapper .scroll .item {white-space:nowrap;} /* 구분 칸 */
 /* 가로 스크롤 형식 공통 */
 
-.passmoney_wrap {max-width:720px; min-height:100vh; margin:0 auto; background-color:#F5F5F5;}
+.passmoney_wrap {max-width:720px; min-height:100vh; margin:0 auto; background-color:#F5F5F5; font-family:"Noto Sans KR", sans-serif;}
 
 
 /* 내 머니 */
