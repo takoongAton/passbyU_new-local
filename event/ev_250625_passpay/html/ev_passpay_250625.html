@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>앱리뷰 이벤트</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, howToUser-scalable=no">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/ev_common.css">
+	<style>
+		.ev_250625 {
+			padding-bottom:3.33333em;
+			padding-bottom:calc(constant(safe-area-inset-bottom) + 3.33333em); padding-bottom:calc(env(safe-area-inset-bottom) + 3.33333em);
+			background-color:#fff; overflow:hidden; font-family:'pretendard';}
+		.ev_250625 img {vertical-align:top; border:0; max-width:100%;}
+		.ev_250625 div {position:relative;}
+		
+		.ev_250625 div.top div.app_icon {position:absolute; top:60.53763%; left:23.51851%; width:11.83333em; animation: ani_app_icon 1s infinite ease-in-out}
+		@keyframes ani_app_icon {
+			0% {transform:translateY(0) translateX(0);}
+			50% {transform:translateY(-0.2em) translateX(0.1em);}
+			100% {transform:translateY(0) translateX(0);}
+		}
+		.ev_250625 div.top div.deco {position:absolute; top:78.06451%; left:54.25926%; width:8.875em;}
+		.ev_250625 div.top span {position:absolute; top:2.22222em; right:2.22222em; width:8.88888em; height:2em; border:1px solid #000; border-radius:2em; font-size:0.75em; line-height:2em; font-weight:bold; text-align:center;}
+
+
+
+
+
+
+		/* 꼭 확인하세요. */
+		.ev_250625 .footer_alert {padding:2.08333em 1.66666em; background-color:#F2F2F2;}
+		.ev_250625 .footer_alert div.tit {}
+		.ev_250625 .footer_alert div.tit strong {font-size:1em;}
+		.ev_250625 .footer_alert .footer_group {margin-top:0.83333em;}
+		.ev_250625 .footer_alert .footer_group div.sub_tit {}
+		.ev_250625 .footer_alert .footer_group div.sub_tit strong {display:inline-block; font-size:0.833333em; line-height:1.2em; font-weight:bold;}
+		.ev_250625 .footer_alert .footer_group ul {margin-top:0.41666em;}
+		.ev_250625 .footer_alert .footer_group ul li {}
+		.ev_250625 .footer_alert .footer_group ul li p {position:relative; padding-left:0.95em; color:#000; font-size:0.83333em; line-height:1.4em; word-break: keep-all;}
+		.ev_250625 .footer_alert .footer_group ul li p::before {content:"-"; display:block; position:absolute; top:0; left:0; color:inherit; font-size:inherit; line-height:inherit; font-weight:inherit;}
+		/* // 꼭 확인하세요. */
+
+
+
+
+		/* 당첨 꿀팁 */
+		.step_tip {margin-top:1.25em; padding:1.66666em 1.25em; background-color:#fff; border-radius:0.83333em;}
+		.step_tip .tip_tit {display:flex; justify-content:center; align-items:flex-start;}
+		.step_tip .tip_tit strong {display:inline-block; font-size:1.25em; line-height:1.2em;}
+		.step_tip .tip_tit span {display:inline-block; width:1.33333em;}
+		.step_tip p.txt {margin-top:0.90909em; font-size:0.91666em; line-height:1.36363em; font-weight:400; text-align:center;}
+		.step_tip p.txt strong {font-weight:700;}
+		.step_tip ul {display:flex; flex-direction:column; gap:0.54166em; margin-top:1.25em;}
+		.step_tip ul li {position:relative; padding-left:1em; font-size:0.83333em; line-height:1.5em; word-break:keep-all;}
+		.step_tip ul li::before {content:"·"; position:absolute; top:0; left:0; width:0.5em; font-size:inherit; line-height:inherit; text-align:center;}
+		.step_tip ul li strong {color:#7E5AFA; font-weight:700;}
+		/* // 당첨 꿀팁 */
+
+		/* 공유하기 버튼 */
+		.btn_share {display:flex; align-items:center; justify-content:center; gap:0.41666em; width:10.83333em; height:2.5em; margin:1.25em auto 0; background-color:#F2F1F6; border-radius:1.25em;}
+		.btn_share span.ico {display:inline-block; width:1em; height:1em;}
+		.btn_share span.txt {display:inline-block; color:#000; font-size:1em; font-weight:700;}
+		/* // 공유하기 버튼 */
+		
+		/* 레이어 팝업 이미지*/
+		.layer .layer_content div.img {margin-bottom:1.25em; text-align:center;}
+		.layer .layer_content div.img img {display:inline-block; width:100px; vertical-align:top;}
+		.layer .layer_content div.name {color:#7E5BFA; font-size:1.25em; line-height:1.2em; font-weight:700;}
+		
+		/* iOS 위치 수정 */
+		@supports (-webkit-touch-callout: none) {
+			.ev_250625 .howToJoin button span {position:relative; top:0.05em;}
+			.btn_share span.txt {position:relative; top:0.05em;}
+		}
+	</style>
+</head>
+
+<body>
+
+<div class="evPageWrap">
+
+	<div class="evSection">
+
+		<div class="ev_250625">
+
+			<div class="top">
+				<div><img src="../images/ev_250625_img1.png" alt="신분증결제 등록하고 선물 받자!" /></div>
+				<div><img src="../images/ev_250625_img2.png" alt="PASS 신분증결제란, 신분증 인증과 결제를 한번에 진행하는 인증 및 결제 복합 서비스예요."></div>
+			</div>
+<style>
+.howToUse {display:flex; flex-direction:column; gap:1.25em 0; padding:2.29166em 1.25em 2.5em; background-color:#FFF7F8;}
+.howToUse .tit {}
+.howToUse ol {display:flex; flex-direction:column; gap:0.83333em 0;}
+.howToUse ol li {display:flex; position:relative; width:100%;}
+.howToUse ol li span.num {display:flex; justify-content:center; align-items:center; width:4.58333em; height:3.41666em; background-color:#FF3A4A; border-radius:0.83333em 0 0 0.83333em; color:#fff; font-size:1.08333em; font-weight:700;}
+.howToUse ol li div.txt {display:flex; align-items:center; flex:1; padding-left:0.41666em; border-radius:0 0.83333em 0.83333em 0; border:0.16666em solid #FF3A4A;}
+.howToUse ol li div.txt p {letter-spacing:-0.075em;}
+.howToUse ol li div.img {position:absolute; right:0.16666em; bottom:0.16666em; width:6.20833em;}
+.howToUse ol li div.img img {}
+.howToUse button {height:3.33333em; border-radius:1.66666em; background-color:#000;}
+.howToUse button span {color:#fff; font-size:1.16666em; font-weight:400;}
+</style>
+			<div class="howToUse">
+				<div class="tit"><img src="../images/ev_250625_tit1.png" alt="사용 방법"></div>
+				<ol>
+					<li>
+						<span class="num">STEP 1</span>
+						<div class="txt">
+							<p>PASS앱에서<br /><strong>주민등록증 또는 운전면허증 등록</strong>하기</p>
+						</div>
+					</li>
+					<li>
+						<span class="num">STEP 2</span>
+						<div class="txt"><p>신분증결제 가입 후, <strong>결제수단 등록</strong>하기</p></div>
+					</li>
+					<li>
+						<span class="num">STEP 3</span>
+						<div class="txt"><p><strong>인증&결제가 필요한 순간</strong><br />편리하게 이용하기</p></div>
+						<div class="img"><img src="../images/ev_250625_img3.png" alt="이미지"></div>
+					</li>
+				</ol>
+				<button type="button"><span class="txt">사용처 전체보기</span></button>
+			</div>
+			<!-- // howToUse -->
+
+<style>
+.openEvent {padding:2.5em 1.25em 1.66666em; background-color:#fff;}
+.openEvent ul {display:flex; flex-direction:column; gap:0.83333em 0;}
+.openEvent ul li {display:flex; position:relative; width:100%;}
+.openEvent ul li div.tit {display:flex; justify-content:center; align-items:center; gap:0.25em; width:7.91666em; height:2.91666em; background-color:#000; border-radius:0.83333em 0 0 0.83333em;}
+.openEvent ul li div.tit span.ico {display:inline-flex; width:0.95833em; height:0.95833em;}
+.openEvent ul li div.tit span.txt {color:#fff; font-weight:700;}
+.openEvent ul li div.txt {display:flex; align-items:center; flex:1; padding-left:1.04166em; border-radius:0 0.83333em 0.83333em 0; border:0.16666em solid #000;}
+.openEvent ul li div.txt p {color:#000; font-size:1em; font-weight:700;}
+</style>
+			<div class="openEvent">
+				<div class="img"><img src="../images/ev_250625_img4.png" alt="PASS 신분증결제 등록 이벤트"></div>
+				<ul>
+					<li>
+						<div class="tit">
+							<span class="ico"><img src="../images/ev_250625_ico1.png" alt=""></span>
+							<span class="txt">이벤트 기간</span>
+						</div>
+						<div class="txt">
+							<p>7월 8일 ~ 8월 31일</p>
+						</div>
+					</li>
+					<li>
+						<div class="tit">
+							<span class="ico"><img src="../images/ev_250625_ico2.png" alt=""></span>
+							<span class="txt">발표 일시</span>
+						</div>
+						<div class="txt">
+							<p>9월 중</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<!-- // openEvent -->
+
+
+
+<style>
+/* 이벤트 참여방법 */
+.ev_250625 .howToJoin {display:flex; flex-direction:column; gap:1.66666em 0; width:100%; padding:3em 1.66666em 2.5em; background-color:#F4F4F4;}
+
+.ev_250625 .howToJoin .step {text-align:center;}
+.ev_250625 .howToJoin .step div.stepNum {display:inline-block; width:2.5em; height:2.5em; border-radius:100%; background-color:#FF3A4A; line-height:2.5em;}
+.ev_250625 .howToJoin .step div.stepNum span {color:#fff; font-size:1em; line-height:1em; font-weight:700; font-family:'Pretendard';}
+.ev_250625 .howToJoin .step p.txt {font-size:1.25em; line-height:1.2em;}
+
+.ev_250625 .howToJoin .step div.box {position:relative; margin-top:0.41666em; border-radius:0.83333em; background-color:#fff;}
+.ev_250625 .howToJoin .step div.box::before,
+.ev_250625 .howToJoin .step div.box::after,
+.ev_250625 .howToJoin .step div.box dl::before,
+.ev_250625 .howToJoin .step div.box dl::after {content:""; display:block; position:absolute; width:0.41666em; height:0.41666em; border-radius:100%; background-color:#d6d6d6;}
+
+.ev_250625 .howToJoin .step div.box::before {top:0.625em; left:0.625em;}
+.ev_250625 .howToJoin .step div.box::after {top:0.625em; right:0.625em;}
+.ev_250625 .howToJoin .step div.box dl::before {bottom:0.625em; left:0.625em;}
+.ev_250625 .howToJoin .step div.box dl::after {right:0.625em; bottom:0.625em;}
+
+.ev_250625 .howToJoin .step div.box dl {display:flex; flex-direction:column; gap:0.41666em 0; width:100%; padding:1.25em;}
+.ev_250625 .howToJoin .step div.box dl dt {color:#000; font-size:1.25em; line-height:1.2em; font-weight:400;}
+.ev_250625 .howToJoin .step div.box dl dt strong {font-weight:700;}
+.ev_250625 .howToJoin .step div.box dl dd {color:#6F6F6F; font-size:1em; line-height:1.33333em;}
+.ev_250625 .howToJoin .step p.small {margin-top:0.41666em; text-align:right;}
+.ev_250625 .howToJoin .step p.small span.ico {vertical-align:middle;}
+.ev_250625 .howToJoin .step p.small span.ico img {width:1em;}
+.ev_250625 .howToJoin .step p.small span.txt {font-size:0.91666em; line-height:1.08333em;}
+
+.ev_250625 .howToJoin button {display:flex; justify-content:center; align-items:center; width:100%; height:3.58333em; border-radius:0.83333em; background-color:#FF3A4A; text-align:center;
+box-shadow:inset 0 -0.25em #C3323E;
+}
+.ev_250625 .howToJoin button span {display:inline-block;}
+.ev_250625 .howToJoin button span.txt {color:#fff; font-size:1.41666em; font-weight:bold;}
+.ev_250625 .howToJoin .count_wrap {font-size:1.25em; line-height:1.5em;; text-align:center;}
+.ev_250625 .howToJoin .count_wrap strong {color:#FF3A4A; font-size:1.33333em;}
+.ev_250625 .howToJoin .count_wrap span {font-weight:700;}
+/* // 이벤트 참여방법 */
+</style>
+
+			<div class="howToJoin">
+				<div class="tit"><img src="../images/ev_250625_tit2.png" alt="이벤트 참여 방법"></div>
+
+				<div class="step">
+					<div class="stepNum"><span>01</span></div>
+					<div class="box">
+						<dl>
+							<dt>
+								<strong>‘참여하기’</strong> 버튼을 먼저 눌러주세요!
+							</dt>
+							<dd>이벤트에 참여하려면<br />반드시 기간 내 ‘참여하기’ 버튼을 클릭해야 해요</dd>
+						</dl>
+					</div>
+					<div>
+						<p class="small">
+							<span class="ico"><img src="../images/ico_alert.png" alt="알림"></span>
+							<span class="txt">참여하기 버튼은 등록 전후 관계없이,<br />이벤트 기간 내 한 번만 누르면 참여 완료!</span>
+						</p>
+					</div>
+				</div>
+
+				<div class="step">
+					<div class="stepNum"><span>02</span></div>
+					<div class="box">
+						<dl>
+							<dt>
+								<strong>PASS 신분증결제</strong>에 가입해주세요.
+							</dt>
+							<dd>신분증결제 가입을 위해<br />모바일등록증 등록이 필요해요</dd>
+						</dl>
+					</div>
+				</div>
+
+				<div class="step">
+					<div class="stepNum"><span>03</span></div>
+					<div class="box">
+						<dl>
+							<dt>
+								<strong>신분증 결제수단을 등록</strong>하면<br />응모 완료! 
+							</dt>
+							<dd>당첨자 추첨 시점에도 신분증 결제수단이<br />등록되어 있는 고객만 추첨 대상이 돼요</dd>
+						</dl>
+					</div>
+				</div>
+
+				<button type="button">
+					<span class="txt">참여하기</span>
+				</button>
+
+				<div class="count_wrap">
+					지금까지 총<br />
+					<strong>%누적 응모자 수%</strong>명이<br />
+					<span>참여중이에요</span>
+				</div>
+			</div>
+			<!-- // howToJoin -->
+
+<style>
+/* 이벤트 혜택 */
+.ev_250625 .ev_benefit_wrap {padding:3em 1.66666em 2.5em; background-color:#fff;}
+.ev_250625 .ev_benefit_wrap div.tit {text-align:center;}
+.ev_250625 .ev_benefit_wrap div.tit img {display:inline-block; width:18.75em;}
+.ev_250625 .ev_benefit_wrap div.txt {display:flex; gap:0 0.41666em; align-items:center; margin-top:3em;}
+.ev_250625 .ev_benefit_wrap div.txt div {padding:0.25em 0.33333em 0.20833em; border-radius:0.41666em; background-color:#FF3A4A;}
+.ev_250625 .ev_benefit_wrap div.txt div span {background-color:#FF3A4A; color:#fff; font-size:1.16666em;}
+.ev_250625 .ev_benefit_wrap div.txt p strong {color:#000; font-size:1.25em; font-weight:700;}
+
+
+.ev_250625 .ev_benefit_wrap div.slide_wrap {position:relative; height:10em; margin:1.25em 0 2.5em;}
+.ev_250625 .ev_benefit_wrap div.slide_wrap ul {display:flex; gap:1.66666em; position:absolute; animation: identifier 10s 1s infinite linear; padding-right:1.66666em;}
+.ev_250625 .ev_benefit_wrap div.slide_wrap ul li {position:relative; min-width:14.16666em;}
+.ev_250625 .ev_benefit_wrap div.slide_wrap ul li span {display:flex; justify-content:center; align-items:center; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:60px; height:60px; border-radius:100%; color:#fff; font-weight:700; font-size:40px;}
+.ev_250625 .ev_benefit_wrap div.slide_wrap img {display:block; width:14.16666em;}
+
+.ev_250625 .ev_benefit_wrap div.box {position:relative; padding:1.25em; border-radius:0.83333em; background-color:#000;}
+.ev_250625 .ev_benefit_wrap div.box::before,
+.ev_250625 .ev_benefit_wrap div.box::after,
+.ev_250625 .ev_benefit_wrap div.box p::before,
+.ev_250625 .ev_benefit_wrap div.box p::after {content:""; display:block; position:absolute; width:0.41666em; height:0.41666em; border-radius:100%; background-color:#505050;}
+
+.ev_250625 .ev_benefit_wrap div.box::before {top:0.625em; left:0.625em;}
+.ev_250625 .ev_benefit_wrap div.box::after {top:0.625em; right:0.625em;}
+.ev_250625 .ev_benefit_wrap div.box p::before {bottom:0.625em; left:0.625em;}
+.ev_250625 .ev_benefit_wrap div.box p::after {right:0.625em; bottom:0.625em;}
+.ev_250625 .ev_benefit_wrap div.box p {color:#fff; font-size:1.25em; line-height:1.2em; letter-spacing:-0.05em; text-align:center;}
+.ev_250625 .ev_benefit_wrap div.box p span {font-weight:700;}
+.ev_250625 .ev_benefit_wrap div.box p strong {color:#FF3A4A; font-weight:700;}
+/* // 이벤트 혜택 */
+@keyframes identifier {
+	0% {transform:translateX(0);}
+	100% {transform:translateX(calc(-100% + 14.16666em + 14.16666em + 1.66666em + 1.66666em));}
+}
+</style>
+			<div class="ev_benefit_wrap">
+				<div class="tit"><img src="../images/../images/ev_250625_tit3.png" alt="이벤트 경품"></div>
+
+				<div class="txt">
+					<div>
+						<span>1,000명</span>
+					</div>
+					<p><strong>1만원 상당의 모바일 커피쿠폰</strong></p>
+				</div>
+
+				<div class="slide_wrap">
+					<ul>
+						<li><img src="../images/ev_250625_img_gift_01.png" alt="이미지"></li>
+						<li><img src="../images/ev_250625_img_gift_02.png" alt="이미지"></li>
+						<li><img src="../images/ev_250625_img_gift_03.png" alt="이미지"></li>
+						<li><img src="../images/ev_250625_img_gift_04.png" alt="이미지"></li>
+						<li><img src="../images/ev_250625_img_gift_05.png" alt="이미지"></li>
+						<li><img src="../images/ev_250625_img_gift_06.png" alt="이미지"></li>
+						<li><img src="../images/ev_250625_img_gift_01.png" alt="이미지"></li>
+						<li><img src="../images/ev_250625_img_gift_02.png" alt="이미지"></li>
+					</ul>
+				</div>
+
+				<div><img src="../images/ev_250625_img5.png" alt="이미지"></div>
+
+				<div class="box">
+					<p>
+						<span>인증부터 결제까지</span><br />
+						편리해지는 <strong>PASS 신분증결제</strong>,<br />
+						지금 바로 등록하고<br />
+						선물 챙기세요!
+					</p>
+				</div>
+
+				<button type="button" class="btn_share" title="이벤트 공유하기"><span class="ico"><img src="../images/share_24dp.png" alt="공유아이콘"></span><span class="txt">이벤트 공유하기</span></button>
+
+			</div>
+			<!-- // ev_benefit_wrap -->
+
+			<div class="footer_alert">
+				<div class="tit"><strong>꼭 확인해주세요.</strong></div>
+				<div class="footer_group">
+					<!-- <div class="sub_tit"><strong>[이벤트 응모]</strong></div> -->
+					<ul>
+						<li><p>본 이벤트는 만 14세 이상이며, 이벤트 이용 약관에 동의한 PASS 사용자만 참여하실 수 있습니다.</p></li>
+						<li><p>이벤트 참여를 위해서는 반드시 이벤트 페이지 내 ‘참여하기’ 버튼을 클릭해야 하며, 결제 전·후 관계없이 이벤트 기간 내 한 번만 누르면 참여 완료됩니다.</p></li>
+						<li><p>‘참여하기’ 버튼을 눌렀더라도, 이벤트 기간 내 PASS 신분증결제 결제수단 미등록 시 응모로 인정되지 않습니다.</p></li>
+						<li><p>당첨자 추첨 시점에도 신분증 결제수단이 등록된 고객을 대상으로 추첨이 진행됩니다.</p></li>
+						<li><p>당첨자 발표는 2025년 9월 중, 당첨자 안내 페이지를 통해 공지될 예정입니다.</p></li>
+						<li><p>당첨 경품은 PASS 기프트샵 내 쿠폰 형태로 제공되며, 양도 또는 현금 전환은 불가합니다.</p></li>
+						<li><p>이벤트 참여를 위해 수집된 개인정보는 경품 발송 이외의 용도로 사용되지 않으며, 이벤트 종료 후 관련 법령에 따라 안전하게 파기됩니다.</p></li>
+						<li><p>본 이벤트는 당사의 사정에 따라 내용 변경 또는 조기 종료될 수 있으며, 이 경우 이벤트 페이지를 통해 사전 또는 사후 고지됩니다.</p></li>
+					</ul>
+				</div>
+			</div>
+
+			
+			<!-- <div class="btm_btn">
+				<button type="button" class="btn_btn1"><span>리뷰 작성하러 가기</span></button>
+				<button type="button" class="btn_btn2"><span>PASS 바로가기</span></button>
+			</div> -->
+
+		</div><!-- // ev_240701 -->
+
+	</div><!-- // evSection -->
+
+</div><!-- // evPageWrap -->
+
+
+
+<div class="layer alert">
+	<div class="dim"></div>
+	<div class="layer_inner">
+		<div class="layer_content">
+			<div class="img"><img src="../images/img_complete.png" alt="응모 아이콘"></div>
+			<div class="name">%입력한 텍스트%</div>
+			<div class="tit">앱 스토어 닉네임을 확인해주세요<br />
+				이벤트 응모가 완료되면<br />
+				입력한 내용은 수정할 수 없습니다.<br /><br />
+				
+				이벤트에 응모하시겠습니까?</div>
+		</div>
+		<div class="btn_group">
+			<div><button type="button" class="prev"><span>취소</span></button></div><!-- prev, back, cancel -->
+			<div><button type="button" class="next"><span>확인</span></button></div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="layer alert">
+	<div class="dim"></div>
+	<div class="layer_inner">
+		<div class="layer_content">
+			<div class="img"><img src="../images/img_name.png" alt="닉네임 아이콘"></div>
+			<div class="tit">앱 스토어 닉네임을<br />
+				입력해주세요.</div>
+		</div>
+		<div class="btn_group">
+			<div><button type="button" class="next"><span>확인</span></button></div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="layer alert">
+	<div class="dim"></div>
+	<div class="layer_inner">
+		<div class="layer_content">
+			<div class="img"><img src="../images/img_done.png" alt="중복응모 아이콘"></div>
+			<div class="tit">이미 이벤트에<br />응모하셨습니다.</div>
+		</div>
+		<div class="btn_group">
+			<div><button type="button" class="next"><span>확인</span></button></div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="layer alert">
+	<div class="dim"></div>
+	<div class="layer_inner">
+		<div class="layer_content">
+			<div class="img"><img src="../images/img_complete.png" alt="응모완료 아이콘"></div>
+			<div class="tit">이벤트 응모가 완료되었습니다</div>
+		</div>
+		<div class="btn_group">
+			<div><button type="button" class="next"><span>확인</span></button></div>
+		</div>
+	</div>
+</div>
+
+
+
+<script>
+	/* 대충 버튼 눌리면 어멋? */
+	let btns = document.querySelectorAll(".evPageWrap button");
+	btns.forEach(function(item){
+		item.addEventListener("click", function(){
+			let btnTit = item.getAttribute('title')
+			if(btnTit) {
+				alert(btnTit);
+			} else {
+				let img = item.querySelector("img");
+				if(img) {
+					if(img.getAttribute("title")) {
+						alert(img.getAttribute("title"))
+					} else {
+						alert(img.getAttribute("alt"))
+					}
+				} else {
+					alert(item.innerText)
+				}
+			}
+		})
+	})
+	/* // 대충 버튼 눌리면 어멋? */
+
+	/* 마이크로 페이지용 */
+	// let footer_btn = document.querySelector(".ev_250625 div.btm_btn");
+	// if(!footer_btn) {
+	// 	document.querySelector(".ev_250625").style.paddingBottom = 0;
+	// }
+	/* // 마이크로 페이지용 */
+
+	let layers = document.querySelectorAll(".layer");
+	layers.forEach(function(item){
+		item.querySelectorAll("button").forEach(function(e){
+			e.addEventListener("click", function(){
+				item.closest(".layer").style.display = "none";
+			})
+		})
+	})
+</script>
+
+<style>
+.layer {display:none;}
+</style>
+</body>
+</html>
