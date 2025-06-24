@@ -117,6 +117,12 @@
 		.layer .layer_content div.img {margin-bottom:1.25em; text-align:center;}
 		.layer .layer_content div.img img {display:inline-block; width:100px; vertical-align:top;}
 		.layer .layer_content div.name {color:#7E5BFA; font-size:1.25em; line-height:1.2em; font-weight:700;}
+		
+		/* iOS 위치 수정 */
+		@supports (-webkit-touch-callout: none) {
+			.ev_250624 .howto button span {position:relative; top:0.05em;}
+			.btn_share span.txt {position:relative; top:0.05em;}
+		}
 	</style>
 </head>
 
