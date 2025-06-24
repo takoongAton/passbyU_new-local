@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>고객님의 의견을 들려주세요! - 앱리뷰 이벤트</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/ev_common.css">
+	<style>
+		.ev_250624 {
+			padding-bottom:3.33333em;
+			padding-bottom:calc(constant(safe-area-inset-bottom) + 3.33333em); padding-bottom:calc(env(safe-area-inset-bottom) + 3.33333em);
+			background-color:#fff; overflow:hidden; font-family:'pretendard';}
+		.ev_250624 img {vertical-align:top; border:0; max-width:100%;}
+		.ev_250624 div {position:relative;}
+		
+		.ev_250624 div.top div.app_icon {position:absolute; top:60.53763%; left:23.51851%; width:11.83333em; animation: ani_app_icon 1s infinite ease-in-out}
+		@keyframes ani_app_icon {
+			0% {transform:translateY(0) translateX(0);}
+			50% {transform:translateY(-0.2em) translateX(0.1em);}
+			100% {transform:translateY(0) translateX(0);}
+		}
+		.ev_250624 div.top div.deco {position:absolute; top:78.06451%; left:54.25926%; width:8.875em;}
+		.ev_250624 div.top span {position:absolute; top:2.22222em; right:2.22222em; width:8.88888em; height:2em; border:1px solid #000; border-radius:2em; font-size:0.75em; line-height:2em; font-weight:bold; text-align:center;}
+
+		/* 이벤트 참여방법 */
+		.ev_250624 .howto div.tit {text-align:center;}
+		.ev_250624 .howto div.tit img {display:inline-block; width:12.5em;}
+		
+		.ev_250624 .howto .step {text-align:center;}
+		.ev_250624 .howto .step div.stepNum {display:inline-block; width:2.5em; height:2.5em; border-radius:100%; background-color:#7E5AFA; line-height:2.5em;}
+		.ev_250624 .howto .step div.stepNum span {color:#fff; font-size:1em; line-height:1em; font-weight:700; font-family:'Pretendard';}
+		.ev_250624 .howto .step p.txt {font-size:1.25em; line-height:1.2em;}
+
+		.ev_250624 .howto .step1_box {padding:2.08333em 1.66666em; background:#F2F1F6;}
+		.ev_250624 .howto .step1_box div.stepNum {margin-top:2.08333em;}
+		.ev_250624 .howto .step1_box p.txt {padding:0.36666em 0 0.33333em;}
+
+		.ev_250624 .howto .step2_box {padding:2.08333em 1.54166em 2.33333em; background-color:#fff;}
+		.ev_250624 .howto .step2_box p.txt {padding-top:0.36666em}
+
+		.ev_250624 .howto .step3_box {padding:2.08333em 1.66666em; background-color:#E246FF; background:url('../images/250624_bg_03.png') no-repeat center / cover;}
+		.ev_250624 .howto .step3_box p.txt {margin-top:0.36666em; color:#fff; text-align:center;}
+
+		.ev_250624 .howto .step .step1_img {display:inline-block; width:15.83333em;}
+		.ev_250624 .howto .step .step2_img {display:block; position:relative; width:100%; margin-top:1.29166em;}
+		.ev_250624 .howto .step .step2_img span.arrow {position:absolute; top:-2.325em; right:0; width:4.9em;}
+
+		.ev_250624 .howto button {display:flex; justify-content:center; align-items:center; gap:0.33333em; width:16.66666em; height:3.33333em; border-radius:1.45833em; text-align:center;}
+		.ev_250624 .howto button span {display:inline-block;}
+		.ev_250624 .howto button span.txt {color:#fff; font-size:1.16666em; line-height:1em; font-weight:bold;}
+		.ev_250624 .howto div button {margin:0 auto;background-color:#7E5AFA;}
+
+		.ev_250624 .howto .ipt_wrap {}
+		.ev_250624 .howto .ipt_wrap input {width:100%; height:3.33333em; margin-top:1.25em; padding:0 1em; border:1px solid #d3d3d3; border-radius:0.83333em; color:#000; font-size:0.91666em; line-height:2.5em; font-weight:400; font-family:'pretendard';}
+		.ev_250624 .howto .ipt_wrap input::placeholder {color:#A5A5A5; height:inherit; font-size:inherit; line-height:inherit; font-weight:inherit; font-family:inherit;}
+		.ev_250624 .howto .ipt_wrap button {width:100%; height:3.33333em; margin-top:0.83333em; border-radius:0.83333em;}
+
+		.ev_250624 .howto .gif_sample {padding:1.25em 1.25em 0; background-color:#000;}
+		/* // 이벤트 참여방법 */
+
+		/* 이벤트 혜택 */
+		.ev_250624 .ev_benefit_wrap {padding:2.08333em 1.25em; background-color:#fff;}
+		.ev_250624 .ev_benefit_wrap div.tit {text-align:center;}
+		.ev_250624 .ev_benefit_wrap div.tit img {display:inline-block; width:12.5em;}
+		.ev_250624 .ev_benefit_wrap .count_wrap {}
+		.ev_250624 .ev_benefit_wrap .count_wrap .benefit_list_wrap {display:flex; flex-direction:column; gap:0.83333em; width:100%; margin-top:1.25em;}
+		.ev_250624 .ev_benefit_wrap .count_wrap .benefit_list_wrap .benefit_item {display:flex; align-items:center; position:relative; width:100%; height:6.66666em; padding:1em 0.91666em; gap:0.16666em; border-radius:0.833333em; border:0.16666em solid #eaeaea;}
+		.ev_250624 .ev_benefit_wrap .count_wrap .benefit_list_wrap .benefit_item .txt_wrap {display:flex; flex-direction:column; justify-content:space-evenly; gap:0.29166em; position:relative; height:100%; z-index:1;}
+		.ev_250624 .ev_benefit_wrap .count_wrap .benefit_list_wrap .benefit_item .txt_wrap p {font-size:1em; line-height:1.41666em; letter-spacing:-0.05em;}
+		.ev_250624 .ev_benefit_wrap .count_wrap .benefit_list_wrap .benefit_item .txt_wrap p span {font-weight:700;}
+		.ev_250624 .ev_benefit_wrap .count_wrap .benefit_list_wrap .benefit_item .txt_wrap > strong {color:#7E5BFA;}
+		
+		.ev_250624 .ev_benefit_wrap .count_wrap .benefit_list_wrap .benefit_item div.img {position:absolute; right:0.91666em; top:50%; width:5.625em; text-align:center; transform:translateY(-50%);}
+		.ev_250624 .ev_benefit_wrap .count_wrap .benefit_list_wrap .benefit_item div.img img {display:inline-block; width:5.66666em; height:auto; text-align:center;}
+
+		/* // 이벤트 혜택 */
+
+
+		/* 꼭 확인하세요. */
+		.ev_250624 .footer_alert {padding:2.08333em 1.66666em; background-color:#F2F2F2;}
+		.ev_250624 .footer_alert div.tit {}
+		.ev_250624 .footer_alert div.tit strong {font-size:1em;}
+		.ev_250624 .footer_alert .footer_group {margin-top:0.83333em;}
+		.ev_250624 .footer_alert .footer_group div.sub_tit {}
+		.ev_250624 .footer_alert .footer_group div.sub_tit strong {display:inline-block; font-size:0.833333em; line-height:1.2em; font-weight:bold;}
+		.ev_250624 .footer_alert .footer_group ul {margin-top:0.41666em;}
+		.ev_250624 .footer_alert .footer_group ul li {}
+		.ev_250624 .footer_alert .footer_group ul li p {position:relative; padding-left:0.95em; color:#000; font-size:0.83333em; line-height:1.4em; word-break: keep-all;}
+		.ev_250624 .footer_alert .footer_group ul li p::before {content:"-"; display:block; position:absolute; top:0; left:0; color:inherit; font-size:inherit; line-height:inherit; font-weight:inherit;}
+		/* // 꼭 확인하세요. */
+
+
+
+
+		/* 당첨 꿀팁 */
+		.step_tip {margin-top:1.25em; padding:1.66666em 1.25em; background-color:#fff; border-radius:0.83333em;}
+		.step_tip .tip_tit {display:flex; justify-content:center; align-items:flex-start;}
+		.step_tip .tip_tit strong {display:inline-block; font-size:1.25em; line-height:1.2em;}
+		.step_tip .tip_tit span {display:inline-block; width:1.33333em;}
+		.step_tip p.txt {margin-top:0.90909em; font-size:0.91666em; line-height:1.36363em; font-weight:400; text-align:center;}
+		.step_tip p.txt strong {font-weight:700;}
+		.step_tip ul {display:flex; flex-direction:column; gap:0.54166em; margin-top:1.25em;}
+		.step_tip ul li {position:relative; padding-left:1em; font-size:0.83333em; line-height:1.5em; word-break:keep-all;}
+		.step_tip ul li::before {content:"·"; position:absolute; top:0; left:0; width:0.5em; font-size:inherit; line-height:inherit; text-align:center;}
+		.step_tip ul li strong {color:#7E5AFA; font-weight:700;}
+		/* // 당첨 꿀팁 */
+
+		/* 공유하기 버튼 */
+		.btn_share {display:flex; align-items:center; justify-content:center; gap:0.41666em; width:10.83333em; height:2.5em; margin:1.25em auto 0; background-color:#F2F1F6; border-radius:1.25em;}
+		.btn_share span.ico {display:inline-block; width:24px; height:24px;}
+		.btn_share span.txt {display:inline-block; font-size:1em; line-height:1.20833em; font-weight:700;}
+		/* // 공유하기 버튼 */
+		
+		/* 레이어 팝업 이미지*/
+		.layer .layer_content div.img {margin-bottom:1.25em; text-align:center;}
+		.layer .layer_content div.img img {display:inline-block; width:100px; vertical-align:top;}
+		.layer .layer_content div.name {color:#7E5BFA; font-size:1.25em; line-height:1.2em; font-weight:700;}
+	</style>
+</head>
+
+<body>
+
+<div class="evPageWrap">
+
+	<div class="evSection">
+
+		<div class="ev_250624">
+
+			<div class="top">
+				<div><img src="../images/ev_250624_img1.png" alt="앱리뷰 이벤트" /></div>
+				<div><img src="../images/ev_250624_img2.png" alt="이벤트 기간"></div>
+				<!-- <div class="app_icon"><img src="../images/240701_pass_icon.png" alt=""></div>
+				<div class="deco"><img src="../images/240701_img_deco.png" alt=""></div>
+				<span class="txt">릴레이 프로모션 1</span> -->
+			</div>
+
+			<div class="howto">
+				<div class="step_wrap step1_box">
+					<div class="tit"><img src="../images/ev_250624_tit1.png" alt="참여방법"></div>
+
+					<div class="step">
+						<div class="stepNum"><span>01</span></div>
+						<p class="txt">
+							<span>스토어에</span><br />
+							<strong>PASS by U+ 앱 리뷰</strong><br />
+							<span>남기기</span>
+						</p>
+
+						<div class="step1_img"><img src="../images/250624_img_review.png" alt="스토어캡쳐샘플"></div>
+
+						<button type="button" title="리뷰 작성하기">
+							<!-- <span class="ico"><img src="../images/ico_star.png" alt="별 아이콘"></span> -->
+							<span class="txt">리뷰 작성하기</span>
+							<!-- <span class="ico"><img src="../images/ico_review.png" alt="리뷰 아이콘"></span> -->
+						</button>
+					</div>
+
+					<div class="step_tip">
+						<div class="tip_tit">
+							<strong>당첨 꿀팁</strong>
+							<span><img src="../images/250624_img_tip.png" alt="아이콘"></span>
+						</div>
+						<p class="txt">아래 서비스에 대한 <strong>구체적인 사용 경험</strong>을 남기면 당첨 확률이 더욱 높아져요!</p>
+						<ul>
+							<li><strong>PASS 결제 서비스 (신분증결제, 휴대폰결제)</strong>를 편리하게 사용해본 경험</li>
+							<li>일상 속에서 <strong>웹툰, 오피스도우미, 기프트샵</strong> 등 다양한 서비스를 이용하며 즐긴 경험</li>
+						</ul>
+					</div>
+				</div>
+				<!-- // step1_box -->
+
+				<div class="step_wrap step2_box">
+					<div class="step">
+						<div class="stepNum"><span>02</span></div>
+						
+						<p class="txt">
+							<span>내</span>
+							<strong>닉네임 확인</strong>
+							<span>하기</span>
+						</p>
+
+						<div class="step2_img">
+							<span class="arrow"><img src="../images/250624_img_arrow.png" alt="화살표"></span>
+							<img src="../images/250624_img_name.png" alt="PASS 좋아요 캡쳐">
+						</div>
+					</div>
+				</div>
+				<!-- // step2_box -->
+
+				<div class="step_wrap step3_box">
+					<div class="step">
+						<div class="stepNum"><span>03</span></div>
+					</div>
+					<p class="txt">이벤트 페이지에 <strong>닉네임 입력</strong>하고<br />
+						<strong>‘이벤트 응모하기’</strong> 버튼 누르기</p>
+
+					<div class="ipt_wrap">
+						<input type="text" placeholder="스토어 닉네임을 정확히 입력해주세요(필수)" />
+						<button type="button" title="이벤트 응모하기">
+							<!-- <span class="ico"><img src="../images/ico_pop.png" alt="폭죽 아이콘"></span> -->
+							<span class="txt">이벤트 응모하기</span>
+							<!-- <span class="ico"><img src="../images/ico_present.png" alt="행운상자 아이콘"></span> -->
+						</button>
+					</div>
+				</div>
+				<!-- // step3_box -->
+
+				
+
+				<!-- <div class="gif_sample"><img src="../images/appreviw_micro_sample.gif" alt=""></div> -->
+
+			</div>
+			<!-- // howto -->
+
+			<div class="ev_benefit_wrap">
+				<div class="tit"><img src="../images/../images/ev_250624_tit2.png" alt="이벤트 혜택"></div>
+
+				<div class="count_wrap">
+					<div class="benefit_list_wrap">
+						<div class="benefit_item">
+							<div class="txt_wrap">
+								<p>[BBQ] <strong>오리지널 반반</strong><br />
+									(황금올리브+크리스피)<strong>+콜라1.25L</strong></p>
+								<strong>50명</strong>
+							</div>
+							<div class="img"><img src="../images/ev_250624_img_gift_01.png" alt="BBQ 오리지널 반반 + 콜라1.25리터"></div>
+						</div>
+
+						<div class="benefit_item">
+							<div class="txt_wrap">
+								<p>[메가MGC커피] <strong>달콤 충전 세트</strong></p>
+								<strong>50명</strong>
+							</div>
+							<div class="img"><img src="../images/ev_250624_img_gift_02.png" alt="메가MGC커피 달콤 충전 세트"></div>
+						</div>
+
+						<div class="benefit_item">
+							<div class="txt_wrap">
+								<p>[메가MGC커피] <strong>더블 라떼 세트</strong><br />
+									((ICE)카페라떼 2잔)</p>
+								<strong>250명</strong>
+							</div>
+							<div class="img"><img src="../images/ev_250624_img_gift_03.png" alt="메가MGC커피 더블 라뗴 세트 (ICE 카페라뗴 2잔)"></div>
+						</div>
+					</div>
+					<!-- // benefit_list_wrap -->
+				</div>
+				<!-- // count_wrap -->
+
+				<button type="button" class="btn_share" title="이벤트 공유하기"><span class="ico"><img src="../images/share_24dp.png" alt="공유아이콘"></span><span class="txt">이벤트 공유하기</span></button>
+
+			</div>
+			<!-- // ev_benefit_wrap -->
+
+			<div class="footer_alert">
+				<div class="tit"><strong>꼭 확인해주세요.</strong></div>
+				<div class="footer_group">
+					<div class="sub_tit"><strong>[이벤트 응모]</strong></div>
+					<ul>
+						<li><p>본 이벤트는 만 14세 이상만 참여 가능합니다.</p></li>
+						<li><p>본 이벤트는 1인 1회 응모 가능하며, 중복 당첨되지 않습니다.</p></li>
+						<li><p>이벤트에 응모하셨더라도 앱 리뷰를 작성하지 않으신 경우 이벤트 참여가 인정되지 않습니다.</p></li>
+						<li><p>이벤트 참여 후 U+ 통신사를 해지하거나 휴대폰 명의 또는 번호를 변경하는 경우 이벤트 응모가 취소됩니다. </p></li>
+						<li><p>이벤트 참여를 위해 수집된 개인정보는 경품 발송 이외의 목적으로 활용되지 않으며, 이벤트 종료 후 일괄 파기됩니다.</p></li>
+					</ul>
+				</div>
+
+				<div class="footer_group">
+					<div class="sub_tit"><strong>[이벤트 당첨]</strong></div>
+					<ul>
+						<li><p>당첨자 발표는 8월에 PASS앱에서 진행합니다.</p></li>
+						<li><p>이벤트 당첨 여부는 ‘전체 > 진행중 이벤트 > 당첨자 발표’에서 확인 가능합니다.</p></li>
+						<li><p>이벤트 경품 및 내용은 변경될 수 있으며, 실제 경품은 상기 이미지와 상이할 수 있습니다.</p></li>
+						<li><p>모바일 기프티콘은 PASS 내 ‘기프트샵’ 쿠폰으로 발송됩니다.</p></li>
+						<li><p>정보 오기재로 인한 경품 반송 및 분실은 당사에서 책임지지 않으며, 재발송 되지 않습니다.</p></li>
+						<li><p>이벤트에 대한 더 자세한 사항은 고객센터(114)로 문의 바랍니다.</p></li>
+					</ul>	
+				</div>
+			</div>
+
+			
+			<!-- <div class="btm_btn">
+				<button type="button" class="btn_btn1"><span>리뷰 작성하러 가기</span></button>
+				<button type="button" class="btn_btn2"><span>PASS 바로가기</span></button>
+			</div> -->
+
+		</div><!-- // ev_240701 -->
+
+	</div><!-- // evSection -->
+
+</div><!-- // evPageWrap -->
+
+
+
+<div class="layer alert">
+	<div class="dim"></div>
+	<div class="layer_inner">
+		<div class="layer_content">
+			<div class="img"><img src="../images/img_complete.png" alt="응모 아이콘"></div>
+			<div class="name">%입력한 텍스트%</div>
+			<div class="tit">앱 스토어 닉네임을 확인해주세요<br />
+				이벤트 응모가 완료되면<br />
+				입력한 내용은 수정할 수 없습니다.<br /><br />
+				
+				이벤트에 응모하시겠습니까?</div>
+		</div>
+		<div class="btn_group">
+			<div><button type="button" class="prev"><span>취소</span></button></div><!-- prev, back, cancel -->
+			<div><button type="button" class="next"><span>확인</span></button></div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="layer alert">
+	<div class="dim"></div>
+	<div class="layer_inner">
+		<div class="layer_content">
+			<div class="img"><img src="../images/img_name.png" alt="닉네임 아이콘"></div>
+			<div class="tit">앱 스토어 닉네임을<br />
+				입력해주세요.</div>
+		</div>
+		<div class="btn_group">
+			<div><button type="button" class="next"><span>확인</span></button></div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="layer alert">
+	<div class="dim"></div>
+	<div class="layer_inner">
+		<div class="layer_content">
+			<div class="img"><img src="../images/img_done.png" alt="중복응모 아이콘"></div>
+			<div class="tit">이미 이벤트에<br />응모하셨습니다.</div>
+		</div>
+		<div class="btn_group">
+			<div><button type="button" class="next"><span>확인</span></button></div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="layer alert">
+	<div class="dim"></div>
+	<div class="layer_inner">
+		<div class="layer_content">
+			<div class="img"><img src="../images/img_complete.png" alt="응모완료 아이콘"></div>
+			<div class="tit">이벤트 응모가 완료되었습니다</div>
+		</div>
+		<div class="btn_group">
+			<div><button type="button" class="next"><span>확인</span></button></div>
+		</div>
+	</div>
+</div>
+
+
+
+<script>
+	/* 대충 버튼 눌리면 어멋? */
+	let btns = document.querySelectorAll(".evPageWrap button");
+	btns.forEach(function(item){
+		item.addEventListener("click", function(){
+			let btnTit = item.getAttribute('title')
+			if(btnTit) {
+				alert(btnTit);
+			} else {
+				let img = item.querySelector("img");
+				if(img) {
+					if(img.getAttribute("title")) {
+						alert(img.getAttribute("title"))
+					} else {
+						alert(img.getAttribute("alt"))
+					}
+				} else {
+					alert(item.innerText)
+				}
+			}
+		})
+	})
+	/* // 대충 버튼 눌리면 어멋? */
+
+	/* 마이크로 페이지용 */
+	// let footer_btn = document.querySelector(".ev_250624 div.btm_btn");
+	// if(!footer_btn) {
+	// 	document.querySelector(".ev_250624").style.paddingBottom = 0;
+	// }
+	/* // 마이크로 페이지용 */
+
+	let layers = document.querySelectorAll(".layer");
+	layers.forEach(function(item){
+		item.querySelectorAll("button").forEach(function(e){
+			e.addEventListener("click", function(){
+				item.closest(".layer").style.display = "none";
+			})
+		})
+	})
+</script>
+
+</body>
+</html>
