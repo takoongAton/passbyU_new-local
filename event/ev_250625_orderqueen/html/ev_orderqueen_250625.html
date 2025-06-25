@@ -29,16 +29,9 @@
 		.table {display:grid; grid-template-columns:14% 38% auto; border:1px solid #ddd; border-bottom:0; font-size:12px;}
 		.table .row {display:contents; /* 자식들이 grid 셀로 배치됨 */}
 		.table .row .cell {display:flex; align-items:center; justify-content:flex-start; padding:8px; border-bottom:1px solid #ddd; border-right:1px solid #ddd; background-color:#fff;}
-		.table .row.header .cell {background-color: #eaeaea; font-weight:bold;}
+		.table .row.header .cell {background-color: #eaeaea; font-weight:bold; justify-content:center;}
 		.table .row .cell.zone {justify-content:center;}
 		.cell:last-child {border-right:none;}
-
-
-		/* iOS 위치 수정 */
-		@supports (-webkit-touch-callout: none) {
-			.ev_250625 .howToJoin button span {position:relative; top:0.05em;}
-			.btn_share span.txt {position:relative; top:0.05em;}
-		}
 	</style>
 </head>
 
