@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<title>앱리뷰 이벤트</title>
+	<title>신분증 결제 등록 이벤트</title>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, howToUser-scalable=no">
@@ -14,18 +14,106 @@
 			background-color:#fff; overflow:hidden; font-family:'pretendard';}
 		.ev_250625 img {vertical-align:top; border:0; max-width:100%;}
 		.ev_250625 div {position:relative;}
-		
-		.ev_250625 div.top div.app_icon {position:absolute; top:60.53763%; left:23.51851%; width:11.83333em; animation: ani_app_icon 1s infinite ease-in-out}
-		@keyframes ani_app_icon {
-			0% {transform:translateY(0) translateX(0);}
-			50% {transform:translateY(-0.2em) translateX(0.1em);}
-			100% {transform:translateY(0) translateX(0);}
+
+		/* 사용방법 */
+		.howToUse {display:flex; flex-direction:column; gap:1.25em 0; padding:2.29166em 1.25em 2.5em; background-color:#FFF7F8;}
+		.howToUse .tit {}
+		.howToUse ol {display:flex; flex-direction:column; gap:0.83333em 0;}
+		.howToUse ol li {display:flex; position:relative; width:100%;}
+		.howToUse ol li span.num {display:flex; justify-content:center; align-items:center; width:4.58333em; height:3.41666em; background-color:#FF3A4A; border-radius:0.83333em 0 0 0.83333em; color:#fff; font-size:1.08333em; font-weight:700;}
+		.howToUse ol li div.txt {display:flex; align-items:center; flex:1; padding-left:0.41666em; border-radius:0 0.83333em 0.83333em 0; border:0.16666em solid #FF3A4A;}
+		.howToUse ol li div.txt p {letter-spacing:-0.075em;}
+		.howToUse ol li div.img {position:absolute; right:0.16666em; bottom:0.16666em; width:6.20833em;}
+		.howToUse ol li div.img img {}
+		.howToUse button {height:3.33333em; border-radius:1.66666em; background-color:#000;}
+		.howToUse button span {color:#fff; font-size:1.16666em; font-weight:400;}
+		/* // 사용방법 */
+
+		/* 등록 이벤트 */
+		.openEvent {padding:2.5em 1.25em 1.66666em; background-color:#fff;}
+		.openEvent ul {display:flex; flex-direction:column; gap:0.83333em 0;}
+		.openEvent ul li {display:flex; position:relative; width:100%;}
+		.openEvent ul li div.tit {display:flex; justify-content:center; align-items:center; gap:0.25em; width:7.91666em; height:2.91666em; background-color:#000; border-radius:0.83333em 0 0 0.83333em;}
+		.openEvent ul li div.tit span.ico {display:inline-flex; width:0.95833em; height:0.95833em;}
+		.openEvent ul li div.tit span.txt {color:#fff; font-weight:700;}
+		.openEvent ul li div.txt {display:flex; align-items:center; flex:1; padding-left:1.04166em; border-radius:0 0.83333em 0.83333em 0; border:0.16666em solid #000;}
+		.openEvent ul li div.txt p {color:#000; font-size:1em; font-weight:700;}
+		/* // 등록 이벤트 */
+
+		/* 이벤트 참여방법 */
+		.ev_250625 .howToJoin {display:flex; flex-direction:column; gap:1.66666em 0; width:100%; padding:3em 1.66666em 2.5em; background-color:#F4F4F4;}
+
+		.ev_250625 .howToJoin .step {text-align:center;}
+		.ev_250625 .howToJoin .step div.stepNum {display:inline-block; width:2.5em; height:2.5em; border-radius:100%; background-color:#FF3A4A; line-height:2.5em;}
+		.ev_250625 .howToJoin .step div.stepNum span {color:#fff; font-size:1em; line-height:1em; font-weight:700; font-family:'Pretendard';}
+		.ev_250625 .howToJoin .step p.txt {font-size:1.25em; line-height:1.2em;}
+
+		.ev_250625 .howToJoin .step div.box {position:relative; margin-top:0.41666em; border-radius:0.83333em; background-color:#fff;}
+		.ev_250625 .howToJoin .step div.box::before,
+		.ev_250625 .howToJoin .step div.box::after,
+		.ev_250625 .howToJoin .step div.box dl::before,
+		.ev_250625 .howToJoin .step div.box dl::after {content:""; display:block; position:absolute; width:0.41666em; height:0.41666em; border-radius:100%; background-color:#d6d6d6;}
+
+		.ev_250625 .howToJoin .step div.box::before {top:0.625em; left:0.625em;}
+		.ev_250625 .howToJoin .step div.box::after {top:0.625em; right:0.625em;}
+		.ev_250625 .howToJoin .step div.box dl::before {bottom:0.625em; left:0.625em;}
+		.ev_250625 .howToJoin .step div.box dl::after {right:0.625em; bottom:0.625em;}
+
+		.ev_250625 .howToJoin .step div.box dl {display:flex; flex-direction:column; gap:0.41666em 0; width:100%; padding:1.25em;}
+		.ev_250625 .howToJoin .step div.box dl dt {color:#000; font-size:1.25em; line-height:1.2em; font-weight:400;}
+		.ev_250625 .howToJoin .step div.box dl dt strong {font-weight:700;}
+		.ev_250625 .howToJoin .step div.box dl dd {color:#6F6F6F; font-size:1em; line-height:1.33333em;}
+		.ev_250625 .howToJoin .step p.small {margin-top:0.41666em; text-align:right;}
+		.ev_250625 .howToJoin .step p.small span.ico {vertical-align:middle;}
+		.ev_250625 .howToJoin .step p.small span.ico img {width:1em;}
+		.ev_250625 .howToJoin .step p.small span.txt {font-size:0.91666em; line-height:1.08333em;}
+
+		.ev_250625 .howToJoin button {display:flex; justify-content:center; align-items:center; width:100%; height:3.58333em; border-radius:0.83333em; background-color:#FF3A4A; text-align:center;
+		box-shadow:inset 0 -0.25em #C3323E;
 		}
-		.ev_250625 div.top div.deco {position:absolute; top:78.06451%; left:54.25926%; width:8.875em;}
-		.ev_250625 div.top span {position:absolute; top:2.22222em; right:2.22222em; width:8.88888em; height:2em; border:1px solid #000; border-radius:2em; font-size:0.75em; line-height:2em; font-weight:bold; text-align:center;}
+		.ev_250625 .howToJoin button span {display:inline-block;}
+		.ev_250625 .howToJoin button span.txt {color:#fff; font-size:1.41666em; font-weight:bold;}
+		.ev_250625 .howToJoin .count_wrap {font-size:1.25em; line-height:1.5em;; text-align:center;}
+		.ev_250625 .howToJoin .count_wrap strong {color:#FF3A4A; font-size:1.33333em;}
+		.ev_250625 .howToJoin .count_wrap span {font-weight:700;}
+		/* // 이벤트 참여방법 */
+
+		/* 이벤트 혜택 */
+		.ev_250625 .ev_benefit_wrap {padding:3em 1.66666em 2.5em; background-color:#fff;}
+		.ev_250625 .ev_benefit_wrap div.tit {text-align:center;}
+		.ev_250625 .ev_benefit_wrap div.tit img {display:inline-block; width:18.75em;}
+		.ev_250625 .ev_benefit_wrap div.txt {display:flex; gap:0 0.41666em; align-items:center; margin-top:3em;}
+		.ev_250625 .ev_benefit_wrap div.txt div {padding:0.25em 0.33333em 0.20833em; border-radius:0.41666em; background-color:#FF3A4A;}
+		.ev_250625 .ev_benefit_wrap div.txt div span {background-color:#FF3A4A; color:#fff; font-size:1.16666em; letter-spacing:-0.05em;}
+		.ev_250625 .ev_benefit_wrap div.txt p strong {color:#000; font-size:1.25em; font-weight:700;}
 
 
+		.ev_250625 .ev_benefit_wrap div.slide_wrap {position:relative; height:10em; margin:1.25em 0 2.5em;}
+		.ev_250625 .ev_benefit_wrap div.slide_wrap ul {display:flex; gap:1.66666em; position:absolute; animation: identifier 14s 1s infinite linear; padding-right:1.66666em;}
+		/* .ev_250625 .ev_benefit_wrap div.slide_wrap ul:hover {animation-play-state:paused;} */
+		
+		.ev_250625 .ev_benefit_wrap div.slide_wrap ul li {position:relative; min-width:14.16666em;}
+		.ev_250625 .ev_benefit_wrap div.slide_wrap ul li span {display:flex; justify-content:center; align-items:center; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:60px; height:60px; border-radius:100%; color:#fff; font-weight:700; font-size:40px;}
+		.ev_250625 .ev_benefit_wrap div.slide_wrap img {display:block; width:14.16666em;}
 
+		.ev_250625 .ev_benefit_wrap div.box {position:relative; padding:1.25em; border-radius:0.83333em; background-color:#000;}
+		.ev_250625 .ev_benefit_wrap div.box::before,
+		.ev_250625 .ev_benefit_wrap div.box::after,
+		.ev_250625 .ev_benefit_wrap div.box p::before,
+		.ev_250625 .ev_benefit_wrap div.box p::after {content:""; display:block; position:absolute; width:0.41666em; height:0.41666em; border-radius:100%; background-color:#505050;}
+
+		.ev_250625 .ev_benefit_wrap div.box::before {top:0.625em; left:0.625em;}
+		.ev_250625 .ev_benefit_wrap div.box::after {top:0.625em; right:0.625em;}
+		.ev_250625 .ev_benefit_wrap div.box p::before {bottom:0.625em; left:0.625em;}
+		.ev_250625 .ev_benefit_wrap div.box p::after {right:0.625em; bottom:0.625em;}
+		.ev_250625 .ev_benefit_wrap div.box p {color:#fff; font-size:1.25em; line-height:1.2em; letter-spacing:-0.05em; text-align:center;}
+		.ev_250625 .ev_benefit_wrap div.box p span {font-weight:700;}
+		.ev_250625 .ev_benefit_wrap div.box p strong {color:#FF3A4A; font-weight:700;}
+		@keyframes identifier {
+			0% {transform:translateX(0);}
+			100% {transform:translateX(calc(-100% + 14.16666em + 14.16666em + 1.66666em + 1.66666em));}
+		}
+		/* // 이벤트 혜택 */
 
 
 
@@ -42,21 +130,6 @@
 		.ev_250625 .footer_alert .footer_group ul li p::before {content:"-"; display:block; position:absolute; top:0; left:0; color:inherit; font-size:inherit; line-height:inherit; font-weight:inherit;}
 		/* // 꼭 확인하세요. */
 
-
-
-
-		/* 당첨 꿀팁 */
-		.step_tip {margin-top:1.25em; padding:1.66666em 1.25em; background-color:#fff; border-radius:0.83333em;}
-		.step_tip .tip_tit {display:flex; justify-content:center; align-items:flex-start;}
-		.step_tip .tip_tit strong {display:inline-block; font-size:1.25em; line-height:1.2em;}
-		.step_tip .tip_tit span {display:inline-block; width:1.33333em;}
-		.step_tip p.txt {margin-top:0.90909em; font-size:0.91666em; line-height:1.36363em; font-weight:400; text-align:center;}
-		.step_tip p.txt strong {font-weight:700;}
-		.step_tip ul {display:flex; flex-direction:column; gap:0.54166em; margin-top:1.25em;}
-		.step_tip ul li {position:relative; padding-left:1em; font-size:0.83333em; line-height:1.5em; word-break:keep-all;}
-		.step_tip ul li::before {content:"·"; position:absolute; top:0; left:0; width:0.5em; font-size:inherit; line-height:inherit; text-align:center;}
-		.step_tip ul li strong {color:#7E5AFA; font-weight:700;}
-		/* // 당첨 꿀팁 */
 
 		/* 공유하기 버튼 */
 		.btn_share {display:flex; align-items:center; justify-content:center; gap:0.41666em; width:10.83333em; height:2.5em; margin:1.25em auto 0; background-color:#F2F1F6; border-radius:1.25em;}
@@ -89,19 +162,7 @@
 				<div><img src="../images/ev_250625_img1.png" alt="신분증결제 등록하고 선물 받자!" /></div>
 				<div><img src="../images/ev_250625_img2.png" alt="PASS 신분증결제란, 신분증 인증과 결제를 한번에 진행하는 인증 및 결제 복합 서비스예요."></div>
 			</div>
-<style>
-.howToUse {display:flex; flex-direction:column; gap:1.25em 0; padding:2.29166em 1.25em 2.5em; background-color:#FFF7F8;}
-.howToUse .tit {}
-.howToUse ol {display:flex; flex-direction:column; gap:0.83333em 0;}
-.howToUse ol li {display:flex; position:relative; width:100%;}
-.howToUse ol li span.num {display:flex; justify-content:center; align-items:center; width:4.58333em; height:3.41666em; background-color:#FF3A4A; border-radius:0.83333em 0 0 0.83333em; color:#fff; font-size:1.08333em; font-weight:700;}
-.howToUse ol li div.txt {display:flex; align-items:center; flex:1; padding-left:0.41666em; border-radius:0 0.83333em 0.83333em 0; border:0.16666em solid #FF3A4A;}
-.howToUse ol li div.txt p {letter-spacing:-0.075em;}
-.howToUse ol li div.img {position:absolute; right:0.16666em; bottom:0.16666em; width:6.20833em;}
-.howToUse ol li div.img img {}
-.howToUse button {height:3.33333em; border-radius:1.66666em; background-color:#000;}
-.howToUse button span {color:#fff; font-size:1.16666em; font-weight:400;}
-</style>
+
 			<div class="howToUse">
 				<div class="tit"><img src="../images/ev_250625_tit1.png" alt="사용 방법"></div>
 				<ol>
@@ -125,16 +186,7 @@
 			</div>
 			<!-- // howToUse -->
 
-<style>
-.openEvent {padding:2.5em 1.25em 1.66666em; background-color:#fff;}
-.openEvent ul {display:flex; flex-direction:column; gap:0.83333em 0;}
-.openEvent ul li {display:flex; position:relative; width:100%;}
-.openEvent ul li div.tit {display:flex; justify-content:center; align-items:center; gap:0.25em; width:7.91666em; height:2.91666em; background-color:#000; border-radius:0.83333em 0 0 0.83333em;}
-.openEvent ul li div.tit span.ico {display:inline-flex; width:0.95833em; height:0.95833em;}
-.openEvent ul li div.tit span.txt {color:#fff; font-weight:700;}
-.openEvent ul li div.txt {display:flex; align-items:center; flex:1; padding-left:1.04166em; border-radius:0 0.83333em 0.83333em 0; border:0.16666em solid #000;}
-.openEvent ul li div.txt p {color:#000; font-size:1em; font-weight:700;}
-</style>
+
 			<div class="openEvent">
 				<div class="img"><img src="../images/ev_250625_img4.png" alt="PASS 신분증결제 등록 이벤트"></div>
 				<ul>
@@ -160,47 +212,6 @@
 			</div>
 			<!-- // openEvent -->
 
-
-
-<style>
-/* 이벤트 참여방법 */
-.ev_250625 .howToJoin {display:flex; flex-direction:column; gap:1.66666em 0; width:100%; padding:3em 1.66666em 2.5em; background-color:#F4F4F4;}
-
-.ev_250625 .howToJoin .step {text-align:center;}
-.ev_250625 .howToJoin .step div.stepNum {display:inline-block; width:2.5em; height:2.5em; border-radius:100%; background-color:#FF3A4A; line-height:2.5em;}
-.ev_250625 .howToJoin .step div.stepNum span {color:#fff; font-size:1em; line-height:1em; font-weight:700; font-family:'Pretendard';}
-.ev_250625 .howToJoin .step p.txt {font-size:1.25em; line-height:1.2em;}
-
-.ev_250625 .howToJoin .step div.box {position:relative; margin-top:0.41666em; border-radius:0.83333em; background-color:#fff;}
-.ev_250625 .howToJoin .step div.box::before,
-.ev_250625 .howToJoin .step div.box::after,
-.ev_250625 .howToJoin .step div.box dl::before,
-.ev_250625 .howToJoin .step div.box dl::after {content:""; display:block; position:absolute; width:0.41666em; height:0.41666em; border-radius:100%; background-color:#d6d6d6;}
-
-.ev_250625 .howToJoin .step div.box::before {top:0.625em; left:0.625em;}
-.ev_250625 .howToJoin .step div.box::after {top:0.625em; right:0.625em;}
-.ev_250625 .howToJoin .step div.box dl::before {bottom:0.625em; left:0.625em;}
-.ev_250625 .howToJoin .step div.box dl::after {right:0.625em; bottom:0.625em;}
-
-.ev_250625 .howToJoin .step div.box dl {display:flex; flex-direction:column; gap:0.41666em 0; width:100%; padding:1.25em;}
-.ev_250625 .howToJoin .step div.box dl dt {color:#000; font-size:1.25em; line-height:1.2em; font-weight:400;}
-.ev_250625 .howToJoin .step div.box dl dt strong {font-weight:700;}
-.ev_250625 .howToJoin .step div.box dl dd {color:#6F6F6F; font-size:1em; line-height:1.33333em;}
-.ev_250625 .howToJoin .step p.small {margin-top:0.41666em; text-align:right;}
-.ev_250625 .howToJoin .step p.small span.ico {vertical-align:middle;}
-.ev_250625 .howToJoin .step p.small span.ico img {width:1em;}
-.ev_250625 .howToJoin .step p.small span.txt {font-size:0.91666em; line-height:1.08333em;}
-
-.ev_250625 .howToJoin button {display:flex; justify-content:center; align-items:center; width:100%; height:3.58333em; border-radius:0.83333em; background-color:#FF3A4A; text-align:center;
-box-shadow:inset 0 -0.25em #C3323E;
-}
-.ev_250625 .howToJoin button span {display:inline-block;}
-.ev_250625 .howToJoin button span.txt {color:#fff; font-size:1.41666em; font-weight:bold;}
-.ev_250625 .howToJoin .count_wrap {font-size:1.25em; line-height:1.5em;; text-align:center;}
-.ev_250625 .howToJoin .count_wrap strong {color:#FF3A4A; font-size:1.33333em;}
-.ev_250625 .howToJoin .count_wrap span {font-weight:700;}
-/* // 이벤트 참여방법 */
-</style>
 
 			<div class="howToJoin">
 				<div class="tit"><img src="../images/ev_250625_tit2.png" alt="이벤트 참여 방법"></div>
@@ -259,42 +270,7 @@ box-shadow:inset 0 -0.25em #C3323E;
 			</div>
 			<!-- // howToJoin -->
 
-<style>
-/* 이벤트 혜택 */
-.ev_250625 .ev_benefit_wrap {padding:3em 1.66666em 2.5em; background-color:#fff;}
-.ev_250625 .ev_benefit_wrap div.tit {text-align:center;}
-.ev_250625 .ev_benefit_wrap div.tit img {display:inline-block; width:18.75em;}
-.ev_250625 .ev_benefit_wrap div.txt {display:flex; gap:0 0.41666em; align-items:center; margin-top:3em;}
-.ev_250625 .ev_benefit_wrap div.txt div {padding:0.25em 0.33333em 0.20833em; border-radius:0.41666em; background-color:#FF3A4A;}
-.ev_250625 .ev_benefit_wrap div.txt div span {background-color:#FF3A4A; color:#fff; font-size:1.16666em;}
-.ev_250625 .ev_benefit_wrap div.txt p strong {color:#000; font-size:1.25em; font-weight:700;}
 
-
-.ev_250625 .ev_benefit_wrap div.slide_wrap {position:relative; height:10em; margin:1.25em 0 2.5em;}
-.ev_250625 .ev_benefit_wrap div.slide_wrap ul {display:flex; gap:1.66666em; position:absolute; animation: identifier 10s 1s infinite linear; padding-right:1.66666em;}
-.ev_250625 .ev_benefit_wrap div.slide_wrap ul li {position:relative; min-width:14.16666em;}
-.ev_250625 .ev_benefit_wrap div.slide_wrap ul li span {display:flex; justify-content:center; align-items:center; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:60px; height:60px; border-radius:100%; color:#fff; font-weight:700; font-size:40px;}
-.ev_250625 .ev_benefit_wrap div.slide_wrap img {display:block; width:14.16666em;}
-
-.ev_250625 .ev_benefit_wrap div.box {position:relative; padding:1.25em; border-radius:0.83333em; background-color:#000;}
-.ev_250625 .ev_benefit_wrap div.box::before,
-.ev_250625 .ev_benefit_wrap div.box::after,
-.ev_250625 .ev_benefit_wrap div.box p::before,
-.ev_250625 .ev_benefit_wrap div.box p::after {content:""; display:block; position:absolute; width:0.41666em; height:0.41666em; border-radius:100%; background-color:#505050;}
-
-.ev_250625 .ev_benefit_wrap div.box::before {top:0.625em; left:0.625em;}
-.ev_250625 .ev_benefit_wrap div.box::after {top:0.625em; right:0.625em;}
-.ev_250625 .ev_benefit_wrap div.box p::before {bottom:0.625em; left:0.625em;}
-.ev_250625 .ev_benefit_wrap div.box p::after {right:0.625em; bottom:0.625em;}
-.ev_250625 .ev_benefit_wrap div.box p {color:#fff; font-size:1.25em; line-height:1.2em; letter-spacing:-0.05em; text-align:center;}
-.ev_250625 .ev_benefit_wrap div.box p span {font-weight:700;}
-.ev_250625 .ev_benefit_wrap div.box p strong {color:#FF3A4A; font-weight:700;}
-/* // 이벤트 혜택 */
-@keyframes identifier {
-	0% {transform:translateX(0);}
-	100% {transform:translateX(calc(-100% + 14.16666em + 14.16666em + 1.66666em + 1.66666em));}
-}
-</style>
 			<div class="ev_benefit_wrap">
 				<div class="tit"><img src="../images/../images/ev_250625_tit3.png" alt="이벤트 경품"></div>
 
@@ -369,30 +345,10 @@ box-shadow:inset 0 -0.25em #C3323E;
 	<div class="dim"></div>
 	<div class="layer_inner">
 		<div class="layer_content">
-			<div class="img"><img src="../images/img_complete.png" alt="응모 아이콘"></div>
-			<div class="name">%입력한 텍스트%</div>
-			<div class="tit">앱 스토어 닉네임을 확인해주세요<br />
-				이벤트 응모가 완료되면<br />
-				입력한 내용은 수정할 수 없습니다.<br /><br />
-				
-				이벤트에 응모하시겠습니까?</div>
-		</div>
-		<div class="btn_group">
-			<div><button type="button" class="prev"><span>취소</span></button></div><!-- prev, back, cancel -->
-			<div><button type="button" class="next"><span>확인</span></button></div>
-		</div>
-	</div>
-</div>
-
-
-
-<div class="layer alert">
-	<div class="dim"></div>
-	<div class="layer_inner">
-		<div class="layer_content">
-			<div class="img"><img src="../images/img_name.png" alt="닉네임 아이콘"></div>
-			<div class="tit">앱 스토어 닉네임을<br />
-				입력해주세요.</div>
+			<div class="img"><img src="../images/img_id.png" alt="응모 아이콘"></div>
+			<!-- <div class="name">%입력한 텍스트%</div> -->
+			<div class="tit">이벤트 응모가 완료되었습니다.<br />
+				신분증 결제수단을 등록해주세요</div>
 		</div>
 		<div class="btn_group">
 			<div><button type="button" class="next"><span>확인</span></button></div>
@@ -407,7 +363,8 @@ box-shadow:inset 0 -0.25em #C3323E;
 	<div class="layer_inner">
 		<div class="layer_content">
 			<div class="img"><img src="../images/img_done.png" alt="중복응모 아이콘"></div>
-			<div class="tit">이미 이벤트에<br />응모하셨습니다.</div>
+			<div class="tit">이미 이벤트에 응모하였습니다.<br />
+				신분증 결제수단을 등록해주세요.</div>
 		</div>
 		<div class="btn_group">
 			<div><button type="button" class="next"><span>확인</span></button></div>
@@ -415,20 +372,6 @@ box-shadow:inset 0 -0.25em #C3323E;
 	</div>
 </div>
 
-
-
-<div class="layer alert">
-	<div class="dim"></div>
-	<div class="layer_inner">
-		<div class="layer_content">
-			<div class="img"><img src="../images/img_complete.png" alt="응모완료 아이콘"></div>
-			<div class="tit">이벤트 응모가 완료되었습니다</div>
-		</div>
-		<div class="btn_group">
-			<div><button type="button" class="next"><span>확인</span></button></div>
-		</div>
-	</div>
-</div>
 
 
 
@@ -473,8 +416,5 @@ box-shadow:inset 0 -0.25em #C3323E;
 	})
 </script>
 
-<style>
-.layer {display:none;}
-</style>
 </body>
 </html>
