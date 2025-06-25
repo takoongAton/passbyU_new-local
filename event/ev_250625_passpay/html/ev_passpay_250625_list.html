@@ -28,8 +28,9 @@
 		.table_wrap {padding:18px;}
 		.table {display:grid; grid-template-columns:14% 38% auto; border:1px solid #ddd; border-bottom:0; font-size:12px;}
 		.table .row {display:contents; /* 자식들이 grid 셀로 배치됨 */}
-		.table .row .cell {display:flex; align-items:center; justify-content:center; padding:8px; border-bottom:1px solid #ddd; border-right:1px solid #ddd; background-color:#fff;}
+		.table .row .cell {display:flex; align-items:center; justify-content:flex-start; padding:8px; border-bottom:1px solid #ddd; border-right:1px solid #ddd; background-color:#fff;}
 		.table .row.header .cell {background-color: #eaeaea; font-weight:bold;}
+		.table .row .cell.zone {justify-content:center;}
 		.cell:last-child {border-right:none;}
 
 
@@ -70,7 +71,7 @@
 
 			<div class="row body">
 				<div class="row">
-					<div class="cell" style="grid-row:span 8;">서울</div>
+					<div class="cell zone" style="grid-row:span 8;">서울</div>
 					<div class="cell">3분마트(건대후문점)(담배자판기)</div>
 					<div class="cell">서울 광진구 능동로16길 35 </div>
 				</div>
@@ -107,7 +108,7 @@
 
 			<div class="row body">
 				<div class="row">
-					<div class="cell" style="grid-row: span 20;">경기</div>
+					<div class="cell zone" style="grid-row: span 20;">경기</div>
 					<div class="cell">(주)동원홈푸드(담배자판기)</div>
 					<div class="cell">경기 이천시 장호원읍 어석로48번길 199 1층</div>
 				</div>
@@ -192,7 +193,7 @@
 
 			<div class="row body">
 				<div class="row">
-					<div class="cell" style="grid-row: span 1;">인천</div>
+					<div class="cell zone" style="grid-row: span 1;">인천</div>
 					<div class="cell">아이지에이 송도아메리칸점</div>
 					<div class="cell">인천 연수구 송도과학로27번길 15 104동126호</div>
 				</div>
@@ -201,7 +202,7 @@
 
 			<div class="row body">
 				<div class="row">
-					<div class="cell" style="grid-row: span 3;">강원</div>
+					<div class="cell zone" style="grid-row: span 3;">강원</div>
 					<div class="cell">아이나마트</div>
 					<div class="cell">강원특별자치도 원주시 배울로 154 상가동 201호</div>
 				</div>
@@ -225,7 +226,7 @@
 
 			<div class="row body">
 				<div class="row">
-					<div class="cell" style="grid-row: span 9;">충청</div>
+					<div class="cell zone" style="grid-row: span 9;">충청</div>
 					<div class="cell">3분마트(공주점)</div>
 					<div class="cell">충남 공주시 정자방1길 30-3 비둘기아파트 B동 101호</div>
 				</div>
@@ -269,7 +270,7 @@
 
 			<div class="row body">
 				<div class="row">
-					<div class="cell" style="grid-row: span 21;">경상</div>
+					<div class="cell zone" style="grid-row: span 21;">경상</div>
 					<div class="cell">(주)휴먼 대륙주유소(담배자판기)</div>
 					<div class="cell">경북 경주시 안강읍 호국로 2399 </div>
 				</div>
@@ -383,8 +384,8 @@ let bodys = table_wrap.querySelectorAll(".row.body");
 function fnTabContent(index){
 	let tabIndex = index;
 	bodys.forEach(function(item){
-			item.style.display = "none";
-		})
+		item.style.display = "none";
+	})
 	if(tabIndex == 0) {
 		bodys.forEach(function(item){
 			item.style.display = "contents";
