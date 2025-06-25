@@ -21,7 +21,7 @@
 		/* .gnb_wrap ul.gnb li:nth-child(4) {display:none !important;} */
 		.gnb_wrap ul.gnb li button {}
 		.gnb_wrap ul.gnb li button::before {}
-		.gnb_wrap ul.gnb li button span {box-sizing:content-box; display:block; position:relative; padding:8px 0; line-height:20px; color:#999; font-weight:700; font-size:14px; word-break:keep-all;}
+		.gnb_wrap ul.gnb li button span.txt {box-sizing:content-box; display:block; position:relative; padding:10px 4px; line-height:20px; color:#999; font-weight:700; font-size:16px; word-break:keep-all;}
 		.gnb_wrap ul.gnb li button.active span {color:#000;}
 		.gnb_wrap ul.gnb li button.active span::before {content:""; display:block; position:absolute; bottom:0; left:0; width:100%; height:2px; background-color:#222; border-radius:100px;}
 
@@ -423,7 +423,7 @@ let navScrollFnNew = {
 			tempX += navScrollFnNew.navItemsArr[i];
 		}
 		// navListWrap.scrollLeft = tempX - navItemsArr[index] - navItemsArr[index -1]; // 왼쪽에서 두번째로 위치시키기
-		// navScrollFnNew.navListWrap.scrollLeft = tempX - (navScrollFnNew.navItemsArr[index]) - (navScrollFnNew.deviceWidth/2) + (navScrollFnNew.navItemsArr[index] /2); // 화면 중앙에 위치 시키기
+		navScrollFnNew.navListWrap.scrollLeft = tempX - (navScrollFnNew.navItemsArr[index]) - (navScrollFnNew.deviceWidth/2) + (navScrollFnNew.navItemsArr[index] /2); // 화면 중앙에 위치 시키기
 	},
 }
 navScrollFnNew.clickAction();
