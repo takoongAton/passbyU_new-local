@@ -9,6 +9,19 @@
 	<link rel="stylesheet" href="../css/reset.css">
 	<link rel="stylesheet" href="../css/ev_common.css">
 	<style>
+
+		@media (prefers-color-scheme: dark) {
+			body {
+				background-color: white !important;
+				color: black !important;
+			}
+
+			/* 이미지나 기타 요소가 반전되는 경우 방지 */
+			img, video {
+				filter: none !important;
+			}
+		}
+		
 		.ev_250625 {
 			padding-bottom:3.33333em;
 			padding-bottom:calc(constant(safe-area-inset-bottom) + 3.33333em); padding-bottom:calc(env(safe-area-inset-bottom) + 3.33333em);
