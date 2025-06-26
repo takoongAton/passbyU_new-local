@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>PASS 휴대폰결제 바코드</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, howToUser-scalable=no">
+	<meta name="color-scheme" content="light">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/ev_common.css">
+	<script>
+
+	</script>
+	<style>
+		body {background-color:#fff;}
+
+		@media (prefers-color-scheme: dark) {
+			body {
+				background-color: white !important;
+				color: black !important;
+			}
+
+			/* 이미지나 기타 요소가 반전되는 경우 방지 */
+			img, video {
+				filter: none !important;
+			}
+		}
+		
+		.ev_250626 {
+			padding-bottom:3.33333em;
+			padding-bottom:calc(constant(safe-area-inset-bottom) + 3.33333em); padding-bottom:calc(env(safe-area-inset-bottom) + 3.33333em);
+			background-color:#fff; overflow:hidden; font-family:'pretendard';}
+
+		.ev_250626 img {vertical-align:top; border:0; max-width:100%; filter:none !important;}
+		.ev_250626 div {position:relative;}
+
+		
+		/* 꼭 확인하세요. */
+		.ev_250626 .footer_alert {padding:2.08333em 1.66666em; background-color:#F2F2F2;}
+		.ev_250626 .footer_alert div.tit strong {font-size:1em;}
+		.ev_250626 .footer_alert .footer_group {margin-top:0.83333em;}
+		.ev_250626 .footer_alert .footer_group div.sub_tit strong {display:inline-block; font-size:0.833333em; line-height:1.2em; font-weight:bold;}
+		.ev_250626 .footer_alert .footer_group ul {margin-top:0.41666em;}
+		.ev_250626 .footer_alert .footer_group ul li p {position:relative; padding-left:0.95em; color:#000; font-size:0.83333em; line-height:1.4em; word-break: keep-all;}
+		.ev_250626 .footer_alert .footer_group ul li p::before {content:"-"; display:block; position:absolute; top:0; left:0; color:inherit; font-size:inherit; line-height:inherit; font-weight:inherit;}
+		/* // 꼭 확인하세요. */
+
+
+
+		.ev_250626 div.btm_btn {display:flex; align-items:center; position:fixed; bottom:0; right:0; left:0; z-index:1; width:100%; max-width:720px; margin:0 auto;}
+		.ev_250626 div.btm_btn button {box-sizing:content-box; height:3.33333em; padding-bottom:calc(constant(safe-area-inset-bottom)); padding-bottom:calc(env(safe-area-inset-bottom)); color:#fff; font-weight:bold;}
+		.ev_250626 div.btm_btn button.btn_btn1 {background-color:#000; }
+		/* .ev_250626 div.btm_btn button.btn_btn2 {background-color:#8F41F8; text-shadow:1px 2px 3px rgba(40,18,69,0.16);} */
+
+
+		/* 공유하기 버튼 */
+		.btn_share {display:flex; align-items:center; justify-content:center; gap:0.41666em; width:10.83333em; height:2.5em; margin:1.25em auto 0; background-color:#25A0FF; border-radius:1.25em;}
+		.btn_share span.ico {display:inline-block; width:1em; height:1em;}
+		.btn_share span.txt {display:inline-block; color:#000; font-size:1em; font-weight:700;}
+		/* // 공유하기 버튼 */
+		
+		/* 레이어 팝업 이미지*/
+		.layer .layer_content div.img {margin-bottom:1.25em; text-align:center;}
+		.layer .layer_content div.img img {display:inline-block; width:100px; vertical-align:top;}
+		.layer .layer_content div.name {color:#7E5BFA; font-size:1.25em; line-height:1.2em; font-weight:700;}
+		
+		/* iOS 위치 수정 */
+		@supports (-webkit-touch-callout: none) {
+			.btn_share span.txt {position:relative; top:0.05em;}
+		}
+	</style>
+</head>
+
+<body>
+<div class="evPageWrap">
+
+	<div class="evSection">
+<style>
+.ev_250626 {font-family:'pretendard';}
+.ev_250626 .deco {display:flex; position:absolute; bottom:0; left:0; width:100%; max-width:100%; z-index:1; transform:translateY(50%); background-color:transparent;}
+.ev_250626 .deco span {display:inline-block; width:1.875em; height:1.875em; min-width:1.875em; border-radius:100%; background-color:var(--main-bg); overflow:hidden;}
+
+.ev_250626 .top {height:35em; --main-bg:#000; background-color:var(--main-bg);}
+
+.barcode {background-color:#53555C;}
+
+
+.ev_benefit_wrap > div:first-of-type {padding:3em 1.25em 2.20833em; --main-bg:#F0F8FF; background-color:var(--main-bg);}
+</style>
+
+		<div class="ev_250626">
+			<div class="top">
+				<div><img src="../images/ev_250626_img1.png" alt="통합 서비스 오픈 기념 이벤트" /></div>
+				<div class="deco">
+					<span></span><span></span><span></span><span></span><span></span><span></span>
+					<span></span><span></span><span></span><span></span><span></span><span></span>
+					<!-- <img src="../images/ev_250626_bg_line_bk.png" alt="이미지"> -->
+				</div>
+			</div>
+			<!-- // top -->
+
+			<div class="barcode">
+				<div><img src="../images/ev_250626_img2.png" alt="PASS 휴대폰결제 바코드" /></div>
+			</div>
+			<!-- // barcode -->
+<style>
+.benefit {position:relative; padding:2.20833em 1.25em; --main-bg:#fff; background-color:var(--main-bg);}
+.benefit > .tit {padding-bottom:2.08333em;}
+.benefit .tit_wrap {display:flex; flex-direction:column; align-items:center; gap:1.25em; text-align:center;}
+.benefit .tit_wrap span.subtit {display:inline-block; width:4.16666em; height:1.66666em; border-radius:0.83333em; background-color:#000; color:#fff; font-size:0.91666em; line-height:1.81818em; font-weight:900;;}
+.benefit .tit_wrap p.txt {color:#000; font-size:1.33333em; line-height:1.3125em; font-weight:900;}
+.benefit .img_wrap {display:flex; flex-direction:column; align-items:center; gap:1.25em; margin-top:1.25em; text-align:center;}
+
+.benefit .img_wrap div.img {width:15.69208em;}
+.benefit .img_wrap div.img img {}
+.benefit .img_wrap p.txt {color:#000; font-size:0.83333em; line-height:1.2em;}
+
+</style>
+			<div class="ev_benefit_wrap">
+				<div class="benefit">
+					<div class="deco">
+						<span></span><span></span><span></span><span></span><span></span><span></span>
+						<span></span><span></span><span></span><span></span><span></span><span></span>
+					</div>
+					
+					<div class="tit"><img src="../images/ev_250626_img_title_benefit.png" alt="결제는 PASS 혜택은 덤!"></div>
+					<div class="tit_wrap">
+						<span class="subtit">혜택1</span>
+						<p class="txt">GS25에서 휴대폰결제 바코드로<br />
+							결제 시, 20% 할인!</p>
+					</div>
+					<!-- // tit_wrap -->
+
+<style>
+.benefit_box {position:relative; margin-top:1.25em; border-radius:0.83333em; border:1px solid #e2e2e2; background-color:#fff;}
+.benefit_box::before,
+.benefit_box::after,
+.benefit_box div.box::before,
+.benefit_box div.box::after {content:""; display:block; position:absolute; width:0.41666em; height:0.41666em; border-radius:100%; background-color:#d6d6d6;}
+.benefit_box::before {top:0.625em; left:0.625em;}
+.benefit_box::after {top:0.625em; right:0.625em;}
+.benefit_box div.box::before {bottom:0.625em; left:0.625em;}
+.benefit_box div.box::after {bottom:0.625em; right:0.625em;}
+
+.benefit_box.blue {border-color:#9FD2FF; background-color:#F1F8FF;}
+.benefit_box.blue::before,
+.benefit_box.blue::after,
+.benefit_box.blue div.box::before,
+.benefit_box.blue div.box::after {background-color:#9FD2FF;}
+
+.benefit_box div.box div.co {display:flex; flex-direction:column; align-items:center; gap:0.83333em; padding:1.66666em 0;}
+.benefit_box div.box div.co span.logo {width:4.08333em;}
+.benefit_box div.box div.co p.txt {color:#000; font-size:0.83333em; line-height:1.3em; letter-spacing:-0.05em; text-align:center;}
+.benefit_box div.box div.co p.txt strong {font-weight:700;}
+
+.benefit_box div.box div.info_wrap {display:flex; flex-direction:column; gap:0.95833em; width:100%; padding:1em 1.25em;}
+.benefit_box div.box div.info_wrap dl {display:flex; flex-direction:column; gap:0.66666em;}
+.benefit_box div.box div.info_wrap dl dt {}
+.benefit_box div.box div.info_wrap dl dt strong {position:relative; display:inline-block; padding-left:0.72727em; color:#000; font-size:0.91666em; font-weight:900;}
+.benefit_box div.box div.info_wrap dl dt strong::before {content:"·"; display:block; position:absolute; top:0; left:0; color:inherit; font-size:inherit; font-weight:900; text-align:center;}
+.benefit_box div.box div.info_wrap dl p.txt {color:#000; font-size:0.79166em; line-height:1.47368em;;}
+.benefit_box div.box div.info_wrap dl ol {display:flex; flex-direction:column; gap:0.70833em;}
+.benefit_box div.box div.info_wrap dl li {display:flex; gap:0.41666em;}
+.benefit_box div.box div.info_wrap dl li div.num {}
+.benefit_box div.box div.info_wrap dl li div.num span {display:block; width:2.4em; border-radius:0.6em; background-color:#9FD2FF; color:#000; font-size:0.83333em; line-height:1.4em; font-weight:900; text-align:center;}
+.benefit_box div.box div.info_wrap dl li div.txt_wrap {display:flex; flex-direction:column; flex:1; gap:0.41666em;}
+.benefit_box div.box div.info_wrap dl li div.txt_wrap strong {color:#000; font-size:0.83333em; line-height:1.4em;}
+
+.benefit_list {display:flex; justify-content:space-between; margin-top:1.25em;}
+.benefit_list li {width:6.33333em;}
+
+
+.benefit .btn1 {height:3.33333em; margin-top:1em; border-radius:0.83333em; background-color:#000;}
+.benefit .btn1 span {color:#fff; font-size:1.25em; font-weight:700;}
+
+.mart_list {display:flex; justify-content:space-between; margin-top:0.416666em;}
+.mart_list li {width:6.41666em;}
+</style>
+					<div class="benefit_box">
+						<div class="box">
+							<div class="co">
+								<span class="logo"><img src="../images/ev_250626_img_ci_gs25_big.png" alt="GS25"></span>
+								<p class="txt">GS25에서 PASS 휴대폰결제 바코드를 사용하시면,<br /><strong>최대 20%할인 혜택</strong>을 드려요!</p>
+							</div>
+						</div>
+					</div>
+					<!-- // benefit_box -->
+
+					<ul class="benefit_list">
+						<li><img src="../images/ev_250626_img_banefit_01.png" alt="POP 10% 팝 할인(행사상품 한정)"></li>
+						<li><img src="../images/ev_250626_img_banefit_02.png" alt="U+ 멤버십 할인(등급별 상이, 일1회)"></li>
+						<li><img src="../images/ev_250626_img_banefit_03.png" alt="0.1% GS All 포인트적립"></li>
+					</ul>
+					<!-- // benefit_list -->
+
+					<div class="benefit_box">
+						<div class="box">
+							<div class="info_wrap">
+								<dl>
+									<dt><strong>혜택대상</strong></dt>
+									<dd>
+										<p class="txt">LG U+ 통신사를 이용 중인 고객</p>
+									</dd>
+								</dl>
+								<dl>
+									<dt><strong>이용방법</strong></dt>
+									<dd>
+										<p class="txt">POP 회원가입을 진행해주세요.<br />
+											휴대폰결제 바코드 결제 이용 시, ‘멤버십 할인 함께 받기‘를 활성화 해주세요.</p>
+									</dd>
+								</dl>
+								<dl>
+									<dt><strong>이용한도</strong></dt>
+									<dd>
+										<p class="txt">휴대폰결제 한도 내 월 최대 100만원까지 결제 가능합니다.<br />
+											U+ 멤버십 할인은 1일 1회까지 사용 가능합니다.</p>
+									</dd>
+								</dl>
+							</div>
+							<!-- // info_wrap -->
+							 
+						</div>
+					</div>
+					<!-- // benefit_box -->
+
+					<button type="button" class="btn1"><span>이용방법 상세 보기</span></button>
+					 
+				</div>
+				<!-- // benefit -->
+
+				<div class="benefit">
+					<div class="tit_wrap">
+						<span class="subtit">혜택2</span>
+						<p class="txt">휴대폰결제 바코드 결제하고,<br />경품 응모하고!</p>
+					</div>
+					<!-- // tit_wrap -->
+					 <div class="img_wrap">
+						<div class="img"><img src="../images/ev_250626_img_barcodepay.png" alt="바코드 결제하는 상황 이미지"></div>
+						<p class="txt">PASS 휴대폰결제 바코드로 결제하시면,<br />추첨을 통해 경품을 드려요!</p>
+					 </div>
+
+					 <div class="benefit_box blue">
+						<div class="box">
+							<div class="info_wrap">
+								<dl>
+									<dt><strong>참여 대상</strong></dt>
+									<dd>
+										<p class="txt">PASS 사용자 누구나 참여 가능해요.<br />
+											만 14세 이상 미성년자 고객님도 환영이에요.</p>
+									</dd>
+								</dl>
+								<dl>
+									<dt><strong>응모 기간</strong></dt>
+									<dd>
+										<p class="txt">2025년 7월 14일 ~ 8월 31일</p>
+									</dd>
+								</dl>
+								<dl>
+									<dt><strong>응모 방법</strong></dt>
+									<dd>
+										<ol>
+											<li>
+												<div class="num"><span>01</span></div>
+												<div class="txt_wrap">
+													<strong>이벤트 응모하기</strong>
+													<p class="txt">아래 ‘이벤트 응모하기‘ 버튼을 눌러주세요.</p>
+												</div>
+											</li>
+											<li>
+												<div class="num"><span>02</span></div>
+												<div class="txt_wrap">
+													<strong>휴대폰결제 바코드 사용하기</strong>
+													<p class="txt">아래 바코드 사용처에서 1회 이상 결제하면<br />경품 응모 완료!</p>
+												</div>
+											</li>
+										</ol>
+									</dd>
+								</dl>
+							</div>
+							<!-- // info_wrap -->
+						</div>
+					</div>
+					<!-- // benefit_box -->
+
+					<ul class="mart_list">
+						<li><img src="../images/ev_250626_mart_gs25.png" alt="GS25"></li>
+						<li><img src="../images/ev_250626_mart_711.png" alt="세븐일레븐"></li>
+						<li><img src="../images/ev_250626_mart_emart.png" alt="이마트24"></li>
+					</ul>
+
+					<div class="deco">
+						<span></span><span></span><span></span><span></span><span></span><span></span>
+						<span></span><span></span><span></span><span></span><span></span><span></span>
+					</div>
+
+				</div>
+				<!-- // benefit -->
+			</div>
+			<!-- // ev_benefit_wrap -->
+
+<style>
+.ev_giveaway {position:relative; padding:3.16666em 1.875em 3.5em; --main-bg:#000; background-color:var(--main-bg); text-align:center;}
+.ev_giveaway .tit img {display:inline-block; width:17.25em;}
+.ev_giveaway .giveaway_list {margin-top:1.25em;}
+.ev_giveaway .giveaway_list ul {display:flex; flex-wrap:wrap; justify-content:space-between; gap:20px 0;}
+.ev_giveaway .giveaway_list ul li {width:8.95833em;}
+.ev_giveaway .giveaway_list ul li div.sum {width:100%; height:2.08333em;}
+.ev_giveaway .giveaway_list ul li div.sum span {display:inline-block; position:relative; width:3.5em; height:3.5em; border-radius:100%; background-color:#ff6600; color:#fff; font-size:0.83333em; line-height:3.5em; z-index:1;}
+
+.ev_giveaway .btn2 {height:3.33333em; margin-top:2.08333em; border-radius:0.83333em; background-color:#fff;}
+.ev_giveaway .btn2 span {color:#000000; font-size:1.25em; font-weight:700;}
+
+.ev_giveaway .count_wrap {margin-top:2.5em;}
+.ev_giveaway .count_wrap p {color:#fff; font-size:1.25em; line-height:1.5em; text-align:center;}
+.ev_giveaway .count_wrap strong {color:#4ECFFF; font-size:1.33333em;}
+.ev_giveaway .count_wrap span {font-weight:700;}
+</style>
+			<div class="ev_giveaway">
+				<div class="tit"><img src="../images/ev_250626_img_title_giveaway.png" alt="이벤트 경품"></div>
+				<div class="giveaway_list">
+					<ul>
+						<li>
+							<div class="sum"><span style="background-color:#00704A;">10명</span></div>
+							<div class="card"><img src="../images/ev_250626_card_starbucks.png" alt="스타벅스" /></div>
+						</li>
+						<li>
+							<div class="sum"><span style="background-color:#00704A;">300명</span></div>
+							<div class="card"><img src="../images/ev_250626_card_711.png" alt="세븐일레븐" /></div>
+						</li>
+						<li>
+							<div class="sum"><span style="background-color:#FFB718;">300명</span></div>
+							<div class="card"><img src="../images/ev_250626_card_emart.png" alt="이마트24" /></div>
+						</li>
+						<li>
+							<div class="sum"><span style="background-color:#007CFF;">300명</span></div>
+							<div class="card"><img src="../images/ev_250626_card_gs25.png" alt="GS25" /></div>
+						</li>
+					</ul>
+				</div>
+				<!-- // giveaway_list -->
+
+				 <button type="button" class="btn2"><span>이벤트 응모하기</span></button>
+
+				 <div class="count_wrap">
+					<p>
+						지금까지 총<br>
+						<strong>%누적 응모자 수%</strong>명이<br>
+						<span>참여중이에요</span>
+					</p>
+				</div>
+
+				<div class="deco">
+					<span></span><span></span><span></span><span></span><span></span><span></span>
+					<span></span><span></span><span></span><span></span><span></span><span></span>
+				</div>
+
+			</div>
+			<!-- // ev_giveaway -->
+<style>
+.barcode_service {display:flex; flex-direction:column; gap:1.66666em 0; width:100%; padding:3em 1.25em 2.08333em;}
+.barcode_service .box {}
+.barcode_service .box .tit {display:flex; flex-direction:column; align-items:center; gap:0.83333em 0;}
+.barcode_service .box .tit span.img {width:7.5em;}
+.barcode_service .box .tit p {color:#000; line-height:1.3125em; font-weight:300; text-align:center;}
+.barcode_service .box .tit p strong {font-weight:700;}
+.barcode_service .box ul.info_txt {display:flex; flex-direction:column; gap:0.66666em; margin-top:0.875em; padding:1.04166em 1.25em 1.25em; border-radius:0.83333em; background-color:#ddd;}
+.barcode_service .box ul.info_txt li p {position:relative; padding-left:0.54166em; color:#000; font-size:0.83333em; line-height:1.3em; word-break:keep-all;}
+.barcode_service .box ul.info_txt li p::before {content:"·"; display:block; position:absolute; top:0; left:0; font-size:inherit; line-height:inherit; font-weight:700; text-align:center;}
+.barcode_service .box ul.info_txt li p strong {font-weight:700;}
+.barcode_service .box strong.em {color:#278BFF;}
+.barcode_service .box.box1 ul.info_txt {background-color:#FFF3F8;}
+.barcode_service .box.box2 ul.info_txt {background-color:#F0F8FF;}
+.barcode_service .box.box3 ul.info_txt {background-color:#FFFDE3;}
+
+.barcode_service .box.box2 .alert_txt {display:flex; gap:0 0.41666em; margin-top:0.41666em;}
+.barcode_service .box.box2 .alert_txt span.ico {}
+.barcode_service .box.box2 .alert_txt span.ico img {width:1.125em;}
+.barcode_service .box.box2 .alert_txt strong {flex:1; letter-spacing:-0.075em;}
+
+.barcode_service .box .mart_list {margin-top:0.41666em;}
+</style>
+			<div class="barcode_service">
+				<div class="box box1">
+					<div class="tit">
+						<span class="img"><img src="../images/ev_250626_ico_barcode.png" alt="아이콘"></span>
+						<p><strong>PASS 휴대폰결제 바코드,</strong><br /> 뭐가 좋나요?</p>
+					</div>
+					<ul class="info_txt">
+						<li>
+							<p>카드가 없어도 <strong>휴대폰만으로 결제 가능!</strong></p>
+						</li>
+						<li>
+							<p>금액은 <strong>통신요금에 합산돼서 청구</strong>돼요.</p>
+						</li>
+						<li>
+							<p>편의점에서 지갑이 없어도, PASS 열면 결제 끝이에요!</p>
+						</li>
+					</ul>
+				</div>
+				<div class="box box2">
+					<div class="tit">
+						<span class="img"><img src="../images/ev_250626_ico_benefit.png" alt="아이콘"></span>
+						<p><strong>멤버십 혜택</strong>도<br />같이 받을 수 있나요?</p>
+					</div>
+					<ul class="info_txt">
+						<li>
+							<p><strong class="em">기존 U+ 멤버십 앱은 이제 안녕!</strong></p>
+						</li>
+						<li>
+							<p><strong>PASS 바코드 하나로 결제+멤버십 할인까지 자동 적용</strong>돼요.</p>
+						</li>
+						<li>
+							<p>편리함은 더하고, 앱은 하나로 줄여드릴게요!</p>
+						</li>
+					</ul>
+					<div class="alert_txt">
+						<span class="ico"><img src="../images/ev_260626_ico_alert.png" alt="주의"></span>
+						<strong class="em">U+멤버십 앱은 25년 하반기에 종료될 예정이에요</strong>
+					</div>
+				</div>
+				<div class="box box3">
+					<div class="tit">
+						<span class="img"><img src="../images/ev_250626_ico_how.png" alt="아이콘"></span>
+						<p><strong>어디서, 어떻게</strong> 쓸 수 있죠?</p>
+					</div>
+					<ul class="info_txt">
+						<li>
+							<p>오프라인에서 결제 시 휴대폰결제 바코드를 보여주면 돼요!</p>
+						</li>
+						<li>
+							<p><strong>멤버십 할인이 필요할 때는 바코드 우측 상단 ‘멤버십 할인 혜택 받기’를 켜주세요.</strong></p>
+						</li>
+						<li>
+							<p><strong>PASS 휴대폰결제 바코드는 GS25, 세븐일레븐, 이마트24</strong>에서 사용할 수 있어요.</p>
+						</li>
+					</ul>
+					<ul class="mart_list">
+						<li><img src="../images/ev_250626_mart_gs25.png" alt="GS25"></li>
+						<li><img src="../images/ev_250626_mart_711.png" alt="세븐일레븐"></li>
+						<li><img src="../images/ev_250626_mart_emart.png" alt="이마트24"></li>
+					</ul>
+				</div>
+			</div>
+			<!-- // barcode_service -->
+<style>
+.ev_share {display:flex; flex-direction:column; align-items:center; gap:1.25em; padding:3.33333em 0 2.08333em; background-color:#F1F8FF;}
+.ev_share .img_wrap {position:relative; width:100%; text-align:center;}
+.ev_share .img_wrap div img {width:5.75em; animation: swing ease-in-out 1s infinite alternate; transform-origin:center 110%;}
+.ev_share .img_wrap span.deco_img {position:absolute; bottom:0; right:0; left:0; width:18.25em; margin:0 auto; transform:translateY(81.11111%);}
+@keyframes swing {
+    0% {transform:rotate(10deg);}
+    100% {transform:rotate(-10deg);}
+}
+.ev_share .txt_wrap {margin-top:1.25em;}
+.ev_share .txt_wrap p {display:flex; flex-direction:column; align-items:center; gap:0.23076em 0;}
+.ev_share .txt_wrap p strong {color:#4ECFFF;}
+.ev_share .txt_wrap p span {color:#000; font-weight:400;}
+.ev_share .txt_wrap p span.small_txt {font-size:1em; line-height:1.20833em;}
+.ev_share .txt_wrap p span.big_txt {font-size:1.66666em; line-height:1.175em;}
+.ev_share .txt_wrap p span.big_txt strong {font-weight:900;}
+.ev_share .btn_share {}
+.ev_share .btn_share span.txt {color:#fff;}
+</style>
+			<div class="ev_share">
+				<div class="img_wrap">
+					<div><img src="../images/ev_250626_img_barcodepay2.png" alt="바코드를 보여주는 이미지"></div>
+					<span class="deco_img"><img src="../images/ev_250626_img_decor.png" alt="이미지"></span>
+				</div>
+
+				<div class="txt_wrap">
+					<p>
+						<span class="small_txt">혜택 받을 준비 되셨다면,</span>
+						<span class="big_txt"><strong>PASS 휴대폰결제 바코드</strong>를</span>
+						<span class="small_txt">이용해보세요!</span>
+					</p>
+				</div>
+				<button type="button" class="btn_share" title="이벤트 공유하기"><span class="ico"><img src="../images/share_24dp.png" alt="공유아이콘"></span><span class="txt">이벤트 공유하기</span></button>
+
+			</div>
+			<!-- // ev_share -->
+
+
+			<div class="footer_alert">
+				<div class="tit"><strong>꼭 확인해주세요.</strong></div>
+				<div class="footer_group">
+					<!-- <div class="sub_tit"><strong>[이벤트 응모]</strong></div> -->
+					<ul>
+						<li><p>본 이벤트는 만 14세 이상, 이벤트 이용 약관에 동의한 PASS 사용자만 참여할 수 있습니다. </p></li>
+						<li><p>본 이벤트는 1인 1회 응모 가능하며, 중복 당첨되지 않습니다.</p></li>
+						<li><p>이벤트에 응모하셨더라도 실제 PASS휴대폰결제 바코드를 사용한 이력이 없으시면 이벤트 참여가 인정되지 않습니다.</p></li>
+						<li><p>당첨자 발표 시점에 LG U+ 및 U+알뜰폰 통신사 이용 중인 고객님께 경품 지급이 가능하며, 통신사 변경, 휴대폰 명의 또는 번호 변경 등으로 인해 조건이 충족되지 않을 경우 경품 지급이 제한될 수 있습니다.</p></li>
+						<li><p>이벤트 참여를 위해 수집된 개인정보는 경품 발송 이외의 목적으로 활용되지 않으며, 이벤트 종료 후 일괄 파기됩니다.</p></li>
+						<li><p>당첨자 발표는 이벤트 종료 후 9월 중 당첨자 발표 페이지에서 진행합니다.</p></li>
+						<li><p>이벤트 경품은 양도 불가하며, PASS 기프트샵 내 쿠폰으로 발송됩니다.</p></li>
+						<li><p>이벤트에 대한 더 자세한 사항은 고객센터(114)로 문의바랍니다.</p></li>
+						<li><p>이벤트 운영 및 보상 내용은 당사 사정에 따라 변경될 수 있으며, 변경 시 사전 또는 사후 고지됩니다.</p></li>
+					</ul>
+				</div>
+			</div>
+
+
+			<div class="btm_btn">
+				<button type="button" class="btn_btn1"><span>휴대폰결제 바로가기</span></button>
+			</div>
+
+		</div>
+		<!-- // ev_250626 -->
+
+
+	</div><!-- // evSection -->
+
+</div><!-- // evPageWrap -->
+
+
+
+<div class="layer alert">
+	<div class="dim"></div>
+	<div class="layer_inner">
+		<div class="layer_content">
+			<div class="img"><img src="../images/img_complete.png" alt="응모 아이콘"></div>
+			<!-- <div class="name">%입력한 텍스트%</div> -->
+			<div class="tit">이벤트 응모가 완료되었습니다.<br />
+				휴대폰결제 바코드 결제를 이용해주세요.</div>
+		</div>
+		<div class="btn_group">
+			<div><button type="button" class="next"><span>확인</span></button></div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="layer alert">
+	<div class="dim"></div>
+	<div class="layer_inner">
+		<div class="layer_content">
+			<div class="img"><img src="../images/img_barcode.png" alt="중복응모 아이콘"></div>
+			<div class="tit">이미 이벤트에 응모하였습니다.<br />
+				휴대폰결제 바코드 결제를 이용해주세요.</div>
+		</div>
+		<div class="btn_group">
+			<div><button type="button" class="next"><span>확인</span></button></div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<script>
+	/* 대충 버튼 눌리면 어멋? */
+	let btns = document.querySelectorAll(".evPageWrap button");
+	btns.forEach(function(item){
+		item.addEventListener("click", function(){
+			let btnTit = item.getAttribute('title')
+			if(btnTit) {
+				alert(btnTit);
+			} else {
+				let img = item.querySelector("img");
+				if(img) {
+					if(img.getAttribute("title")) {
+						alert(img.getAttribute("title"))
+					} else {
+						alert(img.getAttribute("alt"))
+					}
+				} else {
+					alert(item.innerText)
+				}
+			}
+		})
+	})
+	/* // 대충 버튼 눌리면 어멋? */
+
+	/* 마이크로 페이지용 */
+	// let footer_btn = document.querySelector(".ev_250625 div.btm_btn");
+	// if(!footer_btn) {
+	// 	document.querySelector(".ev_250625").style.paddingBottom = 0;
+	// }
+	/* // 마이크로 페이지용 */
+
+	let layers = document.querySelectorAll(".layer");
+	layers.forEach(function(item){
+		item.querySelectorAll("button").forEach(function(e){
+			e.addEventListener("click", function(){
+				item.closest(".layer").style.display = "none";
+			})
+		})
+	})
+</script>
+
+
+<style>
+.layer {display:none;}
+</style>
+</body>
+</html>
