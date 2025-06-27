@@ -9,8 +9,10 @@
 	<link rel="stylesheet" href="../css/reset.css">
 	<link rel="stylesheet" href="../css/ev_common.css">
 	<style>
-		/* html, body {height: unset;} */
-		body {background-color:#fff; color:#000;}
+		body {
+			background-color:#fff; color:#000;
+			font-family:'pretendard', -apple-system,'BlinkMacSystemFont', 'Noto Sans KR','Noto Sans CJK','Apple SD Gothic Neo', serif;
+		}
 		@media (prefers-color-scheme: dark) {
 			body {
 				background-color: white !important;
@@ -26,7 +28,7 @@
 		.ev_250626 {
 			padding-bottom:3.33333em;
 			padding-bottom:calc(constant(safe-area-inset-bottom) + 3.33333em); padding-bottom:calc(env(safe-area-inset-bottom) + 3.33333em);
-			background-color:#fff; overflow:hidden; font-family:'pretendard';}
+			background-color:#fff; overflow:hidden; font-family:'pretendard', -apple-system,'BlinkMacSystemFont', 'Noto Sans KR','Noto Sans CJK','Apple SD Gothic Neo', serif;}
 
 		.ev_250626 img {vertical-align:top; border:0; max-width:100%; filter:none !important;}
 
@@ -143,7 +145,7 @@
 
 @keyframes sum_ani {
 	0% {transform:translateY(0); z-index:0;}
-	50% {transform:translateY(-1em); z-index:0;}
+	50% {transform:translateY(-1.2em); z-index:0;}
 	100% {transform:translateY(0); z-index:1;}
 }
 
@@ -214,7 +216,7 @@
 .ev_share .txt_wrap p strong {color:#4ECFFF;}
 .ev_share .txt_wrap p span {color:#000; font-weight:400;}
 .ev_share .txt_wrap p span.small_txt {font-size:1em; line-height:1.20833em;}
-.ev_share .txt_wrap p span.big_txt {font-size:1.66666em; line-height:1.175em; font-family:'pretendard';}
+.ev_share .txt_wrap p span.big_txt {font-size:1.66666em; line-height:1.175em;}
 .ev_share .txt_wrap p span.big_txt strong {color:#27A0FF; font-weight:900;}
 .ev_share .btn_share span.txt {color:#fff;}
 
