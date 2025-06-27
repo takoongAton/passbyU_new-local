@@ -32,7 +32,7 @@
 
 .agree_chk_wrap ul {display:flex; flex-direction:column; gap:12px 0; width:100%; padding:17px 18px; background-color:#F8F9FB;}
 .agree_chk_wrap ul li {display:flex; justify-content:space-between; align-items:flex-end;}
-.agree_chk_wrap ul li label {position:relative;}
+/*.agree_chk_wrap ul li label {position:relative;}*/
 .agree_chk_wrap ul li button {width:auto;}
 .agree_chk_wrap ul li label input + span.checkmark {background:url('../images/btn_check03_off.png') no-repeat left center / 24px 24px;}
 .agree_chk_wrap ul li label input:checked + span.checkmark {background-image:url('../images/btn_check03_on.png')}
@@ -67,7 +67,7 @@
 .agree_info_wrap div.item div.ipt_wrap button span {display:block; font-size:14px; line-height:1em;}
 
 .agree_info_wrap div.item div.ipt_wrap div.last_number {display:flex; align-items:center; gap:0 8px;}
-.agree_info_wrap div.item div.ipt_wrap div.last_number input {min-width:12px; max-width:24px; border-radius:2px; text-align:center; line-height:30px;}
+.agree_info_wrap div.item div.ipt_wrap div.last_number input {min-width:12px; max-width:24px; border-radius:2px; text-align:center; line-height:30px; padding:0px;}
 .agree_info_wrap div.item div.ipt_wrap div.last_number span.img {display:block; min-width:112px; line-height:1em;}
 .agree_info_wrap div.item div.ipt_wrap div.last_number span.img img {display:block; width:112px; height:12px;}
 /* // 정보 입력 */
@@ -86,12 +86,23 @@ div.layer.alert div.inner .btn_group button {height:60px;}
 div.layer.alert div.inner .btn_group button span {display:block; color:#000; font-size:18px;}
 
 
-div.layer.full {position:fixed; top:0; right:0; bottom:0; left:0; width:100%; max-width:720px; height:100%; margin:0 auto; background-color:#fff; z-index:1;}
-div.layer_full_header {position:-webkit-sticky; position:sticky; top:0; left:0; width:100%; border-bottom:8px solid #F8F9FB;}
+div.layer.full {position:fixed; top:0; right:0; bottom:0; left:0; width:100%; max-width:720px; height:100%; margin:0 auto; background-color:#fff; z-index:14;}
+div.layer_full_header {position:-webkit-sticky; position:sticky; top:0; left:0; width:100%; border-bottom:8px solid #F8F9FB; background-color:#ffffff;}
 div.layer_full_header div.temp {display:flex; justify-content:center; align-items:center; position:relative; width:100%; height:48px; text-align:center;}
 div.layer_full_header div.temp h1 {font-size:14px; line-height:18px;}
 div.layer_full_header div.temp button {position:absolute; top:0; width:auto; padding:12px 0;}
 div.layer_full_header div.temp button.btn_close {right:18px;}
 div.layer_full_header div.temp button span {display:block; width:24px; height:24px;}
 div.layer_full_body {padding:18px; color:#666666; font-size:14px; line-height:20px;}
+
+/* 외부 개발에서 추가 한것 */
+div.layer.terms {position:fixed; top:0; right:0; bottom:0; left:0; width:100%; max-width:550px; height:100%; margin:0 auto; background-color:#fff; z-index:16;}
+div.layer_terms_header {position:-webkit-sticky; position:sticky; top:0; left:0; width:100%; border-bottom:8px solid #F8F9FB;}
+div.layer_terms_header div.temp {display:flex; justify-content:center; align-items:center; position:relative; width:100%; height:48px; text-align:center;}
+div.layer_terms_header div.temp h1 {font-size:14px; line-height:18px;}
+div.layer_terms_header div.temp button {position:absolute; top:0; width:auto; padding:12px 0;}
+div.layer_terms_header div.temp button.btn_close {right:18px;}
+div.layer_terms_header div.temp button span {display:block; width:24px; height:24px;}
+div.layer_terms_pg_body {padding:18px; color:#666666; font-size:14px; line-height:20px; width:100%; height:500px;}
+div.layer_terms_lg_body {padding:18px; color:#666666; font-size:14px; line-height:20px; width:100%; white-space:pre-wrap; overflow-y:auto;}
 /* 팝업 */
