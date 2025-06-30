@@ -778,11 +778,6 @@
 					entry.target.closest("li").classList.add('active');
 					entry.target.classList.add('active');
 					let flip_box_inner = entry.target.querySelector(".flip-box-inner");
-					// flip_box_inner.addEventListener("animationend")
-					flip_box_inner.addEventListener("animationend", () => {
-						console.log("Animation ended");
-					});
-					console.log(flip_box_inner)
 				} else {
 					// entry.target.classList.remove('active'); // optional: 뷰포트 벗어나면 제거
 				}
