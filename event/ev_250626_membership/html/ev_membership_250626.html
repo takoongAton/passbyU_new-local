@@ -8,10 +8,11 @@
 	<meta name="color-scheme" content="light">
 	<link rel="stylesheet" href="../css/reset.css">
 	<link rel="stylesheet" href="../css/ev_common.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
 	<style>
 		body {
 			background-color:#fff; color:#000;
-			font-family:'pretendard', -apple-system,'BlinkMacSystemFont', 'Noto Sans KR','Noto Sans CJK','Apple SD Gothic Neo', serif;
+			font-family:'Pretendard', 'pretendard', -apple-system,'BlinkMacSystemFont', 'Noto Sans KR','Noto Sans CJK','Apple SD Gothic Neo', serif;
 		}
 		@media (prefers-color-scheme: dark) {
 			body {
@@ -28,7 +29,7 @@
 		.ev_250626 {
 			padding-bottom:3.33333em;
 			padding-bottom:calc(constant(safe-area-inset-bottom) + 3.33333em); padding-bottom:calc(env(safe-area-inset-bottom) + 3.33333em);
-			background-color:#fff; overflow:hidden; font-family:'pretendard', -apple-system,'BlinkMacSystemFont', 'Noto Sans KR','Noto Sans CJK','Apple SD Gothic Neo', serif;}
+			background-color:#fff; overflow:hidden; font-family:'Pretendard', 'pretendard', -apple-system,'BlinkMacSystemFont', 'Noto Sans KR','Noto Sans CJK','Apple SD Gothic Neo', serif;}
 
 		.ev_250626 img {vertical-align:top; border:0; max-width:100%; filter:none !important;}
 		
@@ -776,6 +777,12 @@
 				if (entry.isIntersecting) {
 					entry.target.closest("li").classList.add('active');
 					entry.target.classList.add('active');
+					let flip_box_inner = entry.target.querySelector(".flip-box-inner");
+					// flip_box_inner.addEventListener("animationend")
+					flip_box_inner.addEventListener("animationend", () => {
+						console.log("Animation ended");
+					});
+					console.log(flip_box_inner)
 				} else {
 					// entry.target.classList.remove('active'); // optional: 뷰포트 벗어나면 제거
 				}
