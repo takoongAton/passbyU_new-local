@@ -126,7 +126,7 @@
 		.ev_giveaway .giveaway_list ul li div.sum {position:relative; width:100%; height:2.08333em;}
 		.ev_giveaway .giveaway_list ul li div.sum span {display:inline-block; position:relative; width:3.5em; height:3.5em; border-radius:100%; background-color:#ff6600; color:#fff; font-size:0.83333em; line-height:3.5em; box-shadow:0 2px 4px rgba(0,0,0,0.16); text-shadow:0 0 2px rgba(0,0,0,0.16);}
 		.ev_giveaway .giveaway_list ul li div.sum span.active {animation: sum_ani ease-in-out 0.5s 1 forwards;}
-		.ev_giveaway .giveaway_list ul li.ani01 div.sum span {background-color:#00704A;}
+		.ev_giveaway .giveaway_list ul li.ani01 div.sum span,
 		.ev_giveaway .giveaway_list ul li.ani02 div.sum span {background-color:#00704A;}
 		.ev_giveaway .giveaway_list ul li.ani03 div.sum span {background-color:#FFB718;}
 		.ev_giveaway .giveaway_list ul li.ani04 div.sum span {background-color:#007CFF;}
@@ -147,12 +147,12 @@
 
 		.ev_giveaway .giveaway_list ul li div.card .flip-box .flip-box-inner .flip-box-back {transform:rotateX(180deg);}
 		.ev_giveaway .giveaway_list ul li div.card .flip-box .flip-box-inner img {display:block; border-radius:0.41666em; box-shadow:0 2px 8px rgba(0,0,0,0.16);}
-		.ev_giveaway .giveaway_list ul li.ani01 div.card .flip-box .flip-box-inner {animation-delay:0.2s;}
-		.ev_giveaway .giveaway_list ul li.ani02 div.card .flip-box .flip-box-inner {animation-delay:0.4s;}
+		.ev_giveaway .giveaway_list ul li.ani01 div.card .flip-box .flip-box-inner,
 		.ev_giveaway .giveaway_list ul li.ani03 div.card .flip-box .flip-box-inner {animation-delay:0.2s;}
+		.ev_giveaway .giveaway_list ul li.ani02 div.card .flip-box .flip-box-inner,
 		.ev_giveaway .giveaway_list ul li.ani04 div.card .flip-box .flip-box-inner {animation-delay:0.4s;}
 
-		.ev_giveaway .giveaway_list ul li.active .flip-box-inner {transform-origin:50% 50%; animation:flip_ani ease-in-out 1s 0.2s 1 alternate;}
+		.ev_giveaway .giveaway_list ul li .flip-box-inner.active {transform-origin:50% 50%; animation:flip_ani ease-in-out 1s 0.2s 1 alternate;}
 		@keyframes flip_ani {
 			0% {transform:rotateX(180deg);}
 			100% {transform:rotateX(-540deg);}
@@ -413,7 +413,7 @@
 				<div class="giveaway_list">
 					<ul>
 						<li class="ani01">
-							<div class="sum"><span>10명</span></div>
+							<div class="sum"><span class="recipient-count">10명</span></div>
 							<div class="card">
 
 								<div class="flip-box flip_item">
@@ -431,7 +431,7 @@
 							</div>
 						</li>
 						<li class="ani02">
-							<div class="sum"><span>300명</span></div>
+							<div class="sum"><span class="recipient-count">300명</span></div>
 							<div class="card">
 
 								<div class="flip-box flip_item">
@@ -449,7 +449,7 @@
 							</div>
 						</li>
 						<li class="ani03">
-							<div class="sum"><span>300명</span></div>
+							<div class="sum"><span class="recipient-count">300명</span></div>
 							<div class="card">
 
 								<div class="flip-box flip_item">
@@ -467,7 +467,7 @@
 							</div>
 						</li>
 						<li class="ani04">
-							<div class="sum"><span>300명</span></div>
+							<div class="sum"><span class="recipient-count">300명</span></div>
 							<div class="card">
 
 								<div class="flip-box flip_item">
@@ -768,21 +768,26 @@
 	})
 
 	/* 중요 */
-	const items = document.querySelectorAll('.flip_item');
-	const observer = new IntersectionObserver(
-	(entries) => {
+	// 상수 선언
+	const FLIP_BOX_SELECTOR = '.flip-box-inner';
+	const ACTIVE_CLASS = 'active';
+	const RECIPIENT_COUNT_SELECTOR = '.recipient-count'; // 기존 'span'을 명확하게 지정했다고 가정
+
+	// 대상 요소 선택
+	const flipBoxElements = document.querySelectorAll(FLIP_BOX_SELECTOR);
+
+	// IntersectionObserver 콜백
+	const intersectionObserver = new IntersectionObserver(
+		(entries) => {
 			entries.forEach(entry => {
+				const flipBoxElement = entry.target;
+				const recipientSpan = flipBoxElement.closest('li').querySelector(RECIPIENT_COUNT_SELECTOR);
+
 				if (entry.isIntersecting) {
-					entry.target.closest("li").classList.add('active');
-					entry.target.classList.add('active');
-					let flip_box_inner = entry.target.querySelector(".flip-box-inner");
-					flip_box_inner.classList.add("active");
-					flip_box_inner.addEventListener("animationend", () => {
-						entry.target.closest("li").querySelector("div.sum span").classList.add("active");
-					});
-					
+					flipBoxElement.classList.add(ACTIVE_CLASS);
+					handleAnimationEnd(flipBoxElement, recipientSpan);
 				} else {
-					entry.target.classList.remove('active'); // optional: 뷰포트 벗어나면 제거
+					flipBoxElement.classList.remove(ACTIVE_CLASS);
 				}
 			});
 		},
@@ -790,10 +795,21 @@
 			threshold: 0.1 // 요소가 10% 이상 보이면 트리거
 		}
 	);
-	items.forEach(item => {
-		observer.observe(item);
+
+	// 관찰 시작
+	flipBoxElements.forEach(element => {
+		intersectionObserver.observe(element);
 	});
-	/* // 중요 */
+
+	// 애니메이션 끝났을 때 처리
+	function handleAnimationEnd(animatedElement, elementToActivate) {
+		animatedElement.addEventListener('animationend', () => {
+			elementToActivate.classList.add(ACTIVE_CLASS);
+		}, 
+		{
+			once: true
+		}); // 한 번만 실행되도록
+	}
 </script>
 
 

@@ -8,11 +8,10 @@
 	<meta name="color-scheme" content="light">
 	<link rel="stylesheet" href="../css/reset.css">
 	<link rel="stylesheet" href="../css/ev_common.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
 	<style>
 		body {
 			background-color:#fff; color:#000;
-			font-family:'Pretendard', 'pretendard', -apple-system,'BlinkMacSystemFont', 'Noto Sans KR','Noto Sans CJK','Apple SD Gothic Neo', serif;
+			font-family:'Pretendard', -apple-system,'BlinkMacSystemFont', 'Noto Sans KR','Noto Sans CJK','Apple SD Gothic Neo', serif;
 		}
 		@media (prefers-color-scheme: dark) {
 			body {
@@ -29,7 +28,7 @@
 		.ev_250626 {
 			padding-bottom:3.33333em;
 			padding-bottom:calc(constant(safe-area-inset-bottom) + 3.33333em); padding-bottom:calc(env(safe-area-inset-bottom) + 3.33333em);
-			background-color:#fff; overflow:hidden; font-family:'Pretendard', 'pretendard', -apple-system,'BlinkMacSystemFont', 'Noto Sans KR','Noto Sans CJK','Apple SD Gothic Neo', serif;}
+			background-color:#fff; overflow:hidden; font-family:'Pretendard', -apple-system,'BlinkMacSystemFont', 'Noto Sans KR','Noto Sans CJK','Apple SD Gothic Neo', serif;}
 
 		.ev_250626 img {vertical-align:top; border:0; max-width:100%; filter:none !important;}
 		
@@ -126,12 +125,11 @@
 		.ev_giveaway .giveaway_list ul li {width:8.95833em;}
 		.ev_giveaway .giveaway_list ul li div.sum {position:relative; width:100%; height:2.08333em;}
 		.ev_giveaway .giveaway_list ul li div.sum span {display:inline-block; position:relative; width:3.5em; height:3.5em; border-radius:100%; background-color:#ff6600; color:#fff; font-size:0.83333em; line-height:3.5em; box-shadow:0 2px 4px rgba(0,0,0,0.16); text-shadow:0 0 2px rgba(0,0,0,0.16);}
-		.ev_giveaway .giveaway_list ul li.active div.sum span {animation: sum_ani ease-in-out 0.5s 1s 1 forwards;}
-
-		.ev_giveaway .giveaway_list ul li.ani01 div.sum span {background-color:#00704A; animation-delay:1s;}
-		.ev_giveaway .giveaway_list ul li.ani02 div.sum span {background-color:#00704A; animation-delay:1.2s;}
-		.ev_giveaway .giveaway_list ul li.ani03 div.sum span {background-color:#FFB718; animation-delay:1s;}
-		.ev_giveaway .giveaway_list ul li.ani04 div.sum span {background-color:#007CFF; animation-delay:1.2s;}
+		.ev_giveaway .giveaway_list ul li div.sum span.active {animation: sum_ani ease-in-out 0.5s 1 forwards;}
+		.ev_giveaway .giveaway_list ul li.ani01 div.sum span,
+		.ev_giveaway .giveaway_list ul li.ani02 div.sum span {background-color:#00704A;}
+		.ev_giveaway .giveaway_list ul li.ani03 div.sum span {background-color:#FFB718;}
+		.ev_giveaway .giveaway_list ul li.ani04 div.sum span {background-color:#007CFF;}
 
 		@keyframes sum_ani {
 			0% {transform:translateY(0); z-index:0;}
@@ -149,12 +147,12 @@
 
 		.ev_giveaway .giveaway_list ul li div.card .flip-box .flip-box-inner .flip-box-back {transform:rotateX(180deg);}
 		.ev_giveaway .giveaway_list ul li div.card .flip-box .flip-box-inner img {display:block; border-radius:0.41666em; box-shadow:0 2px 8px rgba(0,0,0,0.16);}
-		.ev_giveaway .giveaway_list ul li.ani01 div.card .flip-box .flip-box-inner {animation-delay:0.2s;}
-		.ev_giveaway .giveaway_list ul li.ani02 div.card .flip-box .flip-box-inner {animation-delay:0.4s;}
+		.ev_giveaway .giveaway_list ul li.ani01 div.card .flip-box .flip-box-inner,
 		.ev_giveaway .giveaway_list ul li.ani03 div.card .flip-box .flip-box-inner {animation-delay:0.2s;}
+		.ev_giveaway .giveaway_list ul li.ani02 div.card .flip-box .flip-box-inner,
 		.ev_giveaway .giveaway_list ul li.ani04 div.card .flip-box .flip-box-inner {animation-delay:0.4s;}
 
-		.ev_giveaway .giveaway_list ul li.active .flip-box-inner {transform-origin:50% 50%; animation:flip_ani ease-in-out 1s 0.2s 1 alternate;}
+		.ev_giveaway .giveaway_list ul li .flip-box-inner.active {transform-origin:50% 50%; animation:flip_ani ease-in-out 1s 0.2s 1 alternate;}
 		@keyframes flip_ani {
 			0% {transform:rotateX(180deg);}
 			100% {transform:rotateX(-540deg);}
@@ -602,7 +600,7 @@
 						<li><p>당첨자 발표 시점에 LG U+ 및 U+알뜰폰 통신사 이용 중인 고객님께 경품 지급이 가능하며, 통신사 변경, 휴대폰 명의 또는 번호 변경 등으로 인해 조건이 충족되지 않을 경우 경품 지급이 제한될 수 있습니다.</p></li>
 						<li><p>이벤트 참여를 위해 수집된 개인정보는 경품 발송 이외의 목적으로 활용되지 않으며, 이벤트 종료 후 일괄 파기됩니다.</p></li>
 						<li><p>당첨자 발표는 이벤트 종료 후 9월 중 당첨자 발표 페이지에서 진행합니다.</p></li>
-						 <li><p>당첨 경품은 PASS 기프트샵 쿠폰 형태 또는 SMS 쿠폰 형태로 제공되며, 현금 전환은 불가합니다.</p></li>
+						<li><p>이벤트 경품은 양도 불가하며, PASS 기프트샵 내 쿠폰으로 발송됩니다.</p></li>
 						<li><p>이벤트에 대한 더 자세한 사항은 고객센터(114)로 문의바랍니다.</p></li>
 						<li><p>이벤트 운영 및 보상 내용은 당사 사정에 따라 변경될 수 있으며, 변경 시 사전 또는 사후 고지됩니다.</p></li>
 					</ul>
@@ -770,16 +768,18 @@
 	})
 
 	/* 중요 */
-	const items = document.querySelectorAll('.flip_item');
+	const observerItems = document.querySelectorAll('.flip-box-inner');
 	const observer = new IntersectionObserver(
 	(entries) => {
 			entries.forEach(entry => {
+				const entryItem = entry.target;
+				const sumSpan = entryItem.closest("li").querySelector("span");
 				if (entry.isIntersecting) {
-					entry.target.closest("li").classList.add('active');
-					entry.target.classList.add('active');
-					let flip_box_inner = entry.target.querySelector(".flip-box-inner");
+					entryItem.classList.add('active');
+					fnEndAni(entryItem, sumSpan);
 				} else {
-					// entry.target.classList.remove('active'); // optional: 뷰포트 벗어나면 제거
+					// optional: 뷰포트 벗어나면 제거
+					entryItem.classList.remove('active');
 				}
 			});
 		},
@@ -787,13 +787,21 @@
 			threshold: 0.1 // 요소가 10% 이상 보이면 트리거
 		}
 	);
-	items.forEach(item => {
+	observerItems.forEach(item => {
 		observer.observe(item);
 	});
 	/* // 중요 */
 
+	function fnEndAni(stopItem, targetItem){
+		stopItem.addEventListener("animationend", () => {
+			targetItem.classList.add("active");
+		})
+	}
 </script>
 
 
+<style>
+.layer {display:none;}
+</style>
 </body>
 </html>
