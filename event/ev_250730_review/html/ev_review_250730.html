@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>앱리뷰 이벤트</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/ev_common.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+	
+	<style>
+		body {
+			background-color:#fff; color:#000;
+			font-family:'Pretendard','pretendard'-apple-system,'BlinkMacSystemFont', 'Noto Sans KR','Noto Sans CJK','Apple SD Gothic Neo', serif;
+		}
+		/* 다크모드 대응 샘플 */
+		@media (prefers-color-scheme: dark) {
+			body {background-color: white !important; color: black !important;}
+			/* 이미지나 기타 요소가 반전되는 경우 방지 */
+			img, video {filter: none !important;}
+		}
+		/* // 다크모드 대응 샘플 */
+
+		.ev_240730 {background-color:#fff; overflow:hidden; font-family:'Pretendard','pretendard', serif;}
+		.ev_240730 img {vertical-align:top; border:0; max-width:100%;}
+		.ev_240730 div {position:relative;}
+		.ev_240730 div.top {padding:0 0 2.08333em; background-color:#000; color:#fff;}
+
+		/* 당첨 결과 문구 */
+		.result_txt_list {display:flex; flex-direction:column; justify-content:center; align-items:center; min-height:5em; margin-top:1.25em; padding:0 1em; text-align:center;}
+		.result_txt_list .result_txt_item p {font-size:1.08333em; line-height:1.34615em;}
+		.result_txt_list .result_txt_item p em,
+		.result_txt_list .result_txt_item p strong,
+		.result_txt_list .result_txt_item p span {display:block; font-size:inherit;}
+		.result_txt_list .result_txt_item p em {color:#FF3A4A; font-weight:700;}
+		.result_txt_list .result_txt_item p strong {font-weight:700;}
+		/* // 당첨 결과 문구 */
+
+		/* 당첨 결과 이미지 */
+		.result_product {margin-top:1.625em; padding:0 1.66666em;}
+		.result_product .product_item {position:relative;}
+		.result_product .product_item .count {position:absolute; right:1.66666em; bottom:0.83333em; width:5em; height:5em; line-height:5em; text-align:center;}
+		.result_product .product_item .count::before {content:""; display:block; position:absolute; top:0; left:0; width:100%; height:100%; background:url('../images/count_bg.png') no-repeat left top / contain; animation: countBgAni 30s ease infinite;}
+		.result_product .product_item .count .total_count {position:relative; z-index:1; color:#fff; font-size:1.5em; font-weight:700;}
+		@keyframes countBgAni {0% {transform:rotate(0deg);} 100% {transform:rotate(360deg);}}
+		/* // 당첨 결과 이미지 */
+
+		/* 기프트샵 확인 방법 */
+		.gitfshop_wrap {margin-top:1.375em; padding:0 1.66666em;}
+		.gitfshop_wrap .gitfshop_box {padding:1.66666em 0; border-radius:0.83333em; background-color: #fff; text-align:center;}
+		.gitfshop_wrap .gitfshop_box span.img {display:inline-block; width:2.94791em; height:2.94791em;}
+		.gitfshop_wrap .gitfshop_box p.tit {padding:0.95833em 0 0.54166em;}
+		.gitfshop_wrap .gitfshop_box p.tit strong {color:#000; font-size:1.16666em; line-height:1.21428em;}
+		.gitfshop_wrap .gitfshop_box p.tit strong em {color:#FF3A4A;}
+		.gitfshop_wrap .gitfshop_box ul {display:flex; flex-direction:column; gap:0.20833em; text-align:left; padding:0 1.25em}
+		.gitfshop_wrap .gitfshop_box ul li {position:relative;}
+		.gitfshop_wrap .gitfshop_box ul li p {padding-left:1.11111em; color:#000; font-size:0.75em;}
+		.gitfshop_wrap .gitfshop_box ul li p::before {content:"·"; display:block; position:absolute; top:0; left:0; color:inherit; font-size:inherit; line-height:inherit; font-weight:bold; text-align:center;}
+		/* // 기프트샵 확인 방법 */
+
+		/* 기프트샵 바로가기 */
+		.gitfshop_wrap .btn_giftshop {display:flex; align-items:center; justify-content:center; gap:0.41666em; height:3.33333em; margin:1.25em auto 0; background-color:#FF3A4A; border-radius:0.83333em;}
+		.gitfshop_wrap .btn_giftshop strong.txt {display:inline-block; color:#fff; font-size:1em; font-weight:700;}
+		.gitfshop_wrap .btn_giftshop span.ico {display:inline-block; width:1.33333em; height:1.33333em; }
+		/* // 기프트샵 바로가기 */
+
+		/* 진행중 이벤트 */
+		.event_list {
+			padding:2.08333em 1.25em 0;
+			padding-bottom:calc(constant(safe-area-inset-bottom) + 2.08333em); padding-bottom:calc(env(safe-area-inset-bottom) + 2.08333em);
+			background-color:#fff; color:#000; text-align:center;}
+		.event_list div.tag {display:inline-block; padding:0.29166em 1em; border:1px solid #888; border-radius:100px; }
+		.event_list div.tag strong {display:inline-block; color:#888; font-size:0.75em; line-height:1.5em;}
+		.event_list div.tit {padding:0.58333em 0 1.375em;}
+		.event_list div.tit p {color:#000; font-size:1.66666em; line-height:1.25em;}
+		.event_list div.tit p strong {display:block; font-weight:700;}
+		.event_list div.tit p span {display:block; font-weight:400;}
+		.event_list ul {display:flex; flex-direction:column; gap:0.833333em;}
+		/* // 진행중 이벤트 */
+		
+		/* iOS 위치 수정 */
+		@supports (-webkit-touch-callout: none) {
+			.btn_giftshop span.txt {position:relative; top:0.05em;}
+		}
+	</style>
+</head>
+
+<body>
+
+<div class="evPageWrap">
+
+	<div class="evSection">
+
+		<div class="ev_240730">
+
+			<div class="top">
+				<div class="result_type">
+					<div class="result_type_item"><img src="../images/bg_win.png" alt="이벤트 당첨을 축하드립니다!" /></div>
+					<div class="result_type_item"><img src="../images/bg_not.png" alt="아쉽게도 당첨되지 않았어요" /></div>
+					<div class="result_type_item"><img src="../images/bg_miss.png" alt="이번 기회는 살짝 놓치셨네요!" /></div>
+				</div>
+				<!-- // result_type -->
+
+				<div class="result_wrap">
+					<div class="result_txt_list">
+						<!-- 당첨 문구 -->
+						<div class="result_txt_item">
+							<p class="txt">
+								<em>[BBQ]</em>
+								<strong>오리지널 반반(황금올리브+크리스피)<br />+콜라1.25L</strong>
+							</p>
+						</div>
+						<div class="result_txt_item">
+							<p class="txt">
+								<em>[메가MGC커피]</em>
+								<strong>달콤 충전 세트</strong>
+							</p>
+						</div>
+						<div class="result_txt_item">
+							<p class="txt">
+								<em>[메가MGC커피]</em>
+								<strong>더블 라떼 세트 ((ICE)카페라떼 2잔)</strong>
+							</p>
+						</div>
+
+						<!-- 꽝 문구 -->
+						<div class="result_txt_item">
+							<p class="txt">
+								<span>하지만 걱정 마세요!</span>
+								<strong>다음 기회엔 더 좋은 결과가 기다릴 거예요</strong>
+							</p>
+						</div>
+						<div class="result_txt_item">
+							<p class="txt">
+								<span>이번 이벤트에 참여하지 않으셨어요.</span>
+								<strong>다음 기회엔 꼭 함께해요!</strong>
+							</p>
+						</div>
+					</div>
+					<!-- // result_txt -->
+
+					<div class="result_product">
+						<!-- 당첨 상품 -->
+						<div class="product_item">
+							<div class="img"><img src="../images/img_gift_bbq.png" alt="BBQ치킨: 오리지널 반반(황금올리브+크리스피)+콜라1.25L" /></div>
+							<div class="count">
+								<span class="total_count">50명</span>
+							</div>
+						</div>
+						<!-- // product_item -->
+
+						<div class="product_item">
+							<div class="img"><img src="../images/img_gift_sweet.png" alt="메가MGC커피: 달콤 충전 세트" /></div>
+							<div class="count">
+								<span class="total_count">50명</span>
+							</div>
+						</div>
+						<!-- // product_item -->
+
+						<div class="product_item">
+							<div class="img"><img src="../images/img_gift_coffee.png" alt="메가MGC커피: 더블 라떼 세트" /></div>
+							<div class="count">
+								<span class="total_count">250명</span>
+							</div>
+						</div>
+						<!-- // product_item -->
+					</div>
+					<!-- // result_product -->
+				</div>
+				<!-- // result_wrap -->
+
+				<div class="gitfshop_wrap">
+					<div class="gitfshop_box">
+						<span class="img"><img src="../images/ico_gift.png" alt="아이콘"></span>
+						<p class="tit">
+							<strong>
+								기프트콘은 <em>기프트샵 내 ‘보관함’</em>에서<br />
+								확인해주세요
+							</strong>
+						</p>
+						<ul>
+							<li><p><strong>기프트샵 > 마이페이지 > MY Gift</strong></p></li>
+							<li><p><span>보관함에 없을 경우, 문자 메시지를 확인해주세요</span></p></li>
+						</ul>
+					</div>
+					<!-- // gitfshop_box -->
+
+					<button type="button" class="btn_giftshop">
+						<strong class="txt">기프트샵 바로가기</strong>
+						<span class="ico"><img src="../images/ico_gift_s.png" alt="아이콘" /></span>
+					</button>
+				</div>
+				<!-- // gitfshop_wrap -->
+				 
+			</div>
+			<!-- // top -->
+
+
+			<div class="event_list">
+				<div class="tag"><strong>★EVENT★</strong></div>
+				<div class="tit">
+					<p>
+						<strong>지금 진행 중인 이벤트도</strong>
+						<span>함께 확인해보세요!</span>
+					</p>
+				</div>
+				<ul>
+					<li><button type="button"><img src="../images/img_banner_data.png" alt="8월 출석하고 데이터 혜택 챙기자!" /></button></li>
+					<li><button type="button"><img src="../images/img_banner_mobile.png" alt="휴대폰결제 사용하면 할인에 경품 응모까지!" /></button></li>
+					<li><button type="button"><img src="../images/img_banner_id.png" alt="신분증 결제 등록하고 추첨 혜택 도전하기!" /></button></li>
+				</ul>
+			</div>
+			<!-- // event_list -->
+
+		</div><!-- // ev_240730 -->
+
+	</div><!-- // evSection -->
+
+</div><!-- // evPageWrap -->
+
+
+
+
+
+<script>
+	/* 대충 버튼 눌리면 어멋? */
+	let btns = document.querySelectorAll(".evPageWrap button");
+	btns.forEach(function(item){
+		item.addEventListener("click", function(){
+			let btnTit = item.getAttribute('title')
+			if(btnTit) {
+				alert(btnTit);
+			} else {
+				let img = item.querySelector("img");
+				if(item.innerText) {
+					alert(item.innerText)
+				}
+				else {
+					/* 
+					if(img.getAttribute("title")) {
+						alert(img.getAttribute("title"))
+					} else {
+						alert(img.getAttribute("alt"))
+					}
+					*/
+					img.getAttribute("title") ? alert(img.getAttribute("title")) : alert(img.getAttribute("alt"))
+				} 
+			}
+		})
+	})
+	/* // 대충 버튼 눌리면 어멋? */
+
+	/* 마이크로 페이지용 */
+	// let footer_btn = document.querySelector(".ev_240730 div.btm_btn");
+	// if(!footer_btn) {
+	// 	document.querySelector(".ev_240730").style.paddingBottom = 0;
+	// }
+	/* // 마이크로 페이지용 */
+
+	let layers = document.querySelectorAll(".layer");
+	layers.forEach(function(item){
+		item.querySelectorAll("button").forEach(function(e){
+			e.addEventListener("click", function(){
+				item.closest(".layer").style.display = "none";
+			})
+		})
+	})
+
+
+	/* 퇴근 시켜줫 - 사용 불가 */
+	const randomInt = Math.floor(Math.random() * 5);
+	console.log(randomInt);
+
+	const result_type = document.querySelector(".result_type");
+	const result_type_items = result_type.querySelectorAll(".result_type_item");
+
+	const result_txt_list = document.querySelector(".result_txt_list");
+	const result_txt_list_items = result_txt_list.querySelectorAll(".result_txt_item")
+
+	const result_product = document.querySelector(".result_product");
+	const result_product_items = result_product.querySelectorAll(".product_item")
+
+	if(randomInt <= 2) {
+		result_type_items.forEach(function(item, index){
+			item.style.display = "none";
+			result_type_items[0].style.display = "block";
+		})
+
+		result_txt_list_items.forEach(function(item,index){
+			item.style.display = "none";
+			result_txt_list_items[randomInt].style.display = "block";
+		})
+
+		result_product_items.forEach(function(item,index){
+			item.style.display = "none";
+			result_product_items[randomInt].style.display = "block";
+		})
+	} else if(randomInt > 2) {
+		document.querySelector(".gitfshop_wrap").style.display = "none";
+		result_product.style.display = "none";
+
+		result_type_items.forEach(function(item, index){
+			item.style.display = "none";
+			result_type_items[randomInt - 2].style.display = "block";
+		})
+
+		result_txt_list_items.forEach(function(item, index){
+			item.style.display = "none";
+			result_txt_list_items[randomInt].style.display = "block";
+		})
+	}
+	/* 대충 만들고 gpt한테 수정 요청함 -> _test.html */
+</script>
+</body>
+</html>
