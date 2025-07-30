@@ -27,6 +27,30 @@
 		.ev_240730 div {position:relative;}
 		.ev_240730 div.top {padding:0 0 2.08333em; background-color:#000; color:#fff;}
 
+		.result_type_item {position:relative;}
+		.result_type_item span.deco {position:absolute; top:4.79166em; right:0; width:20.91666em; height:12.20833em; background:url('../images/bg_win_deco.png') no-repeat left top / contain; transform-origin:50% 100%;
+			animation-duration:1.4s;
+			animation-iteration-count:infinite;
+			animation-timing-function: ease-in-out;
+			animation-fill-mode:forwards;
+			opacity:0;
+		}
+		.result_type_item span.deco.ani01 {animation-name:decoAni_01; animation-delay:0s; margin-left:-1em;}
+		.result_type_item span.deco.ani02 {animation-name:decoAni_02; animation-delay:0.2s; margin-top:-1em;}
+		.result_type_item span.deco.ani03 {animation-name:decoAni_01; animation-delay:0.4s; margin-right:-1em;}
+		.result_type_item span.deco.ani04 {animation-name:decoAni_02; animation-delay:0.6s; margin-bottom:-1em;}
+
+		@keyframes decoAni_01 {
+			0% {transform:scale(0) translateY(0); opacity:1;}
+			50% {opacity:1;}
+			100% {transform:scale(2) translateY(0); opacity:0;}
+		}
+		@keyframes decoAni_02 {
+			0% {transform:scale(0) translateY(0) rotateX(180deg); opacity:1;}
+			50% {opacity:1;}
+			100% {transform:scale(2) translateY(0) rotateX(180deg); opacity:0;}
+		}
+
 		/* 당첨 결과 문구 */
 		.result_txt_list {display:flex; flex-direction:column; justify-content:center; align-items:center; min-height:5em; margin-top:1.25em; padding:0 1em; text-align:center;}
 		.result_txt_list .result_txt_item p {font-size:1.08333em; line-height:1.34615em;}
@@ -96,7 +120,12 @@
 
 			<div class="top">
 				<div class="result_type">
-					<div class="result_type_item"><img src="../images/bg_win.png" alt="이벤트 당첨을 축하드립니다!" /></div>
+					<div class="result_type_item"><img src="../images/bg_win.png" alt="이벤트 당첨을 축하드립니다!" />
+						<span class="deco ani01"></span>
+						<span class="deco ani02"></span>
+						<span class="deco ani03"></span>
+						<span class="deco ani04"></span>
+					</div>
 					<div class="result_type_item"><img src="../images/bg_not.png" alt="아쉽게도 당첨되지 않았어요" /></div>
 					<div class="result_type_item"><img src="../images/bg_miss.png" alt="이번 기회는 살짝 놓치셨네요!" /></div>
 				</div>
@@ -301,6 +330,15 @@
 		}
 	}
 	gownjwlvlxl();
+
+	const test = document.querySelector(".result_type");
+	const testItems = test.querySelectorAll("span.deco");
+	test.addEventListener("click", function(){
+		testItems.forEach(function(item){
+			item.classList.toggle("active");
+		})
+		// test.querySelector("span.deco").classList.toggle("active");
+	})
 </script>
 </body>
 </html>
