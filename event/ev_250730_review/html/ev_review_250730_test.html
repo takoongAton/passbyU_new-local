@@ -70,7 +70,9 @@
 		.result_product .product_item .count .total_count {position:relative; z-index:1; color:#fff; font-size:1.5em; font-weight:700; letter-spacing:-0.05em; text-shadow:0 0.08333em 0.16666em rgba(0,0,0,0.16);}
 		.result_product .product_item::before {animation: countBgAni 4s linear infinite; transform-origin:50% 49%;}
 
-		.result_product span.star,
+		/* .result_product span.star, */
+		.result_product span.star::before,
+		.result_product span.star::after,
 		.result_product::before,
 		.result_product::after {content:""; display:block; position:absolute; width:1.045em; height:1.25em; background:url('../images/deco_star.svg') no-repeat left top / contain;
 			animation-duration:1.4s;
@@ -78,15 +80,21 @@
 			animation-timing-function: ease-in-out;
 			animation-fill-mode:forwards;
 			opacity:0.5;
+			transform:scale(0.9) rotate(2deg);
 		}
-		.result_product span.star {top:2.41666em; left:3.9375em; width:1.8125em; height:2.16458em; animation-name:starAni; animation-delay:0s;}
+		
+		/* .result_product span.star {top:2.41666em; left:3.9375em; width:1.8125em; height:2.16458em; animation-name:starAni; animation-delay:0s;} */
+		.result_product span.star::before {top:2.41666em; left:3.9375em; width:1.8125em; height:2.16458em; animation-name:starAni; animation-delay:0s;}
+		.result_product span.star::after {top:2.33333em; right:4.29166em; width:0.34833em; height:0.41666em; animation-name:starAni; animation-delay:0.7s;}
+
+
 		.result_product::before {top:0.6875em; left:5.75em; animation-name:starAni; animation-delay:0.5s;}
 		.result_product::after {top:6.33333em; right:3.29166em; animation-name:starAni; animation-delay:0.3s;}
 		@keyframes countBgAni {0% {transform:rotate(0deg);} 100% {transform:rotate(360deg);}}
 		@keyframes starAni {
-			0% {transform:scale(0.9); opacity:0.7;}
-			50% {transform:scale(1.1); opacity:1;}
-			100% {transform:scale(0.9); opacity:0.7;}
+			0% {transform:scale(0.9) rotate(2deg); opacity:0.5;}
+			50% {transform:scale(1.1) rotate(-4deg) translateY(-0.2em); opacity:1;}
+			100% {transform:scale(0.9) rotate(2deg); opacity:0.5;}
 		}
 		/* // 당첨 결과 이미지 */
 
