@@ -56,9 +56,40 @@
 		.result_txt_list .result_txt_item p {font-size:1.08333em; line-height:1.34615em;}
 		.result_txt_list .result_txt_item p em,
 		.result_txt_list .result_txt_item p strong,
-		.result_txt_list .result_txt_item p span {display:block; font-size:inherit;}
-		.result_txt_list .result_txt_item p em {color:#FF3A4A; font-weight:700;}
-		.result_txt_list .result_txt_item p strong {font-weight:700;}
+		.result_txt_list .result_txt_item p span {display:block; color:#fff; font-size:inherit;}
+		.result_txt_list .result_txt_item p em {color:#FF3A4A; font-weight:700;
+			/* text-shadow:
+			0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa,
+			0 0 82px #0fa, 0 0 92px #0fa, 0 0 102px #0fa, 0 0 151px #0fa; */
+			/* text-shadow:
+			0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #FF3A4A,
+			0 0 82px #FF3A4A, 0 0 92px #FF3A4A, 0 0 102px #FF3A4A, 0 0 151px #FF3A4A; */
+			/* animation: test123 2s ease 1; */
+		}
+		.result_txt_list .result_txt_item p strong {font-weight:700; animation: test123 5s 2s infinite ease-in-out;}
+		@keyframes test123 {
+			/* 0% {text-shadow: none;}
+			16.66666% {text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #FF3A4A, 0 0 82px #FF3A4A, 0 0 92px #FF3A4A, 0 0 102px #FF3A4A, 0 0 151px #FF3A4A;}
+			33.33332% {text-shadow: none;}
+			49.99998% {text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #FF3A4A, 0 0 82px #FF3A4A, 0 0 92px #FF3A4A, 0 0 102px #FF3A4A, 0 0 151px #FF3A4A;}
+			66.66664% {text-shadow: none;}
+			83.3333% {text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #FF3A4A, 0 0 82px #FF3A4A, 0 0 92px #FF3A4A, 0 0 102px #FF3A4A, 0 0 151px #FF3A4A;}
+			100% {text-shadow: none;} */
+
+			/* 0% {color:#fff; text-shadow: none;}
+			15% {text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #FF3A4A, 0 0 82px #FF3A4A, 0 0 92px #FF3A4A, 0 0 102px #FF3A4A, 0 0 151px #FF3A4A;}
+			30% {text-shadow: none;}
+			45% {text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #FF3A4A, 0 0 82px #FF3A4A, 0 0 92px #FF3A4A, 0 0 102px #FF3A4A, 0 0 151px #FF3A4A;}
+			60% {text-shadow: none;}
+			75% {text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #FF3A4A, 0 0 82px #FF3A4A, 0 0 92px #FF3A4A, 0 0 102px #FF3A4A, 0 0 151px #FF3A4A;}
+			90% {text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #FF3A4A, 0 0 82px #FF3A4A, 0 0 92px #FF3A4A, 0 0 102px #FF3A4A, 0 0 151px #FF3A4A;}
+			100% {text-shadow: none;} */
+
+			0%,100% {text-shadow: none;}
+			20%,80% {text-shadow: none;}
+			50% {text-shadow: 0 0 7px rgba(255,255,255,0.4), 0 0 10px rgba(255,255,255,0.4), 0 0 21px rgba(255,255,255,0.4), 0 0 42px rgba(255,255,255,0.4), 0 0 82px rgba(255,255,255,0.4), 0 0 92px rgba(255,255,255,0.4);}
+			
+		}
 		/* // 당첨 결과 문구 */
 
 		/* 당첨 결과 이미지 */
@@ -80,8 +111,9 @@
 			animation-timing-function: ease-in-out;
 			animation-fill-mode:forwards;
 			opacity:0.5;
-			transform:scale(0.9) rotate(2deg);
+			transform:scale(0.9);
 		}
+		
 		
 		/* .result_product span.star {top:2.41666em; left:3.9375em; width:1.8125em; height:2.16458em; animation-name:starAni; animation-delay:0s;} */
 		.result_product span.star::before {top:2.41666em; left:3.9375em; width:1.8125em; height:2.16458em; animation-name:starAni; animation-delay:0s;}
@@ -92,9 +124,9 @@
 		.result_product::after {top:6.33333em; right:3.29166em; animation-name:starAni; animation-delay:0.3s;}
 		@keyframes countBgAni {0% {transform:rotate(0deg);} 100% {transform:rotate(360deg);}}
 		@keyframes starAni {
-			0% {transform:scale(0.9) rotate(2deg); opacity:0.5;}
-			50% {transform:scale(1.1) rotate(-4deg) translateY(-0.2em); opacity:1;}
-			100% {transform:scale(0.9) rotate(2deg); opacity:0.5;}
+			0% {transform:scale(0.9); opacity:0.5;}
+			50% {transform:scale(1.08) translateY(-0.22em); opacity:1;}
+			100% {transform:scale(0.9); opacity:0.5;}
 		}
 		/* // 당첨 결과 이미지 */
 
