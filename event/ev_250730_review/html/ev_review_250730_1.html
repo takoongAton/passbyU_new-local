@@ -7,7 +7,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 	<link rel="stylesheet" href="../css/reset.css">
 	<link rel="stylesheet" href="../css/ev_common.css">
+	<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+	<!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400..700&display=swap" rel="stylesheet" /> -->
 	
 	<style>
 		body {
@@ -56,9 +60,13 @@
 		.result_txt_list .result_txt_item p {font-size:1.08333em; line-height:1.34615em;}
 		.result_txt_list .result_txt_item p em,
 		.result_txt_list .result_txt_item p strong,
-		.result_txt_list .result_txt_item p span {display:block; font-size:inherit;}
+		.result_txt_list .result_txt_item p span {display:block; color:#fff; font-size:inherit;}
 		.result_txt_list .result_txt_item p em {color:#FF3A4A; font-weight:700;}
-		.result_txt_list .result_txt_item p strong {font-weight:700;}
+		.result_txt_list .result_txt_item p strong {font-weight:700; animation: neonAni 5s 2s infinite ease-in-out;}
+		@keyframes neonAni {
+			0%,100% {text-shadow: none;} 20%,80% {text-shadow: none;}
+			50% {text-shadow: 0 0 7px rgba(255,255,255,0.4), 0 0 10px rgba(255,255,255,0.4), 0 0 21px rgba(255,255,255,0.4), 0 0 42px rgba(255,255,255,0.4), 0 0 82px rgba(255,255,255,0.4), 0 0 92px rgba(255,255,255,0.4);}
+		}
 		/* // 당첨 결과 문구 */
 
 		/* 당첨 결과 이미지 */
@@ -75,25 +83,18 @@
 		.result_product span.star::after,
 		.result_product::before,
 		.result_product::after {content:""; display:block; position:absolute; width:1.045em; height:1.25em; background:url('../images/deco_star.svg') no-repeat left top / contain;
-			animation-duration:1.4s;
-			animation-iteration-count:infinite;
-			animation-timing-function: ease-in-out;
-			animation-fill-mode:forwards;
-			opacity:0.5;
-			transform:scale(0.9) rotate(2deg);
+			animation-duration:1.4s; animation-iteration-count:infinite; animation-timing-function: ease-in-out; animation-fill-mode:forwards;
+			opacity:0.5; transform:scale(0.9);
 		}
 		
-		/* .result_product span.star {top:2.41666em; left:3.9375em; width:1.8125em; height:2.16458em; animation-name:starAni; animation-delay:0s;} */
 		.result_product span.star::before {top:2.41666em; left:3.9375em; width:1.8125em; height:2.16458em; animation-name:starAni; animation-delay:0s;}
 		.result_product span.star::after {top:2.33333em; right:4.29166em; width:0.34833em; height:0.41666em; animation-name:starAni; animation-delay:0.7s;}
-
-
 		.result_product::before {top:0.6875em; left:5.75em; animation-name:starAni; animation-delay:0.5s;}
 		.result_product::after {top:6.33333em; right:3.29166em; animation-name:starAni; animation-delay:0.3s;}
 		@keyframes countBgAni {0% {transform:rotate(0deg);} 100% {transform:rotate(360deg);}}
 		@keyframes starAni {
 			0% {transform:scale(0.9); opacity:0.5;}
-			50% {transform:scale(1.1) translateY(-0.2em); opacity:1;}
+			50% {transform:scale(1.08) translateY(-0.22em); opacity:1;}
 			100% {transform:scale(0.9); opacity:0.5;}
 		}
 		/* // 당첨 결과 이미지 */
