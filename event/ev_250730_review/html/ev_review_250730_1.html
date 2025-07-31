@@ -36,9 +36,9 @@
 			opacity:0;
 		}
 		.result_type_item span.deco.ani01 {animation-name:decoAni_01; animation-delay:0s; margin-left:-1em;}
-		.result_type_item span.deco.ani02 {animation-name:decoAni_02; animation-delay:0.2s; margin-top:1em;}
+		.result_type_item span.deco.ani02 {animation-name:decoAni_02; animation-delay:0.2s; margin-top:-1em;}
 		.result_type_item span.deco.ani03 {animation-name:decoAni_01; animation-delay:0.4s; margin-right:-1em;}
-		.result_type_item span.deco.ani04 {animation-name:decoAni_02; animation-delay:0.6s; margin-top:2em;}
+		.result_type_item span.deco.ani04 {animation-name:decoAni_02; animation-delay:0.6s; margin-bottom:-1em;}
 
 		@keyframes decoAni_01 {
 			0% {transform:scale(0) translateY(0); opacity:1;}
@@ -46,9 +46,9 @@
 			100% {transform:scale(2) translateY(0); opacity:0;}
 		}
 		@keyframes decoAni_02 {
-			0% {transform:scale(0) translateY(0) rotateY(180deg); opacity:1;}
+			0% {transform:scale(0) translateY(0) rotateX(180deg); opacity:1;}
 			50% {opacity:1;}
-			100% {transform:scale(2) translateY(0) rotateY(180deg); opacity:0;}
+			100% {transform:scale(2) translateY(0) rotateX(180deg); opacity:0;}
 		}
 
 		/* 당첨 결과 문구 */
