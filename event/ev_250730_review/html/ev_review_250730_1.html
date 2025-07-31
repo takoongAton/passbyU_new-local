@@ -56,7 +56,7 @@
 		}
 
 		/* 당첨 결과 문구 */
-		.result_txt_list {display:flex; flex-direction:column; justify-content:center; align-items:center; min-height:5em; margin-top:1.25em; padding:0 1em; text-align:center;}
+		.result_txt_list {display:flex; flex-direction:column; justify-content:center; align-items:center; min-height:5em; margin-top:1.25em; padding:0 1em; text-align:center; opacity:0; animation: opacityShowAni 0.5s 0.3s 1 ease-in-out forwards;}
 		.result_txt_list .result_txt_item p {font-size:1.08333em; line-height:1.34615em;}
 		.result_txt_list .result_txt_item p em,
 		.result_txt_list .result_txt_item p strong,
@@ -67,6 +67,11 @@
 			0%,100% {text-shadow: none;} 20%,80% {text-shadow: none;}
 			50% {text-shadow: 0 0 7px rgba(255,255,255,0.4), 0 0 10px rgba(255,255,255,0.4), 0 0 21px rgba(255,255,255,0.4), 0 0 42px rgba(255,255,255,0.4), 0 0 82px rgba(255,255,255,0.4), 0 0 92px rgba(255,255,255,0.4);}
 		}
+		@keyframes opacityShowAni {
+			0% {transform:scale(0.8); opacity:0;}
+			50% {transform:scale(1.02); opacity:1;}
+			100% {transform:scale(1); opacity:1;}
+		}
 		/* // 당첨 결과 문구 */
 
 		/* 당첨 결과 이미지 */
@@ -75,7 +80,7 @@
 		.result_product .product_item .count {position:absolute; right:1.66666em; bottom:0.83333em; width:5em; height:5em; line-height:5em; text-align:center;}
 		.result_product .product_item::before {content:""; display:block; position:absolute; top:0; left:3.04166em; width:13.08333em; height:13.08333em; border:1px solid #707070; border-radius:100%; background-color:#fff;}
 		.result_product .product_item .count::before {content:""; display:block; position:absolute; top:0; left:0; width:100%; height:100%; background:url('../images/count_bg.svg') no-repeat left top / contain; animation: countBgAni 30s ease infinite;}
-		.result_product .product_item .count .total_count {position:relative; z-index:1; color:#fff; font-size:1.5em; font-weight:700; letter-spacing:-0.05em; text-shadow:0 0.08333em 0.16666em rgba(0,0,0,0.16);}
+		.result_product .product_item .count .total_count {display:inline-block; position:relative; z-index:1; color:#fff; font-size:1.5em; font-weight:700; letter-spacing:-0.05em; text-shadow:0 0.08333em 0.16666em rgba(0,0,0,0.16); opacity:0; animation: opacityShowAni 0.5s 0.3s 1 ease-in-out forwards;}
 		.result_product .product_item::before {animation: countBgAni 4s linear infinite; transform-origin:50% 49%;}
 
 		/* .result_product span.star, */
