@@ -217,15 +217,15 @@ inputs.forEach(function(item){
 // })
 
 
-// let passauth_footer_btn = document.querySelector(".passauth_footer_btn");
-// if(passauth_footer_btn) {
-// 	if(passauth_footer_btn.closest("div.agree_footer")) {
-// 		console.log("있음");
-// 		passauth_footer_btn.closest("div.agree_footer").style.height = passauth_footer_btn.clientHeight + 'px';
-// 	} else {
-// 		console.log("없음")
-// 	}
-// }
+let passauth_footer_btn = document.querySelector(".passauth_footer_btn");
+if(passauth_footer_btn) {
+	if(passauth_footer_btn.closest("div.agree_footer")) {
+		console.log("있음");
+		passauth_footer_btn.closest("div.agree_footer").style.height = passauth_footer_btn.clientHeight + 'px';
+	} else {
+		console.log("없음")
+	}
+}
 
 </script>
 </body>
