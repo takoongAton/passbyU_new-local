@@ -4,26 +4,27 @@
 /* .header_wrap div.temp button {position:absolute; top:0; width:auto; padding:12px 0;} */
 /* .header_wrap div.temp button:first-of-type {left:18px;}
 .header_wrap div.temp button:last-of-type {right:18px;} */
-.header_wrap div.temp button {width:auto;}
+.header_wrap div.temp button {width:auto; padding:0;}
 .header_wrap div.temp button span {display:block; width:24px; height:24px;}
 .header_wrap div.temp h1 {color:#000; font-size:16px; font-weight:normal;}
 /* 공통 임시 */
 
 
-.passauth_wrap {max-width:720px; margin:0 auto;}
+.passauth_wrap {max-width:720px; margin:0 auto; padding-bottom:48px;}
 
 
 /* 상단 텍스트 공통 */
-.passauth_wrap .top .tit {padding:12px 18px;}
+.passauth_wrap .top {color:#000;}
+.passauth_wrap .top .tit {padding:12px 0;}
 .passauth_wrap .top .tit p {font-size:22px; line-height:30px; letter-spacing:-0.05em; word-break:keep-all;}
-.passauth_wrap .top p.txt {padding:0 18px; color:#888888;}
+.passauth_wrap .top p.txt {padding:0; color:#888888; font-size:16px;}
 /* // 상단 텍스트 공통 */
 
 
 
 /* 인증 방법 선택 */
 /* input형 */
-.selList {display:flex; flex-direction:column; gap:20px 0; margin-top:100px; padding:0 18px;}
+.selList {display:flex; flex-direction:column; gap:20px 0; margin-top:100px; padding:0;}
 .selList .item label {display:flex; align-items:center; position:relative; width:100%; height:72px; padding:0 18px;}
 .selList .item label input {position:absolute; top:0; left:0; width:0; height:0; overflow:hidden; opacity:0;}
 .selList .item label span.checkmark {display:block; position:absolute; top:50%; right:18px; width:24px; height:24px; background: url('../images/btn_check02_off.png') no-repeat left center / 24px 24px; transform:translateY(-50%);}
@@ -38,7 +39,7 @@
 /* // input형 */
 
 /* button형 */
-.selList {display:flex; flex-direction:column; gap:20px 0; margin-top:100px; padding:0 18px;}
+.selList {display:flex; flex-direction:column; gap:20px 0; margin-top:100px; padding:0;}
 .selList .item button {display:flex; justify-content:space-between; align-items:center; position:relative; width:100%; height:72px; padding:0 18px; border:1px solid #000; border-radius:8px;}
 .selList .item button span.checkmark {display:inline-block; width:24px; height:24px; background: url('../images/btn_check02_off.png') no-repeat left center / 24px 24px;}
 .selList .item button span.txt {padding:0 18px; color:#000; font-size:18px; line-height:28px;}
@@ -74,7 +75,7 @@
 
 /* ARS 연결 */
 .ars_wrap {}
-.ars_wrap .passauth_num_wrap {margin-top:60px; padding:0 18px;}
+.ars_wrap .passauth_num_wrap {margin-top:60px; padding:0;}
 .ars_wrap .passauth_num_wrap .inner {display:flex; flex-direction:column; gap:10px; padding:20px; background-color:#F5F5F5; border-radius:12px; text-align:center; overflow:hidden;}
 .ars_wrap .passauth_num_wrap .inner span.txt {display:inline-block; color:#888888; font-size:14px; line-height:20px;}
 .ars_wrap .passauth_num_wrap .inner strong.codeNum {color:#FF3A4A; font-size:50px;}
@@ -83,7 +84,7 @@
 .ars_wrap .passauth_num_wrap .timer span {display:inline-block; color:#FC3A4A; line-height:1em;}
 .ars_wrap .passauth_num_wrap .timer span.ico {width:16px; height:16px; line-height:0;}
 .ars_wrap .passauth_num_wrap .timer span.txt {font-size:14px; letter-spacing:0;}
-.ars_wrap ul {margin-top:30px; padding:0 18px;}
+.ars_wrap ul {margin-top:30px; padding:0;}
 .ars_wrap ul li {position:relative; padding-left:0.75em; color:#888; font-size:12px; line-height:1.5em;}
 .ars_wrap ul li::before {content:"*"; display:block; position:absolute; top:0; left:0; color:inherit; font-size:inherit; line-height:inherit;}
 /* // ARS 연결 */
@@ -91,9 +92,9 @@
 
 
 /* 하단 버튼 */
-.passauth_footer_btn {position:absolute; bottom:0; left:0; right:0; display:flex; width:100%; max-width:720px; margin:0 auto;}
-.passauth_footer_btn div.btn {width:100%;}
-.passauth_footer_btn div.btn button {height:48px; background-color:#000; color:#fff;}
+.passauth_footer_btn {position:fixed; bottom:0; left:0; right:0; display:flex; width:100%; max-width:720px; margin:0 auto;}
+.passauth_footer_btn div.btn {width:100%; padding:0;}
+.passauth_footer_btn div.btn button {height:48px; padding:0; background-color:#000; color:#fff;}
 .passauth_footer_btn div.btn button span {font-size:16px;}
 .passauth_footer_btn div.btn button.btn_cancel {background-color:#EFF0F2;}
 .passauth_footer_btn div.btn button.btn_cancel span {color:#333;}
@@ -101,8 +102,6 @@
 .passauth_footer_btn div.btn button.btn_next span {color:#fff;}
 .passauth_footer_btn div.btn button.btn_next:disabled {background-color:#D7D8D9 !important;}
 /* // 하단 버튼 */
-
-
 
 /* 팝업 */
 div.layer.alert div.dim {position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.5); z-index: 1;}
@@ -112,7 +111,7 @@ div.layer.alert div.inner div.txt_wrap div.tit {}
 div.layer.alert div.inner div.txt_wrap div.tit strong {font-size:18px; line-height:1.5em; font-weight:bold;}
 div.layer.alert div.inner div.txt_wrap p {font-size:16px; line-height:1.5em; font-weight:400;}
 div.layer.alert div.inner .btn_group {display:flex; border-top:0.5px solid #E7E7E7;}
-div.layer.alert div.inner .btn_group button {width:100%; height:60px;}
+div.layer.alert div.inner .btn_group button {width:100%; height:60px; padding:0;}
 div.layer.alert div.inner .btn_group button span {display:block; color:#000; font-size:18px;}
 div.layer.alert div.inner .btn_group button.btn_next span {color:#FF3A4A; font-weight:bold;}
 
@@ -145,9 +144,45 @@ div.layer_full_body {padding:18px; color:#666666; font-size:14px; line-height:20
 
 
 /* 가입자 성명 입력 */
-.userInfo {margin-top:60px; padding:0 18px;}
+.userInfo {margin-top:60px; padding:0;}
 .userInfo .ipt_wrap {margin-top:9px; border:1px solid #ddd; border-radius:12px; overflow:hidden;}
 .userInfo .ipt_wrap:focus-within {border-color:#000;}
 .userInfo .ipt_wrap input {padding:15px 18px; border:none; background-color:#fff; color:#000; font-size:18px;}
 .userInfo .ipt_wrap input::placeholder {color:#888; font-size:inherit;}
 /* // 가입자 성명 입력 */
+
+
+
+
+/* 약관동의 */
+.agree_wrap {display:flex; flex-direction:column; justify-content:space-between;}
+.agree_wrap .agree_header {padding:18px 18px 24px; border-bottom:8px solid #F8F9FB;}
+.agree_wrap .agree_header div.tit strong {display:block; color:#000; font-size:20px; line-height:29px; font-weight:700; letter-spacing:0;}
+.agree_wrap .agree_header p.txt {margin-top:6px; color:#999; font-size:14px; line-height:18px; font-weight:400; letter-spacing:0;}
+.agree_wrap .agree_header div.price {margin-top:12px; color:#FC3A4A; font-size:14px; line-height:18px; letter-spacing:0;}
+.agree_wrap .agree_header div.price span.em {font-weight:bold;}
+
+.agree_wrap .agree_body {flex:1; padding:18px;}
+
+.agree_wrap .agree_body .chk_all {padding-bottom:18px; border-bottom:1px solid #E7E7E7;}
+.agree_wrap .agree_body .chk_all label {display:flex; align-items:flex-start;}
+.agree_wrap .agree_body .chk_all label div.ipt_chk {display:flex; align-items:center; position:relative; min-width:30px; width:30px;}
+.agree_wrap .agree_body .chk_all label div.ipt_chk input[type='checkbox'] {position:absolute; top:0; left:0; width:0; height:0; opacity:0;}
+.agree_wrap .agree_body .chk_all label div.ipt_chk input[type='checkbox'] + span.checkmark {display:block; width:24px; min-width:24px; height:24px;  background:url('../images/btn_check02_off.png') no-repeat left top / contain;}
+.agree_wrap .agree_body .chk_all label div.ipt_chk input[type='checkbox']:checked + span.checkmark {background-image:url('../images/btn_check02_on.png');}
+.agree_wrap .agree_body .chk_all label div.ipt_chk strong {display:block; color:#000; font-size:16px; line-height:24px;}
+.agree_wrap .agree_body .chk_all p.txt {margin-top:6px; padding-left:30px; color:#999; font-size:12px; line-height:18px; word-break:keep-all; letter-spacing:0;}
+
+.agree_wrap .agree_body .chk_item ul {display:flex; flex-direction:column; gap:12px 0; width:100%; padding:18px 0; background-color:#fff;}
+.agree_wrap .agree_body .chk_item ul li {display:flex; justify-content:space-between; padding-right:12px;}
+.agree_wrap .agree_body .chk_item ul li label {display:flex; align-items:flex-start; gap:6px;}
+.agree_wrap .agree_body .chk_item ul li label input[type='checkbox'] {position:absolute; top:0; left:0; width:0; height:0; opacity:0;}
+.agree_wrap .agree_body .chk_item ul li label input[type='checkbox'] + span.checkmark {display:inline-block; width:24px; height:24px; min-width:24px; background:url('../images/btn_check03_off.png') no-repeat left top / contain;}
+.agree_wrap .agree_body .chk_item ul li label input[type='checkbox']:checked + span.checkmark {background-image:url('../images/btn_check03_on.png');}
+.agree_wrap .agree_body .chk_item ul li label input[type='checkbox'] ~ span.txt {display:inline-block; padding:3px 0; color:#333; font-size:14px; line-height:18px; font-weight:400;}
+.agree_wrap .agree_body .chk_item ul li button {display:inline-flex; justify-content:flex-end; align-items:center; width:auto; min-width:24px; height:24px; text-align:right;}
+.agree_wrap .agree_body .chk_item ul li button span {display:inline-block; color:#bbb; font-size:12px; line-height:18px; border-bottom:1px solid #bbb;}
+.agree_wrap .agree_body .chk_item ul li.em span.txt {color:#FF3A4A !important; font-weight:bold !important;}
+
+.agree_wrap .agree_footer {position:sticky; bottom:0; left:0; width:100%;}
+/* // 약관동의 */

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>휴대폰 결제2차인증</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/passauth_sign.css">
+	<!-- <link rel="stylesheet" href="../css/fonts/NotoSansKR-WEB.css"> -->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+	<!-- <script src="../js/jquery-1.12.4.min.js"></script> -->
+</head>
+<body>
+
+	<div class="header_wrap">
+		<div class="temp">
+			<button type="button"><span><img src="../images/btn_top_back.png" alt="이전"></span></button>
+			<h1>휴대폰결제</h1>
+		</div>
+		<!-- // temp 삭제 -->
+	</div>
+
+	<div class="passauth_wrap">
+
+		<div class="popService_info">
+			
+			<div class="img"><img src="https://placehold.co/600x300?text=img" alt="이미지"></div>
+<style>
+/* 서비스 안내 */
+.popService_info {padding:0 0 48px 0;}
+.popService_txtWrap {display:flex; flex-direction:column; gap:24px; padding:18px;}
+.popService_txtWrap .popService_txt_box {display:flex; flex-direction:column; gap:8px;}
+.popService_txtWrap .popService_txt_box div.tit strong {display:block; color:#333; font-size:16px; font-weight:bold;}
+.popService_txtWrap .popService_txt_box p.txt {color:#666; font-size:14px; line-height:1.5em; word-break:keep-all;}
+.popService_txtWrap .popService_txt_box ul {display:flex; flex-direction:column; gap:5px;}
+.popService_txtWrap .popService_txt_box ul li p.txt {position:relative; padding-left:0.75em;}
+.popService_txtWrap .popService_txt_box ul li p.txt::before {content:"·"; display:inline-block; position:absolute; top:0; left:0; color:inherit; font-size:inherit; line-height:inherit; font-weight:bold; text-align:center;}
+.popService_txtWrap p.alert {text-align:center; color:#fe438b; font-size:13px;}
+/* // 서비스 안내 */
+</style>
+			<div class="popService_txtWrap">
+				<div class="popService_txt_box">
+					<div class="tit"><strong>U+ 멤버십의 POP 서비스란?</strong></div>
+					<p class="txt">GS25 편의점에서 U+멤버십 앱 '휴대폰결제' 바코드로 결제할 때 추가로 할인받을 수 있는 혜택이에요.</p>
+				</div>
+				<!-- // popService_txt_box -->
+
+				<div class="popService_txt_box">
+					<div class="tit"><strong>이런 점이 좋아요</strong></div>
+					<p class="txt">바코드로 편리하게 결제하고 U+멤버십 할인, POP  상품 추가 할인과 함께 상품별 할인 또는 무료 쿠폰  도 받을 수 있습니다. POP 서비스 약관에 동의하면 GS&POINT도 자동 적립됩니다.</p>
+				</div>
+				<!-- // popService_txt_box -->
+
+				<div class="popService_txt_box">
+					<div class="tit"><strong>꼭 확인하세요</strong></div>
+					<ul>
+						<li><p class="txt">결제금액은 휴대폰 이용요금에 포함되어 청구됩니다.</p></li>
+						<li><p class="txt">오프라인 매장에서만 이용할 수 있습니다.</p></li>
+						<li><p class="txt">POP 서비스 약관에 동의해야 GS&POINT 적립이 가능  합니다.</p></li>
+						<li><p class="txt">일부 매장에서는 서비스가 제한될 수 있습니다.  (휴게소 입점 매장 등 일부 특수 매장)</p></li>
+					</ul>
+				</div>
+				<!-- // popService_txt_box -->
+
+				<p class="alert">아래 버튼을 누르면 약관 동의 화면으로 이동해요</p>
+			</div>
+			<!-- // popService_txtWrap -->
+
+			<div class="passauth_footer_btn" style="position:fixed;">
+				<div class="btn"><button type="button" class="btn_next"><span>인증완료</span></button></div>
+			</div>
+			<!-- // passauth_footer_btn -->
+
+		</div>
+		<!-- // popService_info -->
+		
+	</div>
+	<!-- // passauth_wrap -->
+
+
+
+
+
+
+<script>
+let btns = document.querySelectorAll("button");
+btns.forEach(function(item){
+	item.addEventListener("click", function(e){
+		// if(item.closest(".btn_close")) {
+			e.target.closest(".layer").style.display = "none";
+		// }
+	})
+})
+
+
+// let chkLabel = document.querySelectorAll(".selList label");
+// chkLabel.forEach(function(item){
+// 	let chkInput = item.querySelector("input");
+// 	chkInput.addEventListener("change", function(){
+// 		console.log(chkInput);
+// 		console.log(chkInput.checked);
+// 		if(chkInput.checked == true) {
+// 			chkInput.closest(".item").classList.add("active");
+// 		} else {
+// 			chkInput.closest(".item").classList.remove("active");
+// 		}
+// 	})
+// })
+
+// let chkLabel = document.querySelectorAll(".selList label");
+// function test123(){
+// 	chkLabel.forEach(function(item){
+// 		let chkInput = item.querySelector("input");
+// 		if(chkInput.checked == true) {
+// 			item.classList.add("add");
+// 			item.classList.remove("ddd");
+// 		} else {
+// 			item.classList.remove("add");
+// 			item.classList.add("ddd");
+// 		}
+		
+// 	})
+// }
+// if(chkLabel.length > 0) {
+// 	let chkInputs = 
+// 	chkLabel.forEach(function(item){
+// 		item.addEventListener("click", test123())
+// 	})
+// }
+
+
+/*
+let selList = document.querySelector(".selList");
+let inputs = selList.querySelectorAll("input");
+inputs.forEach(function(item){
+	item.addEventListener("change", function(){
+		let labels = selList.querySelectorAll("label");
+		labels.forEach(function(itemLabel){
+			let input = itemLabel.querySelector("input");
+			if(input.checked == true) {
+				input.closest("label").classList.add("active");
+				input.closest("label").classList.remove("ddd");
+			} else {
+				input.closest("label").classList.remove("active");
+				input.closest("label").classList.add("ddd");
+			}
+		})
+	})
+})
+*/
+
+
+
+// const selList = document.querySelector(".selList");
+
+// if (!selList) return;
+
+// selList.addEventListener("change", (event) => {
+// 	if (event.target.matches("input[type='radio'], input[type='checkbox']")) {
+// 		selList.querySelectorAll("label").forEach((label) => {
+// 			const input = label.querySelector("input");
+// 			label.classList.toggle("active", input.checked);
+// 			label.classList.toggle("ddd", !input.checked);
+// 		});
+// 	}
+// });
+
+let selList = document.querySelector(".selList");
+selList.addEventListener("change", function(){
+	let labels = selList.querySelectorAll("label");
+	labels.forEach(function(label){
+		let input = label.querySelector("input");
+		label.classList.toggle("active", input.checked);
+		label.classList.toggle("default", !input.checked);
+	})
+})
+
+</script>
+</body>
+</html>
