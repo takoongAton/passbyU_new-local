@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>휴대폰 결제2차인증</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/passauth_sign.css">
+
+	<!-- <link rel="stylesheet" href="../css/fonts/NotoSansKR-WEB.css"> -->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+	<!-- <script src="../js/jquery-1.12.4.min.js"></script> -->
+</head>
+<body>
+
+	<div class="header_wrap">
+		<div class="temp">
+			<button type="button"><span><img src="../images/btn_top_back.png" alt="이전"></span></button>
+			<h1>추가정보 입력</h1>
+		</div>
+		<!-- // temp 삭제 -->
+	</div>
+
+	<div class="passauth_wrap">
+
+		<div class="popService_email">
+			<div class="txt_wrap">
+				<p>POP서비스 이용을 위해 이메일 주소를 입력해 주세요.</p>
+			</div>
+
+			<div class="ipt_box">
+				<div class="tit">
+					<strong>이메일 주소</strong>
+				</div>
+				<div class="content">
+					<div class="set_ipt">
+						<input type="text" placeholder="example@lguplus.co.kr" />
+					</div>
+				</div>
+			</div>
+			<!-- // ipt_box -->
+
+			<div class="ipt_box">
+				<div class="tit">
+					<strong>차단설정</strong>
+				</div>
+				<div class="content">
+
+					<ul class="setting_list">
+						<li>
+							<span class="tit-onoff">일반결제</span>
+							<button type="button" class="btn_switch">
+								<span class="txt">OFF</span>
+							</button>
+						</li>
+						<li>
+							<span class="tit-onoff">정기결제</span>
+							<button type="button" class="btn_switch on">
+								<span class="txt">ON</span>
+							</button>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+			<!-- // ipt_box -->
+
+		</div>
+		<!-- // popService_email -->
+
+		<div class="footer_btn_wrap">
+			<div class="footer_btn_group general"><!-- general : round처리 -->
+				<div class="btn">
+					<button type="button" class="btn_cancel"><span>취소/이전</span></button>
+				</div>
+				<div class="btn">
+					<button type="button" class="btn_next"><span>가입하기</span></button>
+				</div>
+			</div>
+			<!-- // footer_btn_group -->
+			
+			<div class="footer_btn_group">
+				<div class="btn">
+					<button type="button" class="btn_cancel"><span>취소/이전</span></button>
+				</div>
+				<div class="btn">
+					<button type="button" class="btn_next"><span>가입하기</span></button>
+				</div>
+			</div>
+			<!-- // footer_btn_group -->
+		</div>
+		<!-- // footer_btn_wrap -->
+
+	</div>
+	<!-- // passauth_wrap -->
+
+
+<script>
+/*
+let btns = document.querySelectorAll("button");
+btns.forEach(function(item){
+	item.addEventListener("click", function(e){
+		if(item.closest(".btn_close")) {
+			e.target.closest(".layer").style.display = "none";
+		}
+	})
+})
+*/
+
+
+/* 컨텐츠와 버튼이 겹치는 문제 해결용 */
+let footer_btn = document.querySelector(".footer_btn_wrap");
+if(footer_btn) {
+	let footer_btn_group = footer_btn.querySelector(".footer_btn_group");
+	footer_btn.style.height = footer_btn_group.clientHeight + 'px';
+}
+/* // 컨텐츠와 버튼이 겹치는 문제 해결용 */
+
+
+/* 버튼 스위치 샘플 */
+let btn_switchs = document.querySelectorAll(".btn_switch");
+btn_switchs.forEach(function(item){
+	item.addEventListener("click", function(){
+		item.classList.toggle("on");
+		if(item.classList.contains("on")) {
+			item.querySelector("span").innerText = "on";
+		} else {
+			item.querySelector("span").innerText = "off";
+		}
+	})
+})
+/* // 버튼 스위치 샘플 */
+
+</script>
+</body>
+</html>

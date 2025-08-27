@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 	<head>
-	<title>휴대폰 결제2차인증</title>
+	<title>POP서비스란?</title>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
@@ -13,6 +13,13 @@
 	<!-- <link rel="stylesheet" href="../css/fonts/NotoSansKR-WEB.css"> -->
 	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
 	<!-- <script src="../js/jquery-1.12.4.min.js"></script> -->
+
+	<!-- font by google -->
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400..700&display=swap" /> <!-- swap / block-->
+	<!-- // font by google -->
 </head>
 <body>
 
@@ -28,7 +35,7 @@
 
 		<div class="popService_info">
 			
-			<div class="img"><img src="https://placehold.co/600x300?text=img" alt="이미지"></div>
+			<div class="img"><img src="../images/img_popservice.png" alt="이미지"></div>
 
 			<div class="popService_txtWrap">
 				<div class="popService_txt_box">
@@ -58,19 +65,18 @@
 			</div>
 			<!-- // popService_txtWrap -->
 
-			<div class="footer_btn_sticky">
-				<!-- <div class="btn">
-					<button type="button" class="btn_cancel"><span>취소/이전</span></button>
-				</div> -->
-				<div class="btn">
-					<button type="button" class="btn_next"><span>가입하기</span></button>
+			<div class="footer_btn_wrap">
+				<div class="footer_btn_group general"><!-- general : round처리 -->
+					<div class="btn">
+						<button type="button" class="btn_cancel"><span>취소/이전</span></button>
+					</div>
+					<div class="btn">
+						<button type="button" class="btn_next"><span>가입하기</span></button>
+					</div>
 				</div>
+				<!-- // footer_btn_group -->
 			</div>
-
-			<!-- <div class="passauth_footer_btn" style="padding:18px;">
-				<div class="btn"><button type="button" class="btn_next btn_round" style="border-radius:6px;"><span>가입하기</span></button></div>
-			</div> -->
-			<!-- // passauth_footer_btn -->
+			<!-- // footer_btn_wrap -->
 
 		</div>
 		<!-- // popService_info -->
@@ -81,101 +87,7 @@
 
 
 
+<script type="text/javascript" src="../js/temp.js"></script>
 
-
-<script>
-let btns = document.querySelectorAll("button");
-btns.forEach(function(item){
-	item.addEventListener("click", function(e){
-		// if(item.closest(".btn_close")) {
-			e.target.closest(".layer").style.display = "none";
-		// }
-	})
-})
-
-
-// let chkLabel = document.querySelectorAll(".selList label");
-// chkLabel.forEach(function(item){
-// 	let chkInput = item.querySelector("input");
-// 	chkInput.addEventListener("change", function(){
-// 		console.log(chkInput);
-// 		console.log(chkInput.checked);
-// 		if(chkInput.checked == true) {
-// 			chkInput.closest(".item").classList.add("active");
-// 		} else {
-// 			chkInput.closest(".item").classList.remove("active");
-// 		}
-// 	})
-// })
-
-// let chkLabel = document.querySelectorAll(".selList label");
-// function test123(){
-// 	chkLabel.forEach(function(item){
-// 		let chkInput = item.querySelector("input");
-// 		if(chkInput.checked == true) {
-// 			item.classList.add("add");
-// 			item.classList.remove("ddd");
-// 		} else {
-// 			item.classList.remove("add");
-// 			item.classList.add("ddd");
-// 		}
-		
-// 	})
-// }
-// if(chkLabel.length > 0) {
-// 	let chkInputs = 
-// 	chkLabel.forEach(function(item){
-// 		item.addEventListener("click", test123())
-// 	})
-// }
-
-
-/*
-let selList = document.querySelector(".selList");
-let inputs = selList.querySelectorAll("input");
-inputs.forEach(function(item){
-	item.addEventListener("change", function(){
-		let labels = selList.querySelectorAll("label");
-		labels.forEach(function(itemLabel){
-			let input = itemLabel.querySelector("input");
-			if(input.checked == true) {
-				input.closest("label").classList.add("active");
-				input.closest("label").classList.remove("ddd");
-			} else {
-				input.closest("label").classList.remove("active");
-				input.closest("label").classList.add("ddd");
-			}
-		})
-	})
-})
-*/
-
-
-
-// const selList = document.querySelector(".selList");
-
-// if (!selList) return;
-
-// selList.addEventListener("change", (event) => {
-// 	if (event.target.matches("input[type='radio'], input[type='checkbox']")) {
-// 		selList.querySelectorAll("label").forEach((label) => {
-// 			const input = label.querySelector("input");
-// 			label.classList.toggle("active", input.checked);
-// 			label.classList.toggle("ddd", !input.checked);
-// 		});
-// 	}
-// });
-
-let selList = document.querySelector(".selList");
-selList.addEventListener("change", function(){
-	let labels = selList.querySelectorAll("label");
-	labels.forEach(function(label){
-		let input = label.querySelector("input");
-		label.classList.toggle("active", input.checked);
-		label.classList.toggle("default", !input.checked);
-	})
-})
-
-</script>
 </body>
 </html>
