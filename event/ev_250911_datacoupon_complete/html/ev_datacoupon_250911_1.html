@@ -184,8 +184,36 @@
 		/* 쿠폰 코드 */
 		.coupon_code {display:flex; justify-content:space-between; margin-top:0.79166em; border-radius:0.83333em; overflow:hidden;}
 		.coupon_code span.code {display:flex; align-items:center; flex:1; padding-left:1.08333em; background:#fff; color:#000;}
-		.coupon_code button {width:3.33333em; height:3.33333em; background-color:#FF3A4A;}
-		.coupon_code button span {color:transparent;}
+		.coupon_code button {position:relative; width:3.33333em; height:3.33333em; background-color:#FF3A4A; transition:all 0.2s ease-in-out;}
+		.coupon_code button:disabled,
+		.coupon_code button[disabled] {background-color:#D32634 !important;}
+		.coupon_code button::before,
+		.coupon_code button::after {content:""; display:block; position:absolute; top:50%; left:50%; width:1.04166em; height:1.04166em; border:0.125em solid #fff; border-radius:0.125em; transform: translate(-50%,-50%); background: #FF3A4A; outline:1.5px solid #FF3A4A;}
+
+		.coupon_code button::before {transform:translate(calc(-50% + 0.125em), calc(-50% + 0.125em));}
+		.coupon_code button::after {transform:translate(calc(-50% - 0.125em), calc(-50% - 0.125em));}
+
+		.coupon_code button.active::before {animation: btnCopy_test 0.4s 1 ease-in-out;}
+		.coupon_code button.active::after {animation: btnCopy_test2 0.4s 1 ease-in-out;}
+
+		.coupon_code button:disabled::before,
+		.coupon_code button[disabled]::before,
+		.coupon_code button:disabled::after,
+		.coupon_code button[disabled]::after {background-color:#D32634; outline-color:#D32634;}
+
+		@keyframes btnCopy_test {
+			0% {transform:translate(calc(-50% + 0.125em), calc(-50% + 0.125em));}
+			50% {transform:translate(calc(-50% + 0.25em), calc(-50% + 0.25em));}
+			100% {transform:translate(calc(-50% + 0.125em), calc(-50% + 0.125em));}
+		}
+
+		@keyframes btnCopy_test2 {
+			0% {transform:translate(calc(-50% - 0.125em), calc(-50% - 0.125em));}
+			50% {transform:translate(calc(-50% - 0.25em), calc(-50% - 0.25em));}
+			100% {transform:translate(calc(-50% - 0.125em), calc(-50% - 0.125em));}
+		}
+
+		.coupon_code button span {display:inline-block; color:transparent; opacity: 0;}
 		.coupon_code button span img {display:inline-block; width:1.5em; height:1.5em;}
 		/* // 쿠폰 코드 */
 
@@ -443,6 +471,8 @@ function test123(){
 	}
 }
 
+
+
 function fnClipboard(){
 	const codeText = document.querySelector(".coupon_code .code").innerText;
 	// 클립보드에 복사
@@ -455,6 +485,8 @@ function fnClipboard(){
 
 
 function fnToastAction(){
+	document.querySelector(".btn_copy").classList.add("active")
+	document.querySelector(".btn_copy").setAttribute("disabled", true);
 	let toastLayer = document.querySelector(".layer.toast");
 	// toastLayer.classList.remove("deactive");
 	toastLayer.classList.add("active");
@@ -464,6 +496,8 @@ function fnToastAction(){
 		toastLayer.addEventListener("animationend", function(){
 			toastLayer.classList.remove("deactive");
 		})
+		document.querySelector(".btn_copy").classList.remove("active")
+		document.querySelector(".btn_copy").removeAttribute("disabled");
 	}, 2000); // 2초 후 사라짐
 }
 test123();
