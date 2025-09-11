@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>데이터 쿠폰 출석 이벤트당첨</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/ev_common.css">
+	<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+	<!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400..700&display=swap" rel="stylesheet" /> -->
+	
+	
+	<style>
+
+		/* font-family: 'GmarketSansLight' */
+		@font-face {font-family:'GmarketSansLight'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff'); font-weight:normal; font-style:normal;}
+
+		/* font-family: 'GmarketSansMedium' */
+		@font-face {font-family:'GmarketSansMedium'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff'); font-weight:normal; font-style:normal;}
+
+		/* font-family: 'GmarketSansBold' */
+		@font-face {font-family:'GmarketSansBold'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff'); font-weight:normal; font-style:normal;}
+
+
+		body {
+			background-color:#fff; color:#000;
+			font-family:'Pretendard','pretendard'-apple-system,'BlinkMacSystemFont', 'Noto Sans KR','Noto Sans CJK','Apple SD Gothic Neo', serif;
+		}
+		/* 다크모드 대응 샘플 */
+		@media (prefers-color-scheme: dark) {
+			body {background-color: white !important; color: black !important;}
+			/* 이미지나 기타 요소가 반전되는 경우 방지 */
+			img, video {filter: none !important;}
+		}
+		/* // 다크모드 대응 샘플 */
+
+		.ev_240730 {background-color:#fff; overflow:hidden; font-family:'Pretendard','pretendard', serif;}
+		.ev_240730 img {vertical-align:top; border:0; max-width:100%;}
+		.ev_240730 div {position:relative;}
+		.ev_240730 div.top {min-height:31em; padding:0 0 2.08333em; background-color:#000; color:#fff;}
+
+		.result_type_item {position:relative;}
+		.result_type_item span.deco {position:absolute; top:4.79166em; right:0; width:20.91666em; height:12.20833em; background:url('../images/bg_win_deco.png') no-repeat left top / contain; transform-origin:50% 100%;
+			animation-duration:1.4s;
+			animation-iteration-count:1;
+			animation-timing-function: ease-in-out;
+			animation-fill-mode:forwards;
+			opacity:0;
+		}
+		.result_type_item span.deco.ani01 {animation-name:decoAni_01; animation-delay:0s; margin-left:-1em;}
+		.result_type_item span.deco.ani02 {animation-name:decoAni_02; animation-delay:0.2s; margin-top:-1em;}
+		.result_type_item span.deco.ani03 {animation-name:decoAni_01; animation-delay:0.4s; margin-right:-1em;}
+		.result_type_item span.deco.ani04 {animation-name:decoAni_02; animation-delay:0.6s; margin-bottom:-1em;}
+
+		@keyframes decoAni_01 {
+			0% {transform:scale(0) translateY(0); opacity:1;}
+			50% {opacity:1;}
+			100% {transform:scale(2) translateY(0); opacity:0;}
+		}
+		@keyframes decoAni_02 {
+			0% {transform:scale(0) translateY(0) rotateX(180deg); opacity:1;}
+			50% {opacity:1;}
+			100% {transform:scale(2) translateY(0) rotateX(180deg); opacity:0;}
+		}
+
+		/* 당첨 결과 문구 */
+		.result_txt_list {display:flex; flex-direction:column; justify-content:center; align-items:center; position:relative; min-height:5em; margin-top:1.25em; padding:0 1em; text-align:center; opacity:0; animation: opacityShowAni 0.5s 0.3s 1 ease-in-out forwards;}
+		.result_txt_list .result_txt_item p {font-size:2.33333em; line-height:1.10714em;}
+		.result_txt_list .result_txt_item p em,
+		.result_txt_list .result_txt_item p strong,
+		.result_txt_list .result_txt_item p span {display:block; color:#fff; font-size:inherit;}
+		.result_txt_list .result_txt_item p em {color:#fff; font-weight:700; font-family:'GmarketSansBold';}
+		.result_txt_list .result_txt_item p strong {font-weight:700; font-family:'GmarketSansLight'; /* animation: neonAni 5s 2s infinite ease-in-out; */}
+		@keyframes neonAni {
+			0%,100% {text-shadow: none;} 20%,80% {text-shadow: none;}
+			50% {text-shadow: 0 0 7px rgba(255,255,255,0.4), 0 0 10px rgba(255,255,255,0.4), 0 0 21px rgba(255,255,255,0.4), 0 0 42px rgba(255,255,255,0.4), 0 0 82px rgba(255,255,255,0.4), 0 0 92px rgba(255,255,255,0.4);}
+		}
+		@keyframes opacityShowAni {
+			0% {transform:scale(0.8); opacity:0;}
+			50% {transform:scale(1.02); opacity:1;}
+			100% {transform:scale(1); opacity:1;}
+		}
+		/* // 당첨 결과 문구 */
+
+		.result_txt_list .ico_star {position:absolute; top:50%; width:2.5em; height:2.5em; margin-top:-1.25em; animation-duration:1.4s; animation-iteration-count:infinite; animation-timing-function: ease-in-out; animation-fill-mode:forwards;
+			opacity:0.5; transform:scale(0.9);}
+		.result_txt_list .ico_star.star_l {left:1.95833em; animation-name:starAni; animation-delay:0s;}
+		.result_txt_list .ico_star.star_r {right:1.95833em; animation-name:starAni; animation-delay:0.5s;}
+		.result_txt_list .ico_star.star_r img {transform: rotateY(180deg);}
+
+		/* 당첨 결과 이미지 */
+		.result_product {position:relative; margin-top:1.625em; padding:0 1.66666em;}
+		.result_product .product_item {position:relative;}
+		.result_product .product_item div.img {display:flex; justify-content:center; align-items:center; width:19.16666em; height:13.33333em;}
+		.result_product .product_item div.img img {width:14.5em;}
+		.result_product .product_item::before {content:""; display:block; position:absolute; top:0; left:3.04166em; width:13.08333em; height:13.08333em; border:1px solid #707070; border-radius:100%; background-color:#fff;}
+		.result_product .product_item::before {animation: countBgAni 4s linear infinite; transform-origin:50% 49%;}
+
+		.flip-box {background-color:transparent; width:19.16666em; height:13.33333em; perspective:1000px;}
+		.flip-box .flip-box-inner {position:relative; width:100%; height:100%; text-align:center; transition:transform 0.8s; transform-style:preserve-3d; animation-delay:0.2s; transform:scale(0.5); opacity:0;}
+		.flip-box .flip-box-inner .flip-box-front,
+		.flip-box .flip-box-inner .flip-box-back {position:absolute; width:100%; height:100%; -webkit-backface-visibility:hidden; backface-visibility:hidden;}
+
+		.flip-box .flip-box-inner .flip-box-back {transform:rotateY(180deg);}
+		.flip-box .flip-box-inner img {display:block; border-radius:0.41666em; box-shadow:0 2px 8px rgba(0,0,0,0.16);}
+		.flip-box .flip-box-inner {animation-delay:0.2s;}
+		.flip-box .flip-box-inner {animation-delay:0.4s;}
+		.flip-box .flip-box-inner {animation-delay:0.2s;}
+		.flip-box .flip-box-inner {animation-delay:0.4s;}
+		.result_product .product_item.active .flip-box-inner {transform-origin:50% 50%; animation:flip_ani ease-in-out 1.4s 0.2s 1 alternate forwards;}
+		@keyframes flip_ani {
+			0% {transform:rotateY(180deg) scale(0.5);}
+			100% {transform:rotateY(-720deg) scale(1); opacity:1;}
+		}
+
+		/* .result_product span.star, */
+		.result_product span.star::before,
+		.result_product span.star::after,
+		.result_product::before,
+		.result_product::after {content:""; display:block; position:absolute; width:1.045em; height:1.25em; background:url('../images/deco_star.svg') no-repeat left top / contain;
+			animation-duration:1.4s; animation-iteration-count:infinite; animation-timing-function: ease-in-out; animation-fill-mode:forwards;
+			opacity:0.5; transform:scale(0.9);
+		}
+		
+		.result_product span.star::before {top:2.41666em; left:3.9375em; width:1.8125em; height:2.16458em; animation-name:starAni; animation-delay:0s;}
+		.result_product span.star::after {top:2.33333em; right:4.29166em; width:0.34833em; height:0.41666em; animation-name:starAni; animation-delay:0.7s;}
+		.result_product::before {top:0.6875em; left:5.75em; animation-name:starAni; animation-delay:0.5s;}
+		.result_product::after {top:6.33333em; right:3.29166em; animation-name:starAni; animation-delay:0.3s;}
+		@keyframes countBgAni {0% {transform:rotate(0deg);} 100% {transform:rotate(360deg);}}
+		@keyframes starAni {
+			0% {transform:scale(0.9); opacity:0.5;}
+			50% {transform:scale(1.08) translateY(-0.22em); opacity:1;}
+			100% {transform:scale(0.9); opacity:0.5;}
+		}
+		/* // 당첨 결과 이미지 */
+
+		/* 기프트샵 확인 방법 */
+		.gitfshop_wrap {margin-top:1.375em; padding:0 1.66666em;}
+		.gitfshop_wrap .gitfshop_box {padding:1.66666em 0; border-radius:0.83333em; background-color: #fff; text-align:center;}
+		.gitfshop_wrap .gitfshop_box span.img {display:inline-block; width:2.94791em; height:2.94791em;}
+		.gitfshop_wrap .gitfshop_box p.tit {padding:0.95833em 0 0.54166em;}
+		.gitfshop_wrap .gitfshop_box p.tit strong {color:#000; font-size:1.16666em; line-height:1.21428em;}
+		.gitfshop_wrap .gitfshop_box p.tit strong em {color:#FF3A4A;}
+		.gitfshop_wrap .gitfshop_box p.tit strong em.uplus {color:#FF29BA;}
+		.gitfshop_wrap .gitfshop_box ul {display:flex; flex-direction:column; gap:0.20833em; text-align:left; padding:0 1.25em}
+		.gitfshop_wrap .gitfshop_box ul li {position:relative;}
+		.gitfshop_wrap .gitfshop_box ul li p {padding-left:1.11111em; color:#000; font-size:0.75em; line-height:1.5em;}
+		.gitfshop_wrap .gitfshop_box ul li p::before {content:"·"; display:block; position:absolute; top:0; left:0; color:inherit; font-size:inherit; line-height:inherit; font-weight:bold; text-align:center;}
+		/* // 기프트샵 확인 방법 */
+
+		/* 기프트샵 바로가기 */
+		.gitfshop_wrap .btn_giftshop {display:flex; align-items:center; justify-content:center; gap:0.41666em; height:3.33333em; margin:0.79166em auto 0; background-color:#FF3A4A; border-radius:0.83333em;}
+		.gitfshop_wrap .btn_giftshop strong.txt {display:inline-block; padding-left:0.875em; color:#fff; font-size:1em; font-weight:700; text-shadow:0 0.08333em 0.16666em rgba(0,0,0,0.16);}
+		.gitfshop_wrap .btn_giftshop span.ico {display:inline-block; width:1.33333em; height:1.33333em; }
+		/* // 기프트샵 바로가기 */
+
+		/* 진행중 이벤트 */
+		.event_list {
+			padding:2.08333em 1.25em 0;
+			padding-bottom:calc(constant(safe-area-inset-bottom) + 2.08333em); padding-bottom:calc(env(safe-area-inset-bottom) + 2.08333em);
+			background-color:#fff; color:#000; text-align:center;}
+		.event_list div.tag {display:inline-block; padding:0.29166em 1em; border:1px solid #888; border-radius:100px; }
+		.event_list div.tag strong {display:inline-block; color:#888; font-size:0.75em; line-height:1.5em; letter-spacing:0;}
+		.event_list div.tit {padding:0.58333em 0 1.375em;}
+		.event_list div.tit p {color:#000; font-size:1.66666em; line-height:1.25em;}
+		.event_list div.tit p strong {display:block; font-weight:700;}
+		.event_list div.tit p span {display:block; font-weight:400;}
+		.event_list ul {display:flex; flex-direction:column; gap:0.833333em;}
+		.event_list ul li {border-radius:0.83333em; overflow:hidden;}
+		/* // 진행중 이벤트 */
+		
+		/* iOS 위치 수정 */
+		@supports (-webkit-touch-callout: none) {
+			.btn_giftshop span.txt {position:relative; top:0.05em;}
+			.result_product .product_item.active .flip-box-inner {animation:none;}
+			.flip-box .flip-box-inner {transform:scale(1); opacity:1;}
+		}
+
+
+		/* 쿠폰 코드 */
+		.coupon_code {display:flex; justify-content:space-between; margin-top:0.79166em; border-radius:0.83333em; overflow:hidden;}
+		.coupon_code span.code {display:flex; align-items:center; flex:1; padding-left:1.08333em; background:#fff; color:#000;}
+		.coupon_code button {width:3.33333em; height:3.33333em; background-color:#FF3A4A;}
+		.coupon_code button span {color:transparent;}
+		.coupon_code button span img {display:inline-block; width:1.5em; height:1.5em;}
+		/* // 쿠폰 코드 */
+
+
+
+		.result_wrap {}
+		.result_wrap + .result_wrap {margin-top:4.16666em;}
+		.result_wrap + .result_wrap .result_txt_list {margin-top:0;}
+	</style>
+</head>
+
+<body>
+
+<div class="evPageWrap">
+
+	<div class="evSection">
+
+		<div class="ev_240730">
+
+			<div class="top">
+				<div class="result_type">
+					<div class="result_type_item"><img src="../images/bg_win.png" alt="이벤트 당첨을 축하드립니다!" />
+						<span class="deco ani01"></span>
+						<span class="deco ani02"></span>
+						<span class="deco ani03"></span>
+						<span class="deco ani04"></span>
+					</div>
+				</div>
+				<!-- // result_type -->
+
+
+				<div class="result_wrap result_box1">
+					<div class="result_txt_list">
+						<!-- 당첨 문구 -->
+						<div class="result_txt_item">
+							<p class="txt">
+								<em>데이터 쿠폰</em>
+								<strong>당첨 안내</strong>
+							</p>
+						</div>
+						<span class="ico_star star_l"><img src="../images/ico_star.png" alt="노란색 별"></span>
+						<span class="ico_star star_r"><img src="../images/ico_star.png" alt="노란색 별"></span>
+					</div>
+					<!-- // result_txt_list -->
+
+					<div class="result_product">
+						<!-- 당첨 상품 -->
+						<div class="product_item active">
+							<div class="flip-box flip_item">
+								<div class="flip-box-inner">
+									<div class="flip-box-front">
+										<div class="img"><img src="../images/img_gift_data.png" alt="DATA COUPON 2GB" /></div>
+									</div>
+									<div class="flip-box-back">
+										<div class="img"><img src="../images/img_gift_data.png" alt="DATA COUPON 2GB" /></div>
+									</div>
+								</div>
+							</div>
+							<!-- // flip-box -->
+						</div>
+						<!-- // product_item -->
+						<span class="star"></span>
+					</div>
+					<!-- // result_product -->
+				
+
+					<div class="gitfshop_wrap">
+						<div class="gitfshop_box">
+							<span class="img"><img src="../images/ico_gift.png" alt="아이콘"></span>
+							<p class="tit">
+								<strong>
+									아래 쿠폰 번호를 복사한 후,<br />
+									<em class="uplus">당신의 U+</em> 앱에서 등록 후<br />
+									사용하세요
+								</strong>
+							</p>
+							<ul>
+								<li><p><strong>유효기간 : </strong>발행일 기준 2년 내 등록 필요</p></li>
+								<li><p><strong>사용기간 : </strong>등록일 기준 1년 내 소진 필요</p></li>
+								<li><p><strong>상품권 등록 후에는 취소 불가</strong></p></li>
+							</ul>
+						</div>
+						<!-- // gitfshop_box -->
+
+						<div class="coupon_code">
+							<span class="code">TSSU-X9CV-VPNQ-VT3J-WU</span>
+							<button type="button" class="btn_copy"><span><img src="../images/ico_copy.png" alt="복사하기"></span></button>
+						</div>
+						<!-- // coupon_code -->
+
+						<button type="button" class="btn_giftshop">
+							<strong class="txt">쿠폰 등록 바로가기</strong>
+							<span class="ico"><img src="../images/ico_coupon_s.png" alt="아이콘" /></span>
+						</button>
+					</div>
+					<!-- // gitfshop_wrap -->
+
+				</div>
+				<!-- // result_wrap result_box1 -->
+
+
+
+				<div class="result_wrap result_box2">
+					<div class="result_txt_list">
+						<!-- 당첨 문구 -->
+						<div class="result_txt_item">
+							<p class="txt">
+								<em>기프트샵 쿠폰</em>
+								<strong>당첨 안내</strong>
+							</p>
+						</div>
+						<span class="ico_star star_l"><img src="../images/ico_star.png" alt="노란색 별"></span>
+						<span class="ico_star star_r"><img src="../images/ico_star.png" alt="노란색 별"></span>
+					</div>
+					<!-- // result_txt_list -->
+
+					<div class="result_product">
+						<!-- 당첨 상품 -->
+						<div class="product_item active">
+							<div class="flip-box flip_item">
+								<div class="flip-box-inner">
+									<div class="flip-box-front">
+										<div class="img"><img src="../images/img_gift_sb.png" alt="스타벅스 1만원권" /></div>
+									</div>
+									<div class="flip-box-back">
+										<div class="img"><img src="../images/img_gift_sb.png" alt="스타벅스 1만원권" /></div>
+									</div>
+								</div>
+							</div>
+							<!-- // flip-box -->
+						</div>
+						<!-- // product_item -->
+						<span class="star"></span>
+					</div>
+					<!-- // result_product -->
+				
+
+					<div class="gitfshop_wrap">
+						<div class="gitfshop_box">
+							<span class="img"><img src="../images/ico_gift.png" alt="아이콘"></span>
+							<p class="tit">
+								<strong>
+									기프트콘은 <em>기프트샵 내 ‘보관함’</em>에서<br />
+									확인해주세요
+								</strong>
+							</p>
+							<ul>
+								<li><p><strong>기프트샵 > 마이페이지 > MY Gift</strong></p></li>
+								<li><p><span>보관함에 없을 경우, 문자 메시지를 확인해주세요</span></p></li>
+							</ul>
+						</div>
+						<!-- // gitfshop_box -->
+
+						<button type="button" class="btn_giftshop">
+							<strong class="txt">기프트샵 바로가기</strong>
+							<span class="ico"><img src="../images/ico_gift_s.png" alt="아이콘" /></span>
+						</button>
+					</div>
+					<!-- // gitfshop_wrap -->
+
+				</div>
+				<!-- // result_wrap result_box2 -->
+				 
+			</div>
+			<!-- // top -->
+
+
+			<div class="event_list">
+				<div class="tag"><strong>★EVENT★</strong></div>
+				<div class="tit">
+					<p>
+						<strong>지금 진행 중인 이벤트도</strong>
+						<span>함께 확인해보세요!</span>
+					</p>
+				</div>
+				<ul>
+					<li><button type="button"><img src="../images/img_banner_reviwe2.png" alt="PASS 리뷰 쓰고 BBQ, 커피 쿠폰 응모하기" /></button></li>
+				</ul>
+			</div>
+			<!-- // event_list -->
+
+		</div><!-- // ev_240730 -->
+
+
+		<div class="layer toast">
+			<p>쿠폰 번호가 복사되었어요.</p>
+		</div>
+
+
+	</div><!-- // evSection -->
+
+</div><!-- // evPageWrap -->
+
+
+<style>
+.layer.toast {display:flex; justify-content:center; align-items:center; position:fixed; bottom:2.08333em; right:0; left:0; width:100%; max-width:19.16666em; height:3.33333em; margin:0 auto; border:2px solid #000; border-radius:0.83333em; background-color:rgba(255,255,255,0.9); transform:translateY(300%); opacity:0;}
+.layer.toast p {color:#000; font-size:1em; line-height:1.5em;}
+.layer.toast.active {animation: slide-in 0.3s ease-in-out forwards;}
+.layer.toast.deactive {animation: slide-out 0.3s ease-in-out forwards;}
+@keyframes slide-in {
+	from { transform: translateY(100%); opacity: 0; }
+	to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slide-out {
+	from { transform: translateY(0); opacity: 1; }
+	to { transform: translateY(100%); opacity: 0; }
+}
+</style>
+
+
+
+
+
+
+<script>
+	/* 대충 버튼 눌리면 어멋? */
+	let btns = document.querySelectorAll(".evPageWrap button");
+	btns.forEach(function(item){
+		item.addEventListener("click", function(){
+			if(item.classList.contains("btn_copy")) {
+				return false;
+			}
+			let btnTit = item.getAttribute('title');
+			if(btnTit) {
+				alert(btnTit);
+			} else {
+				let img = item.querySelector("img");
+				if(item.innerText) {
+					alert(item.innerText)
+				}
+				else {
+					/* 
+					if(img.getAttribute("title")) {
+						alert(img.getAttribute("title"))
+					} else {
+						alert(img.getAttribute("alt"))
+					}
+					*/
+					img.getAttribute("title") ? alert(img.getAttribute("title")) : alert(img.getAttribute("alt"))
+				} 
+			}
+		})
+	})
+	/* // 대충 버튼 눌리면 어멋? */
+
+
+
+function test123(){
+	let couponCode = document.querySelector(".coupon_code");
+	if(couponCode){
+		const copyBtn = document.querySelector(".btn_copy");
+		copyBtn.addEventListener("click", fnClipboard);
+		copyBtn.addEventListener("click", fnToastAction);
+	}
+}
+
+function fnClipboard(){
+	const codeText = document.querySelector(".coupon_code .code").innerText;
+	// 클립보드에 복사
+	navigator.clipboard.writeText(codeText).then(() => {
+		// alert("복사되었습니다: " + codeText);
+	}).catch(err => {
+		console.error("복사 실패:", err);
+	});
+}
+
+
+function fnToastAction(){
+	let toastLayer = document.querySelector(".layer.toast");
+	// toastLayer.classList.remove("deactive");
+	toastLayer.classList.add("active");
+	setTimeout(() => {
+		toastLayer.classList.remove("active");
+		toastLayer.classList.add("deactive");
+		toastLayer.addEventListener("animationend", function(){
+			toastLayer.classList.remove("deactive");
+		})
+	}, 2000); // 2초 후 사라짐
+}
+test123();
+
+</script>
+</body>
+</html>
