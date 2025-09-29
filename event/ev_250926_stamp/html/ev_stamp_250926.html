@@ -79,6 +79,7 @@
 		.btn_attend span.ico {display:inline-block; width:2.08333em; height:2.08333em; animation:attendAni ease-in-out 1.2s infinite alternate;}
 		.btn_attend span.txt {color:#fff; font-size:1.25em; font-family:'yg-jalnan'; text-shadow:0 2px 4px rgba(0,0,0,0.16);}
 		.btn_attend.ready {background-color:#B12800; box-shadow:0 0.41666em 0 #7B2107;}
+		.btn_attend.ready::after {content:""; display:block; position:absolute; right:1.25em; top:50%; width:2.08333em; height:2.08333em; background:url('../images/ico_ready_arrow.png') no-repeat center / contain; transform: translateY(-50%);}
 		.btn_attend:disabled {background-color:#E0E0E0 !important; box-shadow:0 0.41666em 0 #C7C7C7;}
 		.btn_attend.com {background-color:#E0E0E0; box-shadow:0 0.41666em 0 #C7C7C7;}
 		@keyframes attendAni {0% {transform:rotate(-25deg);} 100% {transform:rotate(25deg);}}
@@ -100,10 +101,13 @@
 		.stamp_box_list {display:flex; flex-direction:column; gap:1.25em 0;}
 		.stamp_box_list .stamp_box {position:relative; padding:1.66666em 1.25em 1.25em 1.25em; border-radius:1.41666em; background-color:#fff; box-shadow:inset 0 0 0 0.08333em #B12800;}
 		.stamp_box_list .stamp_box div.sticky {display:flex; justify-content:center; align-items:center; position:absolute; top:0; right:0; width:4.75em; height:3.125em; background-color:#ddd; border-radius:0 1.41666em; color:#fff; font-size:0.83333em; line-height:1.25em; font-weight:bold;}
+		.stamp_box_list .stamp_box div.sticky span {display:inline-block; font-size:0.83333em; line-height:1.25em;}
 		.stamp_box_list .stamp_box div.sticky.com {background-color:#B12800;}
 		.stamp_box_list .stamp_box div.sticky.ing {background-color:#4B8D49;}
 		.stamp_box_list .stamp_box div.tit {font-size:1.25em; line-height:1em; font-family:'yg-jalnan';}
 		.stamp_box_list .stamp_box p.txt {margin-top:0.39285em; font-size:1.16666em; line-height:1.17857em;}
+		.stamp_box_list .stamp_box p.txt strong {font-weight:700;}
+		.stamp_box_list .stamp_box p.txt span {color:#F57339;}
 		.stamp_box_list .stamp_box .benefit_item_wrap {margin-top:1.33333em; text-align:center;}
 		.stamp_box_list .stamp_box .benefit_count_wrap {display:inline-flex; flex-direction:column; align-items:center; justify-content:center; gap:0.58333em 0;}
 		.stamp_box_list .stamp_box .benefit_count_wrap div.inbox {display:flex; justify-content:center; gap:0 0.41666em; position:relative;}
@@ -317,9 +321,9 @@
 			<div class="stamp_box_wrap">
 				<div class="stamp_box_list">
 					<div class="stamp_box">
-						<div class="sticky com">도전중</div>
+						<div class="sticky com"><span>응모 완료</span></div>
 						<div class="tit">스탬프 5개</div>
-						<p class="txt">GS25 편의점 상품권 5,000원</p>
+						<p class="txt">GS25 편의점 상품권 <strong>5,000원</strong></p>
 						<div class="benefit_item_wrap">
 							<div class="benefit_count_wrap">
 								<div class="inbox">
@@ -346,9 +350,9 @@
 					<!-- // stamp_box -->
 
 					<div class="stamp_box">
-						<div class="sticky ing">도전중</div>
-						<div class="tit">스탬프 5개</div>
-						<p class="txt">GS25 편의점 상품권 5,000원</p>
+						<div class="sticky ing"><span>도전중</span></div>
+						<div class="tit">스탬프 15개</div>
+						<p class="txt">LGU+ 데이터 상품권 <strong>1GB</strong></p>
 						<div class="benefit_item_wrap">
 							<div class="benefit_count_wrap">
 								<div class="inbox">
@@ -375,9 +379,12 @@
 					<!-- // stamp_box -->
 
 					<div class="stamp_box">
-						<div class="sticky ing">도전중</div>
-						<div class="tit">스탬프 5개</div>
-						<p class="txt">GS25 편의점 상품권 5,000원</p>
+						<div class="sticky ing"><span>도전중</span></div>
+						<div class="tit">스탬프 20개</div>
+						<p class="txt">
+							LGU+ 데이터 상품권 <strong>2GB</strong><br />
+							<span>+</span> 스타벅스 e카드교환권 <strong>1만원권</strong>
+						</p>
 						<div class="benefit_item_wrap">
 							<div class="benefit_count_wrap">
 								<div class="inbox">
@@ -573,8 +580,9 @@
 	let btn_attend = document.querySelector("button.btn_attend");
 	btn_attend.addEventListener("click", function(){
 		attendCount++;
-		btn_attend.setAttribute("disabled", true);		
+		btn_attend.setAttribute("disabled", true);
 		btn_attend.classList.add("com");
+		btn_attend.classList.remove("ready");
 		if(attendCount == 20) {
 			btnTxt = "<span class='ico'><img src='../images/ico_20.png' alt='출석 완료'></span>";
 			btnTxt += "<span class='txt'>20회 출석 완료</span>";
