@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>PASS 출석 챌린지</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, howToUser-scalable=no">
+	<meta name="color-scheme" content="light">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/ev_common.css">
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+	<style>
+		body {
+			background-color:#fff; color:#000;
+			font-family:'Pretendard', 'pretendard', -apple-system,'BlinkMacSystemFont', 'Noto Sans KR','Noto Sans CJK','Apple SD Gothic Neo', serif;
+		}
+		/* 다크모드 대응 샘플 */
+		@media (prefers-color-scheme: dark) {
+			body {background-color: white !important; color: black !important;}
+			/* 이미지나 기타 요소가 반전되는 경우 방지 */
+			img, video {filter: none !important;}
+		}
+		/* // 다크모드 대응 샘플 */
+		
+		.ev_250714 {/* padding-bottom:3.33333em; padding-bottom:calc(constant(safe-area-inset-bottom) + 3.33333em); padding-bottom:calc(env(safe-area-inset-bottom) + 3.33333em); */
+			background-color:#fff; overflow:hidden; font-family:'Pretendard', 'pretendard', -apple-system,'BlinkMacSystemFont', 'Noto Sans KR','Noto Sans CJK','Apple SD Gothic Neo', serif;}
+		.ev_250714 img {vertical-align:top; border:0; max-width:100%; filter:none !important;}
+		.ev_250714 .top {position:relative; --main-bg:#000; background-color:var(--main-bg);}
+
+		/* 출석 챌린지 기간 */
+		.ev_date_wrap {display:flex; flex-direction:column; gap:2.08333em 0; width:100%; padding:2.91666em 1.33333em 2.08333em; background-color:#fff;}
+		.ev_date_wrap .date_wrap {display:flex; flex-direction:column; gap:2.08333em 0; width:100%;}
+		.ev_date_wrap .date_wrap .inner {display:flex; flex-direction:column; gap:1.25em 0; position: relative;}
+		.ev_date_wrap .date_wrap .inner div.tit {}
+		.ev_date_wrap .date_wrap .inner div.tit strong {display:inline-block;}
+		.ev_date_wrap .date_wrap .inner div.tit img {width:auto; height:1.25em;}
+		.ev_date_wrap .date_wrap .inner div.con {display:flex; flex-direction:column; gap:0.25em; width:100%; padding-left:1.66666em;}
+		.ev_date_wrap .date_wrap .inner div.con ul {}
+		.ev_date_wrap .date_wrap .inner div.con ul li {font-size:1.04166em;; line-height:1.53846em;}
+		.ev_date_wrap .date_wrap .inner div.con ul li span {display:inline-block; position:relative; font-weight:500;}
+		.ev_date_wrap .date_wrap .inner div.con ul li span.tit {padding-left:0.5em; color:#B12800;}
+		.ev_date_wrap .date_wrap .inner div.con ul li span.tit::before {content:"·"; display:block; position:absolute; top:0; left:0; color:inherit; font-size:inherit; line-height:inherit; font-weight:bold; text-align:center;}
+		.ev_date_wrap .date_wrap .inner div.con ul li span.txt {color:#343434;}
+		.ev_date_wrap .date_wrap .inner div.con div.date {width:100%; color:#343434; font-size:1.33333em; font-weight:700; text-align:center;}
+		.ev_date_wrap .date_wrap .inner div.con p {color:#000; font-size:1.08333em; line-height:1.53846em; font-weight:400; word-break:keep-all;}
+		.ev_date_wrap .date_wrap .inner div.con p strong {color:#0965FF; font-weight:700;}
+		.ev_date_wrap .date_wrap .inner div.con small {color:#B12800; font-size:0.75em; line-height:1.11111em;}
+		/* // 출석 챌린지 기간 */
+
+
+
+		/* 출석체크 */
+		.ev_attend_wrap {padding:0em 1.33333em 2.91666em; text-align:center;}
+
+		/* 나의 스탬프 현황 타이틀 */
+		.ev_attend_wrap .inner {position: relative;}
+		.ev_attend_wrap .inner div.tit {display:flex; justify-content:space-between; align-items:center; position:absolute; top:0; left:0; width:100%; height:2.25em; padding:0 1em; border:2px solid #000; border-width:2px; border-radius:1.41666em; background-color:#0965FF; color:#fff; overflow:hidden;}
+		.ev_attend_wrap .inner div.tit strong img {width:auto; height:1.41666em;}
+		.ev_attend_wrap .inner div.tit::before,
+		.ev_attend_wrap .inner div.tit::after {content:""; display:block; width:0.5em; height:0.5em; background-color:#000; border-radius:100%;}
+		/* // 나의 스탬프 현황 타이틀 */
+
+		/* 출석 스탬프 목록 */
+		.attend_box {display:flex; flex-direction:column; gap:1.66666em; padding:1.25em 0 2.6666em; border:1px solid #F57239; border-radius:1.41666em; background:#FFE7C6 url('../images/attend_box_bg.png') no-repeat center bottom / 17.5em; overflow:hidden;}
+		.attend_box div.tit strong img {width:13.25em;}
+		.attend_box .attend_wrap {display:flex; flex-direction:column; gap:0.25em; width:100%; overflow:hidden; transition:all 0.2s ease-in-out;}
+		.attend_box .attend_wrap ol {display:inline-flex; flex-wrap:wrap; justify-content:center; gap:0.83333em 1.25em;}
+		.attend_box .attend_wrap ol li {display:flex; justify-content:center; align-items:center; width:3em; height:3em; border-radius:100%;}
+		.attend_box .attend_wrap ol li span {display:flex; justify-content:center; align-items:center; width:100%; height:100%; border-radius:100%; background-color:#f7f7f7;}
+		.attend_box .attend_wrap ol li span.dis {background:url('../images/ico_stamp_empty.png') no-repeat center center / cover; color:#F8B668; transform:rotate(25deg);}
+		.attend_box .attend_wrap ol li span.mis {background-color:#dbdbdb;}
+		.attend_box .attend_wrap ol li span.com {position:relative;}
+		/* 출석 스탬프 목록 */
+
+
+		/* 출석하기 버튼 */
+		.btn_attend {display:flex; align-items:center; position:relative; gap:0.41666em; height:3.33333em; margin-top:0.41666em; padding:0 0 0 1.25em; border-radius:1.41666em; text-align:left;}
+		.btn_attend span.ico {display:inline-block; width:2.08333em; height:2.08333em; animation:attendAni ease-in-out 1.2s infinite alternate;}
+		.btn_attend span.txt {color:#fff; font-size:1.25em; font-family:'yg-jalnan'; text-shadow:0 2px 4px rgba(0,0,0,0.16);}
+		.btn_attend.ready {background-color:#B12800; box-shadow:0 0.41666em 0 #7B2107;}
+		.btn_attend:disabled {background-color:#E0E0E0 !important; box-shadow:0 0.41666em 0 #C7C7C7;}
+		.btn_attend.com {background-color:#E0E0E0; box-shadow:0 0.41666em 0 #C7C7C7;}
+		@keyframes attendAni {0% {transform:rotate(-25deg);} 100% {transform:rotate(25deg);}}
+		/* // 출석하기 버튼 */
+
+
+		/* 누적 응모자 수 */
+		.count_wrap {padding:1.66666em 0 0;}
+		.count_wrap p {color:#000; font-size:1em; line-height:1.5em; font-family:'yg-jalnan'; letter-spacing:-0.06em;}
+		.count_wrap p strong {color:#F57339; font-size:1.66666em; font-weight:700;}
+
+		.count_wrap.stamp_count {margin:0; padding-bottom:0.83333em;}
+		.count_wrap.stamp_count p strong {color:#B12800;}
+		/* // 누적 응모자 수 */
+
+
+		/* 응모 상품 및 현황 */
+		.stamp_box_wrap {padding:2.91666em 1.33333em; background-color:#F57339;}
+		.stamp_box_list {display:flex; flex-direction:column; gap:1.25em 0;}
+		.stamp_box_list .stamp_box {position:relative; padding:1.66666em 1.25em 1.25em 1.25em; border-radius:1.41666em; background-color:#fff; box-shadow:inset 0 0 0 0.08333em #B12800;}
+		.stamp_box_list .stamp_box div.sticky {display:flex; justify-content:center; align-items:center; position:absolute; top:0; right:0; width:4.75em; height:3.125em; background-color:#ddd; border-radius:0 1.41666em; color:#fff; font-size:0.83333em; line-height:1.25em; font-weight:bold;}
+		.stamp_box_list .stamp_box div.sticky.com {background-color:#B12800;}
+		.stamp_box_list .stamp_box div.sticky.ing {background-color:#4B8D49;}
+		.stamp_box_list .stamp_box div.tit {font-size:1.25em; line-height:1em; font-family:'yg-jalnan';}
+		.stamp_box_list .stamp_box p.txt {margin-top:0.39285em; font-size:1.16666em; line-height:1.17857em;}
+		.stamp_box_list .stamp_box .benefit_item_wrap {margin-top:1.33333em; text-align:center;}
+		.stamp_box_list .stamp_box .benefit_count_wrap {display:inline-flex; flex-direction:column; align-items:center; justify-content:center; gap:0.58333em 0;}
+		.stamp_box_list .stamp_box .benefit_count_wrap div.inbox {display:flex; justify-content:center; gap:0 0.41666em; position:relative;}
+		.stamp_box_list .stamp_box .benefit_count_wrap div.inbox div.item {width:7.5em;}
+		.stamp_box_list .stamp_box .benefit_count_wrap div.inbox div.item + div.item::before {content:""; display:block; position:absolute; top:50%; left:50%; width:1.79166em; height:1.79166em; border-radius:100%; background:#000 url('../images/ico_plus.png') no-repeat center center / contain; transform:translate(-50%,-50%); z-index:1;}
+		.stamp_box_list .stamp_box .benefit_count_wrap div.count {display:block; width:100%; height:1.66666em; border-radius:0.83333em; background-color:#000; color:#fff; line-height:1.66666em; text-align:center;}
+		.stamp_box_list .stamp_box .benefit_count_wrap div.count strong {font-size:0.83333;}
+		.stamp_box_list .stamp_box .benefit_count_wrap div.inbox div.item .flip-box {width:7.5em; margin:0 auto;}
+		.stamp_box_list .stamp_box .benefit_count_wrap div.inbox div.item .flip-box .flip-box-inner {position:relative; width:100%; height:5.25em; text-align:center; transition:transform 0.8s; transform-style:preserve-3d; animation-delay:0.2s; border-radius:0.625em; box-shadow:0 2px 4px rgba(0,0,0,0.16);}
+		.stamp_box_list .stamp_box .benefit_count_wrap div.inbox div.item .flip-box .flip-box-inner .flip-box-front,
+		.stamp_box_list .stamp_box .benefit_count_wrap div.inbox div.item .flip-box .flip-box-inner .flip-box-back {position:absolute; width:100%; height:100%; -webkit-backface-visibility:hidden; backface-visibility:hidden;}
+		.stamp_box_list .stamp_box .benefit_count_wrap div.inbox div.item .flip-box .flip-box-inner .flip-box-back {transform:rotateX(180deg);}
+		.stamp_box_list .stamp_box .benefit_count_wrap div.inbox div.item .flip-box.active .flip-box-inner {transform-origin:50% 50%; animation:flip_ani ease-in-out 1s 0.2s 1 alternate; }
+		@keyframes flip_ani {
+			0% {transform:rotateX(180deg);}
+			100% {transform:rotateX(-360deg);}
+		}
+		/* // 응모 상품 및 현황 */
+
+
+		/* 이벤트 공유하기, 배너 */
+		.ev_btn_group {display: grid; grid-template-areas:"btn_info btn_info btn_share btn_share" "bnr bnr bnr bnr"; gap:0.83333em 0.66666em; margin-top:1.25em;}
+		.ev_btn_group button {width:100%;}
+		.ev_btn_group button span {display:inline-block;}
+		/* .ev_btn_group .btn_attend {grid-area:btn_attend; min-height:3.58333em;} */
+		.ev_btn_group .btn_info {grid-area:btn_info;}
+		.ev_btn_group .btn_share {grid-area:btn_share;}
+		.ev_btn_group .bnr {grid-area:bnr;}
+		.ev_btn_group button:disabled {background-color:#fff !important;}
+		/* 이벤트 공유하기, 배너 */
+
+		/* // 출석체크 */
+
+		
+		/* 꼭 확인하세요. */
+		.ev_250714 .footer_alert {padding:2.08333em 1.66666em; background-color:#F2F2F2;}
+		.ev_250714 .footer_alert div.tit strong {font-size:1em;}
+		.ev_250714 .footer_alert .footer_group {margin-top:0.83333em;}
+		.ev_250714 .footer_alert .footer_group div.sub_tit strong {display:inline-block; font-size:0.833333em; line-height:1.2em; font-weight:bold;}
+		.ev_250714 .footer_alert .footer_group ul {margin-top:0.41666em;}
+		.ev_250714 .footer_alert .footer_group ul li p {position:relative; padding-left:0.95em; color:#000; font-size:0.83333em; line-height:1.4em; word-break: keep-all;}
+		.ev_250714 .footer_alert .footer_group ul li p::before {content:"-"; display:block; position:absolute; top:0; left:0; color:inherit; font-size:inherit; line-height:inherit; font-weight:inherit;}
+		/* // 꼭 확인하세요. */
+
+		
+		/* 레이어 팝업 이미지*/
+		.layer .layer_content div.img {margin-bottom:1.25em; text-align:center;}
+		.layer .layer_content div.img img {display:inline-block; width:100px; vertical-align:top;}
+		.layer .layer_content div.name {color:#7E5BFA; font-size:1.25em; line-height:1.2em; font-weight:700;}
+		/* 공통 임시 수정 */
+		.layer .layer_content div.pass_logo + div.tit {margin-top:36px;}
+		/* // 공통 임시 수정 */
+</style>
+</head>
+
+<body>
+<div class="evPageWrap">
+
+	<div class="evSection">
+
+		<div class="ev_250714">
+			<div class="top">
+				<div><img src="../images/ev_250926_img1.png" alt="PASS 출첵 스탬프 이벤트" /></div>
+			</div>
+			<!-- // top -->
+
+			<div class="ev_date_wrap">
+
+				<div class="date_wrap">
+					<div class="inner">
+						<div class="tit"><strong><img src="../images/ev_250926_tit1.png" alt="이벤트 기간" /></strong></div>
+						<div class="con">
+							<ul>
+								<li><span class="tit">기간 : </span><span class="txt">2025.10.27 ~ 2025.12.12</span></li>
+								<li><span class="tit">출석 인정 시간 : </span><span class="txt">매일 00:00 ~ 23:59</span></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="inner">
+						<div class="tit"><strong><img src="../images/ev_250926_tit2.png" alt="참여 방법" /></strong></div>
+						<div class="con">
+							<p>매일 ‘출석하기’ 버튼을 눌러 출석 스탬프를 모으면 경품에 자동으로 응모돼요!</p>
+							<small>*이벤트 기간 내 최대 20회 출석 가능</small>
+						</div>
+					</div>
+				</div>
+				<!-- // date_wrap -->
+			</div>
+			<!-- // ev_date_wrap -->
+
+
+
+			<div class="ev_attend_wrap">
+
+				<div class="attend_box">
+					<div class="tit">
+						<strong><img src="../images/ev_250926_tit3.png" alt="챌린지 참여 현황" /></strong>
+					</div>
+
+					<div class="attend_wrap">
+						<ol>
+							<li>
+								<span class="com">
+									<img src="../images/ico_stamp_checked.png" alt="출석" />
+								</span>
+							</li>
+							<li>
+								<span class="com">
+									<img src="../images/ico_stamp_checked.png" alt="출석" />
+								</span>
+							</li>
+							<li>
+								<span class="com">
+									<img src="../images/ico_stamp_checked.png" alt="출석" />
+								</span>
+							</li>
+							<li>
+								<span class="com">
+									<img src="../images/ico_stamp_checked.png" alt="출석" />
+								</span>
+							</li>
+							<li>
+								<span class="com">
+									<img src="../images/ico_stamp_checked.png" alt="출석" />
+								</span>
+							</li>
+							<li>
+								<span class="com">
+									<img src="../images/ico_stamp_checked.png" alt="출석" />
+								</span>
+							</li>
+							<li>
+								<span class="com">
+									<img src="../images/ico_stamp_checked.png" alt="출석" />
+								</span>
+							</li>
+							<li>
+								<span class="com">
+									<img src="../images/ico_stamp_checked.png" alt="출석" />
+								</span>
+							</li>
+							<li>
+								<span class="com">
+									<img src="../images/ico_stamp_checked.png" alt="출석" />
+								</span>
+							</li>
+							<li>
+								<span class="com">
+									<img src="../images/ico_stamp_checked.png" alt="출석" />
+								</span>
+							</li>
+							<li>
+								<span class="do">
+									<img src="../images/ico_stamp_ready.png" alt="출석하기" />
+								</span>
+							</li>
+							<li><span class="dis">12</span></li>
+							<li><span class="dis">13</span></li>
+							<li><span class="dis">14</span></li>
+							<li><span class="dis">15</span></li>
+							<li><span class="dis">16</span></li>
+							<li><span class="dis">17</span></li>
+							<li><span class="dis">18</span></li>
+							<li><span class="dis">19</span></li>
+							<li><span class="dis">20</span></li>
+						</ol>
+					</div>
+					<!-- // attend_wrap -->
+
+					<div class="count_wrap stamp_count">
+						<p>
+							누적 스탬프
+							<strong class="count">%누적 일자%</strong>
+							개
+						</p>
+					</div>
+
+				</div>
+				<!-- // attend_box -->
+
+				<button type="button" class="btn_attend ready">
+					<span class="ico"><img src="../images/ico_ready.png" alt="출석하기"></span>
+					<span class="txt">출석하기</span>
+				</button>
+
+				<!-- 출석 완료 버튼 -->
+				<!-- 
+				<button type="button" class="btn_attend com">
+					<span class="ico"><img src="../images/ico_checked.png" alt="출석 완료"></span>
+					<span class="txt">출석 완료</span>
+				</button>
+
+				<button type="button" class="btn_attend com">
+					<span class="ico"><img src="../images/ico_20.png" alt="20회 출석 완료"></span>
+					<span class="txt">20회 출석 완료</span>
+				</button>
+				-->
+				<!-- // 출석 완료 버튼 -->
+
+				<div class="count_wrap user_count">
+					<p>
+						총
+						<strong class="count">%누적 참여자 수%</strong>명이<br>
+						<span>챌린지에 참여하고 있어요!</span>
+					</p>
+				</div>
+			</div>
+			<!-- // ev_attend_wrap -->
+
+			<div class="stamp_box_wrap">
+				<div class="stamp_box_list">
+					<div class="stamp_box">
+						<div class="sticky com">도전중</div>
+						<div class="tit">스탬프 5개</div>
+						<p class="txt">GS25 편의점 상품권 5,000원</p>
+						<div class="benefit_item_wrap">
+							<div class="benefit_count_wrap">
+								<div class="inbox">
+									<div class="item">
+										<div class="flip-box flip_item">
+											<div class="flip-box-inner">
+												<div class="flip-box-front">
+													<img src="../images/img_gift_gs25.png" alt="GS25 편의점 상품권 5천원" />
+												</div>
+												<div class="flip-box-back">
+													<img src="../images/img_gift_gs25.png" alt="GS25 편의점 상품권 5천원" />
+												</div>
+											</div>
+										</div>
+										<!-- // flip-box -->
+									</div>
+								</div>
+								<div class="count"><strong>200명 추첨</strong></div>
+							</div>
+							<!-- // benefit_count_wrap -->
+						</div>
+						<!-- // benefit_item_wrap -->
+					</div>
+					<!-- // stamp_box -->
+
+					<div class="stamp_box">
+						<div class="sticky ing">도전중</div>
+						<div class="tit">스탬프 5개</div>
+						<p class="txt">GS25 편의점 상품권 5,000원</p>
+						<div class="benefit_item_wrap">
+							<div class="benefit_count_wrap">
+								<div class="inbox">
+									<div class="item">
+										<div class="flip-box flip_item">
+											<div class="flip-box-inner">
+												<div class="flip-box-front">
+													<img src="../images/img_gift_data1gb.png" alt="LGU+ 데이터 상품권 1GB" />
+												</div>
+												<div class="flip-box-back">
+													<img src="../images/img_gift_data1gb.png" alt="LGU+ 데이터 상품권 1GB" />
+												</div>
+											</div>
+										</div>
+										<!-- // flip-box -->
+									</div>
+								</div>
+								<div class="count"><strong>200명 추첨</strong></div>
+							</div>
+							<!-- // benefit_count_wrap -->
+						</div>
+						<!-- // benefit_item_wrap -->
+					</div>
+					<!-- // stamp_box -->
+
+					<div class="stamp_box">
+						<div class="sticky ing">도전중</div>
+						<div class="tit">스탬프 5개</div>
+						<p class="txt">GS25 편의점 상품권 5,000원</p>
+						<div class="benefit_item_wrap">
+							<div class="benefit_count_wrap">
+								<div class="inbox">
+									<div class="item">
+										<div class="flip-box flip_item">
+											<div class="flip-box-inner">
+												<div class="flip-box-front">
+													<img src="../images/img_gift_data2gb.png" alt="LGU+ 데이터 상품권 2GB" />
+												</div>
+												<div class="flip-box-back">
+													<img src="../images/img_gift_data2gb.png" alt="LGU+ 데이터 상품권 2GB" />
+												</div>
+											</div>
+										</div>
+										<!-- // flip-box -->
+									</div>
+									<div class="item">
+										<div class="flip-box flip_item">
+											<div class="flip-box-inner">
+												<div class="flip-box-front">
+													<img src="../images/img_gift_sbuck.png" alt="스타벅스 e카드교환권 1만원" />
+												</div>
+												<div class="flip-box-back">
+													<img src="../images/img_gift_sbuck.png" alt="스타벅스 e카드교환권 1만원" />
+												</div>
+											</div>
+										</div>
+										<!-- // flip-box -->
+									</div>
+								</div>
+								<div class="count"><strong>100명 추첨</strong></div>
+							</div>
+							<!-- // benefit_count_wrap -->
+						</div>
+						<!-- // benefit_item_wrap -->
+					</div>
+					<!-- // stamp_box -->
+				</div>
+				<!-- // stamp_box_list -->
+
+				<div class="ev_btn_group">
+					<div class="btn_info">
+						<button type="button">
+							<span><img src="../images/ev_250926_btn_product.png" alt="데이터 상품권 안내"></span>
+						</button>
+					</div>
+					<div class="btn_share">
+						<button type="button">
+							<span><img src="../images/ev_250926_btn_share.png" alt="이벤트 공유하기"></span>
+						</button>
+					</div>
+					<div class="bnr"><img src="../images/banner_passmoney.png" alt=""></div>
+				</div>
+				<!-- // btn_group -->
+			</div>
+			<!-- // stamp_box_wrap -->
+
+			<div class="footer_alert">
+				<div class="tit"><strong>꼭 확인해주세요.</strong></div>
+				<div class="footer_group">
+					<!-- <div class="sub_tit"><strong>[이벤트 응모]</strong></div> -->
+					<ul>
+						<li><p>본 이벤트는 만 14세 이상, 출석 이벤트 이용 약관에 동의한 PASS 사용자만 참여할 수 있습니다.</p></li>
+						<li><p>출석은 이벤트 페이지 내 ‘출석하기’ 버튼을 눌러야만 인정되며, 매일 00:00 ~ 23:59 내 1일 1회만 출석 가능합니다.</p></li>
+						<li><p>이벤트 기간 내 출석 조건을 충족한 고객을 대상으로 추첨을 통해 상품이 지급됩니다.</p></li>
+						<li><p>데이터 상품권은 LG U+ 통신사를 이용 중인 고객님께만 지급이 가능합니다. LG U+ 알뜰폰 사용 및 통신사 변경 등으로 인해 조건이 충족되지 않을 경우, 데이터 상품권 지급이 제한됩니다.</p></li>
+						<li><p>데이터 상품권은 당첨자에 한해 쿠폰 코드 형태로 제공되며, [당신의 U+] 앱에서 직접 등록 후 사용해야 합니다.</p></li>
+						<li><p>GS25 편의점 상품권 및 스타벅스 e카드교환권은 PASS 기프트샵 쿠폰 또는 SMS 쿠폰 형태로 지급되며, 현금 전환은 불가합니다.</p></li>
+						<li><p>당첨자 발표는 이벤트 종료 후 당첨자 발표 페이지에서 확인할 수 있으며, 지급 데이터 용량 등 상세 내역도 함께 공지됩니다. (12월 말 예정)</p></li>
+						<li><p>하나의 계정(또는 기기)으로만 참여 가능하며, 중복 참여, 매크로, 비정상적인 방식의 참여는 무효 처리됩니다.</p></li>
+						<li><p>이벤트 운영 및 보상 내용은 당사 사정에 따라 변경될 수 있으며, 변경 시 사전 또는 사후에 고지됩니다.</p></li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+		<!-- // ev_250714 -->
+
+	</div><!-- // evSection -->
+
+</div><!-- // evPageWrap -->
+
+
+
+<div class="layer alert">
+	<div class="dim"></div>
+	<div class="layer_inner">
+		<div class="layer_content">
+			<div class="img"><img src="../images/ico_popup_attendance.png" alt="출석 성공 아이콘"></div>
+			<!-- <div class="name">%입력한 텍스트%</div> -->
+			<div class="tit">출석 성공!<br />
+				내일도 PASS에서 만나요.</div>
+		</div>
+		<div class="btn_group">
+			<div><button type="button" class="next"><span>확인</span></button></div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="layer alert">
+	<div class="dim"></div>
+	<div class="layer_inner">
+		<div class="layer_content">
+			<div class="img"><img src="../images/ico_popup_checked.png" alt="출석 성공 아이콘"></div>
+			<div class="tit">출석 성공!<br />
+				당첨 결과는 12월 내 공개됩니다.</div>
+		</div>
+		<div class="btn_group">
+			<div><button type="button" class="next"><span>확인</span></button></div>
+		</div>
+	</div>
+</div>
+
+
+ 
+<div class="layer alert">
+	<div class="dim"></div>
+	<div class="layer_inner">
+		<div class="layer_content">
+			<div class="img"><img src="../images/ico_popup_complete.png" alt="출석 완주 아이콘"></div>
+			<div class="tit">출석 완주를 축하드립니다!<br />
+				당첨 결과는 12월 내 공개됩니다.</div>
+		</div>
+		<div class="btn_group">
+			<div><button type="button" class="next"><span>확인</span></button></div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="layer alert">
+	<div class="dim"></div>
+	<div class="layer_inner">
+		<div class="layer_content">
+			<div class="pass_logo"><img src="../images/ico_logo_main.png" alt="PASS"></div>
+			<!-- <div class="img"><img src="../images/img_challenge.png" alt="챌린지 참여 완료 아이콘"></div> -->
+			<div class="tit">일시적인 오류로<br />
+				출석이 처리되지 않았습니다.<br />
+				잠시 후 다시 시도해 주세요.</div>
+		</div>
+		<div class="btn_group">
+			<div><button type="button" class="next"><span>확인</span></button></div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<script>
+	/* 대충 버튼 눌리면 어멋? */
+	let btns = document.querySelectorAll(".evPageWrap button");
+	btns.forEach(function(item){
+		item.addEventListener("click", function(){
+			let btnTit = item.getAttribute('title')
+			if(btnTit) {
+				alert(btnTit);
+			} else {
+				let img = item.querySelector("img");
+				if(img) {
+					if(img.getAttribute("title")) {
+						alert(img.getAttribute("title"))
+					} else {
+						alert(img.getAttribute("alt"))
+					}
+				} else {
+					alert(item.innerText)
+				}
+			}
+		})
+	})
+	/* // 대충 버튼 눌리면 어멋? */
+
+	/* 확인용 레이어 닫기(임시) */
+	let layers = document.querySelectorAll(".layer");
+	layers.forEach(function(item){
+		item.querySelectorAll("button").forEach(function(e){
+			e.addEventListener("click", function(){
+				item.closest(".layer").style.display = "none";
+			})
+		})
+	})
+	/* // 확인용 레이어 닫기(임시) */
+
+
+	/* 출석하기 버튼 예시(임시) */
+	let btnTxt;
+	let attendCount = 19;
+	let btn_attend = document.querySelector("button.btn_attend");
+	btn_attend.addEventListener("click", function(){
+		attendCount++;
+		btn_attend.setAttribute("disabled", true);		
+		btn_attend.classList.add("com");
+		if(attendCount == 20) {
+			btnTxt = "<span class='ico'><img src='../images/ico_20.png' alt='출석 완료'></span>";
+			btnTxt += "<span class='txt'>20회 출석 완료</span>";
+			btn_attend.innerHTML = btnTxt;
+			document.querySelector(".count_wrap.stamp_count strong.count").innerText = "20";
+		}
+		else {
+			btnTxt = "<span class='ico'><img src='../images/ico_checked.png' alt='출석 완료'></span>";
+			btnTxt += "<span class='txt'>출석 완료</span>";
+			btn_attend.innerHTML = btnTxt;
+		}
+	})
+	/* // 출석하기 버튼 예시(임시) */
+
+
+
+	/* 중요(필수) */
+	const items = document.querySelectorAll(".flip_item, span.com");
+	const observer = new IntersectionObserver(
+	(entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('active');
+				} else {
+					// entry.target.classList.remove('active'); // optional: 뷰포트 벗어나면 제거
+				}
+			});
+		},
+		{
+			threshold: 0.1 // 요소가 10% 이상 보이면 트리거
+		}
+	);
+	items.forEach(item => {
+		observer.observe(item);
+	});
+	/* 중요(필수) */
+</script>
+
+</body>
+</html>

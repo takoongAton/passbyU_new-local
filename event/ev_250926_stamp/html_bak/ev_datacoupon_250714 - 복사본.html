@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>PASS 출석 챌린지</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, howToUser-scalable=no">
+	<meta name="color-scheme" content="light">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/ev_common.css">
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+	<style>
+		body {
+			background-color:#fff; color:#000;
+			font-family:'Pretendard', 'pretendard', -apple-system,'BlinkMacSystemFont', 'Noto Sans KR','Noto Sans CJK','Apple SD Gothic Neo', serif;
+		}
+		/* 다크모드 대응 샘플 */
+		@media (prefers-color-scheme: dark) {
+			body {background-color: white !important; color: black !important;}
+			/* 이미지나 기타 요소가 반전되는 경우 방지 */
+			img, video {filter: none !important;}
+		}
+		/* // 다크모드 대응 샘플 */
+		
+		.ev_250714 {/* padding-bottom:3.33333em; padding-bottom:calc(constant(safe-area-inset-bottom) + 3.33333em); padding-bottom:calc(env(safe-area-inset-bottom) + 3.33333em); */
+			background-color:#fff; overflow:hidden; font-family:'Pretendard', 'pretendard', -apple-system,'BlinkMacSystemFont', 'Noto Sans KR','Noto Sans CJK','Apple SD Gothic Neo', serif;}
+		.ev_250714 img {vertical-align:top; border:0; max-width:100%; filter:none !important;}
+		.ev_250714 .top {position:relative; --main-bg:#000; background-color:var(--main-bg);}
+
+		/* 출석 챌린지 기간 */
+		.ev_date_wrap {display:flex; flex-direction:column; gap:2.08333em 0; width:100%; padding:2.91666em 1.33333em 2.08333em; background:url('../images/ev_250714_bg1.png') no-repeat top center / cover;}
+		.ev_date_wrap > div.tit {text-align:center;}
+		.ev_date_wrap > div.tit img {width:18.95833em;}
+		.ev_date_wrap .date_wrap {display:flex; flex-direction:column; gap:1.25em 0; width:100%;}
+		.ev_date_wrap .date_wrap .inner {position: relative;}
+		.ev_date_wrap .date_wrap .inner div.tit {display:flex; justify-content:space-between; align-items:center; position:absolute; top:0; left:0; width:100%; height:2.25em; padding:0 1em; border:2px solid #000; border-width:2px; border-radius:1.41666em; background-color:#E1FF05; overflow:hidden;}
+		.ev_date_wrap .date_wrap .inner div.tit strong img {width:auto; height:1.41666em;}
+		.ev_date_wrap .date_wrap .inner div.tit::before,
+		.ev_date_wrap .date_wrap .inner div.tit::after {content:""; display:block; width:0.5em; height:0.5em; background-color:#000; border-radius:100%;}
+		.ev_date_wrap .date_wrap .inner div.con {display:flex; flex-direction:column; gap:0.25em; width:100%; padding:3.25em 1em 1em 1em; border:2px solid #000; border-radius:1.41666em; background-color:#fff;overflow:hidden;}
+		.ev_date_wrap .date_wrap .inner div.con div.date {width:100%; color:#343434; font-size:1.33333em; font-weight:700; text-align:center;}
+		.ev_date_wrap .date_wrap .inner div.con p {color:#343434; font-size:1.16666em; line-height:1.28571em; font-weight:400;}
+		.ev_date_wrap .date_wrap .inner div.con p strong {color:#0965FF; font-weight:700;}
+		.ev_date_wrap .date_wrap .inner div.con small {color:#B0B1BC; font-size:1em; line-height:1.20833em;}
+		/* // 출석 챌린지 기간 */
+
+
+		/* 혜택 안내 */
+		.ev_benefit_wrap {display:flex; flex-direction:column; gap:2.91666em; width:100%; padding:2.91666em 1em 2.08333em; background-color:#f5f5f5;}
+		.ev_benefit_wrap .benefit {text-align:center;}
+		.ev_benefit_wrap .benefit .tit {}
+		.ev_benefit_wrap .benefit .tit img {width:8.75em;}
+		.ev_benefit_wrap .benefit .img {padding:2.08333em 0 1.33333em}
+		.ev_benefit_wrap .benefit .img img {width:10.91666em;}
+		.ev_benefit_wrap .benefit .txt_wrap {display:flex; flex-direction:column; gap:0.41666em; text-align:center;}
+		.ev_benefit_wrap .benefit .txt_wrap p {color:#343434; font-size:1.16666em; line-height:1.35714em; text-align:center;}
+		.ev_benefit_wrap .benefit .txt_wrap p strong {font-weight:700;}
+		.ev_benefit_wrap .benefit .txt_wrap p strong.c01 {color:#0965FF;}
+		.ev_benefit_wrap .benefit .txt_wrap p strong.c02 {color:#00704A;}
+		.ev_benefit_wrap .benefit .txt_wrap small {color:#000; font-size:1em; line-height:1.20833em; font-weight:700;}
+
+		.ev_benefit_wrap .benefit .img .flip-box {width:10.91666em; margin:0 auto;}
+		.ev_benefit_wrap .benefit .img .flip-box .flip-box-inner {position:relative; width:100%; height:7.5em; text-align:center; transition:transform 0.8s; transform-style:preserve-3d; animation-delay:0.2s;}
+		.ev_benefit_wrap .benefit .img .flip-box .flip-box-inner .flip-box-front,
+		.ev_benefit_wrap .benefit .img .flip-box .flip-box-inner .flip-box-back {position:absolute; width:100%; height:100%; -webkit-backface-visibility:hidden; backface-visibility:hidden;}
+
+		.ev_benefit_wrap .benefit .img .flip-box .flip-box-inner .flip-box-back {transform:rotateX(180deg);}
+		.ev_benefit_wrap .benefit .img .flip-box.active .flip-box-inner {transform-origin:50% 50%; animation:flip_ani ease-in-out 1s 0.2s 1 alternate;}
+		@keyframes flip_ani {
+			0% {transform:rotateX(180deg);}
+			100% {transform:rotateX(-360deg);}
+		}
+		/* // 혜택 안내 */
+
+		/* 출석체크 */
+		.ev_attend_wrap {padding:2.91666em 1.33333em 2.08333em; text-align:center;}
+
+		/* 챌린지 참여 현황 */
+		.ev_attend_wrap .inner {position: relative;}
+		.ev_attend_wrap .inner div.tit {display:flex; justify-content:space-between; align-items:center; position:absolute; top:0; left:0; width:100%; height:2.25em; padding:0 1em; border:2px solid #000; border-width:2px; border-radius:1.41666em; background-color:#0965FF; color:#fff; overflow:hidden;}
+		.ev_attend_wrap .inner div.tit strong img {width:auto; height:1.41666em;}
+		.ev_attend_wrap .inner div.tit::before,
+		.ev_attend_wrap .inner div.tit::after {content:""; display:block; width:0.5em; height:0.5em; background-color:#000; border-radius:100%;}
+
+		.ev_attend_wrap .attend_wrap {display:flex; flex-direction:column; gap:0.25em; width:100%; padding:3.25em 0 1em 1.41666em; border:0.08333em solid #000; border-radius:1.41666em; background-color:#fff;overflow:hidden; transition:all 0.2s ease-in-out;}
+		.ev_attend_wrap .attend_wrap ol {display:flex; flex-wrap:wrap; justify-content:flex-start; gap:0.5em;}
+		.ev_attend_wrap .attend_wrap ol li {display:flex; justify-content:center; align-items:center; width:3em; height:3em; border-radius:100%;}
+		.ev_attend_wrap .attend_wrap ol li span {display:flex; justify-content:center; align-items:center; width:100%; height:100%; border-radius:100%; background-color:#f7f7f7;}
+		.ev_attend_wrap .attend_wrap ol li span.dis {border:dashed 0.08333em #e0e0e0; background-color:#f5F5F5;}
+		.ev_attend_wrap .attend_wrap ol li span.mis {background-color:#dbdbdb;}
+		.ev_attend_wrap .attend_wrap ol li span.com {position:relative;}
+		.ev_attend_wrap .attend_wrap ol li span.com::before {content:""; display:block; position:absolute; top:0; left:0; width:100%; height:100%; background:url('../images/test123.png') no-repeat left top / cover;}
+		.ev_attend_wrap .attend_wrap ol li span.com.active::before {animation:attendAni ease-in-out 1.2s 1 alternate;}
+		@keyframes attendAni {0% {transform:rotate(0deg);} 100% {transform:rotate(720deg);}}
+		/* // 챌린지 참여 현황 */
+
+		/* 누적 응모자 수 */
+		.ev_attend_wrap .count_wrap {margin-top:1.33333em;}
+		.ev_attend_wrap .count_wrap p {color:000; font-size:1.25em; line-height:1.5em;}
+		.ev_attend_wrap .count_wrap strong {color:#0965FF; font-size:1.33333em;}
+		.ev_attend_wrap .count_wrap span {font-weight:700;}
+		/* // 누적 응모자 수 */
+
+		/* 하단 출석하기 포함 버튼들 */
+		.ev_btn_group {display: grid; grid-template-areas:"btn_attend btn_attend btn_attend btn_attend" "btn_info btn_info btn_share btn_share" "bnr bnr bnr bnr"; gap:0.83333em 0.66666em; margin-top:1.25em;}
+		.ev_btn_group button {width:100%;}
+		.ev_btn_group button span {display:inline-block;}
+		.ev_btn_group .btn_attend {grid-area:btn_attend; min-height:3.58333em;}
+		.ev_btn_group .btn_info {grid-area:btn_info;}
+		.ev_btn_group .btn_share {grid-area:btn_share;}
+		.ev_btn_group .bnr {grid-area:bnr;}
+		.ev_btn_group button:disabled {background-color:#fff !important;}
+		/* 하단 출석하기 포함 버튼들 */
+		/* // 출석체크 */
+
+		
+		/* 꼭 확인하세요. */
+		.ev_250714 .footer_alert {padding:2.08333em 1.66666em; background-color:#F2F2F2;}
+		.ev_250714 .footer_alert div.tit strong {font-size:1em;}
+		.ev_250714 .footer_alert .footer_group {margin-top:0.83333em;}
+		.ev_250714 .footer_alert .footer_group div.sub_tit strong {display:inline-block; font-size:0.833333em; line-height:1.2em; font-weight:bold;}
+		.ev_250714 .footer_alert .footer_group ul {margin-top:0.41666em;}
+		.ev_250714 .footer_alert .footer_group ul li p {position:relative; padding-left:0.95em; color:#000; font-size:0.83333em; line-height:1.4em; word-break: keep-all;}
+		.ev_250714 .footer_alert .footer_group ul li p::before {content:"-"; display:block; position:absolute; top:0; left:0; color:inherit; font-size:inherit; line-height:inherit; font-weight:inherit;}
+		/* // 꼭 확인하세요. */
+
+
+		/* 하단 고정 버튼 */
+		.ev_250714 div.btm_btn {display:flex; align-items:center; position:fixed; bottom:0; right:0; left:0; z-index:1; width:100%; max-width:720px; margin:0 auto;}
+		.ev_250714 div.btm_btn button {box-sizing:content-box; height:3.33333em; padding-bottom:calc(constant(safe-area-inset-bottom)); padding-bottom:calc(env(safe-area-inset-bottom)); color:#fff; font-weight:bold;}
+		.ev_250714 div.btm_btn button.btn_btn1 {background-color:#000; }
+		/* .ev_250714 div.btm_btn button.btn_btn2 {background-color:#8F41F8; text-shadow:1px 2px 3px rgba(40,18,69,0.16);} */
+		/* // 하단 고정 버튼 */
+
+		
+		/* 레이어 팝업 이미지*/
+		.layer .layer_content div.img {margin-bottom:1.25em; text-align:center;}
+		.layer .layer_content div.img img {display:inline-block; width:100px; vertical-align:top;}
+		.layer .layer_content div.name {color:#7E5BFA; font-size:1.25em; line-height:1.2em; font-weight:700;}
+		/* 공통 임시 수정 */
+		.layer .layer_content div.pass_logo + div.tit {margin-top:36px;}
+		/* // 공통 임시 수정 */
+</style>
+</head>
+
+<body>
+<div class="evPageWrap">
+
+	<div class="evSection">
+
+		<div class="ev_250714">
+			<div class="top">
+				<div><img src="../images/ev_250714_img1.png" alt="PASS가 1000GB 쏜다!" /></div>
+			</div>
+			<!-- // top -->
+
+			<div class="ev_date_wrap">
+				<div class="tit"><img src="../images/ev_250714_img2.png" alt="출석 챌린지 도전하고 푸짐한 혜택의 기회를 잡으세요."></div>
+
+				<div class="date_wrap">
+					<div class="inner">
+						<div class="tit"><strong><img src="../images/ev_250714_tit1.png" alt="이벤트 기간" /></strong></div>
+						<div class="con">
+							<div class="date">08.01 ~ 08.30</div>
+						</div>
+					</div>
+
+					<div class="inner">
+						<div class="tit"><strong><img src="../images/ev_250714_tit2.png" alt="참여 방법" /></strong></div>
+						<div class="con">
+							<p>이벤트 기간 동안<br />매일 <strong>‘출석하기’ 버튼을 클릭</strong>해주세요.</p>
+							<small>(출석 인정 시간 : 매일 00:00~23:59)</small>
+						</div>
+					</div>
+				</div>
+				<!-- // date_wrap -->
+			</div>
+			<!-- // ev_date_wrap -->
+
+			<div class="ev_benefit_wrap">
+				<div class="benefit">
+					<div class="tit"><img src="../images/ev_250714_tit_benefit1.png" alt="혜택1"></div>
+					<div class="img">
+						<!-- <img src="../images/ev_250714_img_data.png" alt="DATA COUPON 1,000GB" /> -->
+						<div class="flip-box flip_item">
+							<div class="flip-box-inner">
+								<div class="flip-box-front">
+									<img src="../images/ev_250714_img_data.png" alt="DATA COUPON 1,000GB" />
+								</div>
+								<div class="flip-box-back">
+									<img src="../images/ev_250714_img_data.png" alt="DATA COUPON 1,000GB" />
+								</div>
+							</div>
+						</div>
+						<!-- // flip-box -->
+					</div>
+					<div class="txt_wrap">
+						<p>30일 모두 출석한 분들에게는<br />
+							총 <strong class="c01">1,000GB의 데이터 상품권</strong>을<br />
+							<strong>동일하게 분배</strong> 해드려요.
+						</p>
+						<small>(*1인당 최대 지급량 : 5GB)</small>
+					</div>
+				</div>
+				<!-- // benefit -->
+
+				 <div class="benefit">
+					<div class="tit"><img src="../images/ev_250714_tit_benefit2.png" alt="혜택2"></div>
+					<div class="img">
+						<!-- <img src="../images/ev_250714_img_starbucks.png" alt="스타벅스 10,000원권(1만원)" /> -->
+						<div class="flip-box flip_item">
+							<div class="flip-box-inner">
+								<div class="flip-box-front">
+									<img src="../images/ev_250714_img_starbucks.png" alt="스타벅스 10,000원권(1만원)" />
+								</div>
+								<div class="flip-box-back">
+									<img src="../images/ev_250714_img_starbucks.png" alt="스타벅스 10,000원권(1만원)" />
+								</div>
+							</div>
+						</div>
+						<!-- // flip-box -->
+					</div>
+					<div class="txt_wrap">
+						<p><strong>딱 한 번만 참여해도</strong><br />
+							추첨을 통해 <br />
+							100명에게 <strong class="c02">스타벅스 1만원권</strong>을 쏩니다
+						</p>
+					</div>
+				</div>
+				<!-- // benefit -->
+			</div>
+			<!-- // ev_benefit_wrap -->
+
+
+
+			<div class="ev_attend_wrap">
+				
+				<div class="inner">
+					<div class="tit">
+						<strong><img src="../images/ev_250714_tit3.png" alt="챌린지 참여 현황" /></strong>
+					</div>
+					<div class="attend_wrap">
+						<ol>
+							<li>
+								<span class="com">
+									<img src="../images/ev_250714_calendar_com.png" alt="출석" />
+								</span>
+							</li>
+							<li><span class="mis">1</span></li>
+							<li><span class="mis">3</span></li>
+							<li><span class="mis">4</span></li>
+							<li><span class="mis">5</span></li>
+							<li><span class="mis">6</span></li>
+							<li><span class="mis">7</span></li>
+							<!-- <li>
+								<span class="com">
+									<img src="../images/ev_250714_calendar_com.png" alt="출석" />
+								</span>
+							</li>
+							<li>
+								<span class="com">
+									<img src="../images/ev_250714_calendar_com.png" alt="출석" />
+								</span>
+							</li>
+							<li>
+								<span class="com">
+									<img src="../images/ev_250714_calendar_com.png" alt="출석" />
+								</span>
+							</li>
+							<li>
+								<span class="do">
+									<img src="../images/ev_250714_calendar_do.png" alt="출석하기" />
+								</span>
+							</li> -->
+							<li><span class="dis">12</span></li>
+							<li><span class="dis">13</span></li>
+							<li><span class="dis">14</span></li>
+							<li><span class="dis">15</span></li>
+							<li><span class="dis">16</span></li>
+							<li><span class="dis">17</span></li>
+							<li><span class="dis">18</span></li>
+							<li><span class="dis">19</span></li>
+							<li><span class="dis">20</span></li>
+							<li><span class="dis">21</span></li>
+							<li><span class="dis">22</span></li>
+							<li><span class="dis">23</span></li>
+							<li><span class="dis">24</span></li>
+							<li><span class="dis">25</span></li>
+							<li><span class="dis">26</span></li>
+							<li><span class="dis">27</span></li>
+							<li><span class="dis">28</span></li>
+							<li><span class="dis">29</span></li>
+							<li><span class="dis">30</span></li>
+						</ol>
+					</div>
+				</div> 
+				
+				<!-- // attend_wrap -->
+
+				<div class="count_wrap">
+					<p>
+						어제까지 총<br>
+						<strong>%누적 참여자 수%</strong>명이<br>
+						<span>챌린지에 참여했어요</span>
+					</p>
+				</div>
+
+				<div class="ev_btn_group">
+					<div class="btn_attend">
+						<button type="button">
+							<span>
+								<!-- <img src="../images/ev_250714_btn_attend_off.png" alt="출석하기 off"> -->
+								<img src="../images/ev_250714_btn_attend_on.png" alt="출석하기 on">
+							</span>
+						</button>
+					</div>
+					<div class="btn_info">
+						<button type="button">
+							<span><img src="../images/ev_250714_btn_product.png" alt="데이터 상품권 안내"></span>
+						</button>
+					</div>
+					<div class="btn_share">
+						<button type="button">
+							<span><img src="../images/ev_250714_btn_share.png" alt="이벤트 공유하기"></span>
+						</button>
+					</div>
+					<div class="bnr"><img src="../images/banner_passmoney.png" alt=""></div>
+				</div>
+				<!-- // btn_group -->
+
+				
+			</div>
+			<!-- // ev_attend_wrap -->
+
+
+			<div class="footer_alert">
+				<div class="tit"><strong>꼭 확인해주세요.</strong></div>
+				<div class="footer_group">
+					<!-- <div class="sub_tit"><strong>[이벤트 응모]</strong></div> -->
+					<ul>
+						<li><p>본 이벤트는 만 14세 이상, 출석 이벤트 이용 약관에 동의한 PASS 사용자만 참여할 수 있습니다.</p></li>
+						<li><p>출석은 이벤트 페이지 내 ‘출석하기’ 버튼을 눌러야만 인정되며, 매일 00:00 ~ 23:59 내 1일 1회만 출석 가능합니다.</p></li>
+						<li><p>이벤트 기간 동안 30일 모두 출석한 참여자에 한해 데이터 상품권이 지급됩니다.</p></li>
+						<li><p>총 1,000GB 데이터 상품권은 해당 조건을 충족한 인원끼리 균등 분배되며, 1인당 최대 5GB까지 지급됩니다.</p></li>
+						<li><p>당첨자는 이벤트 종료 후 당첨자 발표 페이지에서 당첨자 대상 여부 및 지급 데이터 용량을 확인하실 수 있습니다. (9월 발표 예정)</p></li>
+						<li><p>‘혜택 2’ 경품 지급은 PASS 기프트샵 쿠폰 형태 또는 SMS 쿠폰 형태로 제공되며, 현금 전환은 불가합니다.</p></li>
+						<li><p>이벤트 페이지 내 ‘누적 참여자 수’는 매일 00시에 전일 기준으로 갱신된 수치입니다.</p></li>
+						<li><p>당첨자 발표 시점에 LG U+ 통신사를 이용 중인 경우에만 데이터 상품권 지급이 가능하며, 통신사 변경 등으로 인해 조건이 충족되지 않을 경우 경품 지급이 제한될 수 있습니다.</p></li>
+						<li><p>하나의 계정(또는 기기)으로만 참여 가능하며, 중복 참여, 매크로·비정상적인 방식으로의 참여는 무효 처리될 수 있습니다.</p></li>
+						<li><p>이벤트 운영 및 보상 내용은 당사 사정에 따라 변경될 수 있으며, 변경 시 사전 또는 사후 고지됩니다.</p></li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+		<!-- // ev_250714 -->
+
+	</div><!-- // evSection -->
+
+</div><!-- // evPageWrap -->
+
+
+
+<div class="layer alert">
+	<div class="dim"></div>
+	<div class="layer_inner">
+		<div class="layer_content">
+			<div class="img"><img src="../images/img_complete.png" alt="출석 성공 아이콘"></div>
+			<!-- <div class="name">%입력한 텍스트%</div> -->
+			<div class="tit">출석 성공!<br />
+				내일도 PASS에서 만나요.</div>
+		</div>
+		<div class="btn_group">
+			<div><button type="button" class="next"><span>확인</span></button></div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="layer alert">
+	<div class="dim"></div>
+	<div class="layer_inner">
+		<div class="layer_content">
+			<div class="img"><img src="../images/img_challenge.png" alt="챌린지 참여 완료 아이콘"></div>
+			<div class="tit">챌린지에 참여해 주셔서 감사합니다!<br />
+				당첨 결과는 9월 내 공개됩니다.</div>
+		</div>
+		<div class="btn_group">
+			<div><button type="button" class="next"><span>확인</span></button></div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="layer alert">
+	<div class="dim"></div>
+	<div class="layer_inner">
+		<div class="layer_content">
+			<div class="pass_logo"><img src="../images/ico_logo_main.png" alt="PASS"></div>
+			<!-- <div class="img"><img src="../images/img_challenge.png" alt="챌린지 참여 완료 아이콘"></div> -->
+			<div class="tit">일시적인 오류로<br />
+				출석이 처리되지 않았습니다.<br />
+				잠시 후 다시 시도해 주세요.</div>
+		</div>
+		<div class="btn_group">
+			<div><button type="button" class="next"><span>확인</span></button></div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<div class="layer alert">
+	<div class="dim"></div>
+	<div class="layer_inner">
+		<div class="layer_content">
+			<div class="img"><img src="../images/img_c_complete.png" alt="30d일 출석 챌린지 성공 아이콘"></div>
+			<div class="tit">30일 출석 챌린지 성공!<br />
+				데이터 상품권은 9월 내 지급해드려요.</div>
+		</div>
+		<div class="btn_group">
+			<div><button type="button" class="next"><span>확인</span></button></div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<script>
+	/* 대충 버튼 눌리면 어멋? */
+	let btns = document.querySelectorAll(".evPageWrap button");
+	btns.forEach(function(item){
+		item.addEventListener("click", function(){
+			let btnTit = item.getAttribute('title')
+			if(btnTit) {
+				alert(btnTit);
+			} else {
+				let img = item.querySelector("img");
+				if(img) {
+					if(img.getAttribute("title")) {
+						alert(img.getAttribute("title"))
+					} else {
+						alert(img.getAttribute("alt"))
+					}
+				} else {
+					alert(item.innerText)
+				}
+			}
+		})
+	})
+	/* // 대충 버튼 눌리면 어멋? */
+
+	/* 확인용 레이어 닫기(임시) */
+	let layers = document.querySelectorAll(".layer");
+	layers.forEach(function(item){
+		item.querySelectorAll("button").forEach(function(e){
+			e.addEventListener("click", function(){
+				item.closest(".layer").style.display = "none";
+			})
+		})
+	})
+	/* // 확인용 레이어 닫기(임시) */
+
+	
+	/* 출석하기 버튼 예시(임시) */
+	let btn_attend = document.querySelector(".btn_attend button");
+	btn_attend.addEventListener("click", function(){
+		btn_attend.setAttribute("disabled", true)
+		let xx = "<span><img src='../images/ev_250714_btn_attend_off.png' alt='출석하기 off'></span>";
+		btn_attend.innerHTML = xx;
+	})
+	/* // 출석하기 버튼 예시(임시) */
+
+
+
+	/* 중요(필수) */
+	const items = document.querySelectorAll(".flip_item, span.com");
+	const observer = new IntersectionObserver(
+	(entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('active');
+				} else {
+					// entry.target.classList.remove('active'); // optional: 뷰포트 벗어나면 제거
+				}
+			});
+		},
+		{
+			threshold: 0.1 // 요소가 10% 이상 보이면 트리거
+		}
+	);
+	items.forEach(item => {
+		observer.observe(item);
+	});
+	/* 중요(필수) */
+</script>
+
+</body>
+</html>
