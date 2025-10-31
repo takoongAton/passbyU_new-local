@@ -34,7 +34,7 @@
 
 
 		.result_wrap {display:flex; flex-direction:column; gap:1.25em; width:100%; min-height:100vh; padding:2.08333em 1.25em 1.66666em; background:#000 url('../images/img_title_01.png') no-repeat left top / contain;}
-		.success_wrap {display:flex; flex-direction:column; gap:1.25em; width:100%; padding:2.08333em 1.25em 1.66666em; padding-bottom:1.66666em; padding-bottom:calc(constant(safe-area-inset-bottom) + 1.66666em); padding-bottom:calc(env(safe-area-inset-bottom) + 1.66666em);  background:#000 url('../images/img_title_01.png') no-repeat left top / contain;}
+		.success_wrap {display:flex; flex-direction:column; gap:1.25em; width:100%; min-height:100vh;  padding:2.08333em 1.25em 1.66666em; padding-bottom:1.66666em; padding-bottom:calc(constant(safe-area-inset-bottom) + 1.66666em); padding-bottom:calc(env(safe-area-inset-bottom) + 1.66666em);  background:#000 url('../images/img_title_01.png') no-repeat left top / contain;}
 
 		/* 당첨 */
 		/* 당첨 축하 */
@@ -88,7 +88,7 @@
 		.failure_wrap .offer_event ul {display:flex; flex-direction:column; padding:0 1.125em;}
 		.failure_wrap .offer_event ul li {font-size:0.75em;}
 		.failure_wrap .offer_event ul li p {position:relative; padding-left:1.11111em; color:#000; line-height:1.5em;}
-		.failure_wrap .offer_event ul li p::before {content:"·"; display:block; position:absolute; top:0; left:0; color:inherit; font-size:inherit; line-height:inherit; font-weight:bold; text-align:center;} ul li p::before {content:"·"; display:block; position:absolute; top:0; left:0; color:inherit; font-size:inherit; line-height:inherit; font-weight:bold; text-align:center;}
+		.failure_wrap .offer_event ul li p::before {content:"·"; display:block; position:absolute; top:0; left:0; color:inherit; font-size:inherit; line-height:inherit; font-weight:bold; text-align:center;}
 		.failure_wrap .offer_event .img span.star::before,
 		.failure_wrap .offer_event .img::before,
 		.failure_wrap .offer_event .img::after {content:""; display:block; position:absolute; width:1em; height:1em; background:url('../images/deco_star.svg') no-repeat left top / contain; animation-duration:1.4s; animation-iteration-count:infinite; animation-timing-function: ease-in-out; animation-fill-mode:forwards; opacity:0.5; transform:scale(0.9);}
@@ -99,7 +99,7 @@
 		/* // 추천 이벤트 */
 
 		/* 하단 고정 버튼 */
-		.failure_wrap .f_fixed_btn {position:fixed; right:0; bottom:0; left:0; width:100%; max-width:720px; margin:0 auto; height:6.875em; padding:0.41666em 1.25em 0; background-color:#fff;}
+		.failure_wrap .f_fixed_btn {position:fixed; right:0; bottom:0; left:0; width:100%; max-width:720px; margin:0 auto; padding:0.41666em 1.25em 0;  padding-bottom:calc(constant(safe-area-inset-bottom)); padding-bottom:calc(env(safe-area-inset-bottom)); background-color:#fff;}
 		.failure_wrap .f_fixed_btn button.btn_txt {padding:20px 0;}
 		.failure_wrap .f_fixed_btn button.btn_txt span {color:#000; font-size:1em; font-weight:500;}
 		/* // 하단 고정 버튼 */
