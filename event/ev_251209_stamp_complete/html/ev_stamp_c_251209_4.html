@@ -359,6 +359,27 @@
 		}, 2000); // 2초 후 사라짐
 	}
 	fnTest123();
+
+	/* 중요(필수) */
+	const items = document.querySelectorAll(".flip_item, span.com");
+	const observer = new IntersectionObserver(
+	(entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('active');
+				} else {
+					// entry.target.classList.remove('active'); // optional: 뷰포트 벗어나면 제거
+				}
+			});
+		},
+		{
+			threshold: 0.1 // 요소가 10% 이상 보이면 트리거
+		}
+	);
+	items.forEach(item => {
+		observer.observe(item);
+	});
+	/* 중요(필수) */
 </script>
 </body>
 </html>
