@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>출첵 스탬프 이벤트 당첨자 발표</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/ev_common.css">
+	<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.min.css"> -->
+
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400..700&display=block" rel="stylesheet" />
+	
+	<style>
+		body {
+			background-color:#fff; color:#000;
+			font-family:'Pretendard','pretendard'-apple-system,'BlinkMacSystemFont', 'Noto Sans KR','Noto Sans CJK','Apple SD Gothic Neo', serif;
+		}
+		/* 다크모드 대응 샘플 */
+		@media (prefers-color-scheme: dark) {
+			body {background-color: white !important; color: black !important;}
+			/* 이미지나 기타 요소가 반전되는 경우 방지 */
+			img, video {filter: none !important;}
+		}
+		/* // 다크모드 대응 샘플 */
+
+		.ev_251209 {background-color:#fff; overflow:hidden; font-family:'Noto Sans KR','pretendard', serif;}
+		.ev_251209 img {vertical-align:top; border:0; max-width:100%;}
+		/* .ev_251209 div {position:relative;} */
+
+
+		.result_wrap {display:flex; flex-direction:column; gap:1.25em; width:100%; min-height:100vh; padding:2.08333em 1.25em 1.66666em; background:#000 url('../images/img_title_01.png') no-repeat left top / contain;}
+		.success_wrap {display:flex; flex-direction:column; gap:1.25em; width:100%; min-height:100vh; padding:2.08333em 1.25em 1.66666em; padding-bottom:1.66666em; padding-bottom:calc(constant(safe-area-inset-bottom) + 1.66666em); padding-bottom:calc(env(safe-area-inset-bottom) + 1.66666em);  background:#000 url('../images/img_title_01.png') no-repeat left top / contain;}
+
+		/* 당첨 */
+		/* 당첨 축하 */
+		.result_sussess {display:flex; flex-direction:column; width:100%; height:10.83333em; gap:0.5em; padding:1.25em 1.25em 0.58333em 1.25em; background-color:#fff; border-radius:0.83333em;}
+		.result_sussess div.tit {color:#000; text-align:center;}
+		.result_sussess div.tit strong {display:block; font-size:1.25em; line-height:1.5em; font-weight:bold;}
+		.result_sussess div.benefit_item {display:flex; justify-content:space-between; align-items:center;}
+		.result_sussess div.benefit_item div.txt_wrap {flex:1; color:#000; font-weight:500;}
+		.result_sussess div.benefit_item div.txt_wrap span {color:#FF3A4A; font-size:0.83333em; line-height:1.3em;}
+		.result_sussess div.benefit_item div.txt_wrap p {color:#000; font-size:0.83333em; line-height:1.3em;}
+		.result_sussess div.benefit_item div.img {width:9.58333em;}
+		/* // 당첨 축하 */
+
+		/* 응모 상품 및 현황 */
+		.benefit_item_wrap {text-align:center;}
+		.benefit_count_wrap {display:inline-flex; flex-direction:column; align-items:center; justify-content:center; gap:0.5em 0;}
+		.benefit_count_wrap div.inbox {display:flex; justify-content:center; gap:0 0.41666em; position:relative;}
+		.benefit_count_wrap div.inbox div.item {width:5.83333em;}
+		.benefit_count_wrap div.inbox div.item + div.item::before {content:""; display:block; position:absolute; top:50%; left:50%; width:1.79166em; height:1.79166em; border-radius:100%; background:#000 url('../images/ico_plus.png') no-repeat center center / contain; transform:translate(-50%,-50%); z-index:1;}
+		.benefit_count_wrap div.count {display:block; width:100%; height:1.66666em; border-radius:0.83333em; background-color:#000; color:#fff; line-height:1.66666em; text-align:center;}
+		.benefit_count_wrap div.count strong {font-size:0.83333;}
+
+		.benefit_count_wrap p.txt {color:#000; font-size:0.75em; line-height:1.33333em; font-weight:500;}
+		.benefit_count_wrap p.txt span {color:#FF3A4A;}
+
+		.benefit_count_wrap div.inbox div.item .flip-box {width:5.83333em; margin:0 auto;}
+		.benefit_count_wrap div.inbox div.item .flip-box .flip-box-inner {position:relative; width:100%; height:4.08333em; text-align:center; transition:transform 0.8s; transform-style:preserve-3d; animation-delay:0.2s; border-radius:0.625em; box-shadow:0 2px 4px rgba(0,0,0,0.16);}
+		.benefit_count_wrap div.inbox div.item .flip-box .flip-box-inner .flip-box-front,
+		.benefit_count_wrap div.inbox div.item .flip-box .flip-box-inner .flip-box-back {position:absolute; width:100%; height:100%; -webkit-backface-visibility:hidden; backface-visibility:hidden;}
+		.benefit_count_wrap div.inbox div.item .flip-box .flip-box-inner .flip-box-back {transform:rotateX(180deg);}
+		.benefit_count_wrap div.inbox div.item .flip-box.active .flip-box-inner {transform-origin:50% 50%; animation:flip_ani ease-in-out 1s 0.2s 1 alternate; }
+		@keyframes flip_ani {
+			0% {transform:rotateX(180deg);}
+			100% {transform:rotateX(-360deg);}
+		}
+		/* // 응모 상품 및 현황 */
+
+		/* 기프트샵 확인 방법 */
+		.gitfshop_wrap {display:flex; flex-direction:column; gap:0.375em;}
+		.gitfshop_wrap + .gitfshop_wrap {margin-top:0.83333em;}
+		.gitfshop_wrap .gitfshop_box {display:flex; flex-direction:column; gap:0.375em; width:100%; padding:0.83333em 1.66666em; border-radius:0.83333em; background-color: #fff; color:#000;}
+		.gitfshop_wrap .gitfshop_box p.tit strong {font-weight:700; line-height:1.25em;}
+		.gitfshop_wrap .gitfshop_box p.tit strong em.uplus {color:#FF3A4A;}
+		.gitfshop_wrap .gitfshop_box ul {display:flex; flex-direction:column; gap:0.20833em; text-align:left;}
+		.gitfshop_wrap .gitfshop_box ul li {position:relative;}
+		.gitfshop_wrap .gitfshop_box ul li p {padding-left:1.11111em; color:#000; font-size:0.75em; line-height:1.5em;}
+		.gitfshop_wrap .gitfshop_box ul li p strong {font-weight:400;}
+		.gitfshop_wrap .gitfshop_box ul li p::before {content:"·"; display:block; position:absolute; top:0; left:0; color:inherit; font-size:inherit; line-height:inherit; font-weight:bold; text-align:center;}
+		/* // 기프트샵 확인 방법 */
+
+		/* 쿠폰 코드 */
+		.code_wrap {display:flex; justify-content:space-between; margin-bottom:0.41666em; border-radius:0.83333em; overflow:hidden;}
+		.code_wrap span.code {display:flex; align-items:center; flex:1; padding-left:1.08333em; background:#fff; color:#000;}
+		.code_wrap button {position:relative; width:3.33333em; height:3.33333em; background-color:#FF3A4A; transition:all 0.2s ease-in-out;}
+		.code_wrap button:disabled,
+		.code_wrap button[disabled] {background-color:#D32634 !important;}
+		.code_wrap button::before,
+		.code_wrap button::after {content:""; display:block; position:absolute; top:50%; left:50%; width:1.04166em; height:1.04166em; border:0.125em solid #fff; border-radius:0.125em; transform: translate(-50%,-50%); background: #FF3A4A; outline:1.5px solid #FF3A4A;}
+
+		.code_wrap button::before {transform:translate(calc(-50% + 0.125em), calc(-50% + 0.125em));}
+		.code_wrap button::after {transform:translate(calc(-50% - 0.125em), calc(-50% - 0.125em));}
+
+		.code_wrap button.active::before {animation: icoCopyAni 0.4s 1 ease-in-out;}
+		.code_wrap button.active::after {animation: icoCopyAni2 0.4s 1 ease-in-out;}
+
+		.code_wrap button:disabled::before,
+		.code_wrap button[disabled]::before,
+		.code_wrap button:disabled::after,
+		.code_wrap button[disabled]::after {background-color:#D32634; outline-color:#D32634;}
+
+		.code_wrap button span {display:inline-block; color:transparent; opacity: 0;}
+		.code_wrap button span img {display:inline-block; width:1.5em; height:1.5em;}
+		/* // 쿠폰 코드 */
+
+		/* 기프트샵 바로가기 */
+		.gitfshop_wrap .group_tit {display:flex; align-items: center; gap:0.5em; color:#000; font-weight:700; padding-bottom:0.41666em}
+		.gitfshop_wrap .group_tit span.ico {display:inline-block; width:1em; height:1em;}
+		.gitfshop_wrap .group_tit p.txt {color:#fff; font-size:1em; line-height:1.45833em; font-weight:bold;}
+
+		.gitfshop_wrap .btn_giftshop {display:flex; align-items:center; justify-content:center; gap:0.41666em; height:3.33333em; background-color:#FF3A4A; border-radius:0.83333em;}
+		.gitfshop_wrap .btn_giftshop strong.txt {display:inline-block; padding-left:0.875em; color:#fff; font-size:1em; font-weight:700; text-shadow:0 0.08333em 0.16666em rgba(0,0,0,0.16);}
+		.gitfshop_wrap .btn_giftshop span.ico {display:inline-block; width:1.33333em; height:1.33333em; }
+		/* // 기프트샵 바로가기 */
+
+		/* 다른 이벤트 */
+		.event_list {display:flex; flex-direction:column; gap:0.79166em; color:#fff; text-align:center;}
+		.event_list div.tit p {display:flex; justify-content:center; color:#fff; font-size:1.33333em; line-height:1.46875em;}
+		.event_list div.tit p strong {font-weight:700;}
+		.event_list div.tit p span {font-weight:400;}
+		.event_list ul {display:flex; flex-direction:column; gap:0.833333em;}
+		.event_list ul li {border-radius:0.83333em; overflow:hidden;}
+		/* // 다른 이벤트 */
+		/* // 당첨 */
+
+
+		/* 미당첨 / 미참여 */
+		.failure_wrap {padding-bottom:6.875em; padding-bottom:calc(constant(safe-area-inset-bottom) + 6.875em); padding-bottom:calc(env(safe-area-inset-bottom) + 6.875em); background-color:#fff;}
+		.failure_wrap div.top {display:flex; justify-content:center; align-items:center; min-height:14.16666em; background:#000 url('../images/img_title_02.png') no-repeat left top / contain;}
+		.failure_wrap div.top div.img {width:20em; border-radius:0.83333em; overflow:hidden; background-color:#fff;}
+
+		/* 추천 이벤트 */
+		.failure_wrap .offer_event {display:flex; flex-direction:column; gap:0.79166em; padding:1.25em; background-color:#fff; color:#000; letter-spacing:-0.025em;}
+		.failure_wrap .offer_event div {position:relative;}
+		.failure_wrap .offer_event div.tag {display:inline-block; margin:0 auto;  text-align:center;}
+		.failure_wrap .offer_event div.tag strong {display:inline-block; height:2.22222em; padding:0 1em; border:1px solid #000; border-radius:100px; color:#000; font-size:0.75em; line-height:2.22222em; font-weight:bold; letter-spacing:0;}
+		.failure_wrap .offer_event div.tit {padding:0 0 0 1.125em;}
+		.failure_wrap .offer_event div.tit p {color:#000;}
+		.failure_wrap .offer_event div.tit p strong {display:block; color:#000; font-size:1.33333em;; font-weight:700;}
+		.failure_wrap .offer_event div.tit p span {display:block; color:#000; font-size:1.08333em; font-weight:400;}
+		.failure_wrap .offer_event p.txt {padding:0 0 0 1.125em; color:#000; font-size:0.83333em; line-height:1.3em;}
+		.failure_wrap .offer_event p.txt strong {color:#FF3A4A;}
+		.failure_wrap .offer_event ul {display:flex; flex-direction:column; padding:0 1.125em;}
+		.failure_wrap .offer_event ul li {font-size:0.75em;}
+		.failure_wrap .offer_event ul li p {position:relative; padding-left:1.11111em; color:#000; line-height:1.5em;}
+		.failure_wrap .offer_event ul li p::before {content:"·"; display:block; position:absolute; top:0; left:0; color:inherit; font-size:inherit; line-height:inherit; font-weight:bold; text-align:center;}
+		/* .failure_wrap .offer_event .img span.star::before,
+		.failure_wrap .offer_event .img::before,
+		.failure_wrap .offer_event .img::after {content:""; display:block; position:absolute; width:1em; height:1em; background:url('../images/deco_star.svg') no-repeat left top / contain; animation-duration:1.4s; animation-iteration-count:infinite; animation-timing-function: ease-in-out; animation-fill-mode:forwards; opacity:0.5; transform:scale(0.9);}
+		.failure_wrap .offer_event .img span.star::before {top:6.08333em; left:2.15833em; width:1.55458em; height:1.55458em; animation-name:starAni; animation-delay:0s;}
+		.failure_wrap .offer_event .img::before {top:0.375em; left:9.875em; width:1.94833em; height:1.94833em; animation-name:starAni; animation-delay:0.5s;}
+		.failure_wrap .offer_event .img::after {top:2.0125em; left:11.58333em; width:1.26666em; height:1.26666em; animation-name:starAni; animation-delay:0.3s;}
+		@keyframes starAni {0%,100% {transform:scale(0.9); opacity:0.5;} 50% {transform:scale(1.08) translateY(-0.22em); opacity:1;}} */
+		/* // 추천 이벤트 */
+
+		/* 하단 고정 버튼 */
+		.failure_wrap .f_fixed_btn {position:fixed; right:0; bottom:0; left:0; width:100%; max-width:720px; margin:0 auto; padding:0.41666em 1.25em 0;  padding-bottom:calc(constant(safe-area-inset-bottom)); padding-bottom:calc(env(safe-area-inset-bottom)); background-color:#fff;}
+		.failure_wrap .f_fixed_btn button.btn_txt {padding:20px 0;}
+		.failure_wrap .f_fixed_btn button.btn_txt span {color:#000; font-size:1em; font-weight:500;}
+		/* // 하단 고정 버튼 */
+		/* // 미당첨 / 미참여 */
+
+		/* 디자인 공통 버튼 */
+		.btn_default {display:flex; align-items:center; justify-content:center; gap:0.41666em; height:3.33333em; margin:0 auto; background-color:#FF3A4A; border-radius:0.83333em;}
+		.btn_default .txt {display:inline-block; padding-left:0.875em; color:#fff; font-size:1em; font-weight:700; text-shadow:0 0.08333em 0.16666em rgba(0,0,0,0.16);}
+		.btn_default .ico {display:inline-block; width:1.33333em; height:1.33333em;}
+		/* // 디자인 공통 버튼 */
+		
+		/* iOS 위치 수정 */
+		@supports (-webkit-touch-callout: none) {
+			.btn_default span.txt {position:relative; top:-0.05em;}
+		}
+
+		/* 토스트 팝업 */
+		.layer.toast {display:flex; justify-content:center; align-items:center; position:fixed; bottom:2.08333em; right:0; left:0; width:100%; max-width:19.16666em; height:3.33333em; margin:0 auto; border:2px solid #000; border-radius:0.83333em; background-color:rgba(255,255,255,0.9); transform:translateY(300%); opacity:0;}
+		.layer.toast p {color:#000; font-size:1em; line-height:1.5em;}
+		.layer.toast.active {animation: slide-in 0.3s ease-in-out forwards;}
+		.layer.toast.deactive {animation: slide-out 0.3s ease-in-out forwards;}
+
+		@keyframes slide-in {from {transform:translateY(100%); opacity:0;} to {transform:translateY(0); opacity:1;}}
+		@keyframes slide-out {from {transform:translateY(0); opacity:1;} to {transform:translateY(100%); opacity:0;}}
+</style>
+</head>
+
+<body>
+
+<div class="evPageWrap">
+
+	<div class="evSection">
+
+		<div class="ev_251209">
+
+			<div class="success_wrap">
+				<div class="result_sussess">
+					<div class="tit"><strong>당첨을 축하드립니다.</strong></div>
+
+					<div class="benefit_item_wrap">
+						<div class="benefit_count_wrap">
+							<div class="inbox">
+								<div class="item">
+									<div class="flip-box flip_item">
+										<div class="flip-box-inner">
+											<div class="flip-box-front">
+												<img src="../images/img_gift_data1gb.png" alt="LGU+ 데이터 상품권 1GB" />
+											</div>
+											<div class="flip-box-back">
+												<img src="../images/img_gift_data1gb.png" alt="LGU+ 데이터 상품권 1GB" />
+											</div>
+										</div>
+									</div>
+									<!-- // flip-box -->
+								</div>
+							</div>
+							<p class="txt">
+								LGU+ 데이터 상품권 1GB
+							</p>
+						</div>
+						<!-- // benefit_count_wrap -->
+					</div>
+					<!-- // benefit_item_wrap -->
+
+					<!-- <div class="benefit_item">
+						<div class="txt_wrap">
+							<span>[BBQ]</span>
+							<p>오리지널 반반<br />(황금올리브+크리스피)<br />+ 콜라1.25L</p>
+						</div>
+						<div class="img"><img src="../images/img_gift_bbq.png" alt="BBQ"></div>
+					</div> -->
+				</div>
+				<!-- // result_sussess -->
+
+
+				<div class="gitfshop_wrap">
+					<div class="group_tit">
+						<span class="ico"><img src="../images/ico_coupon.png" alt="아이콘"></span>
+						<p class="txt">데이터 쿠폰 사용 안내</p>
+					</div>
+					<div class="gitfshop_box">
+						<p class="tit">
+							<strong>
+								아래 쿠폰 번호를 복사한 후,<br />
+								<em class="uplus">U+one 앱</em>에서 등록 후 사용하세요
+							</strong>
+						</p>
+						<ul>
+							<li><p><strong>유효기간 : </strong>발행일 기준 2년 내 등록 필요</p></li>
+							<li><p><strong>사용기간 : </strong>등록일 기준 1년 내 소진 필요</p></li>
+							<li><p><strong>상품권 등록 후에는 취소 불가</strong></p></li>
+						</ul>
+					</div>
+					<!-- // gitfshop_box -->
+
+					<div class="code_wrap">
+						<span class="code">ABCDEFGH12PASS</span>
+						<button type="button" class="btn_copy"><span><img src="../images/ico_copy.png" alt="복사하기"></span></button>
+					</div>
+					<!-- // code_wrap -->
+
+					<button type="button" class="btn_giftshop">
+						<strong class="txt">쿠폰 등록 바로가기</strong>
+					</button>
+				</div>
+				<!-- // gitfshop_wrap -->
+
+				<div class="event_list">
+					<div class="tit">
+						<p>
+							<strong>PASS의 다른 이벤트</strong>
+							<span>도 만나보세요!</span>
+						</p>
+					</div>
+					<ul>
+						<li><button type="button"><img src="../images/img_banner_pay1.png" alt="PASS 신분증결제 사용하고 GS25 5,000원 혜택 챙기기" /></button></li>
+					</ul>
+				</div>
+				<!-- // event_list -->
+			</div>
+			<!-- // success_wrap -->
+
+		</div><!-- // ev_251209 -->
+
+		<div class="layer toast">
+			<p>쿠폰 번호가 복사되었어요.</p>
+		</div>
+
+	</div><!-- // evSection -->
+
+</div><!-- // evPageWrap -->
+
+
+
+
+
+<script>
+	/* 대충 버튼 눌리면 어멋? */
+	let btns = document.querySelectorAll(".evPageWrap button");
+	btns.forEach(function(item){
+		item.addEventListener("click", function(){
+			if(item.classList.contains("btn_copy")) {
+				return false;
+			}
+			let btnTit = item.getAttribute('title');
+			if(btnTit) {
+				alert(btnTit);
+			} else {
+				let img = item.querySelector("img");
+				if(item.innerText) {
+					alert(item.innerText)
+				}
+				else {
+					/* 
+					if(img.getAttribute("title")) {
+						alert(img.getAttribute("title"))
+					} else {
+						alert(img.getAttribute("alt"))
+					}
+					*/
+					img.getAttribute("title") ? alert(img.getAttribute("title")) : alert(img.getAttribute("alt"))
+				} 
+			}
+		})
+	})
+	/* // 대충 버튼 눌리면 어멋? */
+
+
+	function fnTest123(){
+		let couponCode = document.querySelector(".code_wrap");
+		if(couponCode){
+			const copyBtn = document.querySelector(".btn_copy");
+			copyBtn.addEventListener("click", fnCopyCode);
+			copyBtn.addEventListener("click", fnToastAction);
+		}
+	}
+
+	function fnCopyCode(){
+		const codeText = document.querySelector(".code_wrap .code").innerText;
+		// 클립보드에 복사
+		navigator.clipboard.writeText(codeText).then(() => {
+			// alert("복사되었습니다: " + codeText);
+		}).catch(err => {
+			console.error("복사 실패:", err);
+		});
+	}
+
+	function fnToastAction(){
+		const copyBtn = document.querySelector(".btn_copy");
+		copyBtn.classList.add("active");
+		copyBtn.setAttribute("disabled", true);
+		let toastLayer = document.querySelector(".layer.toast");
+		toastLayer.classList.add("active");
+		setTimeout(() => {
+			toastLayer.classList.remove("active");
+			toastLayer.classList.add("deactive");
+			toastLayer.addEventListener("animationend", function(){
+				toastLayer.classList.remove("deactive");
+			})
+			copyBtn.classList.remove("active")
+			copyBtn.removeAttribute("disabled");
+		}, 2000); // 2초 후 사라짐
+	}
+	fnTest123();
+</script>
+</body>
+</html>
