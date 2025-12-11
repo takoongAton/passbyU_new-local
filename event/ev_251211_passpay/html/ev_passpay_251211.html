@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>신분증 결제 이벤트</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, howToUser-scalable=no">
+	<meta name="color-scheme" content="light">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/ev_common.css">
+	
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+	<style>
+		body {
+			background-color:#F2F2F2; color:#000;
+			font-family:'Pretendard', 'pretendard', -apple-system,'BlinkMacSystemFont', 'Noto Sans KR','Noto Sans CJK','Apple SD Gothic Neo', serif;
+		}
+		/* 다크모드 대응 샘플 */
+		@media (prefers-color-scheme: dark) {
+			body {background-color: white !important; color: black !important;}
+			/* 이미지나 기타 요소가 반전되는 경우 방지 */
+			img, video {filter: none !important;}
+		}
+		/* // 다크모드 대응 샘플 */
+
+		@font-face {
+			font-family: 'Waguri';
+			src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2403@1.0/WAGURITTF.woff2') format('woff2');
+			font-weight: normal;
+			font-display: swap;
+		}
+		
+		.ev_251211 {/* padding-bottom:3.33333em; padding-bottom:calc(constant(safe-area-inset-bottom) + 3.33333em); padding-bottom:calc(env(safe-area-inset-bottom) + 3.33333em); */
+			background-color:#fff; overflow:hidden; font-family:'Pretendard', 'pretendard', -apple-system,'BlinkMacSystemFont', 'Noto Sans KR','Noto Sans CJK','Apple SD Gothic Neo', serif;}
+		.ev_251211 img {vertical-align:top; border:0; max-width:100%; filter:none !important;}
+		.ev_251211 .top {position:relative; --main-bg:#000; background-color:var(--main-bg);}
+
+		.ev_251211 .top {position:relative; background-color:#F4F4F4;}
+		.ev_251211 .top div.gs_pass {display:flex; flex-direction:column; gap:1.29166em;}
+		.ev_251211 .top div.gs_pass > div {display:flex; justify-content:center; align-items:center; gap:0.45833em;}
+		.ev_251211 .top div.gs_pass span {display:inline-block; position:relative;}
+		.ev_251211 .top div.gs_pass span.icon_gs {width:2.4em;}
+		.ev_251211 .top div.gs_pass span.icon_pass {width:2.25em;}
+		.ev_251211 .top div.gs_pass p.txt {padding:0 1.07142em 2.14285em; font-size:1.16666em; line-height:1.35714em;}
+		.ev_251211 .top div.gs_pass p.txt strong {color:#FF3A4A;}
+		.ev_251211 .top .date_wrap {display:flex; flex-direction:column; justify-content:center; align-items:center; position:absolute; top:25.16666em; gap:0.41666em; left:0; width:100%;}
+		.ev_251211 .top .date_wrap div.tit {display:inline-flex; justify-content:center; align-items:center; width:6em; height:1.54166em; border:0.125em solid #000; border-radius:1em;}
+		.ev_251211 .top .date_wrap div.tit span {color:#000; font-size:0.66666em; font-family:'Waguri'; letter-spacing:0;}
+		.ev_251211 .top .date_wrap div.date {font-size:1.04166; line-height:1.2em; font-weight:bold;}
+
+		/* 응모방법 */
+		.ev_251211 .how {padding:2.5em 1.25em; background-color:#080808;}
+		.ev_251211 .how div.tit {margin-bottom:0.83333em;}
+		.ev_251211 .how div.tit strong {color:#fff; font-size:1.875em; line-height:1.17777em; text-shadow:0 1px 2px rgba(0,0,0,0.16);}
+		.ev_251211 .how ol {display:flex; flex-direction:column; gap:1.66666em;}
+		.ev_251211 .how ol li {display:flex; flex-direction:column; gap:0.875em; width:100%;}
+		.ev_251211 .how ol li div.step {padding:0.375em 0 0.375em 0.83333em; background-color:#FF3A4A;}
+		.ev_251211 .how ol li div.step span {display:block; color:#fff; font-size:1.16666em; line-height:1.17857em; font-weight:bold;}
+		/* .ev_251211 .how ol li.step2 div.step {width:8.33333em;} */
+		.ev_251211 .how ol li p.txt {color:#fff; font-size:1.16666em; line-height:1.35714em;}
+		.ev_251211 .how ol li p.txt strong {color:#FF3A4A; font-weight:bold;}
+		.ev_251211 .how ul {display:flex; flex-direction:column; gap:0.41666em; width:100%; margin-top:0.83333em;}
+		.ev_251211 .how ul li p {color:#c4c4c4; font-size:0.75em; line-height:1.16666em;}
+
+		.ev_251211 .how .alert {display:flex; align-items:center; gap:0.20833em; margin-top:0.41666em; padding:0.33333em 0.45833em; background-color:#FF3A4A;}
+		/* .ev_251211 .how .alert span {} */
+		.ev_251211 .how .alert span.ico {display:inline-block; min-width:0.83333em; width:0.83333em; height:0.83333em; line-height:1;}
+		.ev_251211 .how .alert span.txt {color:#fff; font-size:0.75em; line-height:1.16666em;}
+		/* // 응모방법 */
+
+		/* 응모자수 */
+		.ev_251211 .count_wrap {display:flex; flex-direction:column; gap:1.70833em; padding:2.5em 1.25em; background-color:#FF3A4A;}
+		/* .ev_251211 .count_wrap p.txt {color:#fff; font-size:1.16666em; line-height:1.35714em; font-weight:bold; letter-spacing:-0.025em; text-shadow:0 1px 2px rgba(0,0,0,0.16);} */
+		.ev_251211 .count_wrap div span {display:inline-block; color:#000000; font-size:1.16666em; line-height:1.35714em; font-weight:bold;}
+		.ev_251211 .count_wrap div strong.count{color:#fff; font-size:1.66666em; font-weight:bold; text-shadow:0 1px 2px rgba(0,0,0,0.16);}
+		/* // 응모자수 */
+
+		/* 혜택 안내 */
+		.ev_251211 .benefit_wrap {display:flex; flex-direction:column; gap:0.83333em; padding:2.5em 1.25em; background-color:#fff;}
+		.ev_251211 .benefit_wrap div.tit strong {display:inline-block; color:#000; font-size:1.875em; line-height:1.17777em;}
+		.ev_251211 .benefit_wrap div.img {display:flex; justify-content:center; border-radius:1.25em; background-color:#EDEDED;}
+		/* .ev_251211 .benefit_wrap div.img img {width:10.5em;} */
+		.ev_251211 .benefit_wrap p.txt {color:#000; font-size:1.33333em; line-height:1.3125em;}
+		.ev_251211 .benefit_wrap p.txt strong {color:#FF3A4A;}
+		.ev_251211 .benefit_wrap p.small_txt {color:#454545; font-size:0.75em;}
+		/* // 혜택 안내 */
+
+		/* PASS 신분증결제란? */
+		.ev_251211 .passpay {display:flex; flex-direction:column; gap:1.66666em; padding:2.5em 1.25em; background-color:#080808; color:#fff;}
+		.ev_251211 .passpay div.img {position:relative; width:9.58333em; margin-bottom:-0.83333em}
+		.ev_251211 .passpay div.img img {display:block; width:9.58333em;}
+		.ev_251211 .passpay div.img span {display:block; position:absolute; top:0; left:0; width:100%; animation: swing ease-in-out 0.8s infinite alternate; transform-origin:center 110%; line-height:1em;}
+		@keyframes swing {
+			0% {transform:rotate(4deg);}
+			100% {transform:rotate(-4deg);}
+		}
+
+		.ev_251211 .passpay div.tit strong {font-size:1.875em; line-height:1.17777em; font-weight:bold; text-shadow:0 1px 2px rgba(0,0,0,0.16);}
+		.ev_251211 .passpay div.txt_wrap {display:flex; flex-direction:column; gap:1.25em;}
+		.ev_251211 .passpay div.txt_wrap p.txt {font-size:1.33333em; text-shadow:0 1px 2px rgba(0,0,0,0.16);}
+		.ev_251211 .passpay div.txt_wrap p.txt strong {font-weight:bold;}
+		.ev_251211 .passpay button {position:relative; display:inline-flex; align-items:center; width:12.5em; height:2.5em; padding:0 2.375em; background-color:#FF3A4A; line-height:1em; letter-spacing:-0.05em;}
+		
+		.ev_251211 .passpay button span {color:#fff; font-size:1em; line-height:1.20833em; font-weight:bold;}
+
+		.ev_251211 .passpay button::before,
+		.ev_251211 .passpay button::after,
+		.ev_251211 .passpay button span::before {content:""; position:absolute; width:0; height:0; border:0 solid transparent;}
+
+		.ev_251211 .passpay button::before {top:0; right:0; border-top-width:0px; border-bottom-width:1.25em; border-right:0.83333em solid black;}
+		.ev_251211 .passpay button::after {right:0; bottom:0; border-top-width:1.25em; border-bottom-width:0px; border-right:0.83333em solid black;}
+		.ev_251211 .passpay button span::before {top:0; left:0; border-left:0.83333em solid black; border-top-width:1.25em; border-bottom-width:1.25em;}
+		/* // PASS 신분증결제란? */
+
+		/* 이벤트 공유하기 */
+		.share_wrap {padding:1.66666em 1.25em 2.5em;}
+		.share_wrap div.img {border-radius:1.25em; background-color:#EDEDED;}
+		.share_wrap div.txt_wrap {display:flex; flex-direction:column; gap:0.83333em; margin-top:0.83333em;}
+		.share_wrap div.txt_wrap p.txt {font-size:1.33333em; line-height:1.3125em;}
+		.share_wrap div.txt_wrap p.txt span.x {display:inline-block; position:relative; width:1em; height:1em; line-height:1em;}
+		.share_wrap div.txt_wrap p.txt span.x::before,
+		.share_wrap div.txt_wrap p.txt span.x::after {content:""; display:block; position:absolute; top:50%; left:50%; width:0.75em; height:0.08333em; border-radius:1em; background-color:#000;}
+		.share_wrap div.txt_wrap p.txt span.x::before {transform:translate(-50%,-50%) rotate(45deg);}
+		.share_wrap div.txt_wrap p.txt span.x::after {transform:translate(-50%,-50%) rotate(-45deg);}
+		.share_wrap button.btn_share {display:flex; justify-content:center; align-items:center; gap:0.41666em; position:relative; width:12.5em; height:2.5em; margin-top:1.25em; background-color:#000;}
+		.share_wrap button.btn_share span.ico {display:inline-block; width:1em; height:1em;}
+		.share_wrap button.btn_share span.txt {display:inline-block; color:#fff; font-size:1em; font-weight:700;}
+
+		.share_wrap button.btn_share::before,
+		.share_wrap button.btn_share::after,
+		.share_wrap button.btn_share span::before {content:""; position:absolute; width:0; height:0; border:0 solid transparent;}
+
+		.share_wrap button.btn_share::before {top:0; right:0; border-top-width:0px; border-bottom-width:1.25em; border-right:0.83333em solid #fff;}
+		.share_wrap button.btn_share::after {right:0; bottom:0; border-top-width:1.25em; border-bottom-width:0px; border-right:0.83333em solid #fff;}
+		.share_wrap button.btn_share span.txt::before {top:0; left:0; border-left:0.83333em solid #fff; border-top-width:1.25em; border-bottom-width:1.25em;}
+		/* // 이벤트 공유하기 */
+
+		/* 하단 고정 버튼 */
+		.ev_251211 .f_fixed_btn {position:fixed; bottom:2.08333em; left:0; right:0; width:100%; max-width:720px; margin:0 auto; padding:0 1.25em 0;}
+		.ev_251211 .f_fixed_btn .btn_join {height:3.33333em; border-radius:0.83333em; background-color:#007CFF; box-shadow:0 1px 2px rgba(0,0,0,0.16);}
+		.ev_251211 .f_fixed_btn .btn_join span {color:#fff; font-size:1.16666em; line-height:1.17857em; font-weight:bold; text-shadow:0 1px 2px rgba(0,0,0,0.16);}
+		/* // 하단 고정 버튼 */
+
+
+		/* 꼭 확인하세요. */
+		.ev_251211 .footer_alert {padding:2.08333em 1.66666em 7.08333em; background-color:#F2F2F2;}
+		.ev_251211 .footer_alert div.tit strong {font-size:1em;}
+		.ev_251211 .footer_alert .footer_group {margin-top:0.83333em;}
+		.ev_251211 .footer_alert .footer_group div.sub_tit strong {display:inline-block; font-size:0.833333em; line-height:1.2em; font-weight:bold;}
+		.ev_251211 .footer_alert .footer_group ul {margin-top:0.41666em;}
+		.ev_251211 .footer_alert .footer_group ul li p {position:relative; padding-left:0.95em; color:#000; font-size:0.83333em; line-height:1.4em;}
+		.ev_251211 .footer_alert .footer_group ul li p::before {content:"-"; display:block; position:absolute; top:0; left:0; color:inherit; font-size:inherit; line-height:inherit; font-weight:inherit;}
+		/* // 꼭 확인하세요. */
+
+
+		/* 레이어 팝업 이미지*/
+		.layer .layer_content div.img {margin-bottom:1.25em; text-align:center;}
+		.layer .layer_content div.img img {display:inline-block; width:100px; vertical-align:top;}
+		.layer .layer_content div.name {color:#7E5BFA; font-size:1.25em; line-height:1.2em; font-weight:700;}
+
+		/* 공통 임시 수정 */
+		.layer .layer_content div.pass_logo + div.tit {margin-top:36px;}
+		/* // 공통 임시 수정 */
+
+		@supports (-webkit-touch-callout: none) {
+			.ev_251211 .top .date_wrap div.tit span {position:relative; top:0.05em;}
+			.ev_251211 .how ol li div.step span {position:relative; top:0.05em;}
+		}
+</style>
+</head>
+
+<body>
+<div class="evPageWrap">
+
+	<div class="evSection">
+
+		<div class="ev_251211">
+			<div class="top">
+				<div class="img"><img src="../images/ev_251211_img1.png" alt="신분증 결제 X GS255 런칭 기념 이벤트"></div>
+				<div class="date_wrap">
+					<div class="tit"><span>2차 EVENT</span></div>
+					<div class="date">2026.1.2 ~ 2026.1.31</div>
+				</div>
+				<div class="gs_pass">
+					<div>
+						<span class="icon_gs"><img src="../images/ev_251117_img2.png" alt="GS아이콘"></span>
+						<span class="icon_pass"><img src="../images/ev_251117_img3.png" alt="PASS아이콘"></span>
+						<span class="icon_gs"><img src="../images/ev_251117_img2.png" alt="GS아이콘"></span>
+						<span class="icon_pass"><img src="../images/ev_251117_img3.png" alt="PASS아이콘"></span>
+						<span class="icon_gs"><img src="../images/ev_251117_img2.png" alt="GS아이콘"></span>
+						<span class="icon_pass"><img src="../images/ev_251117_img3.png" alt="PASS아이콘"></span>
+						<span class="icon_gs"><img src="../images/ev_251117_img2.png" alt="GS아이콘"></span>
+					</div>
+					<p class="txt">
+						PASS 신분증결제 이용하면<br />
+						추첨을 통해 <strong>500명에게 <br />
+						GS25 모바일상품권 5천원권</strong>을 드려요
+					</p>
+				</div>
+			</div>
+			<!-- // top -->
+
+			<!-- 응모방법 -->
+			<div class="how">
+				<div class="tit"><strong>응모방법</strong></div>
+				<div class="img"><img src="../images/ev_251211_img_howto.png" alt="이미지"></div>
+				<ol>
+					<li class="step1">
+						<div class="step"><span>STEP 1</span></div>
+						<p class="txt">
+							아래 <strong>[응모하고 혜택 받기]</strong> <br />
+							버튼을 눌러주세요
+						</p>
+					</li>
+					<li class="step2">
+						<div class="step"><span>STEP 2</span></div>
+						<p class="txt">
+							이벤트 기간 내<br />
+							<strong>GS25 오프라인 매장</strong>에서<br />
+							PASS 신분증결제로<br />
+							5,000원 이상<br />
+							결제하면 참여 인정!
+						</p>
+					</li>
+				</ol>
+				<ul>
+					<li><p>* 단일 승인금액 5,000원 이상 결제 시 참여 인정</p></li>
+					<li><p>* 당첨자 추첨 시점까지 신분증결제 서비스 가입 상태 유지 필요</p></li>
+				</ul>
+				<div class="alert">
+					<span class="ico"><img src="../images/ev_251211_ico_howto.png" alt="!"></span>
+					<span class="txt">응모 전 결제도 이벤트 기간 내 결제라면 참여로 인정!</span>
+				</div>
+			</div>
+			<!-- // 응모방법 -->
+
+			<div class="count_wrap">
+				<div>
+					<span>지금까지 총</span><br />
+					<strong class="count">%누적 응모자 수%</strong><span>명이</span><br >
+					<span>참여중이에요</span>
+				</div>
+			</div>
+			<!-- // count_wrap -->
+
+			<div class="benefit_wrap">
+				<div class="tit">
+					<strong>혜택 안내</strong>
+				</div>
+				<div class="img">
+					<img src="../images/ev_251211_img_gift.png" alt="모바일상품권 GS25 오천원권">
+				</div>
+				<p class="txt">
+					PASS 신분증결제로 결제 시,<br />
+					추첨을 통해 <strong>500명에게 <br />
+					GS25 모바일상품권 5천원권</strong>을 드려요
+				</p>
+				<p class="small_txt">*26년 2월 중 당첨자 발표 예정</p>
+			</div>
+			<!-- // benefit_wrap -->
+
+			<div class="passpay">
+				<div class="img"><img src="../images/ev_251211_img_pay.png" alt="passpay" />
+					<span><img src="../images/ev_251211_img_pay2.png" alt="passpay2"></span>
+				</div>
+				<div class="tit"><strong>PASS 신분증결제란?</strong></div>
+				<div class="txt_wrap">
+					<p class="txt">
+						<strong>QR코드 하나로 <br />
+						성인인증과 결제를 한 번에<br />
+						해결할 수 있는 간편 서비스예요!</strong>
+					</p>
+					<p class="txt">
+						주민등록증 또는 운전면허증 등록 후,<br />
+						신분증 결제수단까지 등록하면<br />
+						사용처에서 간편하게 결제할 수 있어요
+					</p>
+				</div>
+				<button type="button"><span>신분증결제 바로가기</span></button>
+			</div>
+			<!-- // passpay -->
+
+			<div class="share_wrap">
+				<div class="img"><img src="../images/ev_251211_img_gsxpass.png" alt="GS25 X PASS"></div>
+				<div class="txt_wrap">
+					<p class="txt"><strong>GS25</strong><span class="x">&nbsp;</span><strong>PASS</strong></p>
+					<p class="txt">
+						새해에도 <strong>GS25에서 <br />
+						PASS 신분증결제 사용</strong>하고<br />
+						이벤트 혜택 받으세요
+					</p>
+					<button type="button" class="btn_share"><span class="ico"><img src="../images/share_24dp.png" alt="공유아이콘"></span><span class="txt">이벤트 공유하기</span></button>
+				</div>
+			</div>
+			<!-- // share_wrap -->
+
+
+			<div class="footer_alert">
+				<div class="tit"><strong>꼭 확인해주세요.</strong></div>
+				<div class="footer_group">
+					<!-- <div class="sub_tit"><strong>[이벤트 응모]</strong></div> -->
+					<ul>
+						<li><p>본 이벤트는 만 14세 이상 PASS 회원 중, 이벤트 이용 약관 및 응모 동의를 완료한 고객에 한해 참여할 수 있습니다.</p></li>
+						<li><p>본 이벤트의 추첨은 만 19세 이상 고객을 대상으로 진행됩니다. </p></li>
+						<li><p>이벤트 기간 내 GS25 매장에서 PASS 신분증결제로 단일 승인금액 5,000원 이상 결제한 경우에만 응모로 인정됩니다. (승인 당일 포함 전체/부분환불, 승인취소, 분할 결제, 기프티콘·PG 온라인 결제 건은 제외)</p></li>
+						<li><p>당첨자 추첨 시점까지 PASS 신분증결제 서비스 가입 상태가 유지되어야 당첨 대상으로 인정됩니다.</p></li>
+						<li><p>응모 및 결제를 모두 완료한 고객 중 추첨을 통해 500명을 선정하여, GS25 모바일상품권 5,000원을 증정합니다.</p></li>
+						<li><p>이벤트는 1인 1회만 응모 가능하며, 중복 당첨은 불가합니다.</p></li>
+						<li><p>이벤트에 응모하셨더라도 신분증결제 이용(결제 승인) 이 확인되지 않을 경우 참여로 인정되지 않습니다.</p></li>
+						<li><p>이벤트 진행 기간 외의 결제 건은 참여로 간주되지 않으며, 이벤트 기간 내 응모 및 결제가 모두 완료된 고객만 인정됩니다.</p></li>
+						<li><p>당첨자 발표는 PASS 앱 내 ‘당첨자 발표’에서 2026년 2월 중 확인하실 수 있습니다.</p></li>
+						<li><p>경품은 PASS 기프트샵 내 모바일 쿠폰 형태로 지급되며, 양도 및 교환은 불가합니다.</p></li>
+						<li><p>본 이벤트는 2차 이벤트(2026.1.2 ~ 2026.1.31) 기준으로 진행됩니다.</p></li>
+						<li><p>1차 이벤트에 당첨된 고객은 2차 이벤트 당첨 대상에서 제외됩니다.</p></li>
+						<li><p>이벤트 참여를 위해 수집된 개인정보는 경품 발송 목적 외에는 활용되지 않으며, 이벤트 종료 후 일괄 파기됩니다.</p></li>
+						<li><p>이벤트 운영 및 보상 내용은 당사 사정에 따라 사전 또는 사후 고지 후 변경될 수 있습니다.</p></li>
+						<li><p>기타 문의사항은 PASS 고객센터(114) 로 문의해 주시기 바랍니다.</p></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="f_fixed_btn">
+				<button type="button" class="btn_join"><span>응모하고 혜택 받기</span></button>
+			</div>
+			
+				
+		</div>
+		<!-- // ev_251117 -->
+
+
+	</div><!-- // evSection -->
+
+</div><!-- // evPageWrap -->
+
+
+
+<div class="layer alert">
+	<div class="dim"></div>
+	<div class="layer_inner">
+		<div class="layer_content">
+			<div class="img"><img src="../images/img_done.png" alt="중복응모 아이콘"></div>
+			<div class="tit">이미 응모 완료된 이벤트입니다.<br />
+				PASS 신분증결제 서비스를<br />
+				이용해보세요!</div>
+		</div>
+		<div class="btn_group">
+			<div><button type="button" class="next"><span>확인</span></button></div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="layer alert">
+	<div class="dim"></div>
+	<div class="layer_inner">
+		<div class="layer_content">
+			<div class="img"><img src="../images/img_complete.png" alt="응모완료 아이콘"></div>
+			<div class="tit">응모가 완료되었습니다.<br />
+				PASS 신분증결제로 결제하고<br />
+				혜택 받으세요!</div>
+		</div>
+		<div class="btn_group">
+			<div><button type="button" class="next"><span>확인</span></button></div>
+		</div>
+	</div>
+</div>
+
+ 
+
+
+
+
+<script>
+	/* 대충 버튼 눌리면 어멋? */
+	let btns = document.querySelectorAll(".evPageWrap button");
+	btns.forEach(function(item){
+		item.addEventListener("click", function(){
+			let btnTit = item.getAttribute('title')
+			if(btnTit) {
+				alert(btnTit);
+			} else {
+				let img = item.querySelector("img");
+				if(img) {
+					if(img.getAttribute("title")) {
+						alert(img.getAttribute("title"))
+					} else {
+						alert(img.getAttribute("alt"))
+					}
+				} else {
+					alert(item.innerText)
+				}
+			}
+		})
+	})
+	/* // 대충 버튼 눌리면 어멋? */
+
+	/* 확인용 레이어 닫기(임시) */
+	let layers = document.querySelectorAll(".layer");
+	layers.forEach(function(item){
+		item.querySelectorAll("button").forEach(function(e){
+			e.addEventListener("click", function(){
+				item.closest(".layer").style.display = "none";
+			})
+		})
+	})
+	/* // 확인용 레이어 닫기(임시) */
+</script>
+</body>
+</html>
