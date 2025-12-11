@@ -75,7 +75,7 @@ html, body {height:100%;}
 .inquiry_input_form .select_category > div.item:nth-child(3) ~ div.item {margin-top:5px;}
 .inquiry_input_form .select_category > div.item input {position:absolute; top:0; left:0; opacity:0;}
 .inquiry_input_form .select_category > div.item input + label {display:flex; justify-content:center; align-items:center; width:100%; height:40px; background-color:#fff; border:1px solid #ddd;}
-.inquiry_input_form .select_category > div.item input + label span.txt {color:#333; font-size:14px; line-height:20px; font-weight:500;}
+.inquiry_input_form .select_category > div.item input + label span.txt {color:#333; font-size:13px; line-height:1.1em; font-weight:500; text-align:center;}
 .inquiry_input_form .select_category > div.item input:checked + label {background-color:#ff3a4a; border-color:transparent;}
 .inquiry_input_form .select_category > div.item input:checked + label span.txt {color:#fff; font-weight:700;}
 
