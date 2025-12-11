@@ -70,7 +70,7 @@ html, body {height:100%;}
 
 /* 문의하기 입력폼 */
 .inquiry_input_form {padding:20px 18px;}
-.inquiry_input_form .select_category {display:flex; flex-wrap:wrap; justify-content: space-between; width:100%; column-gap:5px;}
+.inquiry_input_form .select_category {display:flex; flex-wrap:wrap; justify-content:flex-start; width:100%; column-gap:5px;}
 .inquiry_input_form .select_category > div.item {position:relative; width:100%; width:calc(calc(100% - 10px)/3)}
 .inquiry_input_form .select_category > div.item:nth-child(3) ~ div.item {margin-top:5px;}
 .inquiry_input_form .select_category > div.item input {position:absolute; top:0; left:0; opacity:0;}
