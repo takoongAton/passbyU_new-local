@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>신분증 결제 이벤트</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, howToUser-scalable=no">
+	<meta name="color-scheme" content="light">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/ev_common.css">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400..700&display=swap" rel="stylesheet" />
+
+	<style>
+		body {
+			background-color:#F2F2F2; color:#000;
+			font-family:'Pretendard', 'pretendard', -apple-system,'BlinkMacSystemFont', 'Noto Sans KR','Noto Sans CJK','Apple SD Gothic Neo', serif;
+		}
+		/* 다크모드 대응 샘플 */
+		@media (prefers-color-scheme: dark) {
+			body {background-color: white !important; color: black !important;}
+			/* 이미지나 기타 요소가 반전되는 경우 방지 */
+			img, video {filter: none !important;}
+		}
+		/* // 다크모드 대응 샘플 */
+
+		
+		.ev_260106 {/* padding-bottom:3.33333em; padding-bottom:calc(constant(safe-area-inset-bottom) + 3.33333em); padding-bottom:calc(env(safe-area-inset-bottom) + 3.33333em); */
+			background-color:#fff; overflow:hidden; font-family:'Noto Sans KR',-apple-system,'BlinkMacSystemFont', 'Noto Sans CJK','Apple SD Gothic Neo', serif;}
+		.ev_260106 img {vertical-align:top; border:0; max-width:100%; filter:none !important;}
+		.ev_260106 .top {position:relative; --main-bg:#000; background-color:var(--main-bg);}
+		.ev_260106 .top {position:relative; height:33.33333em; min-height:33.33333em; background-color:#E6EEFF;}
+		.ev_260106 .top div.tit {position:absolute; top:2.25em; width:18.33333em; left:0; right:0; margin:0 auto;}
+		.ev_260106 .top div.tit img {display:block;;}
+		.ev_260106 .top .date_wrap {display:flex; justify-content:center; align-items:center; position:absolute; top:9.75em; left:2.25em; right:2.25em; height:1.66666em; border-radius:1px; background-color:#0323CE;}
+		/* .ev_260106 .top .date_wrap div.tit {display:inline-flex; justify-content:center; align-items:center; width:6em; height:1.54166em; border:0.125em solid #000; border-radius:1em;}
+		.ev_260106 .top .date_wrap div.tit span {color:#000; font-size:0.66666em; font-family:'Waguri'; letter-spacing:0;} */
+		.ev_260106 .top .date_wrap div.date {color:#fff; font-size:0.91666em; font-weight:bold; text-align:center;}
+
+		/* 응모방법 */
+		.ev_260106 .how {padding:2.5em 1.25em; background-color:#fff;}
+		.ev_260106 .how div.tit {margin-bottom:0.83333em;}
+		.ev_260106 .how div.tit strong {font-size:1.875em; line-height:1.17777em; text-shadow:0 1px 2px rgba(0,0,0,0.16);}
+		.ev_260106 .how ol {display:flex; flex-direction:column; gap:3.33333em;}
+		.ev_260106 .how ol li {display:flex; flex-direction:column; width:100%;}
+		.ev_260106 .how ol li div.step {padding:0.375em 0 0.375em 0.83333em; background-color:#0323CE;}
+		.ev_260106 .how ol li div.step span {display:block; color:#fff; font-size:1.16666em; line-height:1.17857em; font-weight:bold;}
+		/* .ev_260106 .how ol li.step2 div.step {width:8.33333em;} */
+		.ev_260106 .how ol li p.txt {margin-top:0.41666em; color:#0323CE; font-size:1em; line-height:1.41666em; text-align:center;}
+		.ev_260106 .how ol li p.txt strong {font-weight:bold;}
+		.ev_260106 .how ol li div.btn {padding-top:0.83333em; text-align:center;}
+		.ev_260106 .how ol li button.btn_mission {display:flex; justify-content:center; align-items:center; width:14.16666em; height:2.5em; margin:0 auto; border-radius:1.25em; background-color:#FFF83C;}
+		.ev_260106 .how ol li button.btn_mission span.txt {display:block; color:#0323CE; font-size:1em; line-height:1em; font-weight:bold;}
+		/* // 응모방법 */
+
+		/* 응모자수 */
+		.ev_260106 .count_wrap {display:flex; flex-direction:column; gap:1.70833em; margin-top:1.25em; padding:0.91666em 1.25em; border-radius:1.25em; background-color:#F2F2F2; text-align:center;}
+		/* .ev_260106 .count_wrap p.txt {color:#fff; font-size:1.16666em; line-height:1.35714em; font-weight:bold; letter-spacing:-0.025em; text-shadow:0 1px 2px rgba(0,0,0,0.16);} */
+		.ev_260106 .count_wrap div span {display:inline-block; color:#000000; font-size:1.16666em; line-height:1.35714em; font-weight:bold;}
+		.ev_260106 .count_wrap div strong.count{color:#0323CE; font-size:1.66666em; font-weight:bold;}
+		/* // 응모자수 */
+
+		/* 혜택 안내 */
+		.ev_260106 .benefit_wrap {display:flex; flex-direction:column; padding:2.08333em 1.25em; background-color:#0323CE;}
+		.ev_260106 .benefit_wrap p.tit {color:#fff; font-size:1.08333em; line-height:1.30769em; font-weight:bold; text-align:center;}
+		.ev_260106 .benefit_wrap div.tit {display:flex; justify-content:center; align-items:center; position:relative; width:100%; height:2.5em; margin:1.666666em 0 1.25em; border-radius:1.25em; background-color:#BED7FF; text-align:center;}
+		.ev_260106 .benefit_wrap div.tit::before,
+		.ev_260106 .benefit_wrap div.tit::after {content:""; display:block; position:absolute; top:50%; width:0.83333em; height:0.83333em; border-radius:100%; background-color:#fff; transform:translateY(-50%);}
+		.ev_260106 .benefit_wrap div.tit::before {left:0.83333em;}
+		.ev_260106 .benefit_wrap div.tit::after {right:0.83333em;}
+		.ev_260106 .benefit_wrap div.tit strong {color:#0323CE; font-size:1.16666em;}
+		.ev_260106 .benefit_wrap p.txt {color:#fff; font-size:1.08333em; line-height:1.30769em; text-align:center;}
+
+		.ev_260106 .benefit_wrap .benefit_list {display:flex; flex-direction:column; gap:0.83333em; width:100%; margin-top:1.25em;}
+		.ev_260106 .benefit_wrap .benefit_list .benefit_item {display:flex; justify-content:space-between; align-items:center; padding-left:0.8333em; border-radius:1.25em; background-color:#fff; overflow:hidden;;}
+		.ev_260106 .benefit_wrap .benefit_list .benefit_item .txt_wrap {}
+		.ev_260106 .benefit_wrap .benefit_list .benefit_item .txt_wrap > strong {display:inline-flex; justify-content:center; align-items:center; width:4.272727em; height:1.81818em; border-radius:0.90909em; background-color:#0323CE; color:#fff; font-size:0.91666em;}
+		.ev_260106 .benefit_wrap .benefit_list .benefit_item .txt_wrap p {margin-top:0.45454em; color:#0323CE; font-size:0.91666em; line-height:1.45454em; letter-spacing:-0.025em;}
+		.ev_260106 .benefit_wrap .benefit_list .benefit_item .txt_wrap p strong {display:block; font-weight:bold;}
+
+		.ev_260106 .benefit_wrap .benefit_list .benefit_item div.img {width:6.5em;}
+
+		.ev_260106 .benefit_wrap p.small_txt {margin-top:0.90909em; color:#fff; font-size:0.91666em; text-align:right;}
+		/* // 혜택 안내 */
+
+
+		/* 이벤트 공유하기 */
+		.share_wrap {display:flex; flex-direction:column; gap:1.25em; width:100%; padding:2.08333em 1.25em; background-color:#F2F2F2; text-align:center;}
+		.share_wrap p.txt {color:#0323CE; font-size:1em; line-height:1.41666em;}
+		.share_wrap div.img {border-radius:1.25em; background-color:#EDEDED;}
+		.share_wrap ul {display:flex; flex-direction:column; width:100%; gap:1.25em; border-radius:1.25em; padding:1.66666em 1.66666em 1.66666em 1.25em; background-color:#fff;}
+		.share_wrap ul li {display:flex; justify-content:space-between; align-items:center; gap:1.25em;}
+		.share_wrap ul li span {width:2.08333em; min-width:2.08333em; height:2.08333em;}
+		.share_wrap ul li p {flex:1; color:#0323CE; font-size:1.08333em; line-height:1.30769em; text-align:left;}
+		
+		.share_wrap button.btn_share {display:flex; justify-content:center; align-items:center; gap:0.41666em; position:relative; width:14.16666em; height:2.5em; margin:0 auto; border-radius:1.25em; background-color:#0323CE;}
+		.share_wrap button.btn_share span.ico {display:inline-block; width:1em; height:1em; display:none;}
+		.share_wrap button.btn_share span.txt {display:inline-block; color:#fff; font-size:1em; font-weight:700;}
+		.share_wrap button.btn_share span.txt::before {top:0; left:0; border-left:0.83333em solid #fff; border-top-width:1.25em; border-bottom-width:1.25em;}
+		
+		.share_wrap .txt_app {padding-bottom:5em; color:#0323CE; font-size:1.083333em; line-height:1.38461em; font-weight:bold;}
+		/* // 이벤트 공유하기 */
+
+		/* 하단 고정 버튼 */
+		.ev_260106 .f_fixed_btn {position:fixed; bottom:2.08333em; left:0; right:0; width:100%; max-width:720px; margin:0 auto; padding:0 1.25em 0;}
+		.ev_260106 .f_fixed_btn .btn_join {height:3.33333em; border-radius:0.83333em; border:0.16666em solid #0323CE; background-color:#FFF83C; ; box-shadow:0 1px 2px rgba(0,0,0,0.16);}
+		.ev_260106 .f_fixed_btn .btn_join span {color:#0323CE; font-size:1.16666em; line-height:1.17857em; font-weight:bold;}
+		/* // 하단 고정 버튼 */
+
+
+		/* 꼭 확인하세요. */
+		.ev_260106 .footer_alert {padding:2.08333em 1.66666em 7.08333em; background-color:#E3E3E3;}
+		.ev_260106 .footer_alert div.tit strong {font-size:1em;}
+		.ev_260106 .footer_alert .footer_group {margin-top:0.83333em;}
+		.ev_260106 .footer_alert .footer_group div.sub_tit strong {display:inline-block; font-size:0.833333em; line-height:1.2em; font-weight:bold;}
+		.ev_260106 .footer_alert .footer_group ul {margin-top:0.41666em;}
+		.ev_260106 .footer_alert .footer_group ul li p {position:relative; padding-left:0.95em; color:#000; font-size:0.83333em; line-height:1.4em;}
+		.ev_260106 .footer_alert .footer_group ul li p::before {content:"-"; display:block; position:absolute; top:0; left:0; color:inherit; font-size:inherit; line-height:inherit; font-weight:inherit;}
+		/* // 꼭 확인하세요. */
+
+
+		/* 레이어 팝업 이미지*/
+		.layer .layer_content div.img {margin-bottom:1.25em; text-align:center;}
+		.layer .layer_content div.img img {display:inline-block; width:100px; vertical-align:top;}
+		.layer .layer_content div.name {color:#7E5BFA; font-size:1.25em; line-height:1.2em; font-weight:700;}
+
+		/* 공통 임시 수정 */
+		.layer .layer_content div.pass_logo + div.tit {margin-top:36px;}
+		/* // 공통 임시 수정 */
+
+		@supports (-webkit-touch-callout: none) {
+			.ev_260106 .top .date_wrap div.tit span {position:relative; top:0.05em;}
+			.ev_260106 .how ol li div.step span {position:relative; top:0.05em;}
+		}
+</style>
+</head>
+
+<body>
+<div class="evPageWrap">
+
+	<div class="evSection">
+<style>
+.ev_260106 .top span.deco {display:block; position:absolute; top:0; left:0; height:auto; line-height:1; opacity:0; animation: ani_right 0.4s 1 ease-in-out forwards;}
+.ev_260106 .top span.deco.deco1 {top:27.75em; left:15.95833em; width:1.80083em; animation-delay:0.0s;animation-name: ani_up;}
+.ev_260106 .top span.deco.deco2 {top:21.775em; left:2.875em; width:1.80083em; animation-delay:0.0s;animation-name: ani_up;}
+.ev_260106 .top span.deco.note {top:19.5375em; left:13.14166em; width:7.1575em; animation-delay:0.2s; animation-name: ani_up;}
+.ev_260106 .top span.deco.clock {top:15.0125em; left:15.9em; width:1.71291em;  animation-delay:0.4s; animation-name:ani_up;}
+
+.ev_260106 .top span.deco.phone {top:13.095833em; left:9.47083em; width:5.22041em; animation-delay:0.6s; animation-name:ani_updown;}
+
+
+.ev_260106 .top span.deco.zoom {top:20.05416em; left:6.225em; width:3.28291em; animation-delay:0.8s;}
+.ev_260106 .top span.deco.speaker {top:26.36666em; left:4.27916em; width:3.94166em; animation-delay:0.9s;}
+.ev_260106 .top span.deco.lock {top:14.25em; left:4.6875em; width:1.87625em; animation-delay:1s;}
+
+.ev_260106 .top span.deco.pen {top:24.083333em; left:11.19583em; width:2.80833em; animation-delay:1s; animation-name:ani_pen;}
+
+.ev_260106 .top span.deco.paper {top:16.066666em; left:8.10416em; width:5.29458em; animation-delay:1.2s; animation-name:ani_paper; animation-duration:0.3s;}
+
+.ev_260106 .top span.deco.bg {top:13.12083em; left:4.4875em; width:12.43666em; animation:unset; opacity:1;}
+
+@keyframes ani_right {
+	0% {transform:translate(-5px, 5px); opacity:0;}
+	70% {transform:translate(5px, -5px);opacity:1;}
+	100% {transform:translate(0px, 0px); opacity:1;}
+}
+
+@keyframes ani_up {
+	0% {transform:translate(0px, 10px); opacity:0;}
+	100% {transform:translate(0px, 0px); opacity:1;}
+}
+
+@keyframes ani_updown {
+	0% {transform:translate(0px, 10px); opacity:0;}
+	70% {transform:translate(0px, -5px);opacity:1;}
+	100% {transform:translate(0px, 0px); opacity:1;}
+}
+
+@keyframes ani_pen {
+	0% {transform:translate(8px, -5px); opacity:0;}
+	70% {transform:translate(-5px, 5px);opacity:1;}
+	100% {transform:translate(0px, 0px); opacity:1;}
+}
+
+@keyframes ani_paper {
+	0% {transform:translate(15px, -9px) scale(0.8); opacity:0;}
+	/* 70% {transform:translate(-5px, 5px);opacity:1;} */
+	100% {transform:translate(0px, 0px) scale(1); opacity:1;}
+}
+</style>
+		<div class="ev_260106">
+			<div class="top">
+				<div class="tit"><img src="../images/ev_260106_tit.png" alt="PASS 전자고지 릴레이 미션" /></div>
+				<!-- <div class="img"><img src="../images/ev_260106_img1.png" alt="PASS 전자고지 릴레이 미션" /></div> -->
+				<div class="date_wrap">
+					<div class="date">2026. 1. 19(월) ~ 2026. 2. 28(토)</div>
+				</div>
+				
+				<span class="deco bg"><img src="../images/ev_260106_deco_bg.png" alt="기본바탕" /></span>
+				<span class="deco clock"><img src="../images/ev_260106_deco_clock.png" alt="시계" /></span>
+				<span class="deco note"><img src="../images/ev_260106_deco_note.png" alt="노트" /></span>
+				<span class="deco phone"><img src="../images/ev_260106_deco_phone.png" alt="스마트폰" /></span>
+				<span class="deco paper"><img src="../images/ev_260106_deco_paper.png" alt="문서" /></span>
+				<span class="deco pen"><img src="../images/ev_260106_deco_pen.png" alt="펜" /></span>
+				<span class="deco lock"><img src="../images/ev_260106_deco_lock.png" alt="자물쇠" /></span>
+				<span class="deco speaker"><img src="../images/ev_260106_deco_speaker.png" alt="스피커" /></span>
+				<span class="deco zoom"><img src="../images/ev_260106_deco_zoom.png" alt="돋보기" /></span>
+				<span class="deco deco2"><img src="../images/ev_260106_deco_02.png" alt="원통2" /></span>
+				<span class="deco deco1"><img src="../images/ev_260106_deco_01.png" alt="원통1" /></span>
+			</div>
+			<!-- // top -->
+
+
+			<!-- 당첨 경품 -->
+			<div class="benefit_wrap">
+				<p class="tit">PASS 인증서 발급과<br />
+					전자고지 서비스까지 가입하면<br />
+					이벤트 참여가 완료돼요</p>
+				<div class="tit"><strong>당첨 경품</strong></div>
+				<p class="txt">
+					모든 릴레이 미션을 완료한 분들 중<br />
+					추첨을 통해 아래 경품을 드려요
+				</p>
+
+				<ul class="benefit_list">
+					<li class="benefit_item">
+						<div class="txt_wrap">
+							<strong>100명</strong>
+							<p>
+								<strong>BBQ</strong>
+								황금올리브치킨+콜라1.25L
+							</p>
+						</div>
+						<div class="img"><img src="../images/ev_260106_img_bbq.png" alt="BBQ 황금올리브치킨과 콜라1.25리터" /></div>
+					</li>
+					<li class="benefit_item">
+						<div class="txt_wrap">
+							<strong>100명</strong>
+							<p>
+								<strong>투썸플레이스</strong>
+								떠먹는 아박 + 아메리카노 R 2잔
+							</p>
+						</div>
+						<div class="img"><img src="../images/ev_260106_img_twosome.png" alt="투썸플레이스 떠먹는 아박 + 아메리카노 R 2잔" /></div>
+					</li>
+					<li class="benefit_item">
+						<div class="txt_wrap">
+							<strong>366명</strong>
+							<p>
+								<strong>세븐일레븐</strong>
+								세븐일레븐금액상품권 5천원권
+							</p>
+						</div>
+						<div class="img"><img src="../images/ev_260106_img_711.png" alt="세븐일레븐 세븐일레븐금액상품권 5천원권" /></div>
+					</li>
+				</ul>
+				<p class="small_txt">※26년 3월 중 당첨자 발표 예정</p>
+			</div>
+			<!-- // 당첨 경품 -->
+
+			<!-- 릴레이 미션 안내 -->
+			<div class="how">
+				<div class="tit"><strong><img src="../images/ev_260106_notice_tit.png" alt="릴레이 미션 안내" /></strong></div>
+				<ol>
+					<li>
+						<div class="img"><img src="../images/ev_260106_img_notice_01.png" alt="미션1. 릴레이 미션 이벤트 응모" /></div>
+						<!-- <div class="step"><span>STEP 1</span></div> -->
+						<p class="txt">
+							하단 ‘<strong>릴레이 미션 참여하기</strong>’ 버튼을 누르고,<br />
+							아래 미션을 완료해주세요!
+						</p>
+
+						<div class="count_wrap">
+							<div>
+								<span>벌써</span><br />
+								<strong class="count">%응모자 수%</strong><span>명이</span><br >
+								<span>참여했어요!</span>
+							</div>
+						</div>
+						<!-- // count_wrap -->
+					</li>
+					<li>
+						<div class="img"><img src="../images/ev_260106_img_notice_02.png" alt="미션2. PASS 인증서 발급하기" /></div>
+						<!-- <div class="step"><span>STEP 1</span></div> -->
+						<p class="txt">
+							안전하고 빠른 문서 열람을 위해<br />
+							<strong>PASS 인증서를 발급</strong>해주세요
+						</p>
+						<div class="btn">
+							<button type="button" class="btn_mission" id="btn_test1"><span class="txt">인증서 발급하기</span></button>
+						</div>
+					</li>
+					<li>
+						<div class="img"><img src="../images/ev_260106_img_notice_03.png" alt="미션3. 전자고지 서비스 가입하기" /></div>
+						<!-- <div class="step"><span>STEP 1</span></div> -->
+						<p class="txt">
+							전자고지 서비스까지 가입하면<br />
+							<strong>공공·금융 중요 우편물을<br />
+							전자고지로 확인</strong>할 수 있어요
+						</p>
+						<div class="btn">
+							<button type="button" class="btn_mission" id="btn_test1"><span class="txt">전자고지 서비스 바로가기</span></button>
+						</div>
+					</li>
+					
+				</ol>
+				<!-- <ul>
+					<li><p>* 단일 승인금액 5,000원 이상 결제 시 참여 인정</p></li>
+					<li><p>* 당첨자 추첨 시점까지 신분증결제 서비스 가입 상태 유지 필요</p></li>
+				</ul>
+				<div class="alert">
+					<span class="ico"><img src="../images/ev_260106_ico_howto.png" alt="!"></span>
+					<span class="txt">응모 전 결제도 이벤트 기간 내 결제라면 참여로 인정!</span>
+				</div> -->
+			</div>
+			<!-- // 릴레이 미션 안내 -->
+
+
+			
+
+			<div class="share_wrap">
+				<div class="tit"><img src="../images/ev_260106_img_digital_notice.png" alt="PASS 전자고지, 확인은 간편하게 인증은 확실하게!"></div>
+				<p class="txt">
+					종이 고지 없이 PASS 전자고지에서<br />
+					<strong>공공·금융·민간기관에서 발송하는<br />
+					종이 우편 고지서와 안내문 등을<br />
+					확인</strong>할 수 있어요
+				</p>
+				<ul>
+					<li>
+						<span class="ico"><img src="../images/ev_260106_ico_check.png" alt="체크표시"></span>
+						<p>발송 내역부터 확인까지<br /><strong>PASS로 관리</strong></p>
+					</li>
+					<li>
+						<span class="ico"><img src="../images/ev_260106_ico_check.png" alt="체크표시"></span>
+						<p>개인정보 유출 걱정 없는<br /><strong>안전한 본인 확인</strong></p>
+					</li>
+					<li>
+						<span class="ico"><img src="../images/ev_260106_ico_check.png" alt="체크표시"></span>
+						<p><strong>인증서 발급부터 문서 열람</strong>까지<br />한 번에 이용</p>
+					</li>
+				</ul>
+				<button type="button" class="btn_share"><span class="ico"><img src="../images/share_24dp.png" alt="공유아이콘"></span><span class="txt">이벤트 공유하기</span></button>
+			</div>
+			<!-- // share_wrap -->
+
+
+			<div class="footer_alert">
+				<div class="tit"><strong>꼭 확인해주세요.</strong></div>
+				<div class="footer_group">
+					<!-- <div class="sub_tit"><strong>[이벤트 응모]</strong></div> -->
+					<ul>
+						<li><p>본 이벤트는 만 14세 이상 PASS 회원 중, 이벤트 이용 약관 동의 및 이벤트 페이지 내 응모를 완료한 고객에 한해 참여할 수 있습니다.</p></li>
+						<li><p>미션 완료 여부 확인을 위해 당첨자 추첨 시점까지 PASS 인증서 발급 및 전자고지 서비스 가입 상태를 유지해야 하며, 해당 조건을 충족하지 못할 경우 당첨 대상에서 제외될 수 있습니다.</p></li>
+						<li><p>이벤트 기간 이전에 PASS 인증서 발급 및 전자고지 서비스 동의를 완료한 고객도 이벤트 기간 내 응모를 완료한 경우 참여 대상으로 인정됩니다.</p></li>
+						<li><p>당첨자는 응모 및 모든 미션 참여를 완료한 고객 중 추첨을 통해 선정됩니다.</p></li>
+						<li><p>본 이벤트는 1인 1회만 응모 가능하며, 중복 응모 및 중복 당첨은 불가합니다.</p></li>
+						<li><p>당첨자 발표는 26년 3월 중 PASS 앱에서 진행됩니다.</p></li>
+						<li><p>경품은 당첨자 발표 이후 PASS 기프트샵 내 모바일 쿠폰 형태로 지급되며, 양도 및 교환은 불가합니다. 지급된 경품은 유효기간 내 사용해야 하며, 기간 경과 시 재지급되지 않습니다.</p></li>
+						<li><p>이벤트 참여를 위해 수집된 개인정보는 경품 발송 목적 외에는 활용되지 않으며, 이벤트 종료 후 관련 법령에 따라 안전하게 파기됩니다.</p></li>
+						<li><p>비정상적인 방법으로 이벤트에 참여하거나 이벤트 취지에 부합하지 않는 행위가 확인될 경우, 사전 고지 없이 참여 및 당첨이 취소될 수 있습니다.</p></li>
+						<li><p>이벤트 운영 및 보상 내용은 당사 사정에 따라 사전 또는 사후 고지 후 변경될 수 있습니다.</p></li>
+						<li><p>기타 문의사항은 PASS 고객센터(114)로 문의해 주시기 바랍니다.</p></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="f_fixed_btn">
+				<button type="button" class="btn_join"><span>릴레이 미션 참여하기</span></button>
+			</div>
+			
+				
+		</div>
+		<!-- // ev_251117 -->
+
+
+	</div><!-- // evSection -->
+
+</div><!-- // evPageWrap -->
+
+
+
+
+<div class="layer alert">
+	<div class="dim"></div>
+	<div class="layer_inner">
+		<div class="layer_content">
+			<div class="img"><img src="../images/img_done.png" alt="중복응모 아이콘"></div>
+			<div class="tit">이미 응모된 이벤트입니다.<br />
+				릴레이 미션을 완료해 주세요!</div>
+		</div>
+		<div class="btn_group">
+			<div><button type="button" class="next"><span>확인</span></button></div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="layer alert">
+	<div class="dim"></div>
+	<div class="layer_inner">
+		<div class="layer_content">
+			<div class="img"><img src="../images/img_complete.png" alt="응모완료 아이콘"></div>
+			<div class="tit">이미 응모된 이벤트입니다.<br />
+				릴레이 미션을 완료해 주세요!</div>
+		</div>
+		<div class="btn_group">
+			<div><button type="button" class="next"><span>확인</span></button></div>
+		</div>
+	</div>
+</div>
+
+ 
+
+
+
+
+<script>
+	/* 대충 버튼 눌리면 어멋? */
+	let btns = document.querySelectorAll(".evPageWrap button");
+	btns.forEach(function(item){
+		item.addEventListener("click", function(){
+			let btnTit = item.getAttribute('title')
+			if(btnTit) {
+				alert(btnTit);
+			} else {
+				let img = item.querySelector("img");
+				if(img) {
+					if(img.getAttribute("title")) {
+						alert(img.getAttribute("title"))
+					} else {
+						alert(img.getAttribute("alt"))
+					}
+				} else {
+					alert(item.innerText)
+				}
+			}
+		})
+	})
+	/* // 대충 버튼 눌리면 어멋? */
+
+	/* 확인용 레이어 닫기(임시) */
+	let layers = document.querySelectorAll(".layer");
+	layers.forEach(function(item){
+		item.querySelectorAll("button").forEach(function(e){
+			e.addEventListener("click", function(){
+				item.closest(".layer").style.display = "none";
+			})
+		})
+	})
+	/* // 확인용 레이어 닫기(임시) */
+</script>
+</body>
+</html>
