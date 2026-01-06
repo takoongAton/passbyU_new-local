@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<title>신분증 결제 이벤트</title>
+	<title>PASS 전자고지 릴레이 미션</title>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, howToUser-scalable=no">
@@ -38,6 +38,42 @@
 		/* .ev_260106 .top .date_wrap div.tit {display:inline-flex; justify-content:center; align-items:center; width:6em; height:1.54166em; border:0.125em solid #000; border-radius:1em;}
 		.ev_260106 .top .date_wrap div.tit span {color:#000; font-size:0.66666em; font-family:'Waguri'; letter-spacing:0;} */
 		.ev_260106 .top .date_wrap div.date {color:#fff; font-size:0.91666em; font-weight:bold; text-align:center;}
+
+		.ev_260106 .top span.deco {display:block; position:absolute; top:0; left:0; height:auto; line-height:1; opacity:0; animation: ani_right 0.4s 1 ease-in-out forwards;}
+		.ev_260106 .top span.deco.deco1 {top:27.75em; left:15.95833em; width:1.80083em; animation-delay:0.0s;animation-name: ani_up;}
+		.ev_260106 .top span.deco.deco2 {top:21.775em; left:2.875em; width:1.80083em; animation-delay:0.0s;animation-name: ani_up;}
+		.ev_260106 .top span.deco.note {top:19.5375em; left:13.14166em; width:7.1575em; animation-delay:0.2s; animation-name: ani_up;}
+		.ev_260106 .top span.deco.clock {top:15.0125em; left:15.9em; width:1.71291em;  animation-delay:0.4s; animation-name:ani_up;}
+		.ev_260106 .top span.deco.phone {top:13.095833em; left:9.47083em; width:5.22041em; animation-delay:0.6s; animation-name:ani_updown;}
+		.ev_260106 .top span.deco.zoom {top:20.05416em; left:6.225em; width:3.28291em; animation-delay:0.8s;}
+		.ev_260106 .top span.deco.speaker {top:26.36666em; left:4.27916em; width:3.94166em; animation-delay:0.9s;}
+		.ev_260106 .top span.deco.lock {top:14.25em; left:4.6875em; width:1.87625em; animation-delay:1s;}
+		.ev_260106 .top span.deco.pen {top:24.083333em; left:11.19583em; width:2.80833em; animation-delay:1s; animation-name:ani_pen;}
+		.ev_260106 .top span.deco.paper {top:16.066666em; left:8.10416em; width:5.29458em; animation-delay:1.2s; animation-name:ani_paper; animation-duration:0.3s;}
+		.ev_260106 .top span.deco.bg {top:13.12083em; left:4.4875em; width:12.43666em; animation:unset; opacity:1;}
+		@keyframes ani_right {
+			0% {transform:translate(-5px, 5px); opacity:0;}
+			70% {transform:translate(5px, -5px);opacity:1;}
+			100% {transform:translate(0px, 0px); opacity:1;}
+		}
+		@keyframes ani_up {
+			0% {transform:translate(0px, 10px); opacity:0;}
+			100% {transform:translate(0px, 0px); opacity:1;}
+		}
+		@keyframes ani_updown {
+			0% {transform:translate(0px, 10px); opacity:0;}
+			70% {transform:translate(0px, -5px);opacity:1;}
+			100% {transform:translate(0px, 0px); opacity:1;}
+		}
+		@keyframes ani_pen {
+			0% {transform:translate(8px, -5px); opacity:0;}
+			70% {transform:translate(-5px, 5px);opacity:1;}
+			100% {transform:translate(0px, 0px); opacity:1;}
+		}
+		@keyframes ani_paper {
+			0% {transform:translate(15px, -9px) scale(0.8); opacity:0;}
+			100% {transform:translate(0px, 0px) scale(1); opacity:1;}
+		}
 
 		/* 응모방법 */
 		.ev_260106 .how {padding:2.5em 1.25em; background-color:#fff;}
@@ -141,55 +177,6 @@
 <div class="evPageWrap">
 
 	<div class="evSection">
-<style>
-.ev_260106 .top span.deco {display:block; position:absolute; top:0; left:0; height:auto; line-height:1; opacity:0; animation: ani_right 0.4s 1 ease-in-out forwards;}
-.ev_260106 .top span.deco.deco1 {top:27.75em; left:15.95833em; width:1.80083em; animation-delay:0.0s;animation-name: ani_up;}
-.ev_260106 .top span.deco.deco2 {top:21.775em; left:2.875em; width:1.80083em; animation-delay:0.0s;animation-name: ani_up;}
-.ev_260106 .top span.deco.note {top:19.5375em; left:13.14166em; width:7.1575em; animation-delay:0.2s; animation-name: ani_up;}
-.ev_260106 .top span.deco.clock {top:15.0125em; left:15.9em; width:1.71291em;  animation-delay:0.4s; animation-name:ani_up;}
-
-.ev_260106 .top span.deco.phone {top:13.095833em; left:9.47083em; width:5.22041em; animation-delay:0.6s; animation-name:ani_updown;}
-
-
-.ev_260106 .top span.deco.zoom {top:20.05416em; left:6.225em; width:3.28291em; animation-delay:0.8s;}
-.ev_260106 .top span.deco.speaker {top:26.36666em; left:4.27916em; width:3.94166em; animation-delay:0.9s;}
-.ev_260106 .top span.deco.lock {top:14.25em; left:4.6875em; width:1.87625em; animation-delay:1s;}
-
-.ev_260106 .top span.deco.pen {top:24.083333em; left:11.19583em; width:2.80833em; animation-delay:1s; animation-name:ani_pen;}
-
-.ev_260106 .top span.deco.paper {top:16.066666em; left:8.10416em; width:5.29458em; animation-delay:1.2s; animation-name:ani_paper; animation-duration:0.3s;}
-
-.ev_260106 .top span.deco.bg {top:13.12083em; left:4.4875em; width:12.43666em; animation:unset; opacity:1;}
-
-@keyframes ani_right {
-	0% {transform:translate(-5px, 5px); opacity:0;}
-	70% {transform:translate(5px, -5px);opacity:1;}
-	100% {transform:translate(0px, 0px); opacity:1;}
-}
-
-@keyframes ani_up {
-	0% {transform:translate(0px, 10px); opacity:0;}
-	100% {transform:translate(0px, 0px); opacity:1;}
-}
-
-@keyframes ani_updown {
-	0% {transform:translate(0px, 10px); opacity:0;}
-	70% {transform:translate(0px, -5px);opacity:1;}
-	100% {transform:translate(0px, 0px); opacity:1;}
-}
-
-@keyframes ani_pen {
-	0% {transform:translate(8px, -5px); opacity:0;}
-	70% {transform:translate(-5px, 5px);opacity:1;}
-	100% {transform:translate(0px, 0px); opacity:1;}
-}
-
-@keyframes ani_paper {
-	0% {transform:translate(15px, -9px) scale(0.8); opacity:0;}
-	/* 70% {transform:translate(-5px, 5px);opacity:1;} */
-	100% {transform:translate(0px, 0px) scale(1); opacity:1;}
-}
-</style>
 		<div class="ev_260106">
 			<div class="top">
 				<div class="tit"><img src="../images/ev_260106_tit.png" alt="PASS 전자고지 릴레이 미션" /></div>
