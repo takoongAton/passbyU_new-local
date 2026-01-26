@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>KT PASS 전자고지 이벤트</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=block">
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+	
+</head>
+<body>
+
+<style>
+
+/* 이벤트 컨텐츠 */
+
+
+.pass_gov_wrap {padding-bottom:0; max-width:720px; margin:0 auto;}
+.pass_gov_wrap {font-size:3.95833vw;}
+@media screen and (min-width: 720px) {
+	.pass_gov_wrap {font-size:1.78125em;}
+}
+/* @media screen and (max-width:359px) {
+	.wrap section {font-size:8vw;}
+} */
+
+
+.e_wrap {max-width:720px; margin:0 auto; font-family:'Noto Sans KR';}
+
+/* 유의사항 */
+.footer_alert {padding:2.08333em 1.66666em; background-color:#373737; color:#fff;}
+.footer_alert div.tit strong {font-size:1em;}
+.footer_alert .footer_group {margin-top:0.83333em;}
+.footer_alert .footer_group div.sub_tit strong {display:inline-block; font-size:0.833333em; line-height:1.2em; font-weight:bold;}
+.footer_alert .footer_group ul {margin-top:0.41666em;}
+.footer_alert .footer_group ul li p {position:relative; padding-left:0.95em; color:#fff; font-size:0.83333em; line-height:1.4em;}
+.footer_alert .footer_group ul li p::before {content:"·"; display:block; position:absolute; top:0; left:0; color:inherit; font-size:inherit; line-height:inherit; font-weight:bold;}
+/* // 유의사항 */
+
+@media screen and (max-width:359px) {
+	/* .e_type .item_group .item dd p br {display:none;} */
+
+	/* .e_type .item_group {display:block; position:relative; width:100%;}
+	.e_type .item_group .item {	display:flex; flex-direction:column; width:100%; height:auto; border-radius:0.625em; box-shadow:0 3px 6px rgba(0,0,0,0.16); background-color:#fff; font-size:16px;}
+	.e_type .item_group .item + .item {margin-top:0.9375em;}
+	.e_type .item_group .item strong {font-size:16px; line-height:1.5em;}
+	.e_type .item_group .item span.icon img {width:24px; height:24px;}
+	.e_type .item_group .item span.icon::before {content:""; display:block; position:absolute; top:50%; right:0; width:8px; height:8px; margin-top:1px; border-width:1px 1px 0 0; border-style:solid; border-color:#000000; transform:rotate(45deg); transform-origin: 100% 0;}
+	.e_type .item_group .item span.new {display:inline-flex; justify-content:center; align-items:center; width:1.55555em; height:1.55555em; background-color:#ff3a4a; border-radius:100%; color:#fff; font-size:0.5625em;}
+	.e_type .item_group .item dd p {font-size:11px;}
+	.e_type .item_group .item .link button {font-size:16px;}
+	.e_type .item_group .item .link button span {font-size:11px;}
+	.service_bnr_list {width:100%; height:auto; margin-top:0.9375em;}
+	.e_bnr_dots {bottom:10%; left:10%;}
+	.e_bnr_dots li button {width:0.7em; height:0.7em;} */
+}
+
+@media screen and (min-width:720px) {
+	/* .e_type .item_group .item dd p br {display:none;} */
+}
+
+ul.e_notice_wrap {display:-ms-flexbox; display:flex; justify-content:space-around; margin-top:1em; padding-bottom:1em;}
+ul.e_notice_wrap a,
+ul.e_notice_wrap button {display:inline-flex; align-items:center; text-decoration:none; color:#000000;}
+ul.e_notice_wrap a span.ico,
+ul.e_notice_wrap button span.ico {display:inline-block; width:2em; height:2em;}
+ul.e_notice_wrap a span.txt,
+ul.e_notice_wrap button span.txt {display:inline-block; padding-left:0.5em; color:#000000; font-size:0.875em; line-height:32px; font-weight:500; font-family:'Noto Sans KR';}
+
+.pass_gov_wrap {}
+.pass_gov_wrap .img_wrap {font-size:0; line-height:0;}
+.pass_gov_wrap .btn_wrap {font-size:0; line-height:0;}
+
+.pass_gov_wrap .date_wrap {position:relative;}
+.pass_gov_wrap .date_wrap .date {position:absolute; display:flex; flex-direction:column; gap:0.96666em 0; top:60.48632%; left:6.4935%; width:87.01298%; height:33.94123%; padding:1em 1.13333em; background-color:rgba(255,255,255,0.5); border-radius:32px; font-size:1em; line-height:1em; letter-spacing:0;}
+.pass_gov_wrap .date_wrap .date dl {display:flex; align-items:flex-start; gap:0.46666em;}
+.pass_gov_wrap .date_wrap .date dl dt {display:flex; justify-content:center; width:4.2em; min-width:4.2em; height:1.46666em; background-color:#ebebeb; border-radius:1em;}
+.pass_gov_wrap .date_wrap .date dl dt span {display:flex; justify-content:center; align-items:center; width:100%; height:100%; font-size:1em; line-height:1em;}
+.pass_gov_wrap .date_wrap .date dl dd {}
+.pass_gov_wrap .date_wrap .date dl dd p.txt {line-height:1.46666em; font-weight:500;}
+.pass_gov_wrap .date_wrap .date dl dd p.txt strong {display:block; font-weight:700;}
+.pass_gov_wrap .date_wrap .date dl dd p.txt em {display:block; color:#796bff; font-weight:700;}
+.pass_gov_wrap .date_wrap .date dl dd div.small_txt {color:#000; font-size:0.66666em; line-height:1em;}
+.pass_gov_wrap .date_wrap .date dl dd div.small_txt em {color:#ff0000;}
+.pass_gov_wrap .date_wrap .date dl:last-of-type {margin-top:-0.5em}
+
+</style>
+
+	<div class="pass_gov_wrap">
+		<div class="img_wrap">
+			<div><img src="../images/260123_pass_gov_01.png" alt="이미지1" /></div>
+			<div><img src="../images/260123_pass_gov_02.png" alt="이미지2" /></div>
+			<div><img src="../images/260123_pass_gov_03.png" alt="이미지3" /></div>
+		</div>
+		<!-- // img_wrap -->
+		<div class="btn_wrap">
+			<div><button type="button"><span><img src="../images/260123_pass_gov_04.png" alt="응모하기"></span></button></div>
+			<div><img src="../images/260123_pass_gov_05.png" alt=""></div>
+			<div><button type="button"><span><img src="../images/260123_pass_gov_06.png" alt="PASS 전자고지 가입하기 (KT)"></span></button></div>
+			<div><img src="../images/260123_pass_gov_07.png" alt=""></div>
+			<div><button type="button"><span><img src="../images/260123_pass_gov_08.png" alt="PASS 전자고지 가입하기 (SKT)"></span></button></div>
+			<div><img src="../images/260123_pass_gov_09.png" alt=""></div>
+			<div><button type="button"><span><img src="../images/260123_pass_gov_10.png" alt="PASS 전자고지 가입하기 (LGU+)"></span></button></div>
+		</div>
+		<!-- // btn_wrap -->
+		<div class="date_wrap">
+			<div><img src="../images/260123_pass_gov_11.png" alt=""></div>
+			<div class="date">
+				<dl>
+					<dt><span>기간</span></dt>
+					<dd><p class="txt"><strong>1월 28일(수) ~ 2월 10일(화)</strong></></dd>
+				</dl>
+				<dl>
+					<dt><span>대상</span></dt>
+					<dd>
+						<p class="txt">
+							PASS 전자고지 서비스 신규 가입 후
+							<em>이벤트 응모 완료한 고객</em>
+						</p>
+					</dd>
+				</dl>
+				<dl>
+					<dt><span>혜택</span></dt>
+					<dd>
+						<p class="txt"><em>메가커피 아메리카노 (HOT) 1잔</em></p>
+						<div class="small_txt">
+							*이벤트 기간 내 PASS 전자고지 서비스 가입자<br />
+							<em>선착순 2천 명</em>
+						</div>
+					</dd>
+				</dl>
+			</div>
+		</div>
+		<!-- // date_wrap -->
+
+		<div class="footer_alert">
+			<div class="tit"><strong>⚠️ 유의사항</strong></div>
+			<div class="footer_group">
+				<div class="sub_tit"><strong>[이벤트 안내]</strong></div>
+				<ul>
+					<li><p>본 이벤트는 PASS 전자고지 서비스 가입 고객 중 응모 완료한 고객 대상으로 당첨 선정됩니다.</p></li>
+					<li><p>본 이벤트는 이벤트 경품 지급 기준일 전에 서비스 탈퇴 시 경품 지급 대상에서 제외됩니다.</p></li>
+					<li><p>경품은 당첨 고객에 한하여 3월 6일(금) 일괄 지급됩니다.</p></li>
+					<li><p>경품은 응모 시 입력한 휴대폰번호로 지급되며, 응모 시 오입력으로 인한 문제는 처리되지 않습니다.</p></li>
+					<li><p>타인의 정보를 이용하여 참여하거나 부정확한 정보 등 비정상적인 방법으로 이벤트에 참여할 경우 무효 처리되며, 타인 정보 도용 시 발생하는 법적 책임은 참여자 본인에게 있습니다.</p></li>
+					<li><p>수집된 개인정보는 당첨자 식별 및 경품 지급을 위해 사용되며, 이벤트 종료 후 60일 이내 파기됩니다.</p></li>
+					<li><p>이벤트 경품의 이미지는 실물과 다를 수 있으며, 사전 예고 없이 변경 및 종료될 수 있습니다.</p></li>
+					<li><p>본 이벤트는 주최 측 사정에 의해 사전 공지 없이 조기 종료 또는 내용 변경될 수 있습니다.</p></li>
+				</ul>
+			</div>
+			<div class="footer_group">
+				<div class="sub_tit"><strong>[경품 안내]</strong></div>
+				<ul>
+					<li><p>PASS 전자고지 서비스 가입자 대상 메가MGC커피 아메리카노 (HOT) 1잔 경품은 선착순 2천 명 대상으로, ‘응모 완료한 고객’ 기준으로 적용됩니다.</p></li>
+				</ul>
+			</div>
+			<div class="footer_group">
+				<div class="sub_tit"><strong>[개인정보 제공 및 활용 동의]</strong></div>
+				<ul>
+					<li><p>본 이벤트는 구독 신청 시 제공하신 기존 개인정보를 활용하며, 이벤트 운영 및 당첨자 안내 목적에 한하여 이용됩니다. </p></li>
+					<li><p>제공받는 자:  ㈜SK텔레콤, ㈜아톤</p></li>
+					<li><p>제공하는 개인정보 항목 : 이름, 휴대폰 번호</p></li>
+					<li><p>제공 목적:<br /> 1) 이벤트 참여자 본인 확인 및 전자고지 가입 확인<br /> 2) 당첨자 안내 및 경품 지급</p></li>
+					<li><p>제공받는 자의  개인정보 보유 기간: 이벤트 종료 후 6개월 간(단, 관계 법령에 따라 보존할 필요가 있는 경우 해당 법령에 따라 보관)</p></li>
+				</ul>
+			</div>
+			<div class="footer_group">
+				<div class="sub_tit"><strong>[개인정보 처리 위탁 안내]</strong></div>
+				<ul>
+					<li><p>당사는 원활한 이벤트 진행을 위해 아래의 전문업체에 업무를  위탁 처리하고 있습니다.</p></li>
+					<li><p>수탁자 : 앨리슨하이퍼앰㈜</p></li>
+					<li><p>위탁하는 업무의 내용:  이벤트 운영 및 경품 발송</p></li>
+					<li><p>귀하는 개인정보보호법에 따라 개인정보 수집•이용 동의를 거부하실 수 있으며, 동의를 거부할 경우 본 이벤트 응모가 제한됩니다.</p></li>
+				</ul>
+			</div>
+			<div class="footer_group">
+				<div class="sub_tit"><strong>[이벤트 문의]</strong></div>
+				<ul>
+					<li><p>문의번호: 02-473-0365 / 평일 오전 10시~오후 5시 (11시 30분~ 13시 점심시간, 주말/공휴일 제외)</p></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- // pass_gov_wrap -->
+
+
+
+
+<script>
+	/* 대충 버튼 눌리면 어멋? */
+	let btns = document.querySelectorAll("button");
+	btns.forEach(function(item){
+		item.addEventListener("click", function(){
+			let btnTit = item.getAttribute('title')
+			if(btnTit) {
+				alert(btnTit);
+			} else {
+				let img = item.querySelector("img");
+				if(img) {
+					if(img.getAttribute("title")) {
+						alert(img.getAttribute("title"))
+					} else {
+						alert(img.getAttribute("alt"))
+					}
+				} else {
+					alert(item.innerText)
+				}
+			}
+		})
+	})
+	/* // 대충 버튼 눌리면 어멋? */
+</script>
+
+</body>
+</html>
