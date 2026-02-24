@@ -14,7 +14,7 @@ em {font-style: normal;}
 
 
 /* 공모주 정보 인트로 */
-.service_charging_wrap {max-width:720px; margin:0 auto; color:#222; letter-spacing:-0.04em; text-align:left;}
+.service_charging_wrap {max-width:720px; margin:0 auto; color:#222; letter-spacing:-0.04em; text-align:left; font-family:'Noto Sans KR';}
 .service_charging_wrap .intro_content {display:flex; flex-direction:column; width:100%; gap:50px; padding:20px 20px 48px;}
 .service_charging_wrap .intro_content .intro_top {display:flex; flex-direction:column; gap:30px 0;}
 .service_charging_wrap .intro_content .intro_top .charging_txt {display:inline-flex; flex-direction:column; gap:4px;}
