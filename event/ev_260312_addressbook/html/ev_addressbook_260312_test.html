@@ -665,7 +665,11 @@
 			nextBtn.addEventListener('click', function() {
 				layerConfirm.style.display = 'none';
 				if (layerSuccess) layerSuccess.style.display = 'block';
-				if (btnSubmit) btnSubmit.disabled = true;
+				if (btnSubmit) {
+					btnSubmit.disabled = true;
+					const btnTxt = btnSubmit.querySelector('.txt');
+					if (btnTxt) btnTxt.textContent = '퀴즈 제출 완료';
+				}
 
 				const quizInputs = document.querySelectorAll('input[name="quiz"]');
 				quizInputs.forEach(input => input.disabled = true);
