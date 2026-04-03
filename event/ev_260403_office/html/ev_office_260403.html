@@ -607,46 +607,28 @@ button#btn_submit span.txt {display:inline-block; color:#fff; font-size:1em; lin
 
 
 
-
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript" src="../js/slick.min.js"></script>
-
-
 <script>
-	$(document).ready(function(){
-		// $('.guide_slide').slick({
-		// 	autoplay: true,
-		// 	autoplaySpeed: 3000,
-		// 	dots: true,
-		// 	arrows: false,
-		// 	infinite: false,
-		// 	dotsClass: "bnr_dots_bottomCenter",
-		// 	speed: 300,
-		// 	slidesToShow: 1
-		// })
-	})
-
 	/* 대충 버튼 눌리면 어멋? */
-	// let btns = document.querySelectorAll(".evPageWrap button");
-	// btns.forEach(function(item){
-	// 	item.addEventListener("click", function(){
-	// 		let btnTit = item.getAttribute('title')
-	// 		if(btnTit) {
-	// 			alert(btnTit);
-	// 		} else {
-	// 			let img = item.querySelector("img");
-	// 			if(img) {
-	// 				if(img.getAttribute("title")) {
-	// 					alert(img.getAttribute("title"))
-	// 				} else {
-	// 					alert(img.getAttribute("alt"))
-	// 				}
-	// 			} else {
-	// 				alert(item.innerText)
-	// 			}
-	// 		}
-	// 	})
-	// })
+	let btns = document.querySelectorAll(".evPageWrap button");
+	btns.forEach(function(item){
+		item.addEventListener("click", function(){
+			let btnTit = item.getAttribute('title')
+			if(btnTit) {
+				alert(btnTit);
+			} else {
+				let img = item.querySelector("img");
+				if(img) {
+					if(img.getAttribute("title")) {
+						alert(img.getAttribute("title"))
+					} else {
+						alert(img.getAttribute("alt"))
+					}
+				} else {
+					alert(item.innerText)
+				}
+			}
+		})
+	})
 	/* // 대충 버튼 눌리면 어멋? */
 
 	/* 확인용 레이어 닫기(임시) */
@@ -660,48 +642,6 @@ button#btn_submit span.txt {display:inline-block; color:#fff; font-size:1em; lin
 	})
 	/* // 확인용 레이어 닫기(임시) */
 
-	/* 퀴즈 제출 로직 */
-	const btnSubmit = document.getElementById('btn_submit');
-	const layerWarning = document.getElementById('layer_warning');
-	const layerConfirm = document.getElementById('layer_confirm');
-	const layerSuccess = document.getElementById('layer_success');
-	const test01 = document.getElementById('test01');
-
-	if (btnSubmit) {
-		btnSubmit.addEventListener('click', function() {
-			const selectedQuiz = document.querySelector('input[name="quiz"]:checked');
-			if (!selectedQuiz) {
-				if (layerWarning) layerWarning.style.display = 'block';
-			} else {
-				const quizTextElement = selectedQuiz.closest('label').querySelector('.txt');
-				const quizText = quizTextElement ? quizTextElement.textContent : "";
-				const cusTit = layerConfirm ? layerConfirm.querySelector('.cus_tit') : null;
-				if (cusTit) cusTit.textContent = "'" + quizText + "'";
-				if (layerConfirm) layerConfirm.style.display = 'block';
-			}
-		});
-	}
-
-	/* 퀴즈 정답 제출 확인 */
-	if (layerConfirm) {
-		const nextBtn = layerConfirm.querySelector('.next');
-		if (nextBtn) {
-			nextBtn.addEventListener('click', function() {
-				layerConfirm.style.display = 'none';
-				if (layerSuccess) layerSuccess.style.display = 'block';
-				if (btnSubmit) {
-					btnSubmit.disabled = true;
-					const btnTxt = btnSubmit.querySelector('.txt');
-					if (btnTxt) btnTxt.textContent = '퀴즈 제출 완료';
-				}
-
-				const quizInputs = document.querySelectorAll('input[name="quiz"]');
-				quizInputs.forEach(input => input.disabled = true);
-
-				if (test01) test01.style.display = 'block';
-			});
-		}
-	}
 </script>
 <style>
 /* .layer {display:none;} */
