@@ -152,7 +152,7 @@
 		/* 하단 고정 버튼 */
 		/* .ev_260312 .f_fixed_btn {position:sticky; position:-webkit-sticky; bottom:0; left:0; right:0; width:100%; max-width:720px; margin:0 auto; padding:0.75em 1.33333em; padding-bottom:calc(0.75em + constant(safe-area-inset-bottom)); padding-bottom:calc(0.75em + env(safe-area-inset-bottom)); background-color:transparent; z-index:1;} */
 		.ev_260312 .f_fixed_btn {display:flex; justify-content:space-between; gap:0 0.41666em; position:fixed; bottom:0; left:0; right:0; width:100%; max-width:720px; margin:0 auto; padding:0.5833em 0.91666em; z-index:1; background-color:rgba(255,255,255,0.6);}
-		.ev_260312 .f_fixed_btn button {height:2.79166em; border-radius:0.58333em;}
+		.ev_260312 .f_fixed_btn button {display:flex; justify-content:center; align-items:center; height:2.79166em; border-radius:0.58333em;}
 		.ev_260312 .f_fixed_btn button span {display:inline-block; color:#fff; font-size:0.91666em; line-height:1em; font-weight:700;}
 		.ev_260312 .f_fixed_btn button.btn_office {background-color:#FF8558;}
 		.ev_260312 .f_fixed_btn button.btn_address {background-color:#2170D9;}
@@ -183,14 +183,13 @@
 
 		@supports (-webkit-touch-callout: none) {
 			.ev_260312 .top .date_wrap div.tit span {position:relative; top:0.05em;}
-			.ev_260312 .how ol li div.step span {position:relative; top:0.05em;}
 		}
 
 
 
 
 
-	.mission_tit {position:relative; width:7.20833em;}
+.mission_tit {position:relative; width:7.20833em;}
 .mission_tit > div {position:relative; background-color:#FFF2C7; padding:0.57692em 0 0.20833em; border-radius:1.08333em 1.08333em 0 0 ; overflow:hidden; z-index:1; text-align:center;}
 .mission_tit span {display:inline-block; line-height:0;}
 .mission_tit span img {display:block; width:auto; height:1.29166em; vertical-align: text-bottom;}
@@ -234,11 +233,11 @@
 
 
 button.btn_share {display:flex; justify-content:center; align-items:center; gap:0.41666em; position:relative; width:100%; height:3.33333em; margin:0 auto; margin-top:1.25em; border-radius:0.58333em; background-color:#FF8558;}
-button.btn_share span.txt {display:inline-block; color:#fff; font-size:1em; line-height:1em; font-family:"Pretendard"; font-weight:700;}
+button.btn_share span.txt {display:inline-block; color:#fff; font-size:1em; line-height:1em; font-family:"Noto Sans KR"; font-weight:700;}
 
 
 button#btn_submit {display:flex; justify-content:center; align-items:center; gap:0.41666em; position:relative; width:100%; height:3.33333em; margin:0 auto; border-radius:0.58333em; background-color:#FF8558;}
-button#btn_submit span.txt {display:inline-block; color:#fff; font-size:1em; line-height:1em; font-family:"Pretendard"; font-weight:700;}
+button#btn_submit span.txt {display:inline-block; color:#fff; font-size:1em; line-height:1em; font-family:"Noto Sans KR"; font-weight:700;}
 
 /* 응모 참여 인원 */
 .count_wrap {margin-top:0.545454em; text-align:center; font-size:0.916666em; font-family:"Noto Sans KR";}
@@ -266,54 +265,9 @@ button#btn_submit span.txt {display:inline-block; color:#fff; font-size:1em; lin
 						<span>2026. 4. 13(월) ~ 5. 29(금)</span>
 					</div>
 				</div>
-
-				<!-- <span class="deco box deco01"><img src="../images/img-gift-01.png" alt="좌상단 이미지"></span>
-				<span class="deco box deco02"><img src="../images/img-gift-02.png" alt="우상단 이미지"></span>
-				<span class="deco box deco03"><img src="../images/img-gift-03.png" alt="좌하단 이미지"></span>
-				<span class="deco box deco04"><img src="../images/img-gift-04.png" alt="우하단 이미지"></span> -->
 				<span class="deco box phone"><img src="../images/260403_img_trophy.png" alt="트로피 이미지"></span>
-				
-				
-				<!-- <span class="deco bg"><img src="../images/ev_260312_deco_bg.png" alt="기본바탕" /></span>
-				<span class="deco clock"><img src="../images/ev_260312_deco_clock.png" alt="시계" /></span>
-				<span class="deco note"><img src="../images/ev_260312_deco_note.png" alt="노트" /></span>
-				<span class="deco phone"><img src="../images/ev_260312_deco_phone.png" alt="스마트폰" /></span>
-				<span class="deco paper"><img src="../images/ev_260312_deco_paper.png" alt="문서" /></span>
-				<span class="deco pen"><img src="../images/ev_260312_deco_pen.png" alt="펜" /></span>
-				<span class="deco lock"><img src="../images/ev_260312_deco_lock.png" alt="자물쇠" /></span>
-				<span class="deco speaker"><img src="../images/ev_260312_deco_speaker.png" alt="스피커" /></span>
-				<span class="deco zoom"><img src="../images/ev_260312_deco_zoom.png" alt="돋보기" /></span>
-				<span class="deco deco2"><img src="../images/ev_260312_deco_02.png" alt="원통2" /></span>
-				<span class="deco deco1"><img src="../images/ev_260312_deco_01.png" alt="원통1" /></span> -->
 			</div>
 			<!-- // top -->
-
-			<!-- <div class="box_content" id="box01">
-				<div class="txt_wrap">
-					<div class="tit">
-						<strong>PASS주소록 <em>OPEN!</em></strong>
-					</div>
-					<p class="txt">
-						휴대폰에 저장된 연락처를 기반으로<br />
-						연락처 관리, 문서 공유, 사기번호 조회까지<br />
-						이용할 수 있는 PASS의 스마트 주소록 서비스입니다.
-					</p>
-				</div>
-
-				<div class="guide_slide">
-					<div class="item"><img src="../images/slide_01.png" alt="이미지1"></div>
-					<div class="item"><img src="../images/slide_02.png" alt="이미지2"></div>
-					<div class="item"><img src="../images/slide_03.png" alt="이미지3"></div>
-					<div class="item"><img src="../images/slide_04.png" alt="이미지4"></div>
-				</div>
-
-
-				<div class="txt_bubble">
-					<p>이 모든 기능을 <strong>무료</strong>로 사용해보세요!</p>
-				</div>
-			</div> -->
-
-
 			<div class="box_content" id="box01">
 				<div class="txt_wrap">
 					<div class="tit">
@@ -644,7 +598,7 @@ button#btn_submit span.txt {display:inline-block; color:#fff; font-size:1em; lin
 
 </script>
 <style>
-/* .layer {display:none;} */
+.layer {display:none;}
 </style>
 </body>
 </html>
