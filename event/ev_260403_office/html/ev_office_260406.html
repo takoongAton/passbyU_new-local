@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>PASS주소록 x 오피스도우미</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, howToUser-scalable=no">
+	<meta name="color-scheme" content="light">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/ev_common.css">
+	<link rel="stylesheet" href="../css/slick.css">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400..700&display=swap" rel="stylesheet" />
+
+	<style>
+		body {
+			background-color:#F2F2F2; color:#000;
+			font-family:'Pretendard', 'pretendard', -apple-system,'BlinkMacSystemFont', 'Noto Sans KR','Noto Sans CJK','Apple SD Gothic Neo', serif;
+		}
+		/* 다크모드 대응 샘플 */
+		@media (prefers-color-scheme: dark) {
+			body {background-color: white !important; color: black !important;}
+			/* 이미지나 기타 요소가 반전되는 경우 방지 */
+			img, video {filter: none !important;}
+		}
+		/* // 다크모드 대응 샘플 */
+
+		
+		.ev_260403 {/* padding-bottom:3.33333em; padding-bottom:calc(constant(safe-area-inset-bottom) + 3.33333em); padding-bottom:calc(env(safe-area-inset-bottom) + 3.33333em); */ max-width:720px; margin:0 auto;
+			background-color:#fff; font-family:'Noto Sans KR',-apple-system,'BlinkMacSystemFont', 'Noto Sans CJK','Apple SD Gothic Neo', serif;}
+		.ev_260403 img {vertical-align:top; border:0; max-width:100%; filter:none !important;}
+		.ev_260403 .top {position:relative; --main-bg:#000; background-color:var(--main-bg); overflow:hidden;}
+		.ev_260403 .top {position:relative; height:30.79166em; min-height:30.79166em; background-color:#2170D9; background:#2170D9 url('../images/260403_top_bg.png') no-repeat center top / contain;}
+		.ev_260403 .top div.tit {position:absolute; top:10.125em; width:100%; left:0; right:0; margin:0 auto; z-index:1;}
+		.ev_260403 .top div.tit img {display:block;}
+		.ev_260403 .top p.txt {position:absolute; top:24.22727em; width:100%; left:0; right:0; margin:0 auto; color:#fff; font-size:0.95833em; line-height:1.34782em; font-weight:500; font-family:"Pretendard"; text-align:center; letter-spacing:0;}
+		.ev_260403 .top .date_wrap {display:flex; justify-content:center; align-items:center; position:absolute; bottom:1.875em; left:2.45833em; right:2.45833em; height:2.20833em; border-radius:2.20833em; border:2px solid #FFCF96; background-color:transparent; z-index:1;}
+		.ev_260403 .top .date_wrap div.date {display:inline-flex; justify-content:center; align-items:center; font-family:'Pretendard';}
+		.ev_260403 .top .date_wrap div.date strong {color:#FFCF96; padding-right:0.54545em; font-size:0.91666em; line-height:1em; font-weight:600;}
+		.ev_260403 .top .date_wrap div.date span {position:relative; padding-left:0.54545em; color:#fff; font-size:0.91666em; line-height:1em; font-size:400;}
+		.ev_260403 .top .date_wrap div.date span::after {content:''; position:absolute; top:50%; left:0; width:1px; height:0.81818em; background-color:rgba(255,255,255,0.2); transform:translateY(-50%);}
+
+		.ev_260403 .top span.deco {display:block; position:absolute; top:0; left:0; height:auto; line-height:1; opacity:0; animation: ani_right 0.4s 1 ease-in-out forwards;}
+		.ev_260403 .top span.deco.box img {animation: ani_rotation 1s ease-in-out infinite;}
+		.ev_260403 .top span.deco.trophy {top:2.04166em; left:6.70833em; width:7.91666em; animation-duration:0.2s; animation-delay:0.3s; animation-name: ani_up;}
+		
+		@keyframes ani_rotation {
+			0%,100% {transform:rotate(0);}
+			45% {transform:rotate(2deg);}
+		}
+		@keyframes ani_up {
+			0% {transform:translate(0px, 50%); opacity:0;}
+			100% {transform:translate(0px, 0px); opacity:1;}
+		}
+
+
+		/* 이벤트 컨텐츠 */
+		.box_content {padding:2.79166em 1.33333em 2.91666em;}
+		.box_content .txt_wrap {display:flex; flex-direction:column; gap:0.91666em; width:100%; text-align:center;}
+
+		.box_content#box01 {background-color:#FFB865;}
+
+		.box_content#box02 {background-color:#FFEBD1; padding-left:0; padding-right:0;}
+		.box_content#box02 .txt_wrap .tit {font-size:1.75em; line-height:1.38095em;}
+		.box_content#box02 .txt_wrap .tit strong {color:#383532; font-weight:700;}
+		.box_content#box02 .txt_wrap .tit em {color:#FF8558; font-weight:700;}
+		.box_content#box02 .txt_wrap .txt {color:#454545; font-weight:500;}
+
+		/* benefit_mission_wrap */
+		.benefit_mission_wrap {display:flex; flex-direction:column; gap:2.083333em; width:100%;}
+
+		/* 미션 카드 박스 리스트 */
+		.mission_list {display:flex; flex-direction:column; gap:1.25em 0; width:100%; margin-top:1.25em;}
+		.mission_list .mission_box .mission_box_inner .mission_con {display:flex; flex-direction:column; gap:1.25em 0; width:100%; padding:1.66666em 1.41666em; border-radius:0 1.08333em 1.08333em 1.08333em; background: #FFF2C7; background: linear-gradient(180deg, rgba(255, 242, 199, 1) 0%, rgba(255, 255, 255, 1) 46%, rgba(255, 255, 255, 1) 100%);}
+		/* // 미션 카드 박스 리스트 */
+
+		.card_mission button.btn {height:3.33333em; border-radius:0.58333em; background-color:#417FE2;}
+		.card_mission button.btn span {color:#fff; font-size:1em; line-height:1em; font-weight:bold; font-family:"Noto Sans KR";}
+		.card_mission button.btn:disabled {background-color:#BEBEBE;}
+		.card_mission button.btn:disabled span {color:#fff;}
+		.card_mission .small_txt {margin-top:1.11111em; color:#555555; font-size:0.75em; line-height:1.5em; font-weight:400; font-family:"Noto Sans KR"; text-align:center;}
+		.card_mission .small_txt span {color:#E04639;}
+
+
+		/* 하단 고정 버튼 */
+		/* .ev_260403 .f_fixed_btn {position:sticky; position:-webkit-sticky; bottom:0; left:0; right:0; width:100%; max-width:720px; margin:0 auto; padding:0.75em 1.33333em; padding-bottom:calc(0.75em + constant(safe-area-inset-bottom)); padding-bottom:calc(0.75em + env(safe-area-inset-bottom)); background-color:transparent; z-index:1;} */
+		.ev_260403 .f_fixed_btn {display:flex; justify-content:space-between; gap:0 0.41666em; position:fixed; bottom:0; left:0; right:0; width:100%; max-width:720px; margin:0 auto; 
+			padding:0.5833em 0.91666em; 
+			padding-bottom:calc(0.5833em + constant(safe-area-inset-bottom)); padding-bottom:calc(0.5833em + env(safe-area-inset-bottom));
+			z-index:1; background-color:rgba(255,255,255,0.6);}
+		.ev_260403 .f_fixed_btn button {display:flex; justify-content:center; align-items:center; height:2.79166em; border-radius:0.58333em;}
+		.ev_260403 .f_fixed_btn button span {display:inline-block; color:#fff; font-size:0.91666em; line-height:1em; font-weight:700;}
+		.ev_260403 .f_fixed_btn button.btn_office {background-color:#FF8558;}
+		.ev_260403 .f_fixed_btn button.btn_address {background-color:#2170D9;}
+		/* // 하단 고정 버튼 */
+
+
+		/* 꼭 확인하세요. */
+		.ev_260403 .footer_alert {padding:2.15em 1.66666em 7.08333em; background-color:#504B4A;}
+		.ev_260403 .footer_alert div.tit strong {color:#fff; font-size:1em; font-weight:900; font-family:"NanumSquare";}
+		.ev_260403 .footer_alert .footer_group {margin-top:0.83333em;}
+		.ev_260403 .footer_alert .footer_group div.sub_tit strong {display:inline-block; font-size:0.833333em; line-height:1.2em; font-weight:bold; font-family:"NanumSquare";}
+		.ev_260403 .footer_alert .footer_group ul {display:flex; flex-direction:column; gap:0.5em; margin-top:1.166666em;}
+		.ev_260403 .footer_alert .footer_group ul li p {position:relative; padding-left:0.95em; color:#fff; font-size:0.83333em; line-height:1.4em; font-family:"Pretendard";}
+		.ev_260403 .footer_alert .footer_group ul li p::before {content:"⋅"; display:block; position:absolute; top:0; left:0; color:inherit; font-size:inherit; line-height:inherit; font-weight:bold; text-align:center;}
+		/* // 꼭 확인하세요. */
+
+
+		/* 레이어 팝업 이미지*/
+		.layer .layer_content div.cus_tit {margin-bottom:0.83333em; color:#417FE2; font-size:1.125em; font-weight:bold;}
+		.layer .layer_content div.tit {letter-spacing:-0.1em;}
+		.layer .layer_content div.img {margin-bottom:1.25em; text-align:center;}
+		.layer .layer_content div.img img {display:inline-block; width:100px; vertical-align:top;}
+		.layer .layer_content div.name {color:#7E5BFA; font-size:1.25em; line-height:1.2em; font-weight:700;}
+
+		/* 공통 임시 수정 */
+		.layer .layer_content div.pass_logo + div.tit {margin-top:36px;}
+		/* // 공통 임시 수정 */
+
+		@supports (-webkit-touch-callout: none) {
+			.ev_260403 .top .date_wrap div.tit span {position:relative; top:0.05em;}
+		}
+
+
+.mission_tit {position:relative; width:7.20833em;}
+.mission_tit > div {position:relative; background-color:#FFF2C7; padding:0.57692em 0 0.20833em; border-radius:1.08333em 1.08333em 0 0 ; overflow:hidden; z-index:1; text-align:center;}
+.mission_tit span {display:inline-block; line-height:0;}
+.mission_tit span img {display:block; width:auto; height:1.29166em; vertical-align: text-bottom;}
+.mission_tit::before,
+.mission_tit::after {content:""; display:block; position:absolute;; width:100%; height:100%; border-radius:1.08333em 1.08333em 0 0; box-shadow:0.125em 0 0.83333em rgba(0,0,0,0.04);}
+.mission_tit::after {left:50%; top:0.13725em; background-color:#FCDEA5; z-index:0;}
+.mission_tit::before {left:100%; top:0.27451em; background-color:#FAD793; z-index:0;}
+
+
+.mission_con {position: relative; z-index:1;}
+.mission_con .tit_wrap {display:flex; flex-direction:column; justify-content:center; align-items:center; gap:0.75em;}
+.mission_con .tit_wrap p.tit {font-family:'NanumSquare'; font-size:1.41666em; line-height:1.117647em; font-weight:900;}
+.mission_con .tit_wrap p.tit strong {font-family:'NanumSquare'; font-weight:900;}
+.mission_con .tit_wrap p.txt {color:#555555; font-size:0.91666em; line-height:1.3em; text-align:center;}
+
+.mission_con .mission_txt {color:#555555; font-size:0.91666em; line-height:1.45454em; font-weight:500;; text-align:center;}
+.mission_con .mission_txt strong {color:#0E8E52; font-weight:700;;}
+
+.mission_ranking {}
+.mission_ranking ol {display:flex; flex-direction:column; gap:0.5em 0; width:100%;}
+.mission_ranking ol li {display:flex; justify-content:space-between; align-items:center; border-radius:0.58333em; overflow:hidden;}
+.mission_ranking ol li strong,
+.mission_ranking ol li span {padding:0.5em 0; font-size:0.91666em; line-height:1.54545em; text-align:center;}
+.mission_ranking ol li strong {display:inline-block; width:3.81818em; min-width:3.81818em; color:#fff; font-weight:bold;}
+.mission_ranking ol li span {flex:1; color:#555; font-weight:500; text-align:center;}
+.mission_ranking ol li:nth-child(1) strong {background-color:#FF8558;}
+.mission_ranking ol li:nth-child(1) span {background-color:#FFF0E3;}
+.mission_ranking ol li:nth-child(2) strong {background-color:#FFA246;}
+.mission_ranking ol li:nth-child(2) span {background-color:#FFF5EB;}
+.mission_ranking ol li:nth-child(3) strong {background-color:#C3AEA0;}
+.mission_ranking ol li:nth-child(3) span {background-color:#FFF8F4;}
+
+.mission_date {width:100%; border-top:2px solid #FF8558;}
+.mission_date div {display:flex; justify-content:space-between; align-items:center; gap:0 0.08333em; width:100%; padding:0.58333em 0.25em; border-bottom:1px solid #F0F0F0;}
+.mission_date div strong {display:inline-block; width:5.90909em; min-width:5.90909em; color:#FF8558; font-size:0.91666em; line-height:1.454545em; }
+.mission_date div span {display:block; flex:1; color:#555;}
+
+.small_txt_wrap {}
+.small_txt_wrap .small_txt {position:relative; padding-left:0.75em; color:#454545; font-size:0.75em; line-height:1.5em;}
+.small_txt_wrap .small_txt::before {content:"*"; display:block; position:absolute; left:0; top:0; color:#E04639; font-size:inherit; line-height:inherit; font-weight:bold;}
+
+
+
+button.btn_share {display:flex; justify-content:center; align-items:center; gap:0.41666em; position:relative; width:100%; height:3.33333em; margin:0 auto; margin-top:1.25em; border-radius:0.58333em; background-color:#FF8558;}
+button.btn_share span.txt {display:inline-block; color:#fff; font-size:1em; line-height:1em; font-family:"Noto Sans KR"; font-weight:700;}
+
+
+button#btn_submit {display:flex; justify-content:center; align-items:center; gap:0.41666em; position:relative; width:100%; height:3.33333em; margin:0 auto; border-radius:0.58333em; background-color:#FF8558;}
+button#btn_submit span.txt {display:inline-block; color:#fff; font-size:1em; line-height:1em; font-family:"Noto Sans KR"; font-weight:700;}
+
+/* 응모 참여 인원 */
+.count_wrap {margin-top:0.545454em; text-align:center; font-size:0.916666em; font-family:"Noto Sans KR";}
+.count_wrap span {color:#454545;}
+.count_wrap strong.count {color:#FF8A34; font-weight:bold;}
+/* // 응모 참여 인원 */
+
+
+/* 캐러셀 */
+.guide_slide div.item {padding:0 0.41666em;}
+.guide_slide ul.bnr_dots_bottomCenter {display:flex; justify-content:center; gap:0.33333em; padding:1em 0 1.33333em;}
+.guide_slide ul.bnr_dots_bottomCenter li {line-height:0;}
+.guide_slide ul.bnr_dots_bottomCenter li button {width:0.41666em; height:0.41666em; background-color:#fff; opacity:0.3; color:transparent; transition:all 0.2s ease; border-radius:0.41666em}
+.guide_slide ul.bnr_dots_bottomCenter li.slick-active button {width:1.33333em; opacity:1;}
+/* // 캐러셀 */
+
+
+.mission_ranking_top10 {border:1px solid #FFEEC1; border-radius:0.58333em; overflow:hidden;}
+.mission_ranking_top10 .top10_title {display:flex; justify-content:space-between; align-items:flex-end; height:2.5em; padding-right:0.66666em; padding-bottom:0.541em; padding-left:3.25em; background:#FFEEC1 url('../images/icon_trophy.png') no-repeat left 0.83333em bottom / 1.58958em}
+.mission_ranking_top10 .top10_title .tit {color:#101010; font-size:1em; font-weight:700;}
+.mission_ranking_top10 .top10_title .date {display:inline-block;padding-bottom:0.2em; color:#858585; font-size:0.66666em; font-weight:400;}
+.mission_ranking_top10 .top10_table {padding:0.2em 0.83333em; background-color:#FFFBF0;}
+.mission_ranking_top10 .top10_table table {width:100%;}
+.mission_ranking_top10 .top10_table table tr {}
+.mission_ranking_top10 .top10_table table tr th {text-align:center; border-bottom:1px solid #CC9864;}
+.mission_ranking_top10 .top10_table table tr th span {display:inline-block; padding:0.44444em 0; font-size:0.75em; color:#CC9864; white-space:nowrap;}
+.mission_ranking_top10 .top10_table table tr td {padding:0.44444em 0; color:#353535; font-size:0.75em; line-height:1.55555em; text-align:center;}
+.mission_ranking_top10 .top10_table table tr:nth-child(2) ~ tr td {border-top:1px solid #EBE7DC;}
+</style>
+</head>
+
+<body>
+<div class="evPageWrap">
+
+	<div class="evSection">
+		<div class="ev_260403">
+			<div class="top">
+				<div class="tit"><img src="../images/260403_img_title.png" alt="PASS주소록 x 오피스도우미" /></div>
+				<!-- <div class="img"><img src="../images/ev_260403_img1.png" alt="PASS 전자고지 릴레이 미션" /></div> -->
+				 <p class="txt">
+					주소록+오피스도우미 가입하고 문서 많이 보면 당첨!<br />
+					챌린지 이벤트 참여하고 역대급 혜택 챙기세요.
+				 </p>
+				<div class="date_wrap">
+					<div class="date">
+						<strong>이벤트 기간</strong>
+						<span>2026. 4. 13(월) ~ 5. 29(금)</span>
+					</div>
+				</div>
+				<span class="deco box trophy"><img src="../images/260403_img_trophy.png" alt="트로피 이미지"></span>
+			</div>
+			<!-- // top -->
+			<div class="box_content" id="box01">
+				<div class="txt_wrap">
+					<div class="tit">
+						<img src="../images/challenge_tit.png" alt="챌린지 미션 안내">
+					</div>
+				</div>
+
+				<div class="benefit_mission_wrap">
+					
+
+					<div class="mission_list">
+						<div class="mission_box">
+							<div class="mission_box_inner">
+
+								<div class="mission_tit">
+									<div class="mission_tit_inner">
+										<span><img src="../images/260403_mission_tit_01.png" alt="Mission 01"></span>
+									</div>
+								</div>
+
+
+								<div class="mission_con">
+									<div class="tit_wrap">
+										<p class="tit"><strong>이벤트 응모하기</strong></p>
+										<p class="txt">
+											‘이벤트 참여하기’ 버튼을 누르고, <br />
+											다음 미션을 완료해주세요!
+										</p>
+									</div>
+
+									<div class="mission_img"><img src="../images/260403_mission_img_01.png" alt="이미지"></div>
+
+									
+									<div>
+										<button type="button" id="btn_submit"><span class="txt">이벤트 참여하기</span></button>
+
+										<div class="count_wrap">
+											<span>벌써 </span>
+											<strong class="count">%응모자 수%</strong><span>명이</span>
+											<span>참여했어요.</span>
+										</div><!-- // count_wrap -->
+									</div>
+									
+									
+								</div>
+								<!-- // mission_con -->
+							</div>
+						</div>
+						<!-- // mission_box -->
+
+
+
+						<div class="mission_box">
+							<div class="mission_box_inner">
+
+								<div class="mission_tit">
+									<div class="mission_tit_inner">
+										<span><img src="../images/260403_mission_tit_02.png" alt="Mission 02"></span>
+									</div>
+								</div>
+
+
+								<div class="mission_con">
+									<div class="tit_wrap">
+										<p class="tit"><strong>서비스 가입 미션</strong></p>
+										<p class="txt">
+											주소록과 오피스도우미 서비스를<br />
+											가입해주세요.
+										</p>
+									</div>
+
+									<div class="mission_img" style="margin-top:-1em; margin-bottom:-1em;"><img src="../images/260403_mission_img_02.png" alt="이미지"></div>
+
+									<p class="mission_txt">
+										미션 2를 수행하신 총 208분에게<br />
+										<strong>‘[스타벅스] 생일축하합니다 세트’</strong><br />
+										모바일 쿠폰을 지급해드려요! 
+									</p>
+
+									<div class="mission_date">
+										<div>
+											<strong>발표 일자</strong>
+											<span>매주 수요일</span>
+										</div>
+										<div>
+											<strong>당첨자 발표</strong>
+											<span>오피스도우미 공지사항</span>
+										</div>
+									</div>
+									<!-- // mission_date -->
+
+									<div class="small_txt_wrap">
+										<p class="small_txt">미션 완료 여부 확인을 위해 당첨자 추첨 시점까지 서비스 가입상태 유지가 필요합니다.</p>
+									</div>
+									<!-- // small_txt_wrap -->
+
+								</div>
+								<!-- // mission_con -->
+							</div>
+						</div>
+						<!-- // mission_box -->
+
+
+
+						<div class="mission_box">
+							<div class="mission_box_inner">
+
+								<div class="mission_tit">
+									<div class="mission_tit_inner">
+										<span><img src="../images/260403_mission_tit_03.png" alt="Mission 03"></span>
+									</div>
+								</div>
+
+
+								<div class="mission_con">
+									<div class="tit_wrap">
+										<p class="tit"><strong>문서 조회 챌린지</strong></p>
+										<p class="txt">
+											이벤트 기간 내 오피스도우미로 <br />
+											문서를 많이 열람한 고객에게 <br />
+											PASS머니를 쏩니다!
+										</p>
+									</div>
+
+									<div class="mission_img"><img src="../images/260403_mission_img_03.png" alt="이미지"></div>
+
+									<div class="mission_ranking">
+										<ol>
+											<li>
+												<strong>1등</strong>
+												<span>PASS머니 300만원 * 1명</span>
+											</li>
+											<li>
+												<strong>2등</strong>
+												<span>PASS머니 100만원 * 1명</span>
+											</li>
+											<li>
+												<strong>3등</strong>
+												<span>PASS머니 50만원 * 2명</span>
+											</li>
+										</ol>
+
+									</div>
+									<!-- // mission_ranking -->
+
+
+									<div class="mission_date">
+										<div>
+											<strong>발표 일자</strong>
+											<span>이벤트 종료 후</span>
+										</div>
+										<div>
+											<strong>당첨자 발표</strong>
+											<span>오피스도우미 공지사항</span>
+										</div>
+									</div>
+									<!-- // mission_date -->
+
+									<div class="mission_ranking_top10">
+										<div class="top10_title">
+											<!-- <span class="ico"><img src="../images/icon_trophy.png" alt="xmfhvl"></span> -->
+											<span class="tit">현재 랭킹 TOP 10</span>
+											<span class="date">26.04.22 기준</span>
+										</div>
+										<div class="top10_table">
+											<table>
+												<colgroup>
+													<col style="width:13.5869%;">
+													<col style="width:19.02173%;">
+													<col style="width:auto;">
+													<col style="width:24.45652%;">
+												</colgroup>
+												<tr>
+													<th><span>랭킹</span></th>
+													<th><span>이름</span></th>
+													<th><span>전화번호 끝 2자리</span></th>
+													<th><span>누적 노회수</span></th>
+												</tr>
+												<tr>
+													<td>1</td>
+													<td>홍*동</td>
+													<td>**12</td>
+													<td>100회</td>
+												</tr>
+												<tr>
+													<td>2</td>
+													<td>김*수</td>
+													<td>**34</td>
+													<td>90회</td>
+												</tr>
+												<tr>
+													<td>3</td>
+													<td>박*혁</td>
+													<td>**56</td>
+													<td>80회</td>
+												</tr>
+												<tr>
+													<td>4</td>
+													<td>이*혁</td>
+													<td>**78</td>
+													<td>70회</td>
+												</tr>
+												<tr>
+													<td>5</td>
+													<td>김*수</td>
+													<td>**12</td>
+													<td>60회</td>
+												</tr>
+												<tr>
+													<td>6</td>
+													<td>박*혁</td>
+													<td>**34</td>
+													<td>50회</td>
+												</tr>
+												<tr>
+													<td>7</td>
+													<td>이*혁</td>
+													<td>**56</td>
+													<td>40회</td>
+												</tr>
+												<tr>
+													<td>8</td>
+													<td>김*수</td>
+													<td>**78</td>
+													<td>30회</td>
+												</tr>
+												<tr>
+													<td>9</td>
+													<td>박*현</td>
+													<td>**12</td>
+													<td>20회</td>
+												</tr>
+												<tr>
+													<td>10</td>
+													<td>홍*동</td>
+													<td>**12</td>
+													<td>10회</td>
+												</tr>
+											</table>
+										</div>
+									</div>
+									<!-- // mission_ranking_top10 -->
+
+									<div class="small_txt_wrap">
+										<p class="small_txt">미션 완료 여부 확인을 위해 당첨자 추첨 시점까지 서비스 가입상태 유지가 필요합니다.</p>
+										<p class="small_txt">PASS머니 지급을 위해 PASS머니 서비스 가입이 필요합니다.</p>
+									</div>
+									<!-- // small_txt_wrap -->
+									
+								</div>
+								<!-- // mission_con -->
+							</div>
+						</div>
+						<!-- // mission_box -->
+
+
+						
+					</div>				
+					<!-- // mission_list -->
+
+				</div>
+				<!-- // benefit_mission_wrap -->
+
+			</div>
+
+
+
+			<div class="box_content" id="box02">
+				<div class="txt_wrap">
+					<div class="tit">
+						<strong>
+						이제 <em>PASS주소록</em>으로 <br />
+						안전한 문서 공유가 <br />
+						가능합니다!</strong>
+					</div>
+					<!-- <p class="txt">
+						연락처 관리부터 문서 공유,<br />
+						사기피해조회, 단체 문자 발송까지
+					</p> -->
+				</div>
+				
+
+				<div class="guide_slide">
+					<div class="item"><img src="../images/slide_01.png" alt="이미지1"></div>
+					<div class="item"><img src="../images/slide_02.png" alt="이미지2"></div>
+					<div class="item"><img src="../images/slide_03.png" alt="이미지3"></div>
+				</div>
+				<!-- // guide_search_slide -->
+
+				<!-- <div class="txt_wrap">
+					<p class="txt">
+						내가 편집하거나 저장한 문서를 <br />
+						주소록에서 PUSH를 발송하여 <br />
+						안전하게 공유해보세요!
+					</p>
+				</div> -->
+
+				<div style="padding:0 1.33333em">
+					<button class="btn_share">
+						<span class="txt">이벤트 공유하기</span>
+					</button>
+				</div>
+
+			</div>
+
+
+			<div class="footer_alert">
+				<div class="tit"><strong>꼭 확인해주세요.</strong></div>
+				<div class="footer_group">
+					<ul>
+						<li><p>본 이벤트는 만 14세 이상 PASS 회원 중, 이벤트 이용 약관 동의 및 미션 1,2,3 미션을 수행한 고객에 한해 응모가 가능합니다.</p></li>
+						<li><p>미션 완료 여부 확인을 위해 당첨자 추첨 시점까지 PASS주소록 및 오피스도우미 서비스 가입 상태를 유지하셔야 합니다.</p></li>
+						<li><p>이벤트 기간 이전에 PASS주소록, 오피스도우미 서비스에 가입한 고객도 이벤트 기간 내 응모를 완료한 경우 참여 대상으로 인정됩니다.</p></li>
+						<li><p>당첨자는 응모 및 각 미션 참여를 완료한 고객 중 추첨을 통해 선정됩니다.</p></li>
+						
+						<li><p>본 이벤트는 1인 1회만 응모 가능합니다.</p></li>
+						<li><p>미션 2에 대한 당첨자 발표는 매주 발표되며, 총 100분에게 경품을 제공합니다.</p></li>
+						<li><p>미션 2 경품은 모바일 쿠폰 형태로 지급되며, 양도 및 교환은 불가합니다. 지급된 경품은 유효기간 내 사용해야 하며, 기간 경과 시 재지급되지 않습니다.</p></li>
+						<li><p>미션 3에 대한 당첨자 발표는 이벤트 종료 후 안내됩니다.</p></li>
+						
+						<li><p>이벤트 참여를 위해 수집된 개인정보는 경품 발송 목적 외에는 활용되지 않으며, 이벤트 종료 후 관련 법령에 따라 안전하게 파기됩니다.</p></li>
+						<li><p>비정상적인 방법으로 이벤트에 참여하거나 이벤트 취지에 부합하지 않는 행위가 확인될 경우, 사전 고지 없이 참여 및 당첨이 취소될 수 있습니다.</p></li>
+						<li><p>이벤트 운영 및 보상 내용은 당사 사정에 따라 사전 또는 사후 고지 후 변경될 수 있습니다.</p></li>
+						<li><p>기타 문의사항은 PASS 고객센터(114)로 문의해 주시기 바랍니다.</p></li>
+
+
+
+
+						<li><p>본 이벤트는 만 14세 이상 PASS 회원 중, 이벤트 이용 약관 동의 및 미션 1,2,3 미션을 수행한 고객에 한해 응모가 가능합니다.</p></li>
+						<li><p>미션 완료 여부 확인을 위해 당첨자 추첨 시점까지 PASS주소록 및 오피스도우미 서비스 가입 상태를 유지하셔야 합니다.</p></li>
+						<li><p>이벤트 기간 이전에 PASS주소록, 오피스도우미 서비스에 가입한 고객도 이벤트 기간 내 응모를 완료한 경우 참여 대상으로 인정됩니다.</p></li>
+						<li><p>당첨자는 응모 및 각 미션 참여를 완료한 고객 중 추첨을 통해 선정됩니다.</p></li>
+						
+						<li><p>본 이벤트는 1인 1회만 응모 가능합니다.</p></li>
+						<li><p>미션 2에 대한 당첨자 발표는 매주 분할되어 발표되며, 총 208분에게 경품을 제공합니다.</p></li>
+						<li><p>미션 2 경품은 모바일 쿠폰 형태로 지급되며, 양도 및 교환은 불가합니다. 지급된 경품은 유효기간 내 사용해야 하며, 기간 경과 시 재지급되지 않습니다.</p></li>
+						<li><p>미션 3에 대한 당첨자 발표는 이벤트 종료 후 안내됩니다.</p></li>
+						
+						<li><p>미션 3에 대한 PASS머니는 서비스 정책 상 만 19세 이상 고객에게만 제공 가능합니다.</p></li>
+						<li><p>이벤트 참여를 위해 수집된 개인정보는 경품 발송 목적 외에는 활용되지 않으며, 이벤트 종료 후 관련 법령에 따라 안전하게 파기됩니다.</p></li>
+						<li><p>비정상적인 방법으로 이벤트에 참여하거나 이벤트 취지에 부합하지 않는 행위가 확인될 경우, 사전 고지 없이 참여 및 당첨이 취소될 수 있습니다.</p></li>
+						<li><p>이벤트 운영 및 보상 내용은 당사 사정에 따라 사전 또는 사후 고지 후 변경될 수 있습니다.</p></li>
+
+						<li><p>기타 문의사항은 PASS 고객센터(114)로 문의해 주시기 바랍니다.</p></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="f_fixed_btn">
+				<button type="button" class="btn_office"><span>오피스도우미 바로가기</span></button>
+				<button type="button" class="btn_address"><span>PASS주소록 바로가기</span></button>
+			</div>
+			
+				
+		</div>
+		<!-- // ev_260403 -->
+
+
+	</div><!-- // evSection -->
+
+</div><!-- // evPageWrap -->
+
+
+
+
+
+
+
+
+<div class="layer alert" id="layer_success">
+	<div class="dim"></div>
+	<div class="layer_inner">
+		<div class="layer_content">
+			<div class="img"><img src="../images/img_done.png" alt="응모완료 아이콘"></div>
+			<div class="tit">이벤트 응모가 완료되었습니다.<br />
+				챌린지 미션을 완료해 주세요!</div>
+		</div>
+		<div class="btn_group">
+			<div><button type="button" class="next"><span>확인</span></button></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="layer alert" id="layer_success">
+	<div class="dim"></div>
+	<div class="layer_inner">
+		<div class="layer_content">
+			<div class="img"><img src="../images/img_complete.png" alt="응모완료 아이콘"></div>
+			<div class="tit">이미 응모된 이벤트입니다.<br />
+				챌린지 미션을 완료해 주세요!</div>
+		</div>
+		<div class="btn_group">
+			<div><button type="button" class="next"><span>확인</span></button></div>
+		</div>
+	</div>
+</div>
+
+ 
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="../js/slick.min.js"></script>
+
+<script>
+
+	$(document).ready(function(){
+		$('.guide_slide').slick({
+			autoplay: true,
+			autoplaySpeed: 3000,
+			dots: true,
+			arrows: false,
+			infinite: false,
+			dotsClass: "bnr_dots_bottomCenter",
+			speed: 300,
+			slidesToShow: 1,
+			centerMode: true,
+			centerPadding: '40px'
+		})
+	})
+
+	/* 대충 버튼 눌리면 어멋? */
+	let btns = document.querySelectorAll(".evPageWrap button");
+	btns.forEach(function(item){
+		item.addEventListener("click", function(){
+			let btnTit = item.getAttribute('title')
+			if(btnTit) {
+				alert(btnTit);
+			} else {
+				let img = item.querySelector("img");
+				if(img) {
+					if(img.getAttribute("title")) {
+						alert(img.getAttribute("title"))
+					} else {
+						alert(img.getAttribute("alt"))
+					}
+				} else {
+					alert(item.innerText)
+				}
+			}
+		})
+	})
+	/* // 대충 버튼 눌리면 어멋? */
+
+	/* 확인용 레이어 닫기(임시) */
+	let layers = document.querySelectorAll(".layer");
+	layers.forEach(function(item){
+		item.querySelectorAll("button").forEach(function(e){
+			e.addEventListener("click", function(){
+				item.closest(".layer").style.display = "none";
+			})
+		})
+	})
+	/* // 확인용 레이어 닫기(임시) */
+
+</script>
+<style>
+.layer {display:none;}
+</style>
+</body>
+</html>
