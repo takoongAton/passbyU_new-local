@@ -38,6 +38,7 @@ em {font-style: normal;}
 .service_charging_wrap .intro_content .intro_sub_content .intro_sub_group div.sub_tit i {display:inline-block; width:28px; height:18px; margin-left:6px; border-radius:4px; background-color:#F0F2F4; color:#666666; font-size:11px; line-height:16px; font-style:normal; text-align:center; vertical-align:middle;}
 .service_charging_wrap .intro_content .intro_sub_content .intro_sub_group div.sub_tit::after {content:""; display:block; clear: both;;}
 .service_charging_wrap .intro_content .intro_sub_content .intro_sub_group p.txt {color:#999; font-size:14px; line-height:1.42857em; font-weight:400; word-break:keep-all; letter-spacing:-0.04em;}
+.service_charging_wrap .intro_content .intro_sub_content .intro_sub_group p.txt strong {color:#333333; font-weight:inherit;}
 /* .service_charging_wrap .intro_content .intro_sub_content .intro_sub_group:nth-child(odd) div.sub_tit em::before {background-color:#FFEBEC;}
 .service_charging_wrap .intro_content .intro_sub_content .intro_sub_group:nth-child(even) div.sub_tit em::before {background-color:#FFF2D6;} */
 
