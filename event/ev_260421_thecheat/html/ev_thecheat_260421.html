@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>PASS주소록 x 더치트프리미엄</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, howToUser-scalable=no">
+	<meta name="color-scheme" content="light">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/ev_common.css">
+	<link rel="stylesheet" href="../css/slick.css">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400..700&display=block" rel="stylesheet" />
+
+	<style>
+		body {
+			background-color:#F2F2F2; color:#000;
+			font-family:'Pretendard', 'pretendard', -apple-system,'BlinkMacSystemFont', 'Noto Sans KR','Noto Sans CJK','Apple SD Gothic Neo', serif;
+		}
+		@font-face {font-family:'Escoredream'; src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-1Thin.woff') format('woff'); font-weight:100; font-display:block;}
+		@font-face {font-family:'Escoredream'; src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-2ExtraLight.woff') format('woff'); font-weight:200; font-display:block;}
+		@font-face {font-family:'Escoredream'; src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff'); font-weight:300; font-display:block;}
+		@font-face {font-family:'Escoredream'; src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff'); font-weight:normal; font-display:block;}
+		@font-face {font-family:'Escoredream'; src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff') format('woff'); font-weight:500; font-display:block;}
+		@font-face {font-family:'Escoredream'; src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-6Bold.woff') format('woff'); font-weight:600; font-display:block;}
+		@font-face {font-family:'Escoredream'; src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-7ExtraBold.woff') format('woff'); font-weight:700; font-display:block;}
+		@font-face {font-family:'Escoredream'; src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-8Heavy.woff') format('woff'); font-weight:800; font-display:block;}
+		@font-face {font-family:'Escoredream'; src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-9Black.woff') format('woff'); font-weight:900; font-display:block;}
+
+		/* 다크모드 대응 샘플 */
+		@media (prefers-color-scheme: dark) {
+			body {background-color: white !important; color: black !important;}
+			/* 이미지나 기타 요소가 반전되는 경우 방지 */
+			img, video {filter: none !important;}
+		}
+		/* // 다크모드 대응 샘플 */
+
+		
+		.ev_260421 {/* padding-bottom:3.33333em; padding-bottom:calc(constant(safe-area-inset-bottom) + 3.33333em); padding-bottom:calc(env(safe-area-inset-bottom) + 3.33333em); */ max-width:720px; margin:0 auto;
+			background-color:#fff; font-family:"Pretendard", 'Noto Sans KR',-apple-system,'BlinkMacSystemFont', 'Noto Sans CJK','Apple SD Gothic Neo', serif;}
+		.ev_260421 img {vertical-align:top; border:0; max-width:100%; filter:none !important;}
+		.ev_260421 .top {position:relative; --main-bg:#000; background-color:var(--main-bg); overflow:hidden;}
+		.ev_260421 .top {position:relative; height:35em; min-height:35em; background-color:#2170D9; background:#2170D9 url('../images/260403_top_bg.png') no-repeat center top / contain;}
+		.ev_260421 .top div.tit {position:absolute; top:10.125em; width:100%; left:0; right:0; margin:0 auto; z-index:1;}
+		.ev_260421 .top div.tit img {display:block;}
+		.ev_260421 .top p.txt {position:absolute; top:24.22727em; width:100%; left:0; right:0; margin:0 auto; color:#fff; font-size:0.95833em; line-height:1.34782em; font-weight:500; font-family:"Pretendard"; text-align:center; letter-spacing:0;}
+		.ev_260421 .top .date_wrap {display:flex; justify-content:center; align-items:center; position:absolute; bottom:0em; left:0em; right:0em; height:2.66666em; background-color:#686DED; z-index:1;}
+		.ev_260421 .top .date_wrap div.date {display:inline-flex; justify-content:center; align-items:center; font-family:'Pretendard';}
+		.ev_260421 .top .date_wrap div.date strong {color:#FAFFCE; padding-right:0.54545em; font-size:0.91666em; line-height:1em; font-weight:700;}
+		.ev_260421 .top .date_wrap div.date span {position:relative; padding-left:0.54545em; color:#fff; font-size:0.91666em; line-height:1em; font-weight:600;}
+		.ev_260421 .top .date_wrap div.date span::after {content:''; position:absolute; top:50%; left:0; width:1px; height:0.81818em; background-color:rgba(255,255,255,0.2); transform:translateY(-50%);}
+
+		.ev_260421 .top div.deco {display:block; position:absolute; top:0; left:0; height:auto; line-height:1; opacity:0; animation: ani_right 0.4s 1 ease-in-out forwards;}
+		/* .ev_260421 .top div.deco.box img {animation: ani_rotation 1s ease-in-out infinite;} */
+		.ev_260421 .top div.deco.phone {top:12.625em; left:5.95833em; width:12.625em; animation-duration:0.2s; animation-delay:0.3s; animation-name: ani_up;}
+		.ev_260421 .top div.deco.phone span.zoom {position:absolute; top:6.33333em; left:5em; width:9.97916em; height:auto;transform-origin: 45% 45%; animation: rotate-around 3s linear infinite;}
+		.ev_260421 .top div.deco.phone span.zoom img {animation: rotate-around2 3s linear infinite;}
+		
+		
+		.txtbox {display:flex; justify-content:center; align-items:center; position:absolute; top:27.16666em; left:0; right:0; width:15.125em; height:4.16666em; margin:0 auto;
+			border-radius:1.083333em;
+			border: 0.5px solid rgba(255, 255, 255, 0.70);
+			background: linear-gradient(180deg, rgba(255, 255, 255, 0.73) 0%, rgba(255, 255, 255, 0.22) 100%);
+			box-shadow: 0.25em 0.25em 0.83333em 0 rgba(109, 108, 223, 0.21); backdrop-filter: blur(0.2625em);
+		}
+		.txtbox p {color:#5d5d5d; font-size:0.91666em; line-height:1.25em; font-weight:500; text-align:center;}
+		.txtbox p strong {color:#7F77F7; font-weight:700;}
+		.coin {position:absolute; bottom:3.75em; left:0; width:7.25em; height:auto;}
+
+		@keyframes ani_rotation {
+			0%,100% {transform:rotate(0);}
+			45% {transform:rotate(2deg);}
+		}
+		@keyframes ani_up {
+			0% {transform:translate(0px, 50%); opacity:0;}
+			100% {transform:translate(0px, 0px); opacity:1;}
+		}
+
+		@keyframes rotate-around {
+			from {transform: rotate(0deg);}
+			to {transform: rotate(360deg);}
+		}
+		@keyframes rotate-around2 {
+			from {transform: rotate(0deg);}
+			to {transform: rotate(-360deg);}
+		}
+		
+
+		/* 하단 고정 버튼 */
+		/* .ev_260421 .f_fixed_btn {position:sticky; position:-webkit-sticky; bottom:0; left:0; right:0; width:100%; max-width:720px; margin:0 auto; padding:0.75em 1.33333em; padding-bottom:calc(0.75em + constant(safe-area-inset-bottom)); padding-bottom:calc(0.75em + env(safe-area-inset-bottom)); background-color:transparent; z-index:1;} */
+		.ev_260421 .f_fixed_btn {display:flex; justify-content:space-between; gap:0 0.41666em; position:fixed; bottom:0; left:0; right:0; width:100%; max-width:720px; margin:0 auto; 
+			padding:0.5833em 1.33333em; 
+			padding-bottom:calc(0.5833em + constant(safe-area-inset-bottom)); padding-bottom:calc(0.5833em + env(safe-area-inset-bottom));
+			z-index:1;
+		}
+		.ev_260421 .f_fixed_btn button {display:flex; justify-content:center; align-items:center; height:3.41666em; border-radius:0.66666em;}
+		.ev_260421 .f_fixed_btn button span {display:inline-block; color:#fff; font-size:1.08333em; line-height:1em; font-weight:700;}
+		.ev_260421 .f_fixed_btn button.btn_thecheat {background-color:#43C8E6;}
+		/* // 하단 고정 버튼 */
+
+
+		/* 꼭 확인하세요. */
+		.ev_260421 .footer_alert {padding:2.15em 1.66666em 7.08333em; background-color:#54577B;}
+		.ev_260421 .footer_alert div.tit strong {color:#fff; font-size:1em; font-weight:900; font-family:"NanumSquare";}
+		.ev_260421 .footer_alert .footer_group {margin-top:0.83333em;}
+		.ev_260421 .footer_alert .footer_group div.sub_tit strong {display:inline-block; font-size:0.833333em; line-height:1.2em; font-weight:bold; font-family:"NanumSquare";}
+		.ev_260421 .footer_alert .footer_group ul {display:flex; flex-direction:column; gap:0.5em; margin-top:1.166666em;}
+		.ev_260421 .footer_alert .footer_group ul li p {position:relative; padding-left:0.95em; color:#fff; font-size:0.83333em; line-height:1.4em; font-family:"Pretendard";}
+		.ev_260421 .footer_alert .footer_group ul li p::before {content:"⋅"; display:block; position:absolute; top:0; left:0; color:inherit; font-size:inherit; line-height:inherit; font-weight:bold; text-align:center;}
+		/* // 꼭 확인하세요. */
+
+
+		/* 레이어 팝업 이미지*/
+		.layer .layer_content div.cus_tit {margin-bottom:0.83333em; color:#417FE2; font-size:1.125em; font-weight:bold;}
+		.layer .layer_content div.tit {letter-spacing:-0.1em;}
+		.layer .layer_content div.img {margin-bottom:1.25em; text-align:center;}
+		.layer .layer_content div.img img {display:inline-block; width:100px; vertical-align:top;}
+		.layer .layer_content div.name {color:#7E5BFA; font-size:1.25em; line-height:1.2em; font-weight:700;}
+
+		/* 공통 임시 수정 */
+		.layer .layer_content div.pass_logo + div.tit {margin-top:36px;}
+		/* // 공통 임시 수정 */
+
+		@supports (-webkit-touch-callout: none) {
+			.ev_260421 .top .date_wrap div.tit span {position:relative; top:0.05em;}
+		}
+
+
+		.box_content {display:flex; flex-direction:column; gap:1.25em 0; position:relative; z-index:1; width:100%; padding:2.79166em 1.33333em 2.91666em;}
+
+		.box_content#thecheat01 {background-color:#F1F2FF;}
+		.box_content#thecheat02 {background-color:#E5ECFF; padding-right:0; padding-left:0;}
+		.box_content#thecheat03 {background-color:#7086E8;}
+		.box_content#thecheat04 {background-color:#F1F2FF;}
+
+		.box_content .tit_wrap {display:flex; flex-direction:column; justify-content:center; align-items:center; gap:0.75em;}
+		.box_content .tit_wrap .mission_label {display:inline-flex; align-items:center; gap:0 0.29166em; height:1.66666em; padding:0 0.66666em; border-radius:0.83333em; border:1px solid rgba(255, 255, 255, 0.70); background:linear-gradient(180deg, rgba(255, 255, 255, 0.60) 0%, rgba(255, 255, 255, 0.20) 100%); color:#e5e5e5; box-shadow:0.125em 0.125em 0.625em 0 rgba(156, 151, 232, 0.15); font-family:"Escoredream";}
+		.box_content .tit_wrap .mission_label strong,
+		.box_content .tit_wrap .mission_label span,
+		.box_content .tit_wrap .mission_label span.num {display:block; line-height:1em;}
+		.box_content .tit_wrap .mission_label strong {color:#7F77F7; font-size:0.91666em; font-weight:700;}
+		.box_content .tit_wrap .mission_label span {color:#e5e5e5; font-size:0.75em; font-weight:400;}
+		.box_content .tit_wrap .mission_label span.num {color:#9e9e9e; font-size:0.91666em; font-weight:500;}
+		.box_content#thecheat01 .tit_wrap .mission_label strong {color:#7F77F7;}
+		.box_content#thecheat02 .tit_wrap .mission_label strong {color:#556CF3;}
+
+		.box_content .tit_wrap p.tit {font-size:1.5em; line-height:1.44444em; text-align:center;}
+		.box_content .tit_wrap p.tit strong {display:block; color:#353535;font-family:'Escoredream'; font-weight:500; text-align:center;}
+		.box_content .tit_wrap p.tit strong em {color:#556CF3;}
+		.box_content .tit_wrap p.txt {color:#454545; font-size:0.91666em; line-height:1.3em; text-align:center;}
+
+
+		/* 경품 목록 */
+		.benefit_list {display:flex; flex-direction:column; gap:1.25em 0;}
+		.benefit_box {display:flex; flex-direction:column; justify-content:center; gap:1.25em 0; width:100%; padding:1.25em 1.08333em; border-radius:1.08333em; background-color:#fff;}
+		.benefit_box .txt_wrap {display:flex; flex-direction:column; gap:0.66666em 0; width:100%; text-align:center;}
+		.benefit_box .txt_wrap div {}
+		.benefit_box .txt_wrap div span {display:inline-flex; justify-content:center; align-items:center; min-width:5em; height:1.8em; border-radius:2em; border: 1px solid #647CE5; color:#647CE5; font-size:0.83333em; line-height:1em; font-weight:500; font-family:"Escoredream"; text-align:center;}
+		.benefit_box .txt_wrap p {color:#252525; font-size:1em; line-height:1.41666em; font-weight:700; letter-spacing:-0.02em;}
+		.benefit_box .gift_wrap {padding-top:1.25em; border-top:1px solid #F0F0F0;}
+		.benefit_box .gift_wrap .gift_item {display:flex; align-items:center; gap:0 0.83333em; width:100%;}
+		.benefit_box .gift_wrap .gift_item div.thum {width:6.66666em; min-width:6.66666em;}
+		.benefit_box .gift_wrap .gift_item div.txt .label {display:block; color:#858585; font-size:0.83333em; font-weight:700; line-height:1.55em;}
+		.benefit_box .gift_wrap .gift_item div.txt .tit {display:block; margin-top:0.1em; color:#353535; font-size:0.91666em; font-weight:500; line-height:1.40909em; letter-spacing:-0.02em;}
+		.benefit_box .gift_wrap .gift_item div.txt .count {display:inline-block; margin-top:0.9em; padding:0.2em 0.6em; border-radius:0.3em; background-color:#E8F8F1; color:#42B48A; font-size:0.83333em; font-weight:700; line-height:1.45em;}
+		/* // 경품 목록 */
+
+button.btn_share {display:flex; justify-content:center; align-items:center; gap:0.41666em; position:relative; width:100%; height:3.33333em; margin:0 auto; border-radius:0.58333em; background-color:#556CF3;}
+button.btn_share span.txt {display:inline-block; color:#fff; font-size:1em; line-height:1em; font-family:"Noto Sans KR"; font-weight:700;}
+
+
+button#btn_submit {display:flex; justify-content:center; align-items:center; gap:0.41666em; position:relative; width:100%; height:3.33333em; margin:0 auto; border-radius:0.58333em; background-color:#7F77F7;}
+button#btn_submit span.txt {display:inline-block; color:#fff; font-size:1em; line-height:1em; font-family:"Noto Sans KR"; font-weight:700;}
+
+/* 응모 참여 인원 */
+.count_wrap {margin-top:0.545454em; text-align:center; font-size:0.916666em; font-family:"Noto Sans KR";}
+.count_wrap span {color:#454545;}
+.count_wrap strong.count {color:#7F77F7; font-weight:bold;}
+/* // 응모 참여 인원 */
+
+
+/* 캐러셀 */
+.guide_slide div.item {padding:0 0.41666em;}
+.guide_slide ul.bnr_dots_bottomCenter {display:flex; justify-content:center; gap:0.33333em; margin-top:0.83333em; padding:0;}
+.guide_slide ul.bnr_dots_bottomCenter li {line-height:0;}
+.guide_slide ul.bnr_dots_bottomCenter li button {display:block; width:0.41666em; height:0.41666em; background-color:#fff; color:transparent; transition:all 0.2s ease; border-radius:0.41666em}
+.guide_slide ul.bnr_dots_bottomCenter li.slick-active button {width:1.33333em; opacity:1; background-color:#556CF3;}
+/* // 캐러셀 */
+
+</style>
+</head>
+
+<body>
+<div class="evPageWrap">
+
+	<div class="evSection">
+		<div class="ev_260421">
+			<div class="top">
+				<div class="img"><img src="../images/260421_top_img.png" alt="이미지"></div>
+				 <!-- <p class="txt">
+					주소록+오피스도우미 가입하고 문서 많이 보면 당첨!<br />
+					챌린지 이벤트 참여하고 역대급 혜택 챙기세요.
+				 </p> -->
+				<div class="date_wrap">
+					<div class="date">
+						<strong>이벤트 기간</strong>
+						<span>2026. 5. 6(수) ~ 6. 5(금)</span>
+					</div>
+				</div>
+				<div class="deco box phone">
+					<img src="../images/260421_img_phone.png" alt="폰이미지">
+					<span class="zoom"><img src="../images/260421_img_zoom.png" alt="돋보기"></span>
+				</div>
+
+				<div class="txtbox">
+					<p>
+						<strong>PASS주소록에서 확인</strong>하시면 <br />
+						이벤트 참여 준비 완료!
+					</p>
+				</div>
+				<div class="coin"><img src="../images/260421_img_coin_01.png" alt="코인"></div>
+			</div>
+			<!-- // top -->
+
+			<div class="box_content" id="thecheat01">
+				<div class="tit_wrap">
+					<div class="mission_label">
+						<strong>이벤트 안내</strong>  <span>/</span> <span class="num">01</span>
+					</div>
+					<p class="tit"><strong><img src="../images/260621_ev_tit_01.png" alt="이벤트 참여 신청"></strong></p>
+					<p class="txt">
+						‘이벤트 참여하기’ 버튼을 누르고, <br />
+						다음 미션을 완료해주세요!
+					</p>
+				</div>
+				<div>
+					<img src="../images/260421_img_join.png" alt="이벤트 참여하기" />
+				</div>
+				<div>
+					<button type="button" id="btn_submit"><span class="txt">이벤트 참여하기</span></button>
+					<div class="count_wrap">
+						<span>벌써 </span>
+						<strong class="count">%응모자 수%</strong>
+						<span>명 참여 중!</span>
+					</div><!-- // count_wrap -->
+				</div>
+			</div>
+			<!-- // box_content-->
+
+			<div class="box_content" id="thecheat02">
+				<div class="tit_wrap">
+					<div class="mission_label">
+						<strong>이벤트 안내</strong>  <span>/</span> <span class="num">02</span>
+					</div>
+					<p class="tit"><strong><img src="../images/260621_ev_tit_02.png" alt="주소록에서 사기번호 조회하기"></strong></p>
+					<p class="txt">
+						PASS주소록에서 저장된 연락처가 <br />
+						사기 피해 신호 이력이 있는 번호인지 <br />
+						확인해주세요!
+					</p>
+				</div>
+
+				<div class="guide_slide">
+					<div class="item"><img src="../images/260421_slide_01.png" alt="이미지1"></div>
+					<div class="item"><img src="../images/260421_slide_02.png" alt="이미지2"></div>
+					<div class="item"><img src="../images/260421_slide_03.png" alt="이미지3"></div>
+					<div class="item"><img src="../images/260421_slide_04.png" alt="이미지4"></div>
+				</div>
+				<!-- // guide_search_slide -->
+			</div>
+			<!-- // box_content-->
+
+
+			<div class="box_content" id="thecheat03">
+				<div class="tit_wrap">
+					<p class="tit"><strong><img src="../images/260621_ev_tit_03.png" alt="경품 안내"></strong></p>
+				</div>
+				<div class="benefit_list">
+					<div class="benefit_box">
+						<div class="txt_wrap">
+							<div><span>혜택 01</span></div>
+							<p>‘PASS주소록’과 ‘더치트프리미엄’ <br />
+								서비스를 가입한 고객 중 <br />
+								추첨을 통해 모바일쿠폰을 드려요!</p>
+						</div>
+						<div class="gift_wrap">
+							<div class="gift_item">
+								<div class="thum"><img src="../images/260421_gift_img_01.png" alt="기프트01" /></div>
+								<div class="txt">
+									<span class="label">교촌치킨</span>
+									<p class="tit">허니콤보+콜라 1.25L</p>
+									<span class="count">192명</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="benefit_box">
+						<div class="txt_wrap">
+							<div><span>혜택 02</span></div>
+							<p>‘PASS주소록’에서 <br />
+								사기 번호를 조회한 고객 중 <br />
+								추첨을 통해 PASS머니를 드려요!</p>
+						</div>
+						<div class="gift_wrap">
+							<div class="gift_item">
+								<div class="thum"><img src="../images/260421_gift_img_02.png" alt="기프트01" /></div>
+								<div class="txt">
+									<span class="label">PASS머니</span>
+									<p class="tit">20,000원</p>
+									<span class="count">250명</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- // box_content-->
+
+			<div class="box_content" id="thecheat04">
+				<div class="tit_wrap">
+					<p class="tit"><strong>PASS주소록에서 <br />
+						사기 번호 조회 기능을 <br />
+						<em>무료</em>로 이용해보세요!</strong>
+					</p>
+				</div>
+				<div>
+					<button type="button" class="btn_share"><span class="txt">이벤트 공유하기</span></button>
+				</div>
+			</div>
+			<!-- // box_content-->
+
+
+			
+
+			<div class="footer_alert">
+				<div class="tit"><strong>꼭 확인해주세요.</strong></div>
+				<div class="footer_group">
+					<ul>
+						<li><p>본 이벤트는 만 14세 이상 PASS 회원 중, 이벤트 이용 약관 동의 및 PASS주소록을 통한 사기번호조회 서비스 이용을 완료한 고객에 한해 응모가 가능합니다.</p></li>
+						<li><p>미션 완료 여부 확인을 위해 당첨자 추첨 시점까지 PASS주소록 및 더치트프리미엄 가입 상태를 유지하셔야 합니다.</p></li>
+						<li><p>당첨자는 응모 및 모든 미션 참여를 완료한 고객 중 추첨을 통해 선정됩니다.</p></li>
+						<li><p>본 이벤트는 1인 1회만 응모 가능하며, 중복 응모 및 중복 당첨은 불가합니다.</p></li>
+						<li><p>당첨자 발표는 26년 6월 중 PASS 앱에서 진행됩니다.</p></li>
+						<li><p>혜택 1 경품은 당첨자 발표 이후 PASS 기프트샵 내 모바일 쿠폰 형태로 지급되며, 양도 및 교환은 불가합니다. 지급된 경품은 유효기간 내 사용해야 하며, 기간 경과 시 재지급되지 않습니다.</p></li>
+						<li><p>혜택 2 PASS머니는 서비스 정책 상 만 19세 이상 고객에게만 제공 가능합니다.</p></li>
+						<li><p>이벤트 참여를 위해 수집된 개인정보는 경품 발송 목적 외에는 활용되지 않으며, 이벤트 종료 후 관련 법령에 따라 안전하게 파기됩니다.</p></li>
+						<li><p>비정상적인 방법으로 이벤트에 참여하거나 이벤트 취지에 부합하지 않는 행위가 확인될 경우, 사전 고지 없이 참여 및 당첨이 취소될 수 있습니다.</p></li>
+						<li><p>이벤트 운영 및 보상 내용은 당사 사정에 따라 사전 또는 사후 고지 후 변경될 수 있습니다.</p></li>
+						<li><p>기타 문의사항은 PASS 고객센터(114)로 문의해 주시기 바랍니다.</p></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="f_fixed_btn">
+				<button type="button" class="btn_thecheat"><span>사기 번호 조회하러 가기</span></button>
+				<!-- <button type="button" class="btn_address"><span>PASS주소록 바로가기</span></button> -->
+			</div>
+			
+				
+		</div>
+		<!-- // ev_260421 -->
+
+
+	</div><!-- // evSection -->
+
+</div><!-- // evPageWrap -->
+
+
+
+
+
+
+
+
+<div class="layer alert" id="layer_success">
+	<div class="dim"></div>
+	<div class="layer_inner">
+		<div class="layer_content">
+			<div class="img"><img src="../images/img_done.png" alt="응모완료 아이콘"></div>
+			<div class="tit">이벤트 응모가 완료되었습니다.<br />
+				미션을 완료해 주세요!</div>
+		</div>
+		<div class="btn_group">
+			<div><button type="button" class="next"><span>확인</span></button></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="layer alert" id="layer_success">
+	<div class="dim"></div>
+	<div class="layer_inner">
+		<div class="layer_content">
+			<div class="img"><img src="../images/img_complete.png" alt="응모완료 아이콘"></div>
+			<div class="tit">이미 응모된 이벤트입니다.<br />
+				미션을 완료해 주세요!</div>
+		</div>
+		<div class="btn_group">
+			<div><button type="button" class="next"><span>확인</span></button></div>
+		</div>
+	</div>
+</div>
+
+ 
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="../js/slick.min.js"></script>
+
+<script>
+
+	$(document).ready(function(){
+		$('.guide_slide').slick({
+			autoplay: false,
+			autoplaySpeed: 3000,
+			dots: true,
+			arrows: false,
+			infinite: false,
+			dotsClass: "bnr_dots_bottomCenter",
+			speed: 300,
+			slidesToShow: 1,
+			centerMode: true,
+			centerPadding: '0.91667em'
+		})
+	})
+
+	/* 대충 버튼 눌리면 어멋? */
+	let btns = document.querySelectorAll(".evPageWrap button");
+	btns.forEach(function(item){
+		item.addEventListener("click", function(){
+			let btnTit = item.getAttribute('title')
+			if(btnTit) {
+				alert(btnTit);
+			} else {
+				let img = item.querySelector("img");
+				if(img) {
+					if(img.getAttribute("title")) {
+						alert(img.getAttribute("title"))
+					} else {
+						alert(img.getAttribute("alt"))
+					}
+				} else {
+					alert(item.innerText)
+				}
+			}
+		})
+	})
+	/* // 대충 버튼 눌리면 어멋? */
+
+	/* 확인용 레이어 닫기(임시) */
+	let layers = document.querySelectorAll(".layer");
+	layers.forEach(function(item){
+		item.querySelectorAll("button").forEach(function(e){
+			e.addEventListener("click", function(){
+				item.closest(".layer").style.display = "none";
+			})
+		})
+	})
+	/* // 확인용 레이어 닫기(임시) */
+
+</script>
+<style>
+.layer {display:none;}
+</style>
+</body>
+</html>
