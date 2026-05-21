@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>휴대폰결제_테스트</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+
+	<!-- font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+
+	<!-- css -->
+	<link rel="stylesheet" href="../css/reset.css" />
+	<link rel="stylesheet" href="../css/common.css" />
+	<link rel="stylesheet" href="../css/pass_mobilepay.css" />
+</head>
+<body>
+
+	<div class="page-wrapper">
+			<!-- header -->
+			<!-- /header -->
+
+			<div class="container">
+				<div class="title_new">
+					<h2><span>이용내역조회</span></h2>
+				</div>
+				<div class="content_group">
+					<div class="search_wrap">
+						<div class="search_inner">
+							<div class="period_box">
+								<button type="button" class="btn-prev"><span><img src="../images/ico_l_enabled.png" alt="이전"></span></button>
+								<p class="date">YYYY년 MM월</p>
+								<button type="button" class="btn-next"><span><img src="../images/ico_r_enabled.png" alt="다음"></span></button>
+							</div>
+							<p class="pay_cnt">결제내역 9건</p>
+
+							<div class="search_select" data-type="month">
+								<div class="select_triger"><span class="type_txt">월단위</span></div>
+								<div class="select_layer">
+									<button type="button" class="month active" data-type="month"><span>월단위</span></button>
+									<button type="button" class="custom" data-type="custom"><span>직접입력</span></button>
+								</div>
+							</div>
+							<!-- // search_select -->
+						</div>
+						<!-- // search_inner -->
+					</div>
+					<!-- // search_wrap -->
+
+					<div class="list-wrap type-pay">
+						<div class="content">
+							<div class="used_list">
+								<div class="item">
+									<div class="info_row">
+										<span class="place">기프트샵</span>
+										<span class="price">-1,010,000원</span>
+									</div>
+									<div class="status_row">
+										<span class="status cancel">결제취소</span>
+									</div>
+									<div class="dttm_row">
+										<div class="dttm_cntr">
+											<span>2026.05.21</span>
+											<span>08:21:00</span>
+										</div>
+										<span class="type">오프라인</span>
+									</div>
+								</div>
+								<div class="item">
+									<div class="info_row">
+										<span class="place">스타벅스 서울역점</span>
+										<span class="price">15,000원</span>
+									</div>
+									<div class="status_row">
+										<span class="status success">결제성공</span>
+									</div>
+									<div class="dttm_row">
+										<div class="dttm_cntr">
+											<span>2026.05.17</span>
+											<span>09:11:00</span>
+										</div>
+										<span class="type">오프라인</span>
+									</div>
+								</div>
+								<div class="item">
+									<div class="info_row">
+										<span class="place">올리브영 홍대점</span>
+										<span class="price">38,500원</span>
+									</div>
+									<div class="status_row">
+										<span class="status success">결제성공</span>
+									</div>
+									<div class="dttm_row">
+										<div class="dttm_cntr">
+											<span>2026.05.16</span>
+											<span>17:45:00</span>
+										</div>
+										<span class="type">오프라인</span>
+									</div>
+								</div>
+								<div class="item">
+									<div class="info_row">
+										<span class="place">GS25 신촌점</span>
+										<span class="price">-3,200원</span>
+									</div>
+									<div class="status_row">
+										<span class="status cancel">결제취소</span>
+									</div>
+									<div class="dttm_row">
+										<div class="dttm_cntr">
+											<span>2026.05.15</span>
+											<span>11:02:00</span>
+										</div>
+										<span class="type">오프라인</span>
+									</div>
+								</div>
+								<div class="item">
+									<div class="info_row">
+										<span class="place">도미노피자 강동점</span>
+										<span class="price">28,000원</span>
+									</div>
+									<div class="status_row">
+										<span class="status success">결제성공</span>
+									</div>
+									<div class="dttm_row">
+										<div class="dttm_cntr">
+											<span>2026.05.14</span>
+											<span>20:30:00</span>
+										</div>
+										<span class="type">오프라인</span>
+									</div>
+								</div>
+								<div class="item">
+									<div class="info_row">
+										<span class="place">GS25 잠실점</span>
+										<span class="price">-4,000원</span>
+									</div>
+									<div class="status_row">
+										<span class="status partial_cancel">부분취소</span>
+									</div>
+									<div class="dttm_row">
+										<div class="dttm_cntr">
+											<span>2026.05.13</span>
+											<span>13:55:00</span>
+										</div>
+										<span class="type">오프라인</span>
+									</div>
+								</div>
+								<div class="item">
+									<div class="info_row">
+										<span class="place">CGV 용산점</span>
+										<span class="price">22,000원</span>
+									</div>
+									<div class="status_row">
+										<span class="status success">결제성공</span>
+									</div>
+									<div class="dttm_row">
+										<div class="dttm_cntr">
+											<span>2026.05.11</span>
+											<span>18:10:00</span>
+										</div>
+										<span class="type">오프라인</span>
+									</div>
+								</div>
+								<div class="item">
+									<div class="info_row">
+										<span class="place">이디야커피 종로점</span>
+										<span class="price">8,400원</span>
+									</div>
+									<div class="status_row">
+										<span class="status success">결제성공</span>
+									</div>
+									<div class="dttm_row">
+										<div class="dttm_cntr">
+											<span>2026.05.09</span>
+											<span>08:47:00</span>
+										</div>
+										<span class="type">오프라인</span>
+									</div>
+								</div>
+								<div class="item">
+									<div class="info_row">
+										<span class="place">기프트샵</span>
+										<span class="price">-1,010,000원</span>
+									</div>
+									<div class="status_row">
+										<span class="status cancel">결제취소</span>
+									</div>
+									<div class="dttm_row">
+										<div class="dttm_cntr">
+											<span>2026.05.08</span>
+											<span>14:22:00</span>
+										</div>
+										<span class="type">오프라인</span>
+									</div>
+								</div>
+							</div>
+							<!-- // used_list -->
+						</div>
+					</div>
+				</div>
+			</div><!-- /container -->
+		</div><!-- /page-wrapper -->
+
+
+<!-- ==================== Bottom Sheet (3개 시트) ==================== -->
+<div class="bs-overlay" id="bsOverlay"></div>
+
+<!-- 시트 1: 월 목록 -->
+<div class="bs-sheet" id="bsSheetMonth">
+	<div class="bs-inner">
+		<div class="bs-header">
+			<span class="bs-title">조회기간 선택</span>
+			<button type="button" class="bs-close-btn" data-close>
+				<img src="../images/btn_top_close.png" alt="닫기" width="24" height="24">
+			</button>
+		</div>
+		<ul class="bs-month-list" id="bsMonthList">
+			<!-- JS로 동적 생성 -->
+		</ul>
+		<div class="bs-panel-footer">
+			<button type="button" class="bs-action-btn" id="bsSubmitMonth"><span>조회하기</span></button>
+		</div>
+	</div>
+</div>
+<!-- // 시트 1 -->
+
+<!-- 시트 2: 직접입력 날짜 범위 -->
+<div class="bs-sheet" id="bsSheetDate">
+	<div class="bs-inner">
+		<div class="bs-header">
+			<span class="bs-title">조회기간 선택</span>
+			<button type="button" class="bs-close-btn" data-close>
+				<img src="../images/btn_top_close.png" alt="닫기" width="24" height="24">
+			</button>
+		</div>
+		<div class="bs-date-row">
+			<button type="button" class="bs-date-btn" id="bsBtnSDt">
+				<span class="bs-date-txt" id="bsSDtText">날짜 선택</span>
+				<span class="bs-date-ico"><img src="../images/ico_list_calender.png" alt="달력"></span>
+			</button>
+			<span class="bs-date-sep">-</span>
+			<button type="button" class="bs-date-btn" id="bsBtnEDt">
+				<span class="bs-date-txt" id="bsEDtText">날짜 선택</span>
+				<span class="bs-date-ico"><img src="../images/ico_list_calender.png" alt="달력"></span>
+			</button>
+		</div>
+		<div class="bs-panel-footer">
+			<button type="button" class="bs-action-btn" id="bsSubmitDate" disabled><span>조회하기</span></button>
+		</div>
+	</div>
+</div>
+<!-- // 시트 2 -->
+
+<!-- 시트 3: 달력 -->
+<div class="bs-sheet" id="bsSheetCal">
+	<div class="bs-inner">
+		<div class="bs-header">
+			<span class="bs-title">조회기간 선택</span>
+			<button type="button" class="bs-close-btn" data-close>
+				<img src="../images/btn_top_close.png" alt="닫기" width="24" height="24">
+			</button>
+		</div>
+		<div class="bs-cal-wrap">
+			<div class="bs-cal-nav">
+				<button type="button" class="bs-nav-btn" id="bsCalPrev">
+					<img src="../images/ico_l_enabled.png" alt="이전" width="20" height="20">
+				</button>
+				<span class="bs-cal-title" id="bsCalTitle"></span>
+				<button type="button" class="bs-nav-btn" id="bsCalNext">
+					<img src="../images/ico_r_enabled.png" alt="다음" width="20" height="20">
+				</button>
+			</div>
+			<div class="bs-cal-dow">
+				<span>일</span>
+				<span>월</span>
+				<span>화</span>
+				<span>수</span>
+				<span>목</span>
+				<span>금</span>
+				<span>토</span>
+			</div>
+			<div class="bs-cal-grid" id="bsCalGrid">
+				<!-- JS로 동적 생성 -->
+			</div>
+		</div>
+		<div class="bs-panel-footer">
+			<button type="button" class="bs-action-btn" id="bsSubmitCal"><span>확인</span></button>
+		</div>
+	</div>
+</div>
+<!-- // 시트 3 -->
+<!-- ==================== // Bottom Sheet ==================== -->
+
+
+<script>
+/**
+ * ============================================================
+ * 조회기간 선택 바텀시트
+ * ============================================================
+ */
+
+
+// ============================================================
+// 1. 현재 UI 상태를 저장하는 객체
+//    페이지 전체에서 공유되는 값들을 한 곳에 모아 관리합니다.
+// ============================================================
+const state = {
+	mode       : 'month', // 검색 유형: 'month'(월단위) | 'date'(직접입력)
+	calTarget  : 'sdt',   // 달력에서 고르는 대상: 'sdt'(시작일) | 'edt'(종료일)
+	tempDate   : null,    // 달력에서 클릭했지만 아직 확인 전인 날짜 (임시 저장)
+	selectedYM : null,    // 최종 선택된 연월 문자열 (예: '202605')
+	selectedSDt: null,    // 최종 선택된 시작일 (Date 객체)
+	selectedEDt: null,    // 최종 선택된 종료일 (Date 객체)
+	calYear    : new Date().getFullYear(), // 달력에 현재 표시 중인 연도
+	calMonth   : new Date().getMonth(),   // 달력에 현재 표시 중인 월 (0~11)
+};
+
+
+// ============================================================
+// 2. 유틸리티 함수
+// ============================================================
+
+/**
+ * 숫자가 한 자리이면 앞에 '0'을 붙여 두 자리 문자열로 만든다.
+ * 예) 5 → '05',  12 → '12'
+ */
+function addLeadingZero(number) {
+	if (number < 10) {
+		return '0' + number;
+	}
+	return String(number);
+}
+
+/**
+ * Date 객체를 'YYYY.MM.DD' 형식의 문자열로 변환한다.
+ * 예) new Date(2026, 4, 7) → '2026.05.07'
+ */
+function formatDateDot(date) {
+	const year  = date.getFullYear();
+	const month = addLeadingZero(date.getMonth() + 1); // getMonth()는 0부터 시작하므로 +1
+	const day   = addLeadingZero(date.getDate());
+	return year + '.' + month + '.' + day;
+}
+
+/**
+ * 두 Date 객체가 같은 날(연·월·일)인지 확인한다.
+ * 둘 중 하나라도 null이면 false를 반환한다.
+ */
+function isSameDay(dateA, dateB) {
+	if (!dateA || !dateB) return false;
+
+	const sameYear  = dateA.getFullYear() === dateB.getFullYear();
+	const sameMonth = dateA.getMonth()    === dateB.getMonth();
+	const sameDate  = dateA.getDate()     === dateB.getDate();
+
+	return sameYear && sameMonth && sameDate;
+}
+
+
+// ============================================================
+// 3. 바텀시트 열기 / 닫기
+// ============================================================
+
+/**
+ * 특정 바텀시트를 연다.
+ * 혹시 다른 시트가 열려 있으면 먼저 모두 닫은 뒤 원하는 시트만 연다.
+ * 어두운 배경(오버레이)도 함께 표시한다.
+ *
+ * @param {string} sheetId - 열 시트 요소의 id (예: 'bsSheetMonth')
+ */
+function openSheet(sheetId) {
+	// 열려 있는 시트를 모두 닫는다
+	const allSheets = document.querySelectorAll('.bs-sheet');
+	allSheets.forEach(function (sheet) {
+		sheet.classList.remove('on');
+	});
+
+	// 지정한 시트를 연다
+	document.getElementById(sheetId).classList.add('on');
+
+	// 어두운 배경을 표시한다
+	document.getElementById('bsOverlay').classList.add('on');
+}
+
+/**
+ * 열려 있는 바텀시트를 모두 닫는다.
+ * 어두운 배경(오버레이)도 함께 숨긴다.
+ */
+function closeSheet() {
+	const allSheets = document.querySelectorAll('.bs-sheet');
+	allSheets.forEach(function (sheet) {
+		sheet.classList.remove('on');
+	});
+
+	document.getElementById('bsOverlay').classList.remove('on');
+}
+
+/**
+ * 검색 유형(mode)에 따라 period_box 의 이전/다음 버튼을 표시하거나 숨긴다.
+ * - 월단위(month) : 버튼 표시 (월 이동에 사용)
+ * - 직접입력(date): 버튼 숨김 (날짜 범위 모드에서는 불필요)
+ *
+ * @param {string} mode - 'month' | 'date'
+ */
+function updatePeriodBoxButtons(mode) {
+	const periodBox = document.querySelector('.period_box');
+
+	if (mode === 'date') {
+		periodBox.classList.add('hide-btns');    // 직접입력: 버튼 숨김
+	} else {
+		periodBox.classList.remove('hide-btns'); // 월단위: 버튼 표시
+	}
+}
+
+/**
+ * 검색 유형(mode)에 맞는 시트를 연다.
+ *
+ * @param {string} mode - 'month'(월단위) | 'date'(직접입력)
+ */
+function openByMode(mode) {
+	state.mode = mode || 'month';
+
+	if (state.mode === 'month') {
+		renderMonthList();          // 월 목록을 최신 상태로 다시 그린다
+		openSheet('bsSheetMonth');
+	} else {
+		openSheet('bsSheetDate');
+	}
+}
+
+
+// ============================================================
+// 4. 시트 1 — 월 목록 그리기
+// ============================================================
+
+/**
+ * 오늘을 기준으로 최근 12개월 목록을 동적으로 생성한다.
+ * 현재 선택된 월(state.selectedYM)은 라디오 버튼이 선택된 상태로 표시된다.
+ */
+function renderMonthList() {
+	const listEl = document.getElementById('bsMonthList');
+	listEl.innerHTML = ''; // 기존 목록 초기화
+
+	const today = new Date();
+
+	for (let i = 0; i < 12; i++) {
+		// i개월 전의 1일 날짜를 구한다
+		const targetDate  = new Date(today.getFullYear(), today.getMonth() - i, 1);
+		const yearMonth   = String(targetDate.getFullYear()) + addLeadingZero(targetDate.getMonth() + 1); // 예: '202605'
+		const displayText = targetDate.getFullYear() + '년 ' + (targetDate.getMonth() + 1) + '월';       // 예: '2026년 5월'
+
+		// 현재 선택된 월과 같으면 라디오를 체크 상태로 만든다
+		const isChecked = (yearMonth === state.selectedYM);
+
+		// <li> 요소를 만들어 목록에 추가한다
+		const li = document.createElement('li');
+		li.className  = 'bs-month-item';
+		li.dataset.ym = yearMonth;
+		li.innerHTML  =
+			'<label>' +
+				'<input type="radio" name="month"' + (isChecked ? ' checked' : '') + '>' +
+				'<span class="txt">' + displayText + '</span>' +
+				'<span class="checkmark"></span>' +
+			'</label>';
+
+		listEl.appendChild(li);
+	}
+}
+
+
+// ============================================================
+// 5. 시트 3 — 달력 그리기
+// ============================================================
+
+/**
+ * 달력 날짜 셀(<span>) 하나를 만들어 반환한다.
+ * state.tempDate 와 같은 날이면 'selected' 클래스를 추가한다.
+ *
+ * @param {number}  year    - 셀의 연도
+ * @param {number}  month   - 셀의 월 (0~11)
+ * @param {number}  day     - 셀의 일
+ * @param {boolean} isOther - 이번 달이 아닌 날짜(이전/다음 달)이면 true
+ * @returns {HTMLElement}
+ */
+function makeCalendarCell(year, month, day, isOther) {
+	const cellDate   = new Date(year, month, day);
+	const isSelected = isSameDay(cellDate, state.tempDate); // 임시 선택 날짜와 같은 날인지 확인
+
+	// 클래스 조합
+	let className = 'bs-cal-cell';
+	if (isOther)    className += ' other-month'; // 이전/다음 달 날짜는 흐리게 표시
+	if (isSelected) className += ' selected';    // 선택된 날짜는 강조
+
+	const span = document.createElement('span');
+	span.className   = className;
+	span.dataset.y   = year;
+	span.dataset.m   = month;
+	span.dataset.d   = day;
+	span.textContent = day;
+
+	return span;
+}
+
+/**
+ * 달력을 그린다.
+ * - 이번 달 1일 이전의 빈 칸은 이전 달 날짜로 채운다.
+ * - 이번 달 마지막 날 이후의 빈 칸은 다음 달 날짜로 채운다.
+ * - state.tempDate 와 같은 날에는 'selected' 스타일을 적용한다.
+ *
+ * @param {number} year  - 표시할 연도 (예: 2026)
+ * @param {number} month - 표시할 월, 0부터 시작 (0 = 1월, 11 = 12월)
+ */
+function renderCalendar(year, month) {
+	// 달력 위치를 state에 저장
+	state.calYear  = year;
+	state.calMonth = month;
+
+	// 달력 제목 업데이트 (예: '2026년 5월')
+	document.getElementById('bsCalTitle').textContent = year + '년 ' + (month + 1) + '월';
+
+	// 이번 달 1일이 무슨 요일인지 (0=일, 1=월, ..., 6=토)
+	const firstDayOfWeek = new Date(year, month, 1).getDay();
+
+	// 이번 달의 마지막 날짜 (예: 31)
+	const lastDateOfMonth = new Date(year, month + 1, 0).getDate();
+
+	// 이전 달의 마지막 날짜 (빈 칸을 채울 때 필요)
+	const lastDateOfPrevMonth = new Date(year, month, 0).getDate();
+
+	// 달력 그리드 초기화
+	const gridEl = document.getElementById('bsCalGrid');
+	gridEl.innerHTML = '';
+
+
+	// ── (A) 이전 달 날짜로 첫 주 빈 칸 채우기 ──
+	let prevMonth = month - 1;
+	let prevYear  = year;
+	if (prevMonth < 0) {
+		prevMonth = 11;      // 1월의 이전 달은 12월
+		prevYear  = year - 1;
+	}
+
+	for (let i = 0; i < firstDayOfWeek; i++) {
+		// 이전 달 마지막 날부터 역산하여 날짜를 구한다
+		const day = lastDateOfPrevMonth - firstDayOfWeek + 1 + i;
+		gridEl.appendChild(makeCalendarCell(prevYear, prevMonth, day, true));
+	}
+
+
+	// ── (B) 이번 달 날짜 채우기 ──
+	for (let day = 1; day <= lastDateOfMonth; day++) {
+		gridEl.appendChild(makeCalendarCell(year, month, day, false));
+	}
+
+
+	// ── (C) 다음 달 날짜로 마지막 주 빈 칸 채우기 ──
+	let nextMonth = month + 1;
+	let nextYear  = year;
+	if (nextMonth > 11) {
+		nextMonth = 0;       // 12월의 다음 달은 1월
+		nextYear  = year + 1;
+	}
+
+	const totalCells = firstDayOfWeek + lastDateOfMonth; // 지금까지 채운 셀 수
+	const remainder  = totalCells % 7;                   // 마지막 줄에서 남은 칸 수
+	const fillCount  = remainder === 0 ? 0 : 7 - remainder;
+
+	for (let i = 1; i <= fillCount; i++) {
+		gridEl.appendChild(makeCalendarCell(nextYear, nextMonth, i, true));
+	}
+
+
+	// ── (D) 각 셀 클릭 이벤트 등록 ──
+	// 날짜를 클릭하면 tempDate(임시 날짜)에만 저장한다.
+	// 실제 적용은 '확인' 버튼을 눌러야 한다.
+	const allCells = gridEl.querySelectorAll('.bs-cal-cell');
+	allCells.forEach(function (cell) {
+		cell.addEventListener('click', function () {
+			const clickedYear  = parseInt(this.dataset.y);
+			const clickedMonth = parseInt(this.dataset.m);
+			const clickedDay   = parseInt(this.dataset.d);
+
+			state.tempDate = new Date(clickedYear, clickedMonth, clickedDay);
+
+			// 선택 표시를 반영하기 위해 달력을 다시 그린다
+			renderCalendar(state.calYear, state.calMonth);
+		});
+	});
+}
+
+
+// ============================================================
+// 6. 버튼 상태 / 화면 텍스트 업데이트
+// ============================================================
+
+/**
+ * 시작일·종료일이 모두 선택된 경우에만 '조회하기' 버튼을 활성화한다.
+ */
+function updateDateSubmitButton() {
+	const hasStartDate = state.selectedSDt !== null;
+	const hasEndDate   = state.selectedEDt !== null;
+
+	document.getElementById('bsSubmitDate').disabled = !(hasStartDate && hasEndDate);
+}
+
+/**
+ * 월 검색 결과를 화면에 반영한다.
+ * - state.selectedYM을 업데이트한다.
+ * - 상단 조회기간 텍스트를 해당 월로 변경한다.
+ *
+ * @param {string} yearMonth - 'YYYYMM' 형식 (예: '202605')
+ */
+function applyMonthSearch(yearMonth) {
+	state.selectedYM = yearMonth;
+
+	const year  = parseInt(yearMonth.substring(0, 4));
+	const month = parseInt(yearMonth.substring(4, 6)); // 1~12 (표시용이므로 +1 불필요)
+
+	document.querySelector('.period_box .date').textContent = year + '년 ' + month + '월';
+}
+
+
+// ============================================================
+// 7. 이벤트 등록
+// ============================================================
+
+function bindEvents() {
+
+	// ── 시트 닫기 ──────────────────────────────────────────
+	// data-close 속성이 있는 닫기 버튼과 어두운 배경 클릭 시 시트를 닫는다.
+	document.querySelectorAll('.bs-close-btn[data-close]').forEach(function (btn) {
+		btn.addEventListener('click', closeSheet);
+	});
+	document.getElementById('bsOverlay').addEventListener('click', closeSheet);
+
+
+	// ── 달력 이전 / 다음 월 이동 ───────────────────────────
+	document.getElementById('bsCalPrev').addEventListener('click', function () {
+		let month = state.calMonth - 1;
+		let year  = state.calYear;
+
+		// 1월(0)에서 이전으로 가면 전년도 12월(11)로 이동
+		if (month < 0) {
+			month = 11;
+			year  = year - 1;
+		}
+
+		renderCalendar(year, month);
+	});
+
+	document.getElementById('bsCalNext').addEventListener('click', function () {
+		let month = state.calMonth + 1;
+		let year  = state.calYear;
+
+		// 12월(11)에서 다음으로 가면 다음 연도 1월(0)로 이동
+		if (month > 11) {
+			month = 0;
+			year  = year + 1;
+		}
+
+		renderCalendar(year, month);
+	});
+
+
+	// ── 시작일 버튼 클릭 → 달력 시트 열기 ─────────────────
+	document.getElementById('bsBtnSDt').addEventListener('click', function () {
+		state.calTarget = 'sdt';               // 시작일을 고르는 중임을 표시
+		state.tempDate  = state.selectedSDt;   // 기존 시작일을 임시값으로 세팅 (이미 선택한 날 강조 표시용)
+		renderCalendar(state.calYear, state.calMonth);
+		openSheet('bsSheetCal');
+	});
+
+	// ── 종료일 버튼 클릭 → 달력 시트 열기 ─────────────────
+	document.getElementById('bsBtnEDt').addEventListener('click', function () {
+		state.calTarget = 'edt';               // 종료일을 고르는 중임을 표시
+		state.tempDate  = state.selectedEDt;   // 기존 종료일을 임시값으로 세팅
+		renderCalendar(state.calYear, state.calMonth);
+		openSheet('bsSheetCal');
+	});
+
+
+	// ── 시트 1(월 목록) — '조회하기' 버튼 ─────────────────
+	document.getElementById('bsSubmitMonth').addEventListener('click', function () {
+		// 선택된 라디오 버튼을 찾는다
+		const checkedRadio = document.querySelector('input[name="month"]:checked');
+
+		// 아무것도 선택하지 않았으면 아무것도 하지 않는다
+		if (!checkedRadio) return;
+
+		// 라디오 버튼의 부모 <li> 에 저장해 둔 yearMonth 값을 가져온다
+		const yearMonth = checkedRadio.closest('.bs-month-item').dataset.ym;
+		applyMonthSearch(yearMonth);
+		updatePeriodBoxButtons('month'); // 월단위 조회 확정 → 버튼 표시
+		closeSheet();
+	});
+
+
+	// ── 시트 2(날짜 범위) — '조회하기' 버튼 ───────────────
+	document.getElementById('bsSubmitDate').addEventListener('click', function () {
+		// 버튼이 disabled 상태가 아닐 때만 실행되지만, 방어 코드로 한 번 더 확인한다
+		if (!state.selectedSDt || !state.selectedEDt) return;
+
+		// 상단 조회기간 텍스트를 '시작일 ~ 종료일' 형식으로 업데이트한다
+		const displayText = formatDateDot(state.selectedSDt) + ' ~ ' + formatDateDot(state.selectedEDt);
+		document.querySelector('.period_box .date').textContent = displayText;
+
+		updatePeriodBoxButtons('date'); // 직접입력 조회 확정 → 버튼 숨김
+		closeSheet();
+	});
+
+
+	// ── 시트 3(달력) — '확인' 버튼 ────────────────────────
+	// 달력에서 날짜를 고른 뒤 '확인'을 눌러야 실제 시작일/종료일에 반영된다.
+	document.getElementById('bsSubmitCal').addEventListener('click', function () {
+
+		// 날짜를 선택하지 않고 확인을 누르면 날짜 범위 시트로 돌아간다
+		if (!state.tempDate) {
+			openSheet('bsSheetDate');
+			return;
+		}
+
+		if (state.calTarget === 'sdt') {
+			// ── 시작일 확정 ──
+			state.selectedSDt = state.tempDate;
+			document.getElementById('bsSDtText').textContent = formatDateDot(state.tempDate);
+			document.getElementById('bsBtnSDt').classList.add('picked');
+
+			// 새 시작일이 기존 종료일보다 늦으면 종료일을 초기화한다
+			if (state.selectedEDt && state.tempDate > state.selectedEDt) {
+				state.selectedEDt = null;
+				document.getElementById('bsEDtText').textContent = '날짜 선택';
+				document.getElementById('bsBtnEDt').classList.remove('picked');
+			}
+
+		} else {
+			// ── 종료일 확정 ──
+			// 종료일이 시작일보다 이전이면 선택을 막는다
+			if (state.selectedSDt && state.tempDate < state.selectedSDt) {
+				alert('종료일은 시작일 이후로 선택해주세요.');
+				return;
+			}
+
+			state.selectedEDt = state.tempDate;
+			document.getElementById('bsEDtText').textContent = formatDateDot(state.tempDate);
+			document.getElementById('bsBtnEDt').classList.add('picked');
+		}
+
+		// 임시 날짜를 초기화하고 날짜 범위 시트로 돌아간다
+		state.tempDate = null;
+		updateDateSubmitButton();
+		openSheet('bsSheetDate');
+	});
+
+
+	// ── 검색 유형 드롭다운 버튼 (월단위 / 직접입력) ────────
+	document.querySelectorAll('.search_select .select_layer button').forEach(function (btn) {
+		btn.addEventListener('click', function (event) {
+			// 클릭 이벤트가 document까지 전파되지 않도록 막는다 (드롭다운이 즉시 닫히는 것 방지)
+			event.stopPropagation();
+
+			const selectedType = this.dataset.type; // 'month' 또는 'custom'
+
+			// 드롭다운 선택 상태를 업데이트한다
+			document.querySelector('.search_select').dataset.type = selectedType;
+			document.querySelector('.type_txt').textContent = this.querySelector('span').textContent;
+
+			// 기존 active 클래스를 모두 제거하고 클릭된 버튼에만 추가한다
+			document.querySelectorAll('.search_select .select_layer button').forEach(function (otherBtn) {
+				otherBtn.classList.remove('active');
+			});
+			this.classList.add('active');
+
+			// 드롭다운을 닫는다
+			document.querySelector('.search_select .select_layer').style.display = 'none';
+
+			// 선택된 유형에 맞는 바텀시트를 연다
+			if (selectedType === 'custom') {
+				openByMode('date');
+			} else {
+				openByMode('month');
+			}
+		});
+	});
+
+
+	// ── 드롭다운 토글 버튼 ─────────────────────────────────
+	document.querySelector('.search_select .select_triger').addEventListener('click', function (event) {
+		// 클릭 이벤트 전파를 막아 document 클릭 핸들러가 즉시 드롭다운을 닫지 않도록 한다
+		event.stopPropagation();
+
+		const layerEl = document.querySelector('.search_select .select_layer');
+
+		if (layerEl.style.display === 'block') {
+			layerEl.style.display = 'none';  // 열려 있으면 닫기
+		} else {
+			layerEl.style.display = 'block'; // 닫혀 있으면 열기
+		}
+	});
+
+
+	// ── 조회기간 텍스트 클릭 → 바텀시트 열기 ──────────────
+	document.querySelector('.period_box .date').addEventListener('click', function () {
+		const currentType = document.querySelector('.search_select').dataset.type;
+
+		if (currentType === 'custom') {
+			openByMode('date');
+		} else {
+			openByMode('month');
+		}
+	});
+
+
+	// ── 화면 빈 곳 클릭 → 드롭다운 닫기 ───────────────────
+	document.addEventListener('click', function () {
+		document.querySelector('.search_select .select_layer').style.display = 'none';
+	});
+}
+
+
+// ============================================================
+// 8. 초기화
+// ============================================================
+
+function init() {
+	const today = new Date();
+
+	// 오늘의 연월을 기본 선택값으로 설정 (예: '202605')
+	state.selectedYM = String(today.getFullYear()) + addLeadingZero(today.getMonth() + 1);
+
+	// 상단 조회기간 텍스트 초기값을 오늘이 속한 월로 설정 (예: '2026년 5월')
+	document.querySelector('.period_box .date').textContent =
+		today.getFullYear() + '년 ' + (today.getMonth() + 1) + '월';
+
+	// 달력을 오늘이 속한 월로 초기 렌더링
+	renderCalendar(today.getFullYear(), today.getMonth());
+
+	// 이벤트 핸들러 등록
+	bindEvents();
+}
+
+
+// ============================================================
+// 9. 페이지 로드 완료 후 init() 실행
+// ============================================================
+
+// 브라우저가 HTML을 아직 파싱 중이면 파싱 완료 후에 실행하고,
+// 이미 파싱이 끝난 상태라면 바로 실행한다.
+if (document.readyState === 'loading') {
+	document.addEventListener('DOMContentLoaded', init);
+} else {
+	init();
+}
+</script>
+
+</body>
+</html>

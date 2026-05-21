@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>휴대폰결제</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+	
+	<!-- font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+	
+	<!-- css -->
+	<!-- <link rel="stylesheet" href="../css/reset.css" /> -->
+	<link rel="stylesheet" href="../css/common.css" />
+	<!-- <link rel="stylesheet" href="../css/pass_mobilepay.css" /> -->
+	<link rel="stylesheet" href="../css/pass_mobilepay_new.css" />
+</head>
+<body>
+	
+	<div class="page_wrapper">
+		<div class="page_header">
+			<div class="page_title">
+				<h2><span>이용내역조회</span></h2>
+			</div>
+
+			<div class="search_wrap">
+				<div class="search_inner">
+					<div class="period_box">
+						<button type="button" class="btn-prev"><span><img src="../images/ico_l_enabled.png" alt="이전"></span></button>
+						<p class="date">YYYY년 MM월</p>
+						<button type="button" class="btn-next"><span><img src="../images/ico_r_enabled.png" alt="다음"></span></button>
+					</div>
+					<p class="pay_cnt">결제내역 9건</p>
+
+					<div class="search_select" data-type="month">
+						<div class="select_triger"><span class="type_txt">월단위</span></div>
+						<div class="select_layer">
+							<button type="button" class="month active" data-type="month"><span>월단위</span></button>
+							<button type="button" class="custom" data-type="custom"><span>직접입력</span></button>
+						</div>
+					</div>
+					<!-- // search_select -->
+				</div>
+				<!-- // search_inner -->
+			</div>
+			<!-- // search_wrap -->
+		</div>
+		<!-- // page_header -->
+
+		<div class="page_content">
+			
+			<div class="list-wrap type-pay">
+				<div class="content">
+					<div class="used_list">
+						<div class="item">
+							<div class="info_row">
+								<span class="place">기프트샵</span>
+								<span class="price">-1,010,000원</span>
+							</div>
+							<div class="status_row">
+								<span class="status cancel">결제취소</span>
+								<!-- <span class="status success">결제성공</span>
+								<span class="status partial_cancel">부분취소</span> -->
+							</div>
+							<div class="dttm_row">
+								<div class="dttm_cntr">
+									<span>2026.05.21</span>
+									<span>08:21:00</span>
+								</div>
+								<span class="bar">|</span>
+								<span class="type">오프라인</span>
+							</div>
+						</div>
+						<div class="item">
+							<div class="info_row">
+								<span class="place">스타벅스 서울역점</span>
+								<span class="price">15,000원</span>
+							</div>
+							<div class="status_row">
+								<span class="status success">결제성공</span>
+								<!-- <span class="status cancel">결제취소</span>
+								<span class="status partial_cancel">부분취소</span> -->
+							</div>
+							<div class="dttm_row">
+								<div class="dttm_cntr">
+									<span>2026.05.21</span>
+									<span>08:21:00</span>
+								</div>
+								<span class="bar">|</span>
+								<span class="type">오프라인</span>
+							</div>
+						</div>
+						<div class="item">
+							<div class="info_row">
+								<span class="place">기프트샵</span>
+								<span class="price">-1,010,000원</span>
+							</div>
+							<div class="status_row">
+								<span class="status cancel">결제취소</span>
+								<!-- <span class="status success">결제성공</span>
+								<span class="status partial_cancel">부분취소</span> -->
+							</div>
+							<div class="dttm_row">
+								<div class="dttm_cntr">
+									<span>2026.05.21</span>
+									<span>08:21:00</span>
+								</div>
+								<span class="bar">|</span>
+								<span class="type">오프라인</span>
+							</div>
+						</div>
+						<div class="item">
+							<div class="info_row">
+								<span class="place">기프트샵</span>
+								<span class="price">-1,010,000원</span>
+							</div>
+							<div class="status_row">
+								<span class="status cancel">결제취소</span>
+								<!-- <span class="status success">결제성공</span>
+								<span class="status partial_cancel">부분취소</span> -->
+							</div>
+							<div class="dttm_row">
+								<div class="dttm_cntr">
+									<span>2026.05.21</span>
+									<span>08:21:00</span>
+								</div>
+								<span class="bar">|</span>
+								<span class="type">오프라인</span>
+							</div>
+						</div>
+						<div class="item">
+							<div class="info_row">
+								<span class="place">기프트샵</span>
+								<span class="price">-1,010,000원</span>
+							</div>
+							<div class="status_row">
+								<span class="status cancel">결제취소</span>
+								<!-- <span class="status success">결제성공</span>
+								<span class="status partial_cancel">부분취소</span> -->
+							</div>
+							<div class="dttm_row">
+								<div class="dttm_cntr">
+									<span>2026.05.17</span>
+									<span>09:11:00</span>
+								</div>
+								<span class="bar">|</span>
+								<span class="type">오프라인</span>
+							</div>
+						</div>
+						<div class="item">
+							<div class="info_row">
+								<span class="place">올리브영 홍대점</span>
+								<span class="price">38,500원</span>
+							</div>
+							<div class="status_row">
+								<span class="status success">결제성공</span>
+							</div>
+							<div class="dttm_row">
+								<div class="dttm_cntr">
+									<span>2026.05.16</span>
+									<span>17:45:00</span>
+								</div>
+								<span class="bar">|</span>
+								<span class="type">오프라인</span>
+							</div>
+						</div>
+						<div class="item">
+							<div class="info_row">
+								<span class="place">GS25 신촌점</span>
+								<span class="price">-3,200원</span>
+							</div>
+							<div class="status_row">
+								<span class="status cancel">결제취소</span>
+							</div>
+							<div class="dttm_row">
+								<div class="dttm_cntr">
+									<span>2026.05.15</span>
+									<span>11:02:00</span>
+								</div>
+								<span class="bar">|</span>
+								<span class="type">오프라인</span>
+							</div>
+						</div>
+						<div class="item">
+							<div class="info_row">
+								<span class="place">도미노피자 강동점</span>
+								<span class="price">28,000원</span>
+							</div>
+							<div class="status_row">
+								<span class="status success">결제성공</span>
+							</div>
+							<div class="dttm_row">
+								<div class="dttm_cntr">
+									<span>2026.05.14</span>
+									<span>20:30:00</span>
+								</div>
+								<span class="bar">|</span>
+								<span class="type">오프라인</span>
+							</div>
+						</div>
+						<div class="item">
+							<div class="info_row">
+								<span class="place">GS25 잠실점</span>
+								<span class="price">-4,000원</span>
+							</div>
+							<div class="status_row">
+								<span class="status partial_cancel">부분취소</span>
+							</div>
+							<div class="dttm_row">
+								<div class="dttm_cntr">
+									<span>2026.05.13</span>
+									<span>13:55:00</span>
+								</div>
+								<span class="bar">|</span>
+								<span class="type">오프라인</span>
+							</div>
+						</div>
+						<div class="item">
+							<div class="info_row">
+								<span class="place">CGV 용산점</span>
+								<span class="price">22,000원</span>
+							</div>
+							<div class="status_row">
+								<span class="status success">결제성공</span>
+							</div>
+							<div class="dttm_row">
+								<div class="dttm_cntr">
+									<span>2026.05.11</span>
+									<span>18:10:00</span>
+								</div>
+								<span class="bar">|</span>
+								<span class="type">오프라인</span>
+							</div>
+						</div>
+						<div class="item">
+							<div class="info_row">
+								<span class="place">이디야커피 종로점</span>
+								<span class="price">8,400원</span>
+							</div>
+							<div class="status_row">
+								<span class="status success">결제성공</span>
+							</div>
+							<div class="dttm_row">
+								<div class="dttm_cntr">
+									<span>2026.05.09</span>
+									<span>08:47:00</span>
+								</div>
+								<span class="bar">|</span>
+								<span class="type">오프라인</span>
+							</div>
+						</div>
+						<div class="item">
+							<div class="info_row">
+								<span class="place">기프트샵</span>
+								<span class="price">-1,010,000원</span>
+							</div>
+							<div class="status_row">
+								<span class="status cancel">결제취소</span>
+							</div>
+							<div class="dttm_row">
+								<div class="dttm_cntr">
+									<span>2026.05.08</span>
+									<span>14:22:00</span>
+								</div>
+								<span class="bar">|</span>
+								<span class="type">오프라인</span>
+							</div>
+						</div>
+					</div>
+					<!-- // used_list -->
+				</div>
+			</div>
+			
+		</div>
+		<!-- // page_content -->
+	</div>
+	<!-- // page_wrapper -->
+
+
+
+<!-- ==================== Bottom Sheet ==================== -->
+<div class="bs-overlay" id="bsOverlay" style="display:none;"></div>
+
+
+
+
+
+<!-- 시트 1: 월 목록 -->
+<div class="bs-sheet" id="bsSheetMonth">
+	<div class="bs-inner">
+		<div class="bs-header">
+			<span class="bs-title">조회기간 선택</span>
+			<button type="button" class="bs-close-btn" data-close>
+				<img src="../images/btn_top_close.png" alt="닫기" width="24" height="24">
+			</button>
+		</div>
+		<ul class="bs-month-list" id="bsMonthList">
+			<li class="bs-month-item" data-ym="202605">
+				<label>
+					<input type="radio" name="month">
+					<span class="txt">2026년 5월</span>
+					<span class="checkmark"></span>
+				</label>
+			</li>
+			<li class="bs-month-item" data-ym="202605">
+				<label>
+					<input type="radio" name="month">
+					<span class="txt">2026년 4월</span>
+					<span class="checkmark"></span>
+				</label>
+			</li>
+			<li class="bs-month-item" data-ym="202603">
+				<label>
+					<input type="radio" name="month">
+					<span class="txt">2026년 3월</span>
+					<span class="checkmark"></span>
+				</label>
+			</li>
+			<li class="bs-month-item" data-ym="202602">
+				<label>
+					<input type="radio" name="month">
+					<span class="txt">2026년 2월</span>
+					<span class="checkmark"></span>
+				</label>
+			</li>
+		</ul>
+		<div class="bs-panel-footer">
+			<button type="button" class="bs-action-btn" id="bsSubmitMonth"><span>조회하기</span></button>
+		</div>
+	</div>
+</div>
+<!-- // 시트 1 -->
+
+<!-- 시트 2: 직접입력 날짜 범위 -->
+<div class="bs-sheet" id="bsSheetDate">
+	<div class="bs-inner">
+		<div class="bs-header">
+			<span class="bs-title">조회기간 선택</span>
+			<button type="button" class="bs-close-btn" data-close>
+				<img src="../images/btn_top_close.png" alt="닫기" width="24" height="24">
+			</button>
+		</div>
+		<div class="bs-date-row">
+			<button type="button" class="bs-date-btn" id="bsBtnSDt">
+				<span class="bs-date-txt" id="bsSDtText">날짜 선택</span>
+				<span class="bs-date-ico"><img src="../images/ico_list_calender.png" alt="달력"></span>
+			</button>
+			<span class="bs-date-sep">-</span>
+			<button type="button" class="bs-date-btn" id="bsBtnEDt">
+				<span class="bs-date-txt" id="bsEDtText">날짜 선택</span>
+				<span class="bs-date-ico"><img src="../images/ico_list_calender.png" alt="달력"></span>
+			</button>
+		</div>
+		<div class="bs-panel-footer">
+			<button type="button" class="bs-action-btn" id="bsSubmitDate" disabled><span>조회하기</span></button>
+		</div>
+	</div>
+</div>
+<!-- // 시트 2 -->
+
+<!-- 시트 3: 달력 -->
+<div class="bs-sheet" id="bsSheetCal">
+	<div class="bs-inner">
+		<div class="bs-header">
+			<span class="bs-title">조회기간 선택</span>
+			<button type="button" class="bs-close-btn" data-close>
+				<img src="../images/btn_top_close.png" alt="닫기" width="24" height="24">
+			</button>
+		</div>
+		<div class="bs-cal-wrap">
+			<div class="bs-cal-nav">
+				<button type="button" class="bs-nav-btn" id="bsCalPrev">
+					<span><img src="../images/ico_l_enabled.png" alt="이전"></span>
+				</button>
+				<span class="bs-cal-title" id="bsCalTitle">5월</span>
+				<button type="button" class="bs-nav-btn" id="bsCalNext">
+					<span><img src="../images/ico_r_enabled.png" alt="다음"></span>
+				</button>
+			</div>
+			<div class="bs-cal-dow">
+				<span class="sun">일</span>
+				<span>월</span>
+				<span>화</span>
+				<span>수</span>
+				<span>목</span>
+				<span>금</span>
+				<span class="sat">토</span>
+			</div>
+			<div class="bs-cal-grid" id="bsCalGrid">
+				<span class="bs-cal-cell other-month" data-y="2026" data-m="3" data-d="26">26</span>
+				<span class="bs-cal-cell other-month" data-y="2026" data-m="3" data-d="27">27</span>
+				<span class="bs-cal-cell other-month" data-y="2026" data-m="3" data-d="28">28</span>
+				<span class="bs-cal-cell other-month" data-y="2026" data-m="3" data-d="29">29</span>
+				<span class="bs-cal-cell other-month" data-y="2026" data-m="3" data-d="30">30</span>
+				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="1">1</span>
+				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="2">2</span>
+				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="3">3</span>
+				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="4">4</span>
+				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="5">5</span>
+				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="6">6</span>
+				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="7">7</span>
+				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="8">8</span>
+				<span class="bs-cal-cell selected" data-y="2026" data-m="4" data-d="9">9</span>
+				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="10">10</span>
+				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="11">11</span>
+				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="12">12</span>
+				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="13">13</span>
+				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="14">14</span>
+				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="15">15</span>
+				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="16">16</span>
+				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="17">17</span>
+				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="18">18</span>
+				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="19">19</span>
+				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="20">20</span>
+				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="21">21</span>
+				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="22">22</span>
+				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="23">23</span>
+				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="24">24</span>
+				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="25">25</span>
+				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="26">26</span>
+				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="27">27</span>
+				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="28">28</span>
+				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="29">29</span>
+				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="30">30</span>
+				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="31">31</span>
+				<span class="bs-cal-cell other-month" data-y="2026" data-m="5" data-d="1">1</span>
+				<span class="bs-cal-cell other-month" data-y="2026" data-m="5" data-d="2">2</span>
+				<span class="bs-cal-cell other-month" data-y="2026" data-m="5" data-d="3">3</span>
+				<span class="bs-cal-cell other-month" data-y="2026" data-m="5" data-d="4">4</span>
+				<span class="bs-cal-cell other-month" data-y="2026" data-m="5" data-d="5">5</span>
+				<span class="bs-cal-cell other-month" data-y="2026" data-m="5" data-d="6">6</span>
+			</div>
+		</div>
+		<div class="bs-panel-footer">
+			<button type="button" class="bs-action-btn" id="bsSubmitCal"><span>확인</span></button>
+		</div>
+	</div>
+</div>
+<!-- // 시트 3 -->
+<!-- // ==================== Bottom Sheet ==================== -->
+
+</body>
+
+</html>
