@@ -366,7 +366,7 @@
 			</div>
 		</div>
 		<div class="bs-panel-footer">
-			<button type="button" class="bs-action-btn" id="bsSubmitCal"><span>확인</span></button>
+			<button type="button" class="bs-action-btn" id="bsSubmitCal" disabled><span>확인</span></button>
 		</div>
 	</div>
 </div>
@@ -514,6 +514,8 @@ function renderCalendar(year, month) {
 			renderCalendar(state.calYear, state.calMonth);
 		});
 	});
+
+	document.getElementById('bsSubmitCal').disabled = !state.tempDate;
 }
 
 function updateDateSubmitButton() {

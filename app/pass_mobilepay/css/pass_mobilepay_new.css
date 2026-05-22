@@ -102,5 +102,5 @@ ul.bs-month-list li.bs-month-item input[type="radio"]:checked ~ span.checkmark::
 .bs-panel-footer {padding:0 18px; flex-shrink:0;}
 .bs-panel-footer .bs-action-btn {display:block; width:100%; height:48px; border-radius:6px; border:none; background:#333; cursor:pointer;}
 .bs-panel-footer .bs-action-btn span {display:block; color:#fff; font-size:16px; line-height:1em; font-weight:400;}
-.bs-panel-footer .bs-action-btn:disabled {background:#ccc; cursor:not-allowed;}
+.bs-panel-footer .bs-action-btn:disabled {background:#D7D8D9; cursor:not-allowed;}
 /* ==================== // Bottom Sheet ==================== */
