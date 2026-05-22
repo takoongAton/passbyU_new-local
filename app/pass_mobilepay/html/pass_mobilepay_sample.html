@@ -520,11 +520,19 @@ function updateDateSubmitButton() {
 	document.getElementById('bsSubmitDate').disabled = !(state.selectedSDt && state.selectedEDt);
 }
 
+function formatMonthLabel(year, month) {
+	const currentYear = new Date().getFullYear();
+	if (year === currentYear) {
+		return month + '월';
+	}
+	return year + '년 ' + month + '월';
+}
+
 function applyMonthSearch(yearMonth) {
 	state.selectedYM = yearMonth;
 	const year  = parseInt(yearMonth.substring(0, 4));
 	const month = parseInt(yearMonth.substring(4, 6));
-	document.querySelector('.period_box .date').textContent = year + '년 ' + month + '월';
+	document.querySelector('.period_box .date').textContent = formatMonthLabel(year, month);
 }
 
 function bindEvents() {
@@ -645,7 +653,7 @@ function init() {
 	const today = new Date();
 	state.selectedYM = String(today.getFullYear()) + addLeadingZero(today.getMonth() + 1);
 	document.querySelector('.period_box .date').textContent =
-		today.getFullYear() + '년 ' + (today.getMonth() + 1) + '월';
+		formatMonthLabel(today.getFullYear(), today.getMonth() + 1);
 	renderCalendar(today.getFullYear(), today.getMonth());
 	bindEvents();
 }
