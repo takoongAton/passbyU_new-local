@@ -366,7 +366,7 @@
 			</div>
 		</div>
 		<div class="bs-panel-footer">
-			<button type="button" class="bs-action-btn" id="bsSubmitCal"><span>확인</span></button>
+			<button type="button" class="bs-action-btn" id="bsSubmitCal" disabled><span>확인</span></button>
 		</div>
 	</div>
 </div>
@@ -502,8 +502,7 @@ function renderCalendar(year, month) {
 	let nextMonth = month + 1, nextYear = year;
 	if (nextMonth > 11) { nextMonth = 0; nextYear = year + 1; }
 	const totalCells = firstDayOfWeek + lastDateOfMonth;
-	const remainder  = totalCells % 7;
-	const fillCount  = remainder === 0 ? 0 : 7 - remainder;
+	const fillCount  = 42 - totalCells;
 	for (let i = 1; i <= fillCount; i++) {
 		gridEl.appendChild(makeCalendarCell(nextYear, nextMonth, i, true));
 	}
@@ -514,6 +513,8 @@ function renderCalendar(year, month) {
 			renderCalendar(state.calYear, state.calMonth);
 		});
 	});
+
+	document.getElementById('bsSubmitCal').disabled = !state.tempDate;
 }
 
 function updateDateSubmitButton() {
