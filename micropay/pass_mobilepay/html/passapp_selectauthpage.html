@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>휴대폰결제</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+	
+	<!-- font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+	
+	<!-- css -->
+	<!-- <link rel="stylesheet" href="../css/reset.css" /> -->
+	<link rel="stylesheet" href="../css/common.css" />
+	<!-- <link rel="stylesheet" href="../css/pass_mobilepay.css" /> -->
+	<link rel="stylesheet" href="../css/pass_mobilepay_new.css" />
+</head>
+<body>
+	
+	<div class="page-wrapper">
+		<!-- header -->
+		<div class="header_temp">
+			<div class="temp">
+				<button type="button" class="bnt_prev"><span><img src="../images/btn_top_back.png" alt="이전"></span></button>
+			</div>
+			<!-- // temp 삭제 -->
+		</div>
+		<!-- /header -->
+
+		<div class="container">
+
+			<div class="page_title_wrap">
+				<h2 class="title">
+					아래 본인인증 방법 중 <br />
+					한가지를 선택해 주세요
+				</h2>
+				<p class="desc">
+					아래 휴대폰으로 전송된 푸쉬 메시지를 <br />
+					누른뒤 인증을 진행해 주세요
+				</p>
+			</div>
+			<!-- // page_title_wrap -->
+
+			<div class="select_passauth">
+				<div class="selList">
+					<div class="item">
+						<label class="">
+							<input type="radio" name="authType" value="passCert">
+							<span class="checkmark"></span>
+							<span class="txt">휴대폰 본인 확인 (PASS)</span>
+						</label>
+					</div>
+					<div class="item">
+						<label class="">
+							<input type="radio" name="authType" value="ars">
+							<span class="checkmark"></span>
+							<span class="txt">PASS인증서</span>
+						</label>
+					</div>
+				</div>
+				<!-- // selList -->
+			</div>
+			<!-- // select_passauth -->
+
+
+
+
+			
+		</div><!-- /container -->
+	</div>
+	<!-- // page-wrapper -->
+
+</body>
+
+</html>
