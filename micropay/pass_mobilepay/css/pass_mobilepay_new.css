@@ -165,7 +165,7 @@ div.alert_required .footer-section .footer-section-list li a {color:inherit; tex
 
 
 /* 페이지 상단 공통 타이틀 */
-.page_title_wrap {margin-bottom:24px;}
+.page_title_wrap {max-width:720px; margin:0 auto; margin-bottom:24px;}
 .page_title_wrap h2.title {padding:16px 18px; color:hsl(0, 0%, 0%); font-size:20px; line-height:1.5em; font-weight:bold;}
 .page_title_wrap p.desc {padding:0 18px; color:#989899; font-size:12px; line-height:1.833333em; font-weight:bold;}
 /* // 페이지 상단 공통 타이틀 */
@@ -295,6 +295,12 @@ div.layer_full_header div.temp button {position:absolute; top:0; width:auto; pad
 div.layer_full_header div.temp button.btn_close {right:18px;}
 div.layer_full_header div.temp button span {display:block; width:24px; height:24px;}
 div.layer_full_body {padding:18px; color:#666666; font-size:14px; line-height:20px; overflow-y:auto;}
+
+.privacy_table {margin:1em 0; text-align:center;}
+.privacy_table th,
+.privacy_table td {padding:14px 3px; border:1px solid #E7E7E7; font-size:14px; line-height:16px; font-weight:400; letter-spacing:-0.05em;}
+.privacy_table th {background-color:#F8F9FB; color:#666;}
+.privacy_table td {background-color:#fff; color:666}
 /* // 약관 보기 팝업 */
 
 
@@ -313,7 +319,7 @@ div.layer_full_body {padding:18px; color:#666666; font-size:14px; line-height:20
 
 
 
-.footer_btn_group {position:fixed; bottom:0; left:0; width:100%; padding:0 18px 24px;}
+.footer_btn_group {position:fixed; bottom:0; right:0; left:0; width:100%; max-width:720px; margin:0 auto; padding:0 18px 24px;}
 .footer_btn_group button.btn_next {height:48px; background-color:#333333; border-radius:6px;;}
 .footer_btn_group button.btn_next span {display:inline-block; color:#fff; font-size:16px; line-height:1.5em; font-weight:400;}
 /* // 260608 추가 */
