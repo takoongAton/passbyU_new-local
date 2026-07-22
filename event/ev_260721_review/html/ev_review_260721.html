@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>PASS 앱리뷰 이벤트</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<meta name="color-scheme" content="light">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/ev_common.css">
+	<link rel="stylesheet" href="../css/slick.css">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400..700&display=block" rel="stylesheet" />
+
+	<style>
+		@font-face {font-family:'RiaSans'; src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2402-1@1.0/RiaSans-Regular.woff2') format('woff2'); font-weight:normal; font-display:block;}
+		@font-face {font-family:'RiaSans'; src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2402-1@1.0/RiaSans-Bold.woff2') format('woff2'); font-weight:700; font-display:block;}
+		@font-face {font-family:'Escoredream'; src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff'); font-weight:normal; font-display:block;}
+		@font-face {font-family:'Escoredream'; src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff') format('woff'); font-weight:500; font-display:block;}
+
+		body {
+			background-color:#F2F2F2; color:#000;
+			font-family:'Pretendard', 'pretendard', -apple-system,'BlinkMacSystemFont', 'Noto Sans KR','Noto Sans CJK','Apple SD Gothic Neo', serif;
+		}
+
+		@media (prefers-color-scheme: dark) {
+			body {background-color:white !important; color:black !important;}
+			img, video {filter:none !important;}
+		}
+
+		.ev_260721 {max-width:720px; margin:0 auto; background-color:#fff; font-family:"Pretendard", 'Noto Sans KR',-apple-system,'BlinkMacSystemFont', 'Noto Sans CJK','Apple SD Gothic Neo', serif;}
+		.ev_260721 img {vertical-align:top; border:0; max-width:100%; filter:none !important;}
+
+		/* 메인 비주얼 */
+		.ev_260721 .top {position:relative; height:36.75em; min-height:36.75em; background-color:#f4d7b5; overflow:hidden;}
+		.ev_260721 .top .tit {position:absolute; top:2.08333em; left:3.625em; right:0; width:15.291666em; z-index:2; text-align:center;}
+		.ev_260721 .top .tit .sub {color:#835c48; font-size:1.16666em; line-height:1.14285em; font-weight:600; letter-spacing:-0.02em;}
+		.ev_260721 .top .tit .main {margin-top:0.375em; font-family:'RiaSans', 'Escoredream', 'Noto Sans KR', sans-serif; font-size:1.75em; line-height:1.47619em; font-weight:700; letter-spacing:-0.025em;}
+		.ev_260721 .top .tit .main em {color:#a54d21; font-style:normal;}
+
+		/* .ev_260721 .top .visual {position:absolute; top:11.125em; left:0; right:0; height:16.33333em; z-index:1;} */
+		.ev_260721 .top .visual .star {position:absolute; pointer-events:none;}
+		.ev_260721 .top .visual .star.left {top:24.9583em; left:1.33333em; width:2.375em;}
+		.ev_260721 .top .visual .star.right {top:12.04166em; right:1.375em; width:2.54166em;}
+		.ev_260721 .top .visual .hand {position:absolute; top:14.79166em; left:5em; width:19.79166em; filter:drop-shadow(0.83333em 1.25em 1.66666em rgba(237,179,112,0.41));}
+		.ev_260721 .top .visual .coffee {position:absolute; top:13.08333em; left:1.70833em; width:15.04166em; z-index:1;}
+		.ev_260721 .top .visual .coffeehand {position:absolute; top:13.0833em; left:1.70833em; width:20.79166em;}
+		.ev_260721 .top .visual .bubble {position:absolute; z-index:4; animation:ani_bubble 2s infinite;}
+		.ev_260721 .top .visual .bubble.left {top:13.66666em; left:1em; width:8em;}
+		.ev_260721 .top .visual .bubble.right {top:19.75em; right:0em; width:10.20833em; animation-delay: 0.3s;}
+		@keyframes ani_bubble {
+			0%,100 {transform:translateY(0);}
+			50% {transform:translateY(-5px);}
+		}
+
+		.ev_260721 .top .date_wrap {display:flex; flex-direction:column; justify-content:center; align-items:center; gap:0.16666em; position:absolute; bottom:0; left:0; right:0; padding:1em 1.33333em; background-color:#b65f33; z-index:2;}
+		.ev_260721 .top .date_wrap .row {display:flex; align-items:center; gap:0.66666em; width:100%; max-width:16.08333em;}
+		.ev_260721 .top .date_wrap .row strong {flex:0 0 5em; color:#ffe0b3; font-size:0.91666em; line-height:1.45454em; font-weight:700;}
+		.ev_260721 .top .date_wrap .row span {flex:1; color:#fff; font-size:0.91666em; line-height:1.45454em; font-weight:600;}
+
+		/* 공통 섹션 */
+		.box_content {position:relative; z-index:1; width:100%; padding:2.5em 1.33333em;}
+		.box_content .tit_wrap {display:flex; flex-direction:column; align-items:center; gap:0.66666em; text-align:center;}
+		.box_content .tit_wrap .section_tit {color:#353535; font-size:1.75em; line-height:1.28571em; font-weight:700; letter-spacing:-0.03em;}
+		.box_content .tit_wrap .section_tit strong {color:#B65F33;}
+		.box_content .tit_wrap .section_tit span {color:#353535;}
+		.box_content .tit_wrap .section_txt {color:#454545; font-size:0.875em; line-height:1.47619em; font-weight:400; letter-spacing:-0.02em;}
+		.box_content .tit_wrap .mission_label {display:inline-flex; align-items:center; gap:0 0.33333em; height:1.66666em; padding:0 0.66666em; border-radius:0.83333em; border:1px solid rgba(255,255,255,0.7); background:linear-gradient(180deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.2) 100%); box-shadow:0.125em 0.125em 0.66666em rgba(212,191,160,0.24); font-family:'Escoredream';}
+		.box_content .tit_wrap .mission_label strong {color:#ee7233; font-size:0.91666em; line-height:1em; font-weight:500;}
+		.box_content .tit_wrap .mission_label span {color:#e9ddcd; font-size:0.75em; line-height:1em; font-weight:400;}
+		.box_content .tit_wrap .mission_label span.num {color:#929292; font-size:0.91666em; font-weight:500;}
+		.box_content .tit_wrap .step_tit {color:#353535; font-size:1.75em; line-height:1.28571em; font-weight:700; letter-spacing:-0.03em;}
+		.box_content .tit_wrap .step_tit .brand {color:#353535;}
+
+		/* 주요기능 슬라이드 */
+		.box_content#review01 {background-color:#FFF8ED; padding-bottom:2.5em; padding-left:0; padding-right:0;}
+		.box_content#review01 .guide_slide {margin:1.25em 0;
+			display: flex;
+			/* gap: 0.5em; */
+			overflow-x: auto;
+			overflow-y: hidden;
+			padding-bottom: 0;
+			scrollbar-width: none;
+			overscroll-behavior-x: contain;
+			-webkit-overflow-scrolling: touch;
+			scroll-snap-type:x mandatory;
+		}
+		.box_content#review01 .guide_slide div.item {padding:0 0.25em; scroll-snap-align: start; scroll-snap-stop: always;}
+		.box_content#review01 .guide_slide div.item:first-of-type {padding-left:1.33333em;}
+		.box_content#review01 .guide_slide div.item:last-of-type {padding-right:1.3333em;}
+		.box_content#review01 .guide_slide .slide_card {display:flex; flex-direction:column; align-items:center; gap:1.16666em; width:13em; padding:1.33333em 1.91666em; border-radius:1.08333em; border:1px solid #f1d8b5; background-color:#fff1de;}
+		.box_content#review01 .guide_slide .slide_card div.txt {display:flex; flex-direction:column; justify-content:center; gap:0.5em; align-items: center;}
+		.box_content#review01 .guide_slide .slide_card div.txt p {color:#000; font-size:0.83333em; line-height:1.45em; font-weight:400; letter-spacing:-0.02em; text-align:center;}
+		.box_content#review01 .guide_slide .slide_card div.txt strong {display:flex; align-items:center; gap:0.25em;}
+		.box_content#review01 .guide_slide .slide_card div.txt strong span.txt {font-size:1.20833em; line-height:1em; font-weight:bold;}
+		.box_content#review01 .guide_slide .slide_card div.txt strong span.img {display:flex; align-items: center;}
+		.box_content#review01 .guide_slide .slide_card div.txt strong span.img img {display:inline-block; width:3.88208em; height:auto; vertical-align:middle;}
+		.box_content#review01 .guide_slide .slide_card .phone {width:9.16666em; height:17.875em; border-radius:1.16666em; background:#fff; box-shadow:0.08333em 0.125em 0.83333em rgba(0,0,0,0.08); overflow:hidden;}
+		.box_content#review01 .guide_slide .slide_card .phone .screen {}
+		.box_content#review01 .guide_slide ul.bnr_dots_bottomCenter {display:flex; justify-content:center; gap:0.33333em; margin-top:0.83333em; padding:0;}
+		.box_content#review01 .guide_slide ul.bnr_dots_bottomCenter li {line-height:0;}
+		.box_content#review01 .guide_slide ul.bnr_dots_bottomCenter li button {display:block; width:0.41666em; height:0.41666em; background-color:#fff; color:transparent; transition:all 0.2s ease; border-radius:0.41666em;}
+		.box_content#review01 .guide_slide ul.bnr_dots_bottomCenter li.slick-active button {width:1.33333em; background-color:#ee7233;}
+
+		/* 버튼 */
+		.btn_orange {display:flex; justify-content:center; align-items:center; position:relative; width:100%; height:3.41666em; border-radius:0.66666em; background-color:#ee7233;}
+		.btn_orange span {color:#fff; font-size:1.08333em; line-height:1em; font-weight:700; letter-spacing:-0.02em;}
+		.btn_share {display:flex; justify-content:center; align-items:center; gap:0.41666em; position:relative; width:100%; height:3.41666em; margin-top:1.25em; border-radius:0.66666em; background-color:#ff8a29;}
+		.btn_share span.ico {display:inline-block; position:absolute; top:50%; left:1em; transform:translateY(-50%); width:1.08333em; height:1.08333em; background:url('../images/260721_ico_share.png') no-repeat center / contain;}
+		.btn_share span.txt {color:#fff; font-size:1.08333em; line-height:1em; font-weight:700; letter-spacing:-0.02em;}
+		.btn_join {display:flex; justify-content:center; align-items:center; position:relative; width:100%; height:3.41666em; border-radius:0.66666em; background-color:#4DA762;}
+		.btn_join span {color:#fff; font-size:1.08333em; line-height:1em; font-weight:700; letter-spacing:-0.02em;}
+
+		/* 참여방법 01 */
+		.box_content#review02 {background-color:#FFE4BE; padding:2.5em 0;}
+		.box_content#review02 .review_img_wrap {position:relative; width:100%; text-align:center;}
+		.box_content#review02 .inner_box {padding:0 1.33333em;}
+		
+		.box_content#review02 .btn_orange {margin-top:0.75em;}
+
+		/* 참여방법 02 */
+		.box_content#review03 {background-color:#F9F9E3; padding-top:2.5em; padding-bottom:2.5em;}
+		.box_content#review03 .form_wrap {display:flex; flex-direction:column; gap:0.75em; margin-top:0.91666em;}
+		.box_content#review03 .form_wrap input {width:100%; height:3em; padding:0 0.83333em; border:1px solid #E5E5E5; border-radius:0.66666em; background:#fff; color:#000; font-size:1em; line-height:1em; font-weight:400; font-family:'Pretendard', 'Noto Sans KR', sans-serif; letter-spacing:-0.05em;}
+		.box_content#review03 .form_wrap input:focus {border-color:#000;}
+		.box_content#review03 .form_wrap input::placeholder {color:#999; text-align:left;}
+
+		.box_content#review03 .tit_wrap .mission_label strong {color:#4DA762;}
+
+		/* 이벤트 혜택 */
+		.box_content#review04 {background-color:#407e55; padding-top:2.5em; padding-bottom:2.5em;}
+		.box_content#review04 .benefit_tit {display:flex; justify-content:center; align-items:center; gap:0.75em;}
+		.box_content#review04 .benefit_tit span.ico {display:inline-block; width:1.16666em; height:1.16666em;}
+		.box_content#review04 .benefit_tit strong {color:#fff; font-size:1.75em; line-height:1.28571em; font-weight:700; letter-spacing:-0.03em;}
+		.box_content#review04 .benefit_list {display:flex; flex-direction:column; gap:0.75em; margin-top:0.91666em;}
+		.box_content#review04 .benefit_box {display:flex; align-items:center; gap:0.83333em; width:100%; padding:1.25em 1.08333em; border-radius:1.08333em; background-color:#fff;}
+		.box_content#review04 .benefit_box .thum {display:flex; justify-content:center; align-items:center; width:6.66666em; min-width:6.66666em; height:6.66666em; border-radius:0.83333em; background:#fafafa;}
+		.box_content#review04 .benefit_box .thum img {height:auto;}
+		.box_content#review04 .benefit_box.gift1 img {width:2.875em;}
+		.box_content#review04 .benefit_box.gift2 img {width:4.70833em;}
+		.box_content#review04 .benefit_box .txt .label {display:block; color:#858585; font-size:0.83333em; line-height:1.55em; font-weight:700;}
+		.box_content#review04 .benefit_box .txt .name {display:block; margin-top:0.08333em; color:#353535; font-size:0.91666em; line-height:1.40909em; font-weight:500; letter-spacing:-0.02em;}
+		.box_content#review04 .benefit_box .txt .count {display:inline-block; margin-top:0.75em; padding:0.08333em 0.41666em; border-radius:0.25em; background-color:#e8f8f1; color:#42b48a; font-size:0.83333em; line-height:1.45em; font-weight:700;}
+
+		/* 하단 고정 버튼 */
+		.ev_260721 .f_fixed_btn {display:flex; justify-content:center; position:fixed; bottom:0; left:0; right:0; width:100%; max-width:720px; margin:0 auto;
+			padding:0.5833em 1.33333em;
+			padding-bottom:calc(0.5833em + constant(safe-area-inset-bottom)); padding-bottom:calc(0.5833em + env(safe-area-inset-bottom));
+			z-index:10;
+		}
+		.ev_260721 .f_fixed_btn button {display:flex; justify-content:center; align-items:center; width:100%; height:3.41666em; border-radius:0.66666em; background-color:#43c8e6;}
+		.ev_260721 .f_fixed_btn button span {color:#fff; font-size:1.08333em; line-height:1em; font-weight:700;}
+
+		/* 꼭 확인하세요 */
+		.ev_260721 .footer_alert {padding:1.66666em 1.33333em 7.08333em; background-color:#2c5038;}
+		.ev_260721 .footer_alert div.tit strong {color:#fff1b4; font-size:1em; font-weight:700;}
+		.ev_260721 .footer_alert .footer_group {margin-top:0.83333em;}
+		.ev_260721 .footer_alert .footer_group + .footer_group {margin-top:1em;}
+		.ev_260721 .footer_alert .footer_group div.sub_tit strong {display:inline-block; color:#fff; font-size:0.83333em; line-height:1.4em; font-weight:700;}
+		.ev_260721 .footer_alert .footer_group ul {display:flex; flex-direction:column; gap:0.5em; margin-top:0.5em;}
+		.ev_260721 .footer_alert .footer_group ul li p {position:relative; padding-left:0.95em; color:#c6d5cb; font-size:0.83333em; line-height:1.4em; font-family:"Pretendard";}
+		.ev_260721 .footer_alert .footer_group ul li p::before {content:"⋅"; display:block; position:absolute; top:0; left:0; color:inherit; font-size:inherit; line-height:inherit; font-weight:bold;}
+
+		/* 레이어 팝업 */
+		.layer .layer_content {display:flex; flex-direction:column; justify-content: center; align-content: center; gap:8px;;}
+		.layer .layer_content div.img {margin-bottom:1.25em; text-align:center;}
+		.layer .layer_content div.img img {display:inline-block; width:100px; vertical-align:top;}
+		.layer .layer_content div.nickName {color:#A54D21; font-size:18px; line-height:1.33333em; font-weight:bold;}
+
+		@supports (-webkit-touch-callout: none) {
+			.ev_260721 .top .date_wrap .row span {position:relative; top:0.05em;}
+			.box_content .tit_wrap .mission_label strong,
+			.box_content .tit_wrap .mission_label span.num {position:relative; top:0.05em;}
+		}
+	</style>
+</head>
+
+<body>
+<div class="evPageWrap">
+
+	<div class="evSection">
+		<div class="ev_260721">
+
+			<div class="top">
+				<div class="tit">
+					<img src="../images/260721_img_title.png" alt="PASS 가입 기념 이벤트">
+				</div>
+
+				<div class="visual">
+					<div class="star left"><img src="../images/img_star1.png" alt=""></div>
+					<div class="star right"><img src="../images/img_star2.png" alt=""></div>
+					<!-- <div class="coffee"><img src="../images/260721_img_coffee.png" alt=""></div>
+					<div class="hand"><img src="../images/260721_img_hand.png" alt=""></div> -->
+					<div class="coffeehand"><img src="../images/260721_img_coffeehand.png" alt=""></div>
+					<div class="bubble left">
+						<img src="../images/bubble-review01.png" alt="">
+					</div>
+					<div class="bubble right">
+						<img src="../images/bubble-review02.png" alt="">
+					</div>
+				</div>
+
+				<div class="date_wrap">
+					<div class="row">
+						<strong>응모기간</strong>
+						<span>2026. 7. 28 ~ 2026. 8. 31</span>
+					</div>
+					<div class="row">
+						<strong>당첨자 발표</strong>
+						<span>당첨자 개별 안내</span>
+					</div>
+				</div>
+			</div>
+			<!-- // top -->
+
+			<div class="box_content" id="review01">
+				<div class="tit_wrap">
+					<p class="section_tit"><strong>PASS 주요기능</strong> <span>둘러보기</span></p>
+					<p class="section_txt">
+						인증을 넘어 일상에 편리함을 더하는<br>
+						PASS를 만나보세요.
+					</p>
+				</div>
+
+				<div class="guide_slide">
+					<div class="item">
+						<div class="slide_card">
+							<div class="txt">
+								<p>흩어져 있는 나의 정보를 <br />똑똑하게모아보는</p>
+								<strong><span class="txt">MY</span></strong>
+							</div>
+							<div class="phone"><div class="screen"><img src="../images/screen_slide_01.png" alt=""></div></div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="slide_card">
+							<div class="txt">
+								<p>내 연락처 그대로<br />
+									간편하게 활용하는</p>
+								<strong><span class="txt">주소록</span></strong>
+							</div>
+							<div class="phone"><div class="screen"><img src="../images/screen_slide_02.png" alt=""></div></div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="slide_card">
+							<div class="txt">
+								<p>원하는 서비스를<br />
+									더 직관적이고 간단하게</p>
+								<strong><span class="txt">빠른 검색</span></strong>
+							</div>
+							<div class="phone"><div class="screen"><img src="../images/screen_slide_03.png" alt=""></div></div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="slide_card">
+							<div class="txt">
+								<p>이제 PASS앱으로 <br />
+									간편하게</p>
+								<strong><span class="txt">휴대폰결제</span></strong>
+							</div>
+							<div class="phone"><div class="screen"><img src="../images/screen_slide_04.png" alt=""></div></div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="slide_card">
+							<div class="txt">
+								<p>간편하고 <br />
+									다양한 방식의</p>
+								<strong><span class="txt">실시간 본인 확인</span></strong>
+							</div>
+							<div class="phone"><div class="screen"><img src="../images/screen_slide_05.png" alt=""></div></div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="slide_card">
+							<div class="txt">
+								<p>클릭 한 번으로 <br />안전하게</p>
+								<strong><span class="img"><img src="../images/260721_img_PASS.png" alt=""></span> <span class="txt">인증서</span></strong>
+							</div>
+							<div class="phone"><div class="screen"><img src="../images/screen_slide_06.png" alt=""></div></div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="slide_card">
+							<div class="txt">
+								<p>휴대폰 하나면 <br />신분확인 OK</p>
+								<strong><span class="txt">PASS 신분증</span></strong>
+							</div>
+							<div class="phone"><div class="screen"><img src="../images/screen_slide_06.png" alt=""></div></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="tit_wrap">
+					<p class="section_txt">
+						PASS 이용 경험을 리뷰로 남겨주시면 <br />
+						추첨을 통해 혜택을 드려요.
+					</p>
+				</div>
+			</div>
+			<!-- // box_content -->
+
+			<div class="box_content" id="review02">
+				<div class="tit_wrap">
+					<div class="mission_label">
+						<strong>참여방법</strong><span>/</span><span class="num">01</span>
+					</div>
+					<p class="step_tit">스토어에 <span class="brand">PASS by U+</span><br>앱 리뷰 남기기</p>
+				</div>
+
+				<div class="review_img_wrap">
+					<!-- <div class="bg_blur"></div> -->
+					<div class="review_frame">
+						<img src="../images/260721_img_review.png" alt="앱 리뷰 작성 화면">
+					</div>
+				</div>
+
+				<div class="inner_box"><button type="button" class="btn_orange" id="btn_review"><span>리뷰 작성하러 가기</span></button></div>
+			</div>
+			<!-- // box_content -->
+
+			<div class="box_content" id="review03">
+				<div class="tit_wrap">
+					<div class="mission_label">
+						<strong>참여방법</strong><span>/</span><span class="num">02</span>
+					</div>
+					<p class="step_tit">닉네임 입력하고 <br />
+						응모하기</p>
+				</div>
+
+				<div class="form_wrap">
+					<input type="text" placeholder="스토어 닉네임을 정확히 입력해주세요. (필수)">
+					<button type="button" class="btn_join" id="btn_submit"><span>이벤트 응모하기</span></button>
+				</div>
+			</div>
+			<!-- // box_content -->
+
+			<div class="box_content" id="review04">
+				<div class="benefit_tit">
+					<span class="ico"><img src="../images/ico_stars.png" alt=""></span>
+					<strong>이벤트 혜택</strong>
+					<span class="ico"><img src="../images/ico_stars.png" alt=""></span>
+				</div>
+
+				<div class="benefit_list">
+					<div class="benefit_box gift1">
+						<div class="thum"><img src="../images/260721_gift_01.png" alt="메가MGC커피 (ICE)아메리카노"></div>
+						<div class="txt">
+							<span class="label">메가MGC커피</span>
+							<p class="name">(ICE)아메리카노</p>
+							<span class="count">60명</span>
+						</div>
+					</div>
+					<div class="benefit_box gift2">
+						<div class="thum"><img src="../images/260721_gift_02.png" alt="메가MGC커피 달콤 충전 세트"></div>
+						<div class="txt">
+							<span class="label">메가MGC커피</span>
+							<p class="name">달콤 충전 세트</p>
+							<span class="count">20명</span>
+						</div>
+					</div>
+				</div>
+
+				<button type="button" class="btn_share"><span class="ico"><img src="../images/ico_share.png" alt="공유하기"></span><span class="txt">이벤트 공유하기</span></button>
+			</div>
+			<!-- // box_content -->
+
+			<div class="footer_alert">
+				<div class="tit"><strong>꼭 확인해주세요.</strong></div>
+				<div class="footer_group">
+					<div class="sub_tit"><strong>[이벤트 응모]</strong></div>
+					<ul>
+						<li><p>본 이벤트는 만 14세 이상 고객만 참여할 수 있습니다.</p></li>
+						<li><p>본 이벤트는 1인 1회만 응모할 수 있으며,<br />중복 당첨은 불가합니다.</p></li>
+						<li><p>이벤트에 응모했더라도 스토어에 리뷰를 작성하지 않은 경우 이벤트 참여로 인정되지 않습니다.</p></li>
+						<li><p>이벤트 참여 후 U+ 통신사를 해지하거나 휴대폰 명의 또는 번호를 변경한 경우 이벤트 응모가 취소될 수 있습니다.</p></li>
+						<li><p>이벤트 참여를 위해 수집된 개인정보는 경품 발송 이외의 목적으로 사용되지 않으며, 이벤트 종료 후 일괄 파기됩니다.</p></li>
+					</ul>
+				</div>
+				<div class="footer_group">
+					<div class="sub_tit"><strong>[이벤트 당첨]</strong></div>
+					<ul>
+						<li><p>본 이벤트는 상시 진행되며, 당첨자는 월 2회 선정하여 개별 안내 후 경품을 발송해 드립니다.</p></li>
+						<li><p>경품은 매월 총 80명의 당첨자에게 지급됩니다.</p></li>
+						<li><p>당첨자는 리뷰 내용의 충실도와 구체성, 이벤트 운영 기준 등을 종합적으로 검토하여 선정합니다.</p></li>
+						<li><p>이벤트 운영 상황 및 참여 현황에 따라 당첨자 수와 선정 일정은 조정될 수 있습니다.</p></li>
+						<li><p>이벤트 경품과 내용은 운영 상황에 따라 변경될 수 있으며, 실제 경품은 안내 이미지와 다를 수 있습니다.</p></li>
+						<li><p>모바일 기프티콘은 PASS 내 ‘기프트샵’ 쿠폰 또는 SMS 형태로 발송됩니다.</p></li>
+						<li><p>연락처 등 정보를 잘못 기재하여 발생한 경품 반송 또는 분실에 대해서는 당사가 책임지지 않으며, 경품은 재발송되지 않습니다.</p></li>
+						<li><p>이벤트에 관한 자세한 사항은 고객센터(114)로 문의해 주세요.</p></li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- <div class="f_fixed_btn">
+				<button type="button" class="btn_fixed"><span>리뷰 작성하러 가기</span></button>
+			</div> -->
+
+		</div>
+		<!-- // ev_260721 -->
+	</div><!-- // evSection -->
+
+</div><!-- // evPageWrap -->
+
+
+<div class="layer alert">
+	<div class="dim"></div>
+	<div class="layer_inner">
+		<div class="layer_content">
+			<!-- <div class="img"><img src="../images/img_done.png" alt="응모완료 아이콘"></div> -->
+			<div class="tit">이미 이벤트에 <br />
+				응모하셨습니다.</div>
+		</div>
+		<div class="btn_group">
+			<!-- <div><button type="button" class="cancel"><span>취소</span></button></div> -->
+			<div><button type="button" class="next"><span>확인</span></button></div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="layer alert">
+	<div class="dim"></div>
+	<div class="layer_inner">
+		<div class="layer_content">
+			
+			<div class="tit">스토어 닉네임을 <br />
+				입력해주세요.</div>
+		</div>
+		<div class="btn_group">
+			<!-- <div><button type="button" class="cancel"><span>취소</span></button></div> -->
+			<div><button type="button" class="next"><span>확인</span></button></div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="layer alert">
+	<div class="dim"></div>
+	<div class="layer_inner">
+		<div class="layer_content">
+			<div class="nickName">%입력한 텍스트%</div>
+			<div class="tit">스토어 닉네임을 확인해주세요<br />
+				이벤트 응모가 완료되면<br />
+				입력한 내용은 수정할 수 없습니다.</div>
+			<div class="tit">이벤트에 응모하시겠습니까?</div>
+		</div>
+		<div class="btn_group">
+			<div><button type="button" class="cancel"><span>취소</span></button></div>
+			<div><button type="button" class="next"><span>확인</span></button></div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="layer alert">
+	<div class="dim"></div>
+	<div class="layer_inner">
+		<div class="layer_content">
+			<div class="tit">이벤트 응모가 완료되었습니다.<br />
+				당첨 고객에는 응모 익월 중<br />
+				개별 안내됩니다.</div>
+		</div>
+		<div class="btn_group">
+			<div><button type="button" class="next"><span>확인</span></button></div>
+		</div>
+	</div>
+</div>
+
+
+<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="../js/slick.min.js"></script> -->
+
+<script>
+	// $(document).ready(function(){
+	// 	$('.guide_slide').slick({
+	// 		autoplay: false,
+	// 		autoplaySpeed: 3000,
+	// 		dots: true,
+	// 		arrows: false,
+	// 		infinite: false,
+	// 		dotsClass: "bnr_dots_bottomCenter",
+	// 		speed: 300,
+	// 		slidesToShow: 1,
+	// 		centerMode: false,
+	// 		centerPadding: '0.91667em'
+	// 	});
+	// });
+
+	let btns = document.querySelectorAll(".evPageWrap button");
+	btns.forEach(function(item){
+		item.addEventListener("click", function(){
+			let btnTit = item.getAttribute('title');
+			if(btnTit) {
+				alert(btnTit);
+			} else {
+				let img = item.querySelector("img");
+				if(img) {
+					if(img.getAttribute("title")) {
+						alert(img.getAttribute("title"));
+					} else {
+						alert(img.getAttribute("alt"));
+					}
+				} else {
+					alert(item.innerText);
+				}
+			}
+		});
+	});
+
+	let layers = document.querySelectorAll(".layer");
+	layers.forEach(function(item){
+		item.querySelectorAll("button").forEach(function(e){
+			e.addEventListener("click", function(){
+				item.closest(".layer").style.display = "none";
+			});
+		});
+	});
+</script>
+</body>
+</html>
