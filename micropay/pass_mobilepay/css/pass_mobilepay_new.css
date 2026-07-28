@@ -329,5 +329,5 @@ div.layer_full_body {padding:18px; color:#666666; font-size:14px; line-height:20
 
 /* #bsSheetMonth 스와이프 높이 */
 #bsSheetMonth {height:376px;}
-#bsSheetMonth.bs-expanded {height:90vh; max-height:90vh;}
+#bsSheetMonth.bs-expanded {height:90vh; max-height:calc(90vh - env(safe-area-inset-top));}
 /* // #bsSheetMonth 스와이프 높이 */
