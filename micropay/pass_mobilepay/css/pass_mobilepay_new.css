@@ -55,10 +55,10 @@ div.used_list div.item div.dttm_row span.type::before {content:""; display:block
 .bs-overlay {position:fixed; background:rgba(0,0,0,0.7); inset:0; opacity:0; pointer-events:none; transition:opacity .3s; z-index:100;}
 .bs-overlay.on {opacity:1; pointer-events:auto;}
 
-.bs-sheet {display:flex; flex-direction:column; position:fixed; left:0; right:0; bottom:0; max-width:450px; max-height:90vh; margin:0 auto; padding:16px 0 24px; background:#fff; border-radius:16px 16px 0 0; transform:translateY(100%); transition:transform .35s cubic-bezier(.32,0,.67,0); z-index:101;}
+.bs-sheet {display:flex; flex-direction:column; position:fixed; left:0; right:0; bottom:0; max-width:450px; max-height:90vh; margin:0 auto; padding:16px 0 24px; background:#fff; border-radius:16px 16px 0 0; transform:translateY(100%); transition:transform .35s cubic-bezier(.32,0,.67,0),height .35s cubic-bezier(.32,0,.67,0); z-index:101;}
 .bs-sheet.on {transform:translateY(0);}
 
-.bs-sheet .bs-inner {display:flex; flex-direction:column; gap:24px 0; overflow:hidden; width:100%; max-height:calc(90vh - 40px);}
+.bs-sheet .bs-inner {display:flex; flex-direction:column; justify-content:space-between; gap:24px 0; overflow:hidden; width:100%; height:100%; max-height:calc(90vh - 40px);}
 
 /* 헤더 */
 .bs-sheet .bs-inner .bs-header {display:flex; align-items:center; justify-content:space-between; height:48px; padding:0 18px; flex-shrink:0;}
@@ -66,7 +66,7 @@ div.used_list div.item div.dttm_row span.type::before {content:""; display:block
 .bs-sheet .bs-inner .bs-header .bs-close-btn {display:flex; align-items:center; justify-content:center; width:24px; height:24px; background:none; cursor:pointer;}
 
 /* ── 시트 1: 월 목록 ── */
-ul.bs-month-list {list-style:none; margin:0; padding:0; overflow-y:auto;}
+ul.bs-month-list {flex:1; list-style:none; margin:0; padding:0; overflow-y:auto;}
 ul.bs-month-list li.bs-month-item label {display:flex; justify-content:space-between; align-items:center; padding:12px 18px; cursor:pointer;}
 ul.bs-month-list li.bs-month-item input[type="radio"] {position:absolute; top:0; left:0; width:0; height:0; opacity:0;}
 ul.bs-month-list li.bs-month-item span.txt {display:inline-block; color:#000; font-size:16px; line-height:24px;}
@@ -323,3 +323,11 @@ div.layer_full_body {padding:18px; color:#666666; font-size:14px; line-height:20
 .footer_btn_group button.btn_next {height:48px; background-color:#333333; border-radius:6px;;}
 .footer_btn_group button.btn_next span {display:inline-block; color:#fff; font-size:16px; line-height:1.5em; font-weight:400;}
 /* // 260608 추가 */
+
+
+
+
+/* #bsSheetMonth 스와이프 높이 */
+#bsSheetMonth {height:376px;}
+#bsSheetMonth.bs-expanded {height:90vh; max-height:90vh;}
+/* // #bsSheetMonth 스와이프 높이 */

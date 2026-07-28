@@ -281,14 +281,14 @@
 
 
 <!-- ==================== Bottom Sheet ==================== -->
-<div class="bs-overlay on" id="bsOverlay"></div>
+<div class="bs-overlay" id="bsOverlay"></div>
 
 
 
 
 
 <!-- 시트 1: 월 목록 -->
-<div class="bs-sheet on" id="bsSheetMonth">
+<div class="bs-sheet" id="bsSheetMonth">
 	<div class="bs-inner">
 		<div class="bs-header">
 			<span class="bs-title">조회기간 선택</span>
@@ -297,34 +297,7 @@
 			</button>
 		</div>
 		<ul class="bs-month-list" id="bsMonthList">
-			<li class="bs-month-item" data-ym="202605">
-				<label>
-					<input type="radio" name="month">
-					<span class="txt">2026년 5월</span>
-					<span class="checkmark"></span>
-				</label>
-			</li>
-			<li class="bs-month-item" data-ym="202605">
-				<label>
-					<input type="radio" name="month">
-					<span class="txt">2026년 4월</span>
-					<span class="checkmark"></span>
-				</label>
-			</li>
-			<li class="bs-month-item" data-ym="202603">
-				<label>
-					<input type="radio" name="month">
-					<span class="txt">2026년 3월</span>
-					<span class="checkmark"></span>
-				</label>
-			</li>
-			<li class="bs-month-item" data-ym="202602">
-				<label>
-					<input type="radio" name="month">
-					<span class="txt">2026년 2월</span>
-					<span class="checkmark"></span>
-				</label>
-			</li>
+			<!-- JS로 동적 생성 -->
 		</ul>
 		<div class="bs-panel-footer">
 			<button type="button" class="bs-action-btn" id="bsSubmitMonth"><span>조회하기</span></button>
@@ -389,57 +362,309 @@
 				<span class="sat">토</span>
 			</div>
 			<div class="bs-cal-grid" id="bsCalGrid">
-				<span class="bs-cal-cell other-month" data-y="2026" data-m="3" data-d="26">26</span>
-				<span class="bs-cal-cell other-month" data-y="2026" data-m="3" data-d="27">27</span>
-				<span class="bs-cal-cell other-month" data-y="2026" data-m="3" data-d="28">28</span>
-				<span class="bs-cal-cell other-month" data-y="2026" data-m="3" data-d="29">29</span>
-				<span class="bs-cal-cell other-month" data-y="2026" data-m="3" data-d="30">30</span>
-				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="1">1</span>
-				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="2">2</span>
-				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="3">3</span>
-				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="4">4</span>
-				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="5">5</span>
-				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="6">6</span>
-				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="7">7</span>
-				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="8">8</span>
-				<span class="bs-cal-cell selected" data-y="2026" data-m="4" data-d="9">9</span>
-				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="10">10</span>
-				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="11">11</span>
-				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="12">12</span>
-				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="13">13</span>
-				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="14">14</span>
-				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="15">15</span>
-				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="16">16</span>
-				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="17">17</span>
-				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="18">18</span>
-				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="19">19</span>
-				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="20">20</span>
-				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="21">21</span>
-				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="22">22</span>
-				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="23">23</span>
-				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="24">24</span>
-				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="25">25</span>
-				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="26">26</span>
-				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="27">27</span>
-				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="28">28</span>
-				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="29">29</span>
-				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="30">30</span>
-				<span class="bs-cal-cell" data-y="2026" data-m="4" data-d="31">31</span>
-				<span class="bs-cal-cell other-month" data-y="2026" data-m="5" data-d="1">1</span>
-				<span class="bs-cal-cell other-month" data-y="2026" data-m="5" data-d="2">2</span>
-				<span class="bs-cal-cell other-month" data-y="2026" data-m="5" data-d="3">3</span>
-				<span class="bs-cal-cell other-month" data-y="2026" data-m="5" data-d="4">4</span>
-				<span class="bs-cal-cell other-month" data-y="2026" data-m="5" data-d="5">5</span>
-				<span class="bs-cal-cell other-month" data-y="2026" data-m="5" data-d="6">6</span>
+				<!-- JS로 동적 생성 -->
 			</div>
 		</div>
 		<div class="bs-panel-footer">
-			<button type="button" class="bs-action-btn" id="bsSubmitCal"><span>확인</span></button>
+			<button type="button" class="bs-action-btn" id="bsSubmitCal" disabled><span>확인</span></button>
 		</div>
 	</div>
 </div>
 <!-- // 시트 3 -->
 <!-- // ==================== Bottom Sheet ==================== -->
+
+
+<script>
+const state = {
+	mode       : 'month',
+	calTarget  : 'sdt',
+	tempDate   : null,
+	selectedYM : null,
+	selectedSDt: null,
+	selectedEDt: null,
+	calYear    : new Date().getFullYear(),
+	calMonth   : new Date().getMonth(),
+};
+
+function addLeadingZero(number) {
+	if (number < 10) {
+		return '0' + number;
+	}
+	return String(number);
+}
+
+function formatDateDot(date) {
+	const year  = date.getFullYear();
+	const month = addLeadingZero(date.getMonth() + 1);
+	const day   = addLeadingZero(date.getDate());
+	return year + '.' + month + '.' + day;
+}
+
+function isSameDay(dateA, dateB) {
+	if (!dateA || !dateB) return false;
+	return dateA.getFullYear() === dateB.getFullYear() &&
+	       dateA.getMonth()    === dateB.getMonth()    &&
+	       dateA.getDate()     === dateB.getDate();
+}
+
+function openSheet(sheetId) {
+	document.querySelectorAll('.bs-sheet').forEach(function (sheet) {
+		sheet.classList.remove('on');
+	});
+	document.getElementById(sheetId).classList.add('on');
+	document.getElementById('bsOverlay').classList.add('on');
+}
+
+function closeSheet() {
+	document.querySelectorAll('.bs-sheet').forEach(function (sheet) {
+		sheet.classList.remove('on');
+	});
+	document.getElementById('bsOverlay').classList.remove('on');
+}
+
+function updatePeriodBoxButtons(mode) {
+	const periodBox = document.querySelector('.period_box');
+	if (mode === 'date') {
+		periodBox.classList.add('hide-btns');
+	} else {
+		periodBox.classList.remove('hide-btns');
+	}
+}
+
+function openByMode(mode) {
+	state.mode = mode || 'month';
+	if (state.mode === 'month') {
+		renderMonthList();
+		openSheet('bsSheetMonth');
+	} else {
+		openSheet('bsSheetDate');
+	}
+}
+
+function renderMonthList() {
+	const listEl = document.getElementById('bsMonthList');
+	listEl.innerHTML = '';
+	const today = new Date();
+	for (let i = 0; i < 12; i++) {
+		const targetDate  = new Date(today.getFullYear(), today.getMonth() - i, 1);
+		const yearMonth   = String(targetDate.getFullYear()) + addLeadingZero(targetDate.getMonth() + 1);
+		const displayText = targetDate.getFullYear() + '년 ' + (targetDate.getMonth() + 1) + '월';
+		const isChecked   = (yearMonth === state.selectedYM);
+		const li = document.createElement('li');
+		li.className  = 'bs-month-item';
+		li.dataset.ym = yearMonth;
+		li.innerHTML  =
+			'<label>' +
+				'<input type="radio" name="month"' + (isChecked ? ' checked' : '') + '>' +
+				'<span class="txt">' + displayText + '</span>' +
+				'<span class="checkmark"></span>' +
+			'</label>';
+		listEl.appendChild(li);
+	}
+}
+
+function makeCalendarCell(year, month, day, isOther) {
+	const cellDate   = new Date(year, month, day);
+	const isSelected = isSameDay(cellDate, state.tempDate);
+	let className = 'bs-cal-cell';
+	if (isOther)    className += ' other-month';
+	if (isSelected) className += ' selected';
+	const span = document.createElement('span');
+	span.className   = className;
+	span.dataset.y   = year;
+	span.dataset.m   = month;
+	span.dataset.d   = day;
+	span.textContent = day;
+	return span;
+}
+
+function renderCalendar(year, month) {
+	state.calYear  = year;
+	state.calMonth = month;
+	document.getElementById('bsCalTitle').textContent = year + '년 ' + (month + 1) + '월';
+	const firstDayOfWeek      = new Date(year, month, 1).getDay();
+	const lastDateOfMonth     = new Date(year, month + 1, 0).getDate();
+	const lastDateOfPrevMonth = new Date(year, month, 0).getDate();
+	const gridEl = document.getElementById('bsCalGrid');
+	gridEl.innerHTML = '';
+
+	let prevMonth = month - 1, prevYear = year;
+	if (prevMonth < 0) { prevMonth = 11; prevYear = year - 1; }
+	for (let i = 0; i < firstDayOfWeek; i++) {
+		const day = lastDateOfPrevMonth - firstDayOfWeek + 1 + i;
+		gridEl.appendChild(makeCalendarCell(prevYear, prevMonth, day, true));
+	}
+
+	for (let day = 1; day <= lastDateOfMonth; day++) {
+		gridEl.appendChild(makeCalendarCell(year, month, day, false));
+	}
+
+	let nextMonth = month + 1, nextYear = year;
+	if (nextMonth > 11) { nextMonth = 0; nextYear = year + 1; }
+	const totalCells = firstDayOfWeek + lastDateOfMonth;
+	const fillCount  = 42 - totalCells;
+	for (let i = 1; i <= fillCount; i++) {
+		gridEl.appendChild(makeCalendarCell(nextYear, nextMonth, i, true));
+	}
+
+	gridEl.querySelectorAll('.bs-cal-cell').forEach(function (cell) {
+		cell.addEventListener('click', function () {
+			state.tempDate = new Date(parseInt(this.dataset.y), parseInt(this.dataset.m), parseInt(this.dataset.d));
+			renderCalendar(state.calYear, state.calMonth);
+		});
+	});
+
+	document.getElementById('bsSubmitCal').disabled = !state.tempDate;
+}
+
+function updateDateSubmitButton() {
+	document.getElementById('bsSubmitDate').disabled = !(state.selectedSDt && state.selectedEDt);
+}
+
+function formatMonthLabel(year, month) {
+	const currentYear = new Date().getFullYear();
+	if (year === currentYear) {
+		return month + '월';
+	}
+	return year + '년 ' + month + '월';
+}
+
+function applyMonthSearch(yearMonth) {
+	state.selectedYM = yearMonth;
+	const year  = parseInt(yearMonth.substring(0, 4));
+	const month = parseInt(yearMonth.substring(4, 6));
+	document.querySelector('.period_box .date').textContent = formatMonthLabel(year, month);
+}
+
+function bindEvents() {
+	document.querySelectorAll('.bs-close-btn[data-close]').forEach(function (btn) {
+		btn.addEventListener('click', closeSheet);
+	});
+	document.getElementById('bsOverlay').addEventListener('click', closeSheet);
+
+	document.getElementById('bsCalPrev').addEventListener('click', function () {
+		let month = state.calMonth - 1, year = state.calYear;
+		if (month < 0) { month = 11; year = year - 1; }
+		renderCalendar(year, month);
+	});
+	document.getElementById('bsCalNext').addEventListener('click', function () {
+		let month = state.calMonth + 1, year = state.calYear;
+		if (month > 11) { month = 0; year = year + 1; }
+		renderCalendar(year, month);
+	});
+
+	document.getElementById('bsBtnSDt').addEventListener('click', function () {
+		state.calTarget = 'sdt';
+		state.tempDate  = state.selectedSDt;
+		renderCalendar(state.calYear, state.calMonth);
+		openSheet('bsSheetCal');
+	});
+	document.getElementById('bsBtnEDt').addEventListener('click', function () {
+		state.calTarget = 'edt';
+		state.tempDate  = state.selectedEDt;
+		renderCalendar(state.calYear, state.calMonth);
+		openSheet('bsSheetCal');
+	});
+
+	document.getElementById('bsSubmitMonth').addEventListener('click', function () {
+		const checkedRadio = document.querySelector('input[name="month"]:checked');
+		if (!checkedRadio) return;
+		const yearMonth = checkedRadio.closest('.bs-month-item').dataset.ym;
+		applyMonthSearch(yearMonth);
+		updatePeriodBoxButtons('month');
+		closeSheet();
+	});
+
+	document.getElementById('bsSubmitDate').addEventListener('click', function () {
+		if (!state.selectedSDt || !state.selectedEDt) return;
+		const displayText = formatDateDot(state.selectedSDt) + ' ~ ' + formatDateDot(state.selectedEDt);
+		document.querySelector('.period_box .date').textContent = displayText;
+		updatePeriodBoxButtons('date');
+		closeSheet();
+	});
+
+	document.getElementById('bsSubmitCal').addEventListener('click', function () {
+		if (!state.tempDate) {
+			openSheet('bsSheetDate');
+			return;
+		}
+		if (state.calTarget === 'sdt') {
+			state.selectedSDt = state.tempDate;
+			document.getElementById('bsSDtText').textContent = formatDateDot(state.tempDate);
+			document.getElementById('bsBtnSDt').classList.add('picked');
+			if (state.selectedEDt && state.tempDate > state.selectedEDt) {
+				state.selectedEDt = null;
+				document.getElementById('bsEDtText').textContent = '날짜 선택';
+				document.getElementById('bsBtnEDt').classList.remove('picked');
+			}
+		} else {
+			if (state.selectedSDt && state.tempDate < state.selectedSDt) {
+				alert('종료일은 시작일 이후로 선택해주세요.');
+				return;
+			}
+			state.selectedEDt = state.tempDate;
+			document.getElementById('bsEDtText').textContent = formatDateDot(state.tempDate);
+			document.getElementById('bsBtnEDt').classList.add('picked');
+		}
+		state.tempDate = null;
+		updateDateSubmitButton();
+		openSheet('bsSheetDate');
+	});
+
+	document.querySelectorAll('.search_select .select_layer button').forEach(function (btn) {
+		btn.addEventListener('click', function (event) {
+			event.stopPropagation();
+			const selectedType = this.dataset.type;
+			document.querySelector('.search_select').dataset.type = selectedType;
+			document.querySelector('.type_txt').textContent = this.querySelector('span').textContent;
+			document.querySelectorAll('.search_select .select_layer button').forEach(function (otherBtn) {
+				otherBtn.classList.remove('active');
+			});
+			this.classList.add('active');
+			document.querySelector('.search_select .select_layer').style.display = 'none';
+			if (selectedType === 'custom') {
+				openByMode('date');
+			} else {
+				openByMode('month');
+			}
+		});
+	});
+
+	document.querySelector('.search_select .select_triger').addEventListener('click', function (event) {
+		event.stopPropagation();
+		const layerEl = document.querySelector('.search_select .select_layer');
+		layerEl.style.display = (layerEl.style.display === 'block') ? 'none' : 'block';
+	});
+
+	document.querySelector('.period_box .date').addEventListener('click', function () {
+		const currentType = document.querySelector('.search_select').dataset.type;
+		if (currentType === 'custom') {
+			openByMode('date');
+		} else {
+			openByMode('month');
+		}
+	});
+
+	document.addEventListener('click', function () {
+		document.querySelector('.search_select .select_layer').style.display = 'none';
+	});
+}
+
+function init() {
+	const today = new Date();
+	state.selectedYM = String(today.getFullYear()) + addLeadingZero(today.getMonth() + 1);
+	document.querySelector('.period_box .date').textContent =
+		formatMonthLabel(today.getFullYear(), today.getMonth() + 1);
+	renderCalendar(today.getFullYear(), today.getMonth());
+	bindEvents();
+}
+
+if (document.readyState === 'loading') {
+	document.addEventListener('DOMContentLoaded', init);
+} else {
+	init();
+}
+</script>
 
 <script>
 (function () {
