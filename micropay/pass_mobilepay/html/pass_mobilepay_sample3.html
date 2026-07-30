@@ -418,6 +418,7 @@ function openSheet(sheetId) {
 function closeSheet() {
 	document.querySelectorAll('.bs-sheet').forEach(function (sheet) {
 		sheet.classList.remove('on');
+		sheet.classList.remove('bs-expanded');
 	});
 	document.getElementById('bsOverlay').classList.remove('on');
 }
@@ -668,13 +669,13 @@ if (document.readyState === 'loading') {
 
 <script>
 (function () {
-	var sheet = document.getElementById('bsSheetMonth');
-	var monthList = document.getElementById('bsMonthList');
+	let sheet = document.getElementById('bsSheetMonth');
+	let monthList = document.getElementById('bsMonthList');
 	if (!sheet) return;
 
-	var SWIPE_THRESHOLD = 50;
-	var startY = 0;
-	var ignoreSwipe = false;
+	let SWIPE_THRESHOLD = 50;
+	let startY = 0;
+	let ignoreSwipe = false;
 
 	function getY(e) {
 		if (e.changedTouches && e.changedTouches.length) return e.changedTouches[0].clientY;
@@ -690,13 +691,16 @@ if (document.readyState === 'loading') {
 	function onTouchEnd(e) {
 		if (ignoreSwipe) return;
 
-		var diff = startY - getY(e);
-		var expanded = sheet.classList.contains('bs-expanded');
+		let diff = startY - getY(e);
+		let expanded = sheet.classList.contains('bs-expanded');
 
 		if (!expanded && diff > SWIPE_THRESHOLD) {
 			sheet.classList.add('bs-expanded');
 		} else if (expanded && diff < -SWIPE_THRESHOLD) {
 			sheet.classList.remove('bs-expanded');
+		} else if (!expanded && diff < -SWIPE_THRESHOLD) {
+			var closeBtn = sheet.querySelector('.bs-close-btn[data-close]');
+			if (closeBtn) closeBtn.click();
 		}
 	}
 
@@ -704,7 +708,20 @@ if (document.readyState === 'loading') {
 	sheet.addEventListener('touchend', onTouchEnd);
 })();
 </script>
-
+<style>
+ul.bs-month-list {position:relative;}
+ul.bs-month-list::before,
+ul.bs-month-list::after {content:""; display:block; position:sticky; left:0; width:100%; height:10px; background-color:#ff6600;;
+background: linear-gradient(0deg,rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+}
+ul.bs-month-list::before {top:0;}
+ul.bs-month-list::after {bottom:0; transform:rotate(180deg);}
+/* .bs-sheet .bs-inner .bs-content {position:relative; flex:1; overflow-y:auto;}
+.bs-sheet .bs-inner .bs-content::before,
+.bs-sheet .bs-inner .bs-content::after {content:""; display:block; position:absolute;left:0; width:100%; height:5px; background-color:#ff6600;}
+.bs-sheet .bs-inner .bs-content::before {top:0; }
+.bs-sheet .bs-inner .bs-content::after {bottom:0;} */
+</style>
 </body>
 
 </html>

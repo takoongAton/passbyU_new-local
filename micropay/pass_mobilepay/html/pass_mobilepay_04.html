@@ -472,6 +472,9 @@
 			sheet.classList.add('bs-expanded');
 		} else if (expanded && diff < -SWIPE_THRESHOLD) {
 			sheet.classList.remove('bs-expanded');
+		} else if (!expanded && diff < -SWIPE_THRESHOLD) {
+			var closeBtn = sheet.querySelector('.bs-close-btn[data-close]');
+			if (closeBtn) closeBtn.click();
 		}
 	}
 
