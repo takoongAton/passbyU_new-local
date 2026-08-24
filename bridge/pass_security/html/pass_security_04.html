@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>PASS 스마트티켓 운항정보</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	
+	<link rel="stylesheet" href="../css/reset.css" />
+	<link rel="stylesheet" href="../css/pass_security.css" />
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400..700&display=swap" rel="stylesheet">
+
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+</head>
+
+<body>
+
+
+	<div class="passSecurity">
+		<div class="security_section_group">
+			<div class="security_txt_wrap">
+				<div class="tit">내 번호, 안전할까요?</div>
+				<p class="txt">최근 통신 정보를 분석해 <br />
+					전화번호의 보이스피싱 노출 위험을 알려드려요.</p>
+			</div>
+			<!-- // security_txt_wrap -->
+
+			<div class="security_content">
+				<div class="security_white_box">
+					<div class="card_state_safe_wrap">
+						<div class="inner">
+							<div class="label_txt_state_wrap">
+								<div class="label_state_wrap">
+									<span class="label_state red">위험</span><!-- green, purple, yellow, red-->
+									<button type="button" class="btn_refresh">
+										<span class="img"><img src="../images/btn_refresh_square.png" alt="새로고침"></span>
+									</button>
+								</div>
+								<!-- // label_state_wrap -->
+	
+								<!-- <p class="txt">현재 이상 징후가 없는 안전한 상태예요.</p> -->
+								<!-- <p class="txt">보이스피싱 관련 위험 신호가 일부 발견됐어요.</p>
+								<p class="txt">내 번호가 보이스피싱에 노출됐을 가능성이 높아요.</p> -->
+								<p class="txt">내 번호가 보이스피싱에 노출된 정황이 확인됐어요.</p>
+							</div>
+	
+							<div class="bar_state_wrap">
+								<div class="bar_state green">
+									<div class="bar"></div>
+									<span class="txt">안전</span>
+								</div>
+								<div class="bar_state purple">
+									<div class="bar"></div>
+									<span class="txt">주의</span>
+								</div>
+								<div class="bar_state yellow">
+									<div class="bar"></div>
+									<span class="txt">경고</span>
+								</div>
+								<div class="bar_state red active">
+									<div class="bar"></div>
+									<span class="txt">위험</span>
+								</div>
+							</div>
+							<!-- // bar_state_wrap -->
+						</div>
+
+						<!-- <div class="security_state-container is-loading">
+							<p class="txt">최근 90일 변경 이력을 조회하고 있어요.</p>
+							<span class="icon"><img src="../images/ico_loading_bk.png" alt="loading"></span>
+						</div>
+
+						<div class="security_state-container is-error">
+							<p class="txt">정보를 불러오는 중 오류가 발생했습니다.<br />
+								잠시 후 다시 시도해 주세요.</p>
+							<span class="icon"><img src="../images/ico_idcard_refresh2.png" alt="refresh"></span>
+						</div> -->
+
+					</div>
+					<!-- // card_state_safe_wrap -->
+
+				</div>
+			</div>
+			<!-- // security_content -->
+
+		</div>
+		<!-- // security_section_group -->
+
+
+
+		<div class="security_section_group">
+			<div class="security_txt_wrap">
+				<div class="tit">내 통신 정보 변경 현황</div>
+				<p class="txt">최근 90일 동안 발생한 <br />
+					유심과 휴대폰 단말 변경 이력을 확인해요.</p>
+			</div>
+			<!-- // security_txt_wrap -->
+
+			<div class="security_content">
+				<div class="security_white_box">
+					<div class="card_log_changed_wrap">
+						<div class="card_log_changed_history">
+							<div class="item">
+								<span class="icon"><img src="../images/img_usim.png" alt="USIM 변경 아이콘"></span>
+								<div class="txt_wrap">
+									<p class="txt">USIM 변경</p>
+									<div class="count_wrap">
+										<strong class="count">2</strong><span class="txt">건</span>
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<span class="icon"><img src="../images/img_device.png" alt="단말 변경 아이콘"></span>
+								<div class="txt_wrap">
+									<p class="txt">단말 변경</p>
+									<div class="count_wrap">
+										<strong class="count">10</strong><span class="txt">건</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<button type="button" class="btn_bottom_round"><span class="txt">변경 이력 상세 보기</span></button>
+
+
+						<!-- <div class="security_state-container is-loading">
+							<p class="txt">최근 90일 변경 이력을 조회하고 있어요.</p>
+							<span class="icon"><img src="../images/ico_loading_bk.png" alt="loading"></span>
+						</div>
+
+						<div class="security_state-container is-error">
+							<p class="txt">정보를 불러오는 중 오류가 발생했습니다.<br />
+								잠시 후 다시 시도해 주세요.</p>
+							<span class="icon"><img src="../images/ico_idcard_refresh2.png" alt="refresh"></span>
+						</div> -->
+					</div>
+					<!-- // card_log_changed_wrap -->
+
+					
+
+				</div>
+			</div>
+			<!-- // security_content -->
+
+		</div>
+		<!-- // security_section_group -->
+
+
+
+		<div class="security_section_group">
+			<div class="security_txt_wrap">
+				<div class="tit">내 명의로 된 U+ 회선을 모아봤어요</div>
+				<p class="txt">현재 내 명의로 이용 중인 <br />
+					U+ 회선을 한눈에 확인해요.</p>
+			</div>
+			<!-- // security_txt_wrap -->
+
+
+			<div class="security_content">
+				<div class="security_white_box">
+
+					<div class="list_digit_wrap">
+						<div class="list_digit">
+							<div class="item">
+								<div class="icon"><img src="../images/img_logo_uplus.png" alt="uplus"></div>
+								<p class="number">010-11**-11**</p>
+								<div class="date">22.01.03 개통</div>
+							</div>
+							<div class="item">
+								<div class="icon"><img src="../images/img_logo_mobing.png" alt="mobing"></div>
+								<p class="number">010-21**-23**</p>
+								<div class="date">24.12.31 개통</div>
+							</div>
+							<div class="item">
+								<div class="icon"><img src="../images/img_logo_mobing.png" alt="mobing"></div>
+								<p class="number">010-21**-23**</p>
+								<div class="date">24.12.31 개통</div>
+							</div>
+							<div class="item">
+								<div class="icon"><img src="../images/img_logo_mobing.png" alt="mobing"></div>
+								<p class="number">010-21**-23**</p>
+								<div class="date">24.12.31 개통</div>
+							</div>
+							<div class="item">
+								<div class="icon"><img src="../images/img_logo_hellomobile.png" alt="hellomobile"></div>
+								<p class="number">010-21**-23**</p>
+								<div class="date">24.12.31 개통</div>
+							</div>
+						</div>
+						<button type="button" class="btn_bottom_round"><span class="txt">보유 회선 전체 보기</span></button>
+
+					</div>
+					<!-- // list_digit_wrap -->
+
+				</div>
+				<!-- // security_white_box -->
+			</div>
+			<!-- // security_content -->
+
+		</div>
+		<!-- // security_section_group -->
+
+
+
+		<div class="security_section_group">
+			<div class="security_txt_wrap">
+				<div class="tit">거래 전 미리 체크해요</div>
+				<p class="txt">상대방의 연락처나 계좌번호를 입력해 <br />
+					신고된 사기 이력이 있는지 확인해요.</p>
+			</div>
+			<!-- // security_txt_wrap -->
+
+			<div class="security_content">
+				<div class="security_white_box">
+					<div class="security_form_input_wrap">
+
+						<p class="txt">연락처 또는 계좌번호를 입력하세요.</p>
+						
+						<div class="security_search">
+							<input type="tel" id="numericInput" placeholder="숫자만 입력" inputmode="numeric" />
+							<button type="button" class="btn_search"><span class="img"><img src="../images/ico_search_pp.png" alt="검색버튼"></span></button>
+						</div>
+					</div>
+					<!-- // security_form_input_wrap -->
+				</div>
+			</div>
+			<!-- // security_content -->
+
+		</div>
+		<!-- // security_section_group -->
+
+
+
+		<div class="security_section_group">
+			<div class="security_txt_wrap">
+				<div class="tit">지금 가장 위험한 피싱 수법</div>
+				<p class="txt">최근 자주 발생하는 피싱 수법과 <br />
+					실제 피해 사례를 보고 예방해요.</p>
+			</div>
+			<!-- // security_txt_wrap -->
+
+			<div class="security_content">
+				<div class="security_white_box">
+					<div class="hotfishing_wrap">
+						<div class="list_article">
+							<div class="item">
+								<p class="tit">
+									연인인 척 다가와 돈을 뜯고 <br />
+									지급 정지도 안된다며 비웃는 사기꾼
+								</p>
+								<div class="date">26.06.17</div>
+							</div>
+							<div class="item">
+								<p class="tit">
+									종이봉투에 담긴 1억 원 <br />
+									길거리에서 낯선 이에게 건넨 사연
+								</p>
+								<div class="date">26.06.17</div>
+							</div>
+						</div>
+
+						<button type="button" class="btn_bottom_round"><span class="txt">최신 트랜드 더보기</span></button>
+					</div>
+					<!-- // hotfishing_wrap -->
+				</div>
+			</div>
+			<!-- // security_content -->
+
+		</div>
+		<!-- // security_section_group -->
+
+
+	</div>
+	<!-- // passSecurity -->
+
+
+<div class="dim" style="display:none;"></div>
+<div class="card_log_changed_layer" style="display:none;">
+	<div class="inner">
+		<div class="layer_header">
+			<div class="title">통신 정보 변경 이력 상세</div>
+		</div>
+		<div class="layer_body">
+			<div class="tab">
+				<button type="button" class="btn_tab active"><span class="txt">USIM 변경 이력</span></button>
+				<button type="button" class="btn_tab"><span class="txt">단말 변경 이력</span></button>
+			</div>
+			<p class="history_count">
+				최근 90일간 USIM 변경 <span class="count">3</span>건
+			</p>
+			<div class="history_list_wrap">
+				<div class="list_wrap">
+					<ul class="list">
+						<li class="item"><span>2026-07-27 (16:32)</span></li>
+						<li class="item"><span>2026-07-27 (16:32)</span></li>
+						<li class="item"><span>2026-07-27 (16:32)</span></li>
+						<li class="item"><span>2026-07-27 (16:32)</span></li>
+						<li class="item"><span>2026-07-27 (16:32)</span></li>
+						<li class="item"><span>2026-07-27 (16:32)</span></li>
+						<li class="item"><span>2026-07-27 (16:32)</span></li>
+						<li class="item"><span>2026-07-27 (16:32)</span></li>
+						<li class="item"><span>2026-07-27 (16:32)</span></li>
+						<li class="item"><span>2026-07-27 (16:32)</span></li>
+						<li class="item"><span>2026-07-27 (16:32)</span></li>
+						<li class="item"><span>2026-07-27 (16:32)</span></li>
+						<li class="item"><span>2026-07-27 (16:32)</span></li>
+						<li class="item"><span>2026-07-27 (16:32)</span></li>
+						<li class="item"><span>2026-07-27 (16:32)</span></li>
+					</ul>
+				</div>
+				<!-- <p class="nodata">변경 이력이 없어요</p> -->
+			</div>
+			<!-- // history_list_wrap -->
+		</div>
+		
+	</div>
+	<button type="button" class="btn_close">
+		<span class="img"><img src="../images/btn_top_close.png" alt="팝업닫기"></span>
+	</button>
+</div>
+
+<script src="../js/temp.js"></script>
+
+
+</body>
+</html>
