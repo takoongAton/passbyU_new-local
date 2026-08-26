@@ -88,8 +88,12 @@ body {background-color:#f5f5f5; font-family:'Noto Sans KR';}
 .card_log_changed_history div.item div.txt_wrap {text-align:center;}
 .card_log_changed_history div.item div.txt_wrap p.txt {color:#000; font-size:14px; line-height:22px;}
 .card_log_changed_history div.item div.txt_wrap div.count_wrap {display:flex; justify-content:center; align-items:baseline;}
-.card_log_changed_history div.item div.txt_wrap div.count_wrap strong.count {color:#6250FF; font-size:20px; line-height:26px;}
+.card_log_changed_history div.item div.txt_wrap div.count_wrap strong.count {color:#999; font-size:20px; line-height:26px;}
+.card_log_changed_history div.item div.txt_wrap div.count_wrap strong.count.active {color:#6250FF;}
 .card_log_changed_history div.item div.txt_wrap div.count_wrap span.txt {color:#999; font-size:14px; line-height:26px;}
+.card_log_changed_history div.item div.last_changed {display:inline-flex; justify-content:center; align-items:center; gap:6px; padding:3px 8px; border-radius:6px; background-color:#F8F8F8; font-size:11px; line-height:16px;;}
+.card_log_changed_history div.item div.last_changed span.txt {color:#999;}
+.card_log_changed_history div.item div.last_changed span.date {color:#454545;}
 /* // 내 통신 정보 변경 현황 */
 
 
