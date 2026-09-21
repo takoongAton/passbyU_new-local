@@ -48,6 +48,52 @@ selectLists.forEach(function(item,index){
 // })
 
 
+/* 툴팁 (내 통신 정보 변경 현황)
+    - 아이콘 탭 : 해당 말풍선만 개별 노출/닫힘 (다른 말풍선은 닫지 않고 동시 노출)
+    - 닫힘 조건 : 노출 중인 말풍선 탭 / 말풍선 외 영역 탭 / 화면 스크롤
+*/
+(function () {
+    const tooltipBtns = document.querySelectorAll("span.btn_tooltip");
+    const tooltipLayers = document.querySelectorAll("div.layer_tooltip");
+
+    if (tooltipBtns.length === 0) return;
+
+    function closeAllTooltip() {
+        tooltipLayers.forEach(function (layer) {
+            layer.classList.remove("active");
+        });
+    }
+
+    // 아이콘 탭 : 같은 txt_wrap 안의 말풍선만 개별 토글
+    tooltipBtns.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+            const wrap = btn.closest("div.txt_wrap");
+            const layer = wrap ? wrap.querySelector("div.layer_tooltip") : null;
+            if (layer == null) return;
+
+            layer.classList.toggle("active");
+        });
+    });
+
+    // 노출 중인 말풍선 탭 : 해당 말풍선만 닫힘
+    tooltipLayers.forEach(function (layer) {
+        layer.addEventListener("click", function () {
+            layer.classList.remove("active");
+        });
+    });
+
+    // 말풍선 외 영역 탭 : 노출 중인 말풍선 전체 닫힘
+    document.addEventListener("click", function (event) {
+        if (event.target.closest("span.btn_tooltip, div.layer_tooltip") != null) return;
+
+        closeAllTooltip();
+    });
+
+    // 화면 스크롤 : 노출 중인 말풍선 전체 닫힘 (capture 로 내부 스크롤 영역까지 감지)
+    window.addEventListener("scroll", closeAllTooltip, true);
+})();
+
+
 const input = document.getElementById('numericInput');
 input.addEventListener('input', (e) => {
   // 숫자가 아닌 모든 문자(공백, 특수문자, 한글, 영문 등) 제거

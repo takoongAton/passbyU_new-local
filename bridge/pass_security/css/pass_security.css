@@ -16,6 +16,9 @@ body {background-color:#f5f5f5; font-family:'Noto Sans KR';}
 .security_section_group .security_content {}
 .security_section_group .security_content .security_white_box {display:flex; flex-direction:column; justify-content:center; gap:16px; width:100%; /* padding:14px; */ border-radius:12px; background-color:#fff;}
 
+.security_section_group p.alert_txt {margin-top:1em; color:#666; font-size:12px; line-height:17px;; text-align:center;}
+.security_section_group p.alert_txt span {color:#FF3A4A; font-size:inherit; line-height:inherit;}
+
 .btn_bottom_round {height:43px; border-radius:12px; border:1px solid #6250FF; background-color:#fff;}
 .btn_bottom_round span.txt {display:block; color:#6250FF; font-size:14px; line-height:22px; font-weight:bold;}
 
@@ -85,12 +88,21 @@ body {background-color:#f5f5f5; font-family:'Noto Sans KR';}
 .card_log_changed_history div.item {display:flex; flex-direction:column; align-items:center; gap:10px; width:100%;}
 .card_log_changed_history div.item + div.item {border-left:1px solid #F5F5F5;}
 .card_log_changed_history div.item span.icon {width:60px; height:60px;}
-.card_log_changed_history div.item div.txt_wrap {text-align:center;}
-.card_log_changed_history div.item div.txt_wrap p.txt {padding:0 10px; color:#000; font-size:14px; line-height:22px;}
+.card_log_changed_history div.item div.txt_wrap {position:relative; width:100%; text-align:center;}
+.card_log_changed_history div.item div.txt_wrap div.btn_wrap {display:flex; justify-content:center; align-items:center; gap:2px;}
+.card_log_changed_history div.item div.txt_wrap div.btn_wrap p.txt {padding:0; color:#000; font-size:14px; line-height:22px;}
+.card_log_changed_history div.item div.txt_wrap div.btn_wrap span.btn_tooltip {width:14px; height:14px; cursor:pointer;}
+
 .card_log_changed_history div.item div.txt_wrap div.count_wrap {display:flex; justify-content:center; align-items:baseline;}
 .card_log_changed_history div.item div.txt_wrap div.count_wrap strong.count {color:#999; font-size:20px; line-height:26px;}
 .card_log_changed_history div.item div.txt_wrap div.count_wrap strong.count.active {color:#6250FF;}
 .card_log_changed_history div.item div.txt_wrap div.count_wrap span.txt {color:#999; font-size:14px; line-height:26px;}
+
+.card_log_changed_history div.item div.txt_wrap div.layer_tooltip {display:none; z-index:10; position:absolute; top:0; left:0; right:0; width:100%; max-width:114px; margin:0 auto; padding:6px 0 7px; background-color:#47464A; border-radius:8px; transform:translateY(calc(-100% - 8px));}
+.card_log_changed_history div.item div.txt_wrap div.layer_tooltip p.txt {color:#fff; font-size:11px; line-height:16px;;}
+.card_log_changed_history div.item div.txt_wrap div.layer_tooltip.active {display:block;}
+.card_log_changed_history div.item div.txt_wrap div.layer_tooltip::after {content:""; display:block; position:absolute; bottom:0; left:50%; transform:translate(-50%, 50%) rotate(45deg); width:9px; height:9px;  background-color:#47464A;}
+
 .card_log_changed_history div.item div.last_changed {display:inline-flex; justify-content:center; align-items:center; gap:6px; padding:3px 8px; border-radius:6px; background-color:#F8F8F8; font-size:11px; line-height:16px;;}
 .card_log_changed_history div.item div.last_changed span.txt {color:#999;}
 .card_log_changed_history div.item div.last_changed span.date {color:#454545;}
