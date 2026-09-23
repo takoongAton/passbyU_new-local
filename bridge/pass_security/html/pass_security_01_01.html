@@ -68,7 +68,7 @@
 							<!-- // bar_state_wrap -->
 						</div>
 
-						<div class="security_state-container is-loading">
+						<!-- <div class="security_state-container is-loading">
 							<p class="txt">최근 90일 변경 이력을 조회하고 있어요.</p>
 							<span class="icon"><img src="../images/ico_loading_bk.png" alt="loading"></span>
 						</div>
@@ -77,7 +77,7 @@
 							<p class="txt">정보를 불러오는 중 오류가 발생했습니다.<br />
 								잠시 후 다시 시도해 주세요.</p>
 							<span class="icon"><img src="../images/ico_idcard_refresh2.png" alt="refresh"></span>
-						</div>
+						</div> -->
 
 					</div>
 					<!-- // card_state_safe_wrap -->
@@ -121,9 +121,10 @@
 										<p class="txt">현재 기기에서 사용된 <br />USIM 변경 이력</p>
 									</div>
 								</div>
+								
 								<div class="last_changed">
 									<span class="txt">최근 변경일</span>
-									<span class="date">-</span>
+									<span class="date">26.07.01</span>
 								</div>
 							</div>
 							<div class="item">
@@ -149,10 +150,8 @@
 								</div>
 							</div>
 						</div>
-						<button type="button" class="btn_bottom_round"><span class="txt">변경 이력 상세 보기</span></button>
 
-
-						<div class="security_state-container is-loading">
+						<!-- <div class="security_state-container is-loading">
 							<p class="txt">최근 90일 변경 이력을 조회하고 있어요.</p>
 							<span class="icon"><img src="../images/ico_loading_bk.png" alt="loading"></span>
 						</div>
@@ -161,11 +160,9 @@
 							<p class="txt">정보를 불러오는 중 오류가 발생했습니다.<br />
 								잠시 후 다시 시도해 주세요.</p>
 							<span class="icon"><img src="../images/ico_idcard_refresh2.png" alt="refresh"></span>
-						</div>
+						</div> -->
 					</div>
 					<!-- // card_log_changed_wrap -->
-
-					
 
 				</div>
 
@@ -192,7 +189,13 @@
 				<div class="security_white_box">
 
 					<div class="list_digit_wrap">
-						<div class="list_digit">
+						<div class="MVNO_wrap">
+							<span class="icon"><img src="../images/img_device_view.png" alt="알뜰통신사 아이콘"></span>
+							<p class="txt">아래 ‘보유 회선 전체 보기'를 통해 <br />
+								내 명의로 된 전체 회선을 확인하세요.</p>
+						</div>
+						<!-- // MVNO_wrap -->
+						<!-- <div class="list_digit">
 							<div class="item">
 								<div class="icon"><img src="../images/img_logo_uplus.png" alt="uplus"></div>
 								<p class="number">010-11**-11**</p>
@@ -218,7 +221,7 @@
 								<p class="number">010-21**-23**</p>
 								<div class="date">24.12.31 개통</div>
 							</div>
-						</div>
+						</div> -->
 						<button type="button" class="btn_bottom_round"><span class="txt">보유 회선 전체 보기</span></button>
 
 					</div>
@@ -252,7 +255,7 @@
 						<p class="txt">연락처 또는 계좌번호를 입력하세요.</p>
 						
 						<div class="security_search">
-							<input type="tel" id="numericInput" placeholder="연락처 또는 계좌번호를 입력하세요" inputmode="numeric" />
+							<input type="tel" id="numericInput" placeholder="숫자만 입력" inputmode="numeric" />
 							<button type="button" class="btn_search"><span class="img"><img src="../images/ico_search_pp.png" alt="검색버튼"></span></button>
 						</div>
 					</div>
@@ -309,22 +312,22 @@
 	<!-- // passSecurity -->
 
 
-<div class="dim"></div>
-<div class="card_log_changed_layer">
+<div class="dim" style="display: none;"></div>
+<div class="card_log_changed_layer" style="display: none;">
 	<div class="inner">
 		<div class="layer_header">
 			<div class="title">통신 정보 변경 이력 상세</div>
 		</div>
 		<div class="layer_body">
 			<div class="tab">
-				<button type="button" class="btn_tab"><span class="txt">USIM 변경 이력</span></button>
-				<button type="button" class="btn_tab active"><span class="txt">단말 변경 이력</span></button>
+				<button type="button" class="btn_tab active"><span class="txt">USIM 변경 이력</span></button>
+				<button type="button" class="btn_tab"><span class="txt">단말 변경 이력</span></button>
 			</div>
 			<p class="history_count">
-				최근 90일간 USIM 변경 <span class="count">0</span>건
+				최근 90일간 USIM 변경 <span class="count">3</span>건
 			</p>
 			<div class="history_list_wrap">
-				<!-- <div class="list_wrap">
+				<div class="list_wrap">
 					<ul class="list">
 						<li class="item"><span>2026-07-27 (16:32)</span></li>
 						<li class="item"><span>2026-07-27 (16:32)</span></li>
@@ -342,8 +345,8 @@
 						<li class="item"><span>2026-07-27 (16:32)</span></li>
 						<li class="item"><span>2026-07-27 (16:32)</span></li>
 					</ul>
-				</div> -->
-				<p class="nodata">변경 이력이 없어요</p>
+				</div>
+				<!-- <p class="nodata">변경 이력이 없어요</p> -->
 			</div>
 			<!-- // history_list_wrap -->
 		</div>
